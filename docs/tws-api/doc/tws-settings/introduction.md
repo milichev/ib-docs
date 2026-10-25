@@ -12,4 +12,4 @@ Please:
 * Disable "Read-Only API"
 * Verify the "Socket Port" value
 
-![TWS Global Configuration window displaying API Settings and the required API configuration.](../../../_fern-img/7d0185f7d90778e6aa891e46f8c6ef3483a74e1a506724056bce7a672101351c.webp.md)
+![TWS Global Configuration window displaying API Settings and the required API configuration.](/docs/_fern-img/7d0185f7d90778e6aa891e46f8c6ef3483a74e1a506724056bce7a672101351c.webp)

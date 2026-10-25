@@ -10,7 +10,7 @@ Datetime values returned through the API may be modified to reflect distinct val
 * `instrument timezone`: refers to the timezone of the requested exchange. If "SMART" is used, this will use the instrument's primary exchange.  `YYYYMMDD hh:mm:ss TMZ`
 * `UTC format`: refers to a standardized return using UTC as the timezone. This will be returned in the format `YYYYMMDD-hh:mm:ss`
 
-![](../../../_fern-img/a321c6dc42eda4c20d4200d59606be964e1cc6d04886932d3ac9ccbcbe20e6a2.webp.md)
+![](/docs/_fern-img/a321c6dc42eda4c20d4200d59606be964e1cc6d04886932d3ac9ccbcbe20e6a2.webp)
 
 ## Exchange Time Zone
 
@@ -36,7 +36,7 @@ Users can then confirm their active Operator Time Zone by referencing the "Time 
 
 For US residents, this will typically appear as "America/New_York", "America/Chicago", or "America/Los_Angeles". It is essential to note the Time Zone value, as this will be the value supplied when making requests with the Operator Time Zone.
 
-![More Options settings on the TWS login window.](../../../_fern-img/cbb43cce84467440b40bce6ab7bb2bec1e3f0265fb49b47a62bef84d18978edd.webp.md)
+![More Options settings on the TWS login window.](/docs/_fern-img/cbb43cce84467440b40bce6ab7bb2bec1e3f0265fb49b47a62bef84d18978edd.webp)
 
 After logging in to Trader Workstation or IB Gateway, you would be able to submit time stamps in the format of "YYYYMMDD HH:mm:ss Operator/Time_Zone".
 

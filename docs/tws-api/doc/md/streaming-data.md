@@ -4,7 +4,7 @@
 
 > **Warning**
 >
-> Market Data typically requires a paid subscription to receive real-time data. See [Market Data](../../../general/market-data-subscriptions/market-data-requirements.md) for more information.
+> Market Data typically requires a paid subscription to receive real-time data. See [Market Data](/docs/general/market-data-subscriptions/market-data-requirements) for more information.
 
 ## Introduction
 
@@ -14,7 +14,7 @@ This data is not tick-by-tick but consists of aggregate snapshots taken several 
 
 A set of standard tick types are returned by default with additional values available with the `genericTickList` field in the market data request. Most columns available through the Trader Workstation watchlist are available as a [generic tick type](streaming-data.md#available-tick-types).
 
-Real-time data will only be delivered if an affiliated [market data subscription](../../../general/market-data-subscriptions/popular-market-data-subscriptions/introduction.md) is available to the user requesting data.
+Real-time data will only be delivered if an affiliated [market data subscription](/docs/general/market-data-subscriptions/popular-market-data-subscriptions/introduction) is available to the user requesting data.
 
 > **Info**
 >

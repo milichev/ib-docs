@@ -6,8 +6,8 @@ For security reasons, by default the API is not configured to automatically acce
 
 Untrusted IPs attempting to make a connection will be denied without prompting.
 
-![Confirmation dialogue to confirm connection attempt.](../../../_fern-img/c50f4cba6e19ad1f076f0b85c5b87cf71ada3f806de959bbd02c2afb0925592d.webp.md)
+![Confirmation dialogue to confirm connection attempt.](/docs/_fern-img/c50f4cba6e19ad1f076f0b85c5b87cf71ada3f806de959bbd02c2afb0925592d.webp)
 
 To prevent the TWS from asking the end user to accept the connection, it is possible to configure it to automatically accept the connection from a trusted IP address and/or the local machine. This can easily be done via the TWS API settings:
 
-![TWS API settings with localhost and trust IP section.](../../../_fern-img/543621c6d684d293d7de9b2a16cae0b62c5de1d4a687d08cbe9af837f98f6424.webp.md)
+![TWS API settings with localhost and trust IP section.](/docs/_fern-img/543621c6d684d293d7de9b2a16cae0b62c5de1d4a687d08cbe9af837f98f6424.webp)

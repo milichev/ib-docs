@@ -14,4 +14,4 @@ In TWS – "Global Configuration" – "API" – "Precautions", you can enable th
 * Enable "Bypass Redirect Order warning for Stock API orders".
 * Enable "Bypass No Overfill Protection precaution for destinations where implied natively".
 
-![TWS Global Configuration window displaying API Precautions.](../../../_fern-img/7706d6b8ae5f785e03ace22cfc23f8dc6cc4703fb1d04ff16eb3d1febe372a26.webp.md)
+![TWS Global Configuration window displaying API Precautions.](/docs/_fern-img/7706d6b8ae5f785e03ace22cfc23f8dc6cc4703fb1d04ff16eb3d1febe372a26.webp)

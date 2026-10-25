@@ -27,4 +27,4 @@ The values are specifically formatted when submitted through the TWS API, and mu
 
 In TWS Global Configuration – Orders – Smart Routing, you can set your SMART order routing algorithm.
 
-![TWS Global Configuration window displaying Smart Routing.](../../../_fern-img/afebaa8f237dcee6ffa3fc3f28ae523a13bae4e2256528e50aac547973c2baff.webp.md)
+![TWS Global Configuration window displaying Smart Routing.](/docs/_fern-img/afebaa8f237dcee6ffa3fc3f28ae523a13bae4e2256528e50aac547973c2baff.webp)

@@ -6,13 +6,13 @@ If there is more than one contract matching the same description, TWS will retur
 
 The best way of finding a contract's description is within TWS itself. Within TWS, you can easily check a contract's description either by double clicking it or through the Financial Instrument Info -> Description menu, which you access by right-clicking a contract in TWS:
 
-![Right click menu containing Financial Instrument Info.](../../../_fern-img/ff6919a3b0cfcb7b5cdcae0ee8991026c6f764ce146060c424e592c0a57b4fd1.webp.md)
+![Right click menu containing Financial Instrument Info.](/docs/_fern-img/ff6919a3b0cfcb7b5cdcae0ee8991026c6f764ce146060c424e592c0a57b4fd1.webp)
 
 The description will then appear:
 
 Note: you can see the extended contract details by choosing Contract Info -> Details. This option will open a web page showing all available information on the contract.
 
-![Contract Description Window](../../../_fern-img/8e7bcb595c6da94210b9ebbeb31302426f192fb3d770f85e826c2a421051d9b9.webp.md)
+![Contract Description Window](/docs/_fern-img/8e7bcb595c6da94210b9ebbeb31302426f192fb3d770f85e826c2a421051d9b9.webp)
 
 Whenever a contract description is provided via the TWS API, the TWS will try to match the given description to a single contract. This mechanism allows for great flexibility since it gives the possibility to define the same contract in multiple ways.
 

@@ -19,7 +19,7 @@
 **Notes:**
 
 * On MacOS, if you directly open the `twsapi_macunix.<Major Version>.<Minor Version>.zip` file through Finder, you will receive error: "Unable to expand…… It is an unsupported format". It is **required** for users to unzip the zipped TWS API file using the above MacOS Terminal command.
-* **PYTHON** While [Updating the Python Interpreter](unique-configurations/updating-the-python-interpreter/introduction.md), running `python3 setup.py install` may display "`ModuleNotFoundError: No Module named 'setuptools'`:. As `setuptools` is deprecated, this may be fixed by:
+* **PYTHON** While [Updating the Python Interpreter](/docs/tws-api/doc/download-the-tws-api/unique-configurations/updating-the-python-interpreter/introduction), running `python3 setup.py install` may display "`ModuleNotFoundError: No Module named 'setuptools'`:. As `setuptools` is deprecated, this may be fixed by:
   1. Navigate to the installation folder. By default, this is done in the terminal with `cd ~/IBJts/source/pythonclient`
   2. Grant write permission on the target folder (e.g. ) using `sudo chmod -R 777` in order to avoid "`error: could not create 'ibapi.egg-info': Permission denied`".
   3. Run `python3 -m pip install .`"

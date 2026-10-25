@@ -6,7 +6,7 @@ Pacing Limitations with regards to the TWS API are based on the number of reques
 
 An example of a request is a query to retrieve [live watchlist data](../md/streaming-data.md#request-watchlist-data). While you may make a single request for market data, you will receive market data until the subscription is cancelled or your session is disconnected. Only the original request to begin the flow of data will contribute to the pacing limitation.
 
-The maximum number of API requests that can be submitted are equivalent to your [Maximum Market Data Lines](../../../general/market-data-subscriptions/market-data-lines/how-market-data-is-allocated.md) divided by 2, per second.
+The maximum number of API requests that can be submitted are equivalent to your [Maximum Market Data Lines](/docs/general/market-data-subscriptions/market-data-lines/how-market-data-is-allocated) divided by 2, per second.
 
 By default, all users maintain 100 market data lines. Therefore, users have a pacing limitation of (100/2)= **50 requests per second**.
 

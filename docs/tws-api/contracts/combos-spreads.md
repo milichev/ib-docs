@@ -12,7 +12,7 @@ As with standard contracts, you will continue to define the standard values such
 
 Spread contracts combine two or more instruments. To define a combination contract it is required to know the conId of the contract in question.
 
-The conId of an instrument can easily be obtained via the [EClientSocket.reqContractDetails](../doc/contracts-financial-instruments/contract-details.md) request or the [/iserver/secdef/search endpoint](../../web-api/v1/endpoints/contract/search-contract-by-symbol.md).
+The conId of an instrument can easily be obtained via the [EClientSocket.reqContractDetails](/docs/tws-api/doc/contracts-financial-instruments/contract-details) request or the [/iserver/secdef/search endpoint](/docs/web-api/v1/endpoints/contract/search-contract-by-symbol).
 
 > **Note**
 >

@@ -2,7 +2,7 @@
 
 # Placing Orders
 
-Placing orders first requires a [`contract`](../contracts-financial-instruments.md) to be defined.
+Placing orders first requires a [`contract`](/docs/tws-api/doc/contracts-financial-instruments) to be defined.
 
 In the code below, the [`reqContractDetails()`](../contracts-financial-instruments/contract-details/request-contract-details.md) function initiates the sequence of function calls that place an order. Inside the defined [`contractDetails()`](../contracts-financial-instruments/contract-details/receive-contract-details.md) callback function below, the [`placeOrder()`](../orders/place-order/introduction.md#eclientplaceorder-) function is called, which places the order.
 

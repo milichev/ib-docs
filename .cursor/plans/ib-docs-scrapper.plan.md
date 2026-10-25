@@ -12,11 +12,11 @@ todos:
     content: Implement normalizeDocsUrl (canonical host, ibkrcampus rewrite, /section -> /docs/section)
     status: completed
   - id: generate-docs
-    content: "Generate docs/ from cache/: strip IB boilerplate, source link, unescape heading \\_, rewrite links, indexes, optional --lang"
+    content: "Generate docs/: strip boilerplate, source link, unescape headings, rewrite only mirrored pages (not assets/uncached), indexes, --lang"
     status: completed
   - id: validate
-    content: Independent llms.txt audit + output link-graph / leftover-absolute checks
-    status: pending
+    content: Independent llms.txt audit + output link-graph (relatives must exist; uncached/asset hrefs may stay absolute)
+    status: completed
   - id: scope
     content: Optional TWS-only (or section) path filter on scrape
     status: completed
@@ -25,13 +25,13 @@ isProject: false
 
 # IB Docs Scraper - Implementation Spec
 
-**Status:** CLI + `scrape` + **`generate`** are implemented. Outstanding work is **`validate`**.
+**Status:** CLI + `scrape` + `generate` + **`validate`** are implemented.
 
 Three-stage tool:
 
 1. **`scrape`** — done: fetch sources into `cache/`, record `cache/manifest.json`.
 2. **`generate`** — done: build `docs/` only from `cache/` (no network). Clean/transform content, rewrite links, emit indexes, optional language filter.
-3. **`validate`** — evidence pass over `cache/` + `docs/` (independent audit + link-graph checks).
+3. **`validate`** — done: evidence pass over `cache/` + `docs/` (independent audit + link-graph checks).
 
 Also:
 
@@ -238,14 +238,27 @@ Body already uses correct inline code: `` `get_account_summary()` ``. Renderers 
 
 ### Link rewrite
 
-- Internal docs -> relative `.md` links (including cross-section).
-- External -> leave absolute.
+Rewrite to a relative path **only when the target is in the mirrored set** (ok manifest map). Uncached docs pages and static assets keep their original hrefs so `docs/` does not contain broken relatives.
+
+Rules:
+
 - Preserve `#fragment`.
 - Relative hrefs: resolve against current page URL, then normalize.
-- `/llms.txt` targets: point at local `{section}/index.md` when known, else drop.
-- Leftover campus / canonical `/docs` hrefs should not remain after a successful rewrite of in-scope targets.
+- External / out-of-scope (`normalizeDocsUrl` -> `null`): leave as-is.
+- **Static assets** under `/docs/` (e.g. `/docs/_fern-img/….webp`): detect via `isDocsAssetPath`; **leave original href**. Do not invent fake `.md` paths.
+- **`/llms.txt`**: point at local `{section}/index.md` (or root `index.md`) when known; otherwise drop or leave per implementation.
+- **Mirrored pages**: `lookupPath(normalized, urlToPath)` returns a path **only** if the URL is in the ok manifest map. Then emit a posix relative. Including cross-section.
+- **Uncached docs URLs** (normalize succeeds, not an asset, not in manifest): **leave original href** (often root-absolute `/docs/...`). Never call `urlToLocalPath` to invent a local relative for pages that were never scraped — that produced broken links like `../tws-settings.md`.
 
-**Critical relative-path rule:**
+```ts
+// Conceptual (see src/generate/links.ts)
+if (isDocsAssetPath(normalized.pathname)) return full;
+const targetPath = lookupPath(normalized, ctx.urlToPath);
+if (!targetPath) return full; // uncached — keep original
+// else relativeHref(...)
+```
+
+**Critical relative-path rule** (when rewriting):
 
 ```ts
 path.posix.relative(path.posix.dirname(currentRelativePath), targetRelativePath)
@@ -253,7 +266,7 @@ path.posix.relative(path.posix.dirname(currentRelativePath), targetRelativePath)
 
 Never `path.relative(currentFile, targetFile)` (extra `../`). Always posix `/` in emitted links.
 
-Build lookup from manifest `ok` pages: `url -> cachePath` (same as docs relative path).
+Build lookup from manifest `ok` pages only: `url -> cachePath` (same as docs relative path).
 
 ### Language filter (`--lang`)
 
@@ -300,7 +313,7 @@ Discoverability:
 docs/index.md -> {section}/index.md -> pages
 ```
 
-## Stage 3 — `validate` (outstanding)
+## Stage 3 — `validate` (implemented)
 
 Evidence pass; does not trust the scraper's in-memory discovery alone.
 
@@ -318,15 +331,16 @@ Evidence pass; does not trust the scraper's in-memory discovery alone.
 
 3. **Output link-graph** (render / relative-path guarantee)
    - From `docs/index.md`, BFS markdown links.
-   - Every relative target exists on disk (strip `#fragment`).
-   - No remaining `ibkrcampus.com` or `interactivebrokers.com/docs` hrefs in `docs/**/*.md` except an explicit allowlist (e.g. true externals outside `/docs`).
+   - Every **relative** target exists on disk (strip `#fragment`). This is the hard guarantee after the generate fix above.
+   - Absolute `/docs/...` or canonical docs hrefs may remain for **uncached pages**, **static assets**, and intentional `[source](...)` links — allowlist those; do not require every docs-looking href to become relative.
+   - Fail on `ibkrcampus.com` leftovers if policy still rewrites campus -> canonical everywhere generate touches (or allowlist if left raw).
    - Every manifest `ok` page has a corresponding `docs/{cachePath}` (generated indexes exempt from remote URL requirement).
 
 4. Optional: section count `llms.md links == docs/{section} page files` (excluding `index.md`).
 
 Validate exits non-zero on any failed check; print a concise report.
 
-Note: validate does **not** prove the remote site has no other pages outside llms indices; it proves the cache matches those indices and `docs/` is a closed relative graph.
+Note: validate does **not** prove the remote site has no other pages outside llms indices; it proves the cache matches those indices and every **relative** link in `docs/` resolves. Absolute leftovers for non-mirrored targets are expected.
 
 ## Optional scope (`--section`)
 
@@ -339,5 +353,5 @@ On `scrape` (and optionally filter `generate`/`validate`):
 
 - Shared (already present from scrape): `normalizeDocsUrl`, path mapping, manifest types.
 - `scrape` owns network + cache writes — **done**.
-- `generate` owns transform: boilerplate strip, heading unescape, source link, link rewrite, lang filter, indexes.
+- `generate` owns transform: boilerplate strip, heading unescape, source link, link rewrite (mirrored pages only; assets/uncached left absolute), lang filter, indexes.
 - `validate` owns oracles; its llms parser must not import scrape's discovery implementation (copy a minimal regex or live in `validate/` only) so evidence stays independent.

@@ -30,7 +30,7 @@ This leaves us to decide the quantity, limit price, and time-in-force values.
 
 We can set our limit price based on the values shown in the Order Ticket, or base the value on the Bid and Ask Price from our [Requested Market Data](market-data.md).
 
-![Displays an example of an order ticket being filled out for a Forecast Contract. ](../../../_fern-files/interactive-brokers-585439.docs.buildwithfern.com/7110daf07aa8067a7d11867c8dd16dac3e945990632296b9e6576025c991c79b/docs/assets/media/forecasttrader_gce_order_ticket-1-300x442.png.md)
+![Displays an example of an order ticket being filled out for a Forecast Contract. ](/docs/_fern-files/interactive-brokers-585439.docs.buildwithfern.com/7110daf07aa8067a7d11867c8dd16dac3e945990632296b9e6576025c991c79b/docs/assets/media/forecasttrader_gce_order_ticket-1-300x442.png)
 
 Given the information above, we are able to create a full order ticket.
 

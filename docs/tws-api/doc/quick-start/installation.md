@@ -34,10 +34,10 @@ Download TWS API
 * Disable "Read-Only API"
 * Verify the "Socket Port" value
 
-![](../../../_fern-img/c6facfc9100221226e90c189fce7d7614b0228b86c594f644e577e822e65dfd5.webp.md)
+![](/docs/_fern-img/c6facfc9100221226e90c189fce7d7614b0228b86c594f644e577e822e65dfd5.webp)
 
-Additional configuration options are detailed [here](../tws-settings.md).
+Additional configuration options are detailed [here](/docs/tws-api/doc/tws-settings).
 
 ## Additional configuration for Python
 
-If you are using the TWS API with Python, additional configuration is required. Follow the steps found [here](../download-the-tws-api/unique-configurations/updating-the-python-interpreter/introduction.md).
+If you are using the TWS API with Python, additional configuration is required. Follow the steps found [here](/docs/tws-api/doc/download-the-tws-api/unique-configurations/updating-the-python-interpreter/introduction).

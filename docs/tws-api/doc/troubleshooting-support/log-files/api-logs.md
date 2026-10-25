@@ -20,7 +20,7 @@ TWS:
 3. Set *Logging Level* to *Detail*
 4. Click Apply and Ok
 
-![TWS Global Configuration window displaying API settings with API logging.](../../../../_fern-img/7d0185f7d90778e6aa891e46f8c6ef3483a74e1a506724056bce7a672101351c.webp.md)
+![TWS Global Configuration window displaying API settings with API logging.](/docs/_fern-img/7d0185f7d90778e6aa891e46f8c6ef3483a74e1a506724056bce7a672101351c.webp)
 
 IB Gateway:
 
@@ -29,4 +29,4 @@ IB Gateway:
 3. Set *Logging Level* to *Detail*
 4. Click Apply and Ok
 
-![IB Gateway settings window displaying API settings with API logging.](../../../../_fern-img/55a7a7ee7af4fe2a3fa9cacc39967271c2e934ea12b300581d9106800107c776.webp.md)
+![IB Gateway settings window displaying API settings with API logging.](/docs/_fern-img/55a7a7ee7af4fe2a3fa9cacc39967271c2e934ea12b300581d9106800107c776.webp)

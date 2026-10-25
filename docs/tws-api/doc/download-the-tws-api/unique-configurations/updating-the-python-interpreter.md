@@ -19,7 +19,7 @@ Within your terminal, navigate to the installed directory of the API.
 >
 > The version number will differ with newer release of the API. Modify the file path according to the `Version` from [Downloading the TWSAPI](../install-the-tws-api-on-windows.md#download-the-twsapi).
 
-![Navigate to the Python source directory](../../../../_fern-img/82a8f3ecb1bb22ce583dcd54c74684ebf62a71a5d3baa38a1ee3a58ad9993f4d.webp.md)
+![Navigate to the Python source directory](/docs/_fern-img/82a8f3ecb1bb22ce583dcd54c74684ebf62a71a5d3baa38a1ee3a58ad9993f4d.webp)
 
 ## Install the Python package
 
@@ -30,7 +30,7 @@ Users may install the software through pip or SetupTools. The end result is envi
 
 After running the prior command, users should see a large block of text describing various values being updated and added to their system. It is important to confirm that the version installed on your system mirrors the build version displayed. In our case, we can see `Successfully installed ibapi-1051.1`.
 
-![Completed pip installation](../../../../_fern-img/2bc81357879a865a138bac537e4810e0b9cfc6356e68a294ce6c01a45de6ca26.webp.md)
+![Completed pip installation](/docs/_fern-img/2bc81357879a865a138bac537e4810e0b9cfc6356e68a294ce6c01a45de6ca26.webp)
 
 ## Verify Updates
 
@@ -40,7 +40,7 @@ Once the installation is completed, it is important to validate the newest versi
 >
 > Depending on how Python was installed, users may need to call `python -m pip show ibapi` or `python3 -m pip show ibapi`.
 
-![Result of pip command](../../../../_fern-img/7c52f7eb91a65b7aefea5e6787cd153a4b013bbfe72a35f73e67cdaa76d52b3b.webp.md)
+![Result of pip command](/docs/_fern-img/7c52f7eb91a65b7aefea5e6787cd153a4b013bbfe72a35f73e67cdaa76d52b3b.webp)
 
 ## Protobuf UserWarning messages
 

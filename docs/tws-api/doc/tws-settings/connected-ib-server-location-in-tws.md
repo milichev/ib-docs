@@ -10,7 +10,7 @@ As IB servers in different regions have different scheduled server maintenance t
 
 For checking your connected IB server location, you can go to TWS and click "Data" to see your Primary server. In the below image, the pre-decided IB server location is: cdc1.ibllc.com
 
-![TWS Connections Window. ](../../../_fern-files/interactive-brokers-585439.docs.buildwithfern.com/d92f54f9e1f6bb733f2382fa7657e32e6eb2009de4f5603f0f2d3347c20a51eb/docs/assets/media/market-data-farm.png.md)
+![TWS Connections Window. ](/docs/_fern-files/interactive-brokers-585439.docs.buildwithfern.com/d92f54f9e1f6bb733f2382fa7657e32e6eb2009de4f5603f0f2d3347c20a51eb/docs/assets/media/market-data-farm.png)
 
 If you want to change your live IB account server location in TWS, please submit a web ticket to "Technical Assistance" – "Connectivity" in order to request changing the IB server location.
 

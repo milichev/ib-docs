@@ -47,7 +47,7 @@ While not explicitly stated in the web page, there are several details that may 
 3. All currently offered Event Contracts are hosted in the United States of America, and therefore will always use `"USD"` as their currency value.
 4. "Yes" or "No" contracts are based on option rights, `"Call"` and `"Put"` respectively.
 
-![Displays an example of a Forecast Contract being shown in Prediction Markets.](../../../_fern-img/ad55ea28e5cddc05368783f1245c1f651f424d46b6fcda8410426b9b8f610177.webp.md)
+![Displays an example of a Forecast Contract being shown in Prediction Markets.](/docs/_fern-img/ad55ea28e5cddc05368783f1245c1f651f424d46b6fcda8410426b9b8f610177.webp)
 
 In order to request our specific contract, we will need to focus on the "Market closes in 287 days" statement. This value indicates the last day the contract may be traded.
 

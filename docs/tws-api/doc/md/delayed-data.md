@@ -4,11 +4,11 @@
 
 ## Introduction
 
-Interactive Brokers provides 15-minute delayed market data for US Network exchanges, which includes NYSE and NASDAQ listed stocks. By default, requests for [Streaming Data](streaming-data.md) will attempt to return Live data. In the event a [valid market data subscription](../../../general/market-data-subscriptions/popular-market-data-subscriptions/introduction.md) is not active for the user, delayed market data may be requested. Alternatively Trader Workstation setting may be modified to retrieve delayed data by default.
+Interactive Brokers provides 15-minute delayed market data for US Network exchanges, which includes NYSE and NASDAQ listed stocks. By default, requests for [Streaming Data](streaming-data.md) will attempt to return Live data. In the event a [valid market data subscription](/docs/general/market-data-subscriptions/popular-market-data-subscriptions/introduction) is not active for the user, delayed market data may be requested. Alternatively Trader Workstation setting may be modified to retrieve delayed data by default.
 
 > **Error**
 >
-> Live market data in Trader Workstation is not always available through the API. See our [Market Data page](../../../general/market-data-subscriptions/tws-data-vs-api-data.md) for more details.
+> Live market data in Trader Workstation is not always available through the API. See our [Market Data page](/docs/general/market-data-subscriptions/tws-data-vs-api-data) for more details.
 
 ## Market Data Types
 

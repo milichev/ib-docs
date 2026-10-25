@@ -8,7 +8,7 @@ Real time and historical data functionality is combined through the `EClient.req
 
 > **Note**
 >
-> RealTimeBars also adheres to [Market Data Lines](../../../general/market-data-subscriptions/market-data-lines/introduction.md) and [Live Data Limitations](introduction.md#live-data-limitations) limitations and requirements.
+> RealTimeBars also adheres to [Market Data Lines](/docs/general/market-data-subscriptions/market-data-lines/introduction) and [Live Data Limitations](introduction.md#live-data-limitations) limitations and requirements.
 
 ## Request 5 Second Bars
 

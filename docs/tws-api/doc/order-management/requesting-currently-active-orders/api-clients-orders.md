@@ -6,7 +6,7 @@ The IBApi.EClient.reqOpenOrders method allows to obtain all active orders submit
 
 When an order is bound by API client 0 there will be callback to IBApi::EWrapper::orderBound. This indicates the mapping between API order ID and permID. The [IBApi.EWrapper.orderBound](#order-bound-notification) callback in response to newly bound orders that indicates the mapping between the permID (unique account-wide) and API Order ID (specific to an API client). In the API settings in Global Configuration, is a setting checked by default "Use negative numbers to bind automatic orders" which will specify how manual TWS orders are assigned an API order ID.
 
-Because binding the order will change the order ID, this function will be rejected when used with the API Read-Only Mode enabled. You can find the steps for disabling read-only mode at in [TWS Settings](../../tws-settings/tws-configuration-for-api-use/introduction.md).
+Because binding the order will change the order ID, this function will be rejected when used with the API Read-Only Mode enabled. You can find the steps for disabling read-only mode at in [TWS Settings](/docs/tws-api/doc/tws-settings/tws-configuration-for-api-use/introduction).
 
 #### EClient.reqOpenOrders ()
 

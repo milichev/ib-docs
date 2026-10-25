@@ -6,7 +6,6 @@ import {
   normalizeDocsUrl,
   sectionOfUrl,
   toPageUrl,
-  urlToLocalPath,
 } from "../urls.ts";
 
 export type LinkRewriteContext = {
@@ -41,6 +40,18 @@ export function relativeHref(
   return rel;
 }
 
+/** Static assets under /docs/ must not be rewritten into fake `.md` pages. */
+export function isDocsAssetPath(pathname: string): boolean {
+  return /\.(webp|png|jpe?g|gif|svg|pdf|mp4|zip|css|js|ico|woff2?|ttf|eot)$/i.test(
+    pathname,
+  );
+}
+
+/**
+ * Resolve an in-scope docs URL to a mirrored relative path only when present
+ * in the ok manifest map. Do not invent paths for uncached pages/assets —
+ * that would create a broken relative link-graph.
+ */
 function lookupPath(
   url: URL,
   urlToPath: Map<string, string>,
@@ -54,22 +65,9 @@ function lookupPath(
     const pageKey = canonicalUrlString(page);
     const pageHit = urlToPath.get(pageKey);
     if (pageHit) return pageHit;
-    try {
-      return urlToLocalPath(page);
-    } catch {
-      return null;
-    }
   }
 
-  if (isLlmsUrl(url)) {
-    return null;
-  }
-
-  try {
-    return urlToLocalPath(url);
-  } catch {
-    return null;
-  }
+  return null;
 }
 
 /**
@@ -106,6 +104,10 @@ export function rewriteLinks(md: string, ctx: LinkRewriteContext): string {
       return full; // external or out of scope
     }
 
+    if (isDocsAssetPath(normalized.pathname)) {
+      return full; // images / static assets — leave as-is
+    }
+
     if (isLlmsUrl(normalized)) {
       const section = sectionOfUrl(normalized);
       if (section && ctx.sectionIndexPaths.has(section)) {
@@ -123,6 +125,7 @@ export function rewriteLinks(md: string, ctx: LinkRewriteContext): string {
 
     const targetPath = lookupPath(normalized, ctx.urlToPath);
     if (!targetPath) {
+      // Not in the mirrored set: leave original href (often root-absolute /docs/...).
       return full;
     }
 

@@ -24,7 +24,7 @@ After the request, the option specific information will be delivered via [EWrapp
 
 `EClient.reqMktData(reqId, contract, genericTickList, snapshot, regulatorySnapshot, mktDataOptions)`
 
-Greeks are requested automatically when pulling market data for an Options contract. Users that do not have a valid [Market Data Subscription](../../../general/market-data-subscriptions/popular-market-data-subscriptions/introduction.md) for the underlying contract will receive an error that Market Data Is Not Subscribed. This error can be ignored if Greeks are not wanted.
+Greeks are requested automatically when pulling market data for an Options contract. Users that do not have a valid [Market Data Subscription](/docs/general/market-data-subscriptions/popular-market-data-subscriptions/introduction) for the underlying contract will receive an error that Market Data Is Not Subscribed. This error can be ignored if Greeks are not wanted.
 
 **`reqId`** `int`
 

@@ -9,4 +9,4 @@ Each TWS API connection maintains its own ClientID to the host through the EClie
 
 The Master ClientID value can be assigned to 0 so that a connection can retrieve orders placed from TWS, FIX sessions, and all API connections on the account.
 
-![Highlights the "Master API client ID" setting under API Settings.](../../../_fern-img/79c72ba0c5c9f8424935e056460973296175b13837273b4f9182d87f6baf9c94.webp.md)
+![Highlights the "Master API client ID" setting under API Settings.](/docs/_fern-img/79c72ba0c5c9f8424935e056460973296175b13837273b4f9182d87f6baf9c94.webp)

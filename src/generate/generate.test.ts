@@ -167,6 +167,17 @@ describe("relativeHref / rewriteLinks", () => {
       }),
     ).toBe(md);
   });
+
+  test("leaves uncached docs pages and assets unchanged", () => {
+    const md =
+      "see [missing](/docs/tws-api/doc/tws-settings) and ![](/docs/_fern-img/x.webp)";
+    const out = rewriteLinks(md, {
+      currentRelativePath: "tws-api/doc/quick-start/installation.md",
+      urlToPath: new Map(),
+      sectionIndexPaths: new Map([["tws-api", "tws-api/index.md"]]),
+    });
+    expect(out).toBe(md);
+  });
 });
 
 describe("indexes", () => {
