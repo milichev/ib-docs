@@ -1,25 +1,49 @@
 # ib-docs
 
-## Project structure
+Ad-hoc scraper that mirrors [Interactive Brokers docs](https://www.interactivebrokers.com/docs) into a local `docs/` tree for Docs-MCP ingestion.
 
-It's a but ad-hoc tool
+## Stages
 
-To install dependencies:
+1. **`scrape`** — fetch sources into `cache/`, write `cache/manifest.json`
+2. **`generate`** — build `docs/` from `cache/` only (no network) — *not yet implemented*
+3. **`validate`** — audit cache + docs — *not yet implemented*
+
+## Setup
 
 ```bash
 bun install
 ```
 
-To run:
+## Commands
 
 ```bash
-bun run index.ts
+bun run scrape [--section tws-api] [--concurrency 8] [--force] [--keep-going]
+bun run generate [--lang python] [--section tws-api]
+bun run validate
+
+bun run typecheck
+bun test
 ```
 
-To type check:
+Example (TWS API only):
 
 ```bash
-bun check
+bun run scrape --section tws-api
 ```
 
-This project was created using `bun init` in bun v1.4.3. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+## Layout
+
+```
+cache/
+  manifest.json
+  llms.txt
+  tws-api/
+    llms.txt
+    doc/introduction.md
+    ...
+docs/          # produced by generate
+  index.md
+  tws-api/
+    index.md
+    ...
+```

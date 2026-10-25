@@ -4,31 +4,33 @@ overview: Three-stage CLI (scrape -> generate -> validate) that caches raw IB do
 todos:
   - id: cli-stages
     content: "Wire CLI commands: scrape, generate, validate"
-    status: pending
+    status: completed
   - id: scrape-cache
     content: Scrape into cache/ + manifest.json; parallel page fetches (default concurrency 8, --concurrency override)
-    status: pending
+    status: completed
   - id: normalize
     content: Implement normalizeDocsUrl (canonical host, ibkrcampus rewrite, /section -> /docs/section)
-    status: pending
+    status: completed
   - id: generate-docs
-    content: Generate docs/ from cache/ (rewrite links, indexes, optional --lang filter)
+    content: "Generate docs/ from cache/: strip IB boilerplate, source link, unescape heading \\_, rewrite links, indexes, optional --lang"
     status: pending
   - id: validate
     content: Independent llms.txt audit + output link-graph / leftover-absolute checks
     status: pending
   - id: scope
     content: Optional TWS-only (or section) path filter on scrape
-    status: pending
+    status: completed
 isProject: false
 ---
 
 # IB Docs Scraper - Implementation Spec
 
+**Status:** CLI + `scrape` (cache/ + manifest) are implemented. Outstanding work is **`generate`** and **`validate`**.
+
 Three-stage tool:
 
-1. **`scrape`** — fetch sources into `cache/`, record `cache/manifest.json`. Success means the cache write finished; completeness of *what was requested* is the user's call from that result.
-2. **`generate`** — build `docs/` only from `cache/` (no network). Rewrite links, emit indexes, optional language filter for code examples.
+1. **`scrape`** — done: fetch sources into `cache/`, record `cache/manifest.json`.
+2. **`generate`** — build `docs/` only from `cache/` (no network). Clean/transform content, rewrite links, emit indexes, optional language filter.
 3. **`validate`** — evidence pass over `cache/` + `docs/` (independent audit + link-graph checks).
 
 Also:
@@ -78,7 +80,9 @@ docs/
 
 Example: from `tws-api/doc/introduction.md` to `web-api/introduction.md` -> `../../web-api/introduction.md`.
 
-## Stage 1 — `scrape`
+## Stage 1 — `scrape` (implemented)
+
+Reference only; do not re-litigate unless bugs appear.
 
 ### Goals
 
@@ -160,7 +164,7 @@ Also store (in manifest or sidecar) `sectionPageOrder` derived during scrape so 
 
 Scrape success = all intended fetches attempted and manifest flushed. Partial errors can be `status: "error"` rows; exit non-zero if any page/llms failed (policy: fail closed unless `--keep-going`).
 
-## Stage 2 — `generate`
+## Stage 2 — `generate` (outstanding)
 
 Reads only `cache/` + manifest. Writes `docs/`. No network.
 
@@ -176,9 +180,61 @@ Disk: `docs/${relativePath}`. Manifest `cachePath` should match that relative pa
 ### Pipeline per cached page
 
 1. Load raw markdown from `cache/`.
-2. Optional **language filter** (see below).
-3. Rewrite internal links to posix relatives.
-4. Write `docs/${relativePath}`.
+2. **Strip IB fetch boilerplate** (leading blockquotes), see below.
+3. **Unescape spurious heading escapes** (e.g. `\_` in H1), see below.
+4. Optional **language filter**.
+5. Rewrite internal links to posix relatives.
+6. **Prepend source link** to the canonical Interactive Brokers page.
+7. Write `docs/${relativePath}`.
+
+### Strip IB boilerplate header
+
+Raw cache pages start with a fixed blockquote preamble, e.g.:
+
+```md
+> This page is for TWS API.
+
+> For clean Markdown of any page, append .md to the page URL.
+> For a complete documentation index, see https://ibkrcampus.com/docs/llms.txt.
+```
+
+On generate, remove this leading preamble before any other transform:
+
+- Match from start of file: one or more consecutive blockquote blocks that look like the Mintlify/IB agent banner (section label line and/or the “append `.md`” / `llms.txt` lines), including blank lines between them.
+- Stop at the first non-matching content (usually the real `#` title).
+- Do not strip similar-looking blockquotes mid-document.
+- Leave `cache/` untouched; stripping is generate-only.
+
+### Source link
+
+After cleanup, insert near the top of each generated page (above or immediately below the H1 — pick one and stay consistent; prefer **above H1** so the title stays the first heading):
+
+```md
+[source](https://www.interactivebrokers.com/docs/...)
+```
+
+- URL from manifest `finalUrl` (fallback `url`), on the canonical host.
+- Prefer the **human HTML docs URL**: strip a trailing `.md` from the path (browsers serve the page without `.md`; keep hash if any — pages usually have none).
+- Example: cache `tws-api/contracts/bonds.md` -> `[source](https://www.interactivebrokers.com/docs/tws-api/contracts/bonds)`.
+
+### Heading escape cleanup (not backtick stripping)
+
+Observed in cache (esp. `tws-api/sync-doc/*`): H1 titles use escaped underscores **outside** code spans:
+
+```md
+# get\_account\_summary()
+```
+
+Body already uses correct inline code: `` `get_account_summary()` ``. Renderers then show broken titles (underscores lost / mashed), e.g. `getaccountsummary()`.
+
+**Do not** globally strip backslashes inside single-backticked spans — that is the wrong locus (problem is headings, not `` `...` ``), and it can corrupt legitimate escapes later.
+
+**Do** on generate, for ATX heading lines (`#` … `######`):
+
+- Unescape CommonMark-style punctuation escapes that IB over-applies in titles, at least `\_` -> `_`.
+- Optionally also `\*` -> `*`, `\(` -> `(`, `\)` -> `)` if seen; start with `\_` only if that covers the corpus.
+- Scope: heading lines only (confirmed pattern in H1; applying to all ATX levels is fine and cheap).
+- Do not rewrite fenced code bodies.
 
 ### Link rewrite
 

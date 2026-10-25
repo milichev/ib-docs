@@ -4,7 +4,11 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "typecheck": "bun check"
+    "scrape": "bun run index.ts scrape",
+    "generate": "bun run index.ts generate",
+    "validate": "bun run index.ts validate",
+    "typecheck": "bun check",
+    "test": "bun test"
   },
   "devDependencies": {
     "@types/bun": "latest"
