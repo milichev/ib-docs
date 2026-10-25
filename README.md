@@ -5,7 +5,7 @@ Ad-hoc scraper that mirrors [Interactive Brokers docs](https://www.interactivebr
 ## Stages
 
 1. **`scrape`** — fetch sources into `cache/`, write `cache/manifest.json`
-2. **`generate`** — build `docs/` from `cache/` only (no network) — *not yet implemented*
+2. **`generate`** — build `docs/` from `cache/` only (no network)
 3. **`validate`** — audit cache + docs — *not yet implemented*
 
 ## Setup

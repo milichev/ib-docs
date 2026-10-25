@@ -13,7 +13,7 @@ function usage(exitCode = 1): never {
 
 Stages:
   scrape    Fetch llms.txt + pages into cache/; write cache/manifest.json
-  generate  Build docs/ from cache/ (no network) [not yet implemented]
+  generate  Build docs/ from cache/ (no network)
   validate  Audit cache/ + docs/ [not yet implemented]
 `);
   process.exit(exitCode);

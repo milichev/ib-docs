@@ -13,7 +13,7 @@ todos:
     status: completed
   - id: generate-docs
     content: "Generate docs/ from cache/: strip IB boilerplate, source link, unescape heading \\_, rewrite links, indexes, optional --lang"
-    status: pending
+    status: completed
   - id: validate
     content: Independent llms.txt audit + output link-graph / leftover-absolute checks
     status: pending
@@ -25,12 +25,12 @@ isProject: false
 
 # IB Docs Scraper - Implementation Spec
 
-**Status:** CLI + `scrape` (cache/ + manifest) are implemented. Outstanding work is **`generate`** and **`validate`**.
+**Status:** CLI + `scrape` + **`generate`** are implemented. Outstanding work is **`validate`**.
 
 Three-stage tool:
 
 1. **`scrape`** — done: fetch sources into `cache/`, record `cache/manifest.json`.
-2. **`generate`** — build `docs/` only from `cache/` (no network). Clean/transform content, rewrite links, emit indexes, optional language filter.
+2. **`generate`** — done: build `docs/` only from `cache/` (no network). Clean/transform content, rewrite links, emit indexes, optional language filter.
 3. **`validate`** — evidence pass over `cache/` + `docs/` (independent audit + link-graph checks).
 
 Also:
@@ -164,7 +164,7 @@ Also store (in manifest or sidecar) `sectionPageOrder` derived during scrape so 
 
 Scrape success = all intended fetches attempted and manifest flushed. Partial errors can be `status: "error"` rows; exit non-zero if any page/llms failed (policy: fail closed unless `--keep-going`).
 
-## Stage 2 — `generate` (outstanding)
+## Stage 2 — `generate` (implemented)
 
 Reads only `cache/` + manifest. Writes `docs/`. No network.
 
@@ -300,7 +300,7 @@ Discoverability:
 docs/index.md -> {section}/index.md -> pages
 ```
 
-## Stage 3 — `validate`
+## Stage 3 — `validate` (outstanding)
 
 Evidence pass; does not trust the scraper's in-memory discovery alone.
 
@@ -337,7 +337,7 @@ On `scrape` (and optionally filter `generate`/`validate`):
 
 ## Implementation notes
 
-- Shared: `normalizeDocsUrl`, path mapping, manifest types.
-- `scrape` owns network + cache writes.
-- `generate` owns transform (links, lang filter, indexes).
+- Shared (already present from scrape): `normalizeDocsUrl`, path mapping, manifest types.
+- `scrape` owns network + cache writes — **done**.
+- `generate` owns transform: boilerplate strip, heading unescape, source link, link rewrite, lang filter, indexes.
 - `validate` owns oracles; its llms parser must not import scrape's discovery implementation (copy a minimal regex or live in `validate/` only) so evidence stays independent.
