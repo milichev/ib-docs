@@ -98,7 +98,7 @@ Reference only; do not re-litigate unless bugs appear.
 3. Discovery:
    - Root: `/docs/llms.txt`
    - Sections: `/docs/{section}/llms.txt`
-   - Pages: strip trailing `/`, append `.md` when missing.
+   - Pages: strip trailing `/`, append `.md` only when the last segment has no extension (`introduction` -> `introduction.md`). Leave `openapi.json` / `openapi.yaml` unchanged — appending `.md` 404s.
 4. Only URLs under `/docs/` (optional `--section` narrows to `/docs/{section}/`).
 5. Site-root paths like `/tws-api/...` (no `/docs/`) **must** become `/docs/tws-api/...` before accept/reject. Bare `/tws-api/` 404s; `/docs/tws-api/` works.
 6. Skip mirroring remote `llms.txt` as pages; still store them in `cache/{section}/llms.txt` / `cache/llms.txt`.
@@ -127,6 +127,8 @@ function normalizeDocsUrl(raw: string, basePageUrl?: URL): URL | null
 
 ### Fetch pages
 
+If `cache/` already has entries, warn and delete them before fetching so the run starts empty.
+
 Discovery stays **serial** (root `llms.txt` -> section `llms.txt` -> page URL set). Page GETs are **parallel** with a concurrency cap.
 
 **Concurrency policy (I/O-bound, not CPU-bound):**
@@ -139,8 +141,9 @@ Discovery stays **serial** (root `llms.txt` -> section `llms.txt` -> page URL se
 For each page URL:
 
 - GET `.md`; follow redirects only while host stays canonical and path stays under `/docs/`.
-- Write raw body to `cache/${relativePath}` (same mapping as docs, under `cache/`).
-- Record manifest entry.
+- A body that is `# Page Not Found` / `This page does not exist.` is a failure even when HTTP status is 200. Do not write that body.
+- **Slug recovery** (one hop): walk ancestor HTML pages (`{dir}/introduction`, then `{dir}`, up to the section). If that page links the same slug exactly once — or one candidate shares the longest path prefix — GET that href with `.md` appended when it has no extension. On success, store the recovered body. Manifest `url` stays the index URL; `finalUrl` and `cachePath` are the recovered page. Ambiguous slugs (several `introduction` links) stay `status: "error"`.
+- Otherwise write the raw body to `cache/${relativePath}` and record the manifest entry.
 
 ### `cache/manifest.json`
 
@@ -325,7 +328,7 @@ Evidence pass; does not trust the scraper's in-memory discovery alone.
 
 2. **Independent discovery audit** (completeness of cache vs indices)
    - Re-parse **cached** `llms.txt` files with a small dumb link regex (separate module from scrape discovery).
-   - Minimal normalize (string host rewrite + `/section` -> `/docs/section`).
+   - Minimal normalize (string host rewrite + `/section` -> `/docs/section`). Append `.md` only when the path has no extension, same as scrape.
    - Expected page URL set must be ⊆ manifest `ok` page URLs.
    - Report missing and extras; missing => fail.
 

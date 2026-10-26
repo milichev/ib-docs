@@ -1,11 +1,8 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { CACHE_DIR, DOCS_DIR, MANIFEST_FILE } from "../constants.ts";
+import { CACHE_DIR, OUT_DIR, MANIFEST_FILE } from "../constants.ts";
 import type { Manifest, ValidateOptions } from "../types.ts";
-import {
-  auditClassifyLinks,
-  sectionOfCanonicalUrl,
-} from "./audit-llms.ts";
+import { auditClassifyLinks, sectionOfCanonicalUrl } from "./audit-llms.ts";
 import { checkLinkGraph } from "./link-graph.ts";
 import { checkManifestIntegrity } from "./manifest-check.ts";
 
@@ -81,7 +78,10 @@ async function listLlmsFiles(cacheDir: string): Promise<string[]> {
   return out;
 }
 
-async function countDocsPages(docsDir: string, section: string): Promise<number> {
+async function countDocsPages(
+  docsDir: string,
+  section: string,
+): Promise<number> {
   const sectionDir = path.join(docsDir, section);
   let count = 0;
 
@@ -96,7 +96,11 @@ async function countDocsPages(docsDir: string, section: string): Promise<number>
       const full = path.join(dir, ent.name);
       if (ent.isDirectory()) {
         await walk(full);
-      } else if (ent.isFile() && ent.name.endsWith(".md") && ent.name !== "index.md") {
+      } else if (
+        ent.isFile() &&
+        ent.name.endsWith(".md") &&
+        ent.name !== "index.md"
+      ) {
         count++;
       }
     }
@@ -110,24 +114,34 @@ function summarizeFailures(report: ValidateReport): string[] {
   const lines: string[] = [];
   if (!report.manifest.ok) {
     if (report.manifest.missingFiles.length) {
-      lines.push(`manifest missing files: ${report.manifest.missingFiles.length}`);
+      lines.push(
+        `manifest missing files: ${report.manifest.missingFiles.length}`,
+      );
     }
     if (report.manifest.shaMismatch.length) {
       lines.push(`sha256 mismatch: ${report.manifest.shaMismatch.length}`);
     }
     if (report.manifest.unlistedCacheFiles.length) {
-      lines.push(`unlisted cache files: ${report.manifest.unlistedCacheFiles.length}`);
+      lines.push(
+        `unlisted cache files: ${report.manifest.unlistedCacheFiles.length}`,
+      );
     }
   }
   if (!report.discovery.ok) {
-    lines.push(`discovery missing pages: ${report.discovery.missingPages.length}`);
+    lines.push(
+      `discovery missing pages: ${report.discovery.missingPages.length}`,
+    );
   }
   if (!report.linkGraph.ok) {
     if (report.linkGraph.missingTargets.length) {
-      lines.push(`broken relative links: ${report.linkGraph.missingTargets.length}`);
+      lines.push(
+        `broken relative links: ${report.linkGraph.missingTargets.length}`,
+      );
     }
     if (report.linkGraph.leftoverAbsolute.length) {
-      lines.push(`leftover absolute docs hrefs: ${report.linkGraph.leftoverAbsolute.length}`);
+      lines.push(
+        `leftover absolute docs hrefs: ${report.linkGraph.leftoverAbsolute.length}`,
+      );
     }
     if (report.linkGraph.missingGeneratedPages.length) {
       lines.push(
@@ -135,11 +149,15 @@ function summarizeFailures(report: ValidateReport): string[] {
       );
     }
     if (report.linkGraph.unreachableDocs.length) {
-      lines.push(`unreachable from index: ${report.linkGraph.unreachableDocs.length}`);
+      lines.push(
+        `unreachable from index: ${report.linkGraph.unreachableDocs.length}`,
+      );
     }
   }
   if (!report.sectionCounts.ok) {
-    lines.push(`section count mismatches: ${report.sectionCounts.mismatches.length}`);
+    lines.push(
+      `section count mismatches: ${report.sectionCounts.mismatches.length}`,
+    );
   }
   return lines;
 }
@@ -151,7 +169,7 @@ export async function validate(
   options: Partial<ValidateOptions> = {},
 ): Promise<ValidateResult> {
   const cacheDir = options.cacheDir ?? CACHE_DIR;
-  const docsDir = options.docsDir ?? DOCS_DIR;
+  const outDir = options.outDir ?? OUT_DIR;
 
   let manifest: Manifest;
   try {
@@ -199,7 +217,9 @@ export async function validate(
     }
   }
 
-  const missingPages = [...expectedPages].filter((u) => !okPageUrls.has(u)).sort();
+  const missingPages = [...expectedPages]
+    .filter((u) => !okPageUrls.has(u))
+    .sort();
   const extraPages = [
     ...new Set(
       manifest.entries
@@ -212,7 +232,7 @@ export async function validate(
 
   const discoveryOk = missingPages.length === 0;
 
-  const linkGraph = await checkLinkGraph(docsDir, okPagePaths);
+  const linkGraph = await checkLinkGraph(outDir, okPagePaths);
 
   // Optional: expected pages per section (all cached llms) vs docs page files
   const mismatches: ValidateReport["sectionCounts"]["mismatches"] = [];
@@ -224,7 +244,7 @@ export async function validate(
       // no section-root llms — skip count for this section
       continue;
     }
-    const docsPages = await countDocsPages(docsDir, section);
+    const docsPages = await countDocsPages(outDir, section);
     const expectedForSection = [...expectedPages].filter(
       (u) => sectionOfCanonicalUrl(u) === section,
     ).length;
@@ -278,7 +298,9 @@ export async function validate(
   const failures = summarizeFailures(report);
   if (report.ok) {
     const extrasNote =
-      extraPages.length > 0 ? `, ${extraPages.length} extra page(s) in manifest` : "";
+      extraPages.length > 0
+        ? `, ${extraPages.length} extra page(s) in manifest`
+        : "";
     return {
       ok: true,
       message: `validate ok: ${expectedPages.size} expected page(s), link-graph visited ${linkGraph.visited}${extrasNote}; report → ${reportPath}`,

@@ -17,7 +17,7 @@ export type KnownSection = (typeof KNOWN_SECTIONS)[number];
 export const DEFAULT_CONCURRENCY = 8;
 
 export const CACHE_DIR = "cache";
-export const DOCS_DIR = "docs";
+export const OUT_DIR = "out";
 export const MANIFEST_FILE = "manifest.json";
 
 export const ROOT_LLMS_PATH = "/docs/llms.txt";

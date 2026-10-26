@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { CACHE_DIR, DOCS_DIR, MANIFEST_FILE } from "../constants.ts";
+import { CACHE_DIR, OUT_DIR, MANIFEST_FILE } from "../constants.ts";
 import type { GenerateOptions, Manifest, ManifestEntry } from "../types.ts";
 import { extractH1Title } from "./headings.ts";
 import {
@@ -53,7 +53,9 @@ function pageEntries(
   return manifest.entries.filter((e) => {
     if (e.kind !== "page" || e.status !== "ok") return false;
     if (!sectionFilter) return true;
-    return e.section === sectionFilter || e.cachePath.startsWith(`${sectionFilter}/`);
+    return (
+      e.section === sectionFilter || e.cachePath.startsWith(`${sectionFilter}/`)
+    );
   });
 }
 
@@ -64,7 +66,7 @@ export async function generate(
   options: Partial<GenerateOptions> = {},
 ): Promise<GenerateResult> {
   const cacheDir = options.cacheDir ?? CACHE_DIR;
-  const docsDir = options.docsDir ?? DOCS_DIR;
+  const outDir = options.outDir ?? OUT_DIR;
   const sectionFilter = options.section;
   const lang = options.lang;
 
@@ -118,7 +120,7 @@ export async function generate(
     sectionIndexPaths.set(s, `${s}/index.md`);
   }
 
-  await mkdir(docsDir, { recursive: true });
+  await mkdir(outDir, { recursive: true });
 
   let pagesWritten = 0;
   let skipped = 0;
@@ -148,7 +150,7 @@ export async function generate(
       },
     });
 
-    const outFull = path.join(docsDir, entry.cachePath);
+    const outFull = path.join(outDir, entry.cachePath);
     await ensureDirForFile(outFull);
     await writeFile(outFull, body, "utf8");
     pagesWritten++;
@@ -192,15 +194,15 @@ export async function generate(
     ordered.push(...extras);
 
     const indexBody = buildSectionIndex(section, ordered);
-    const indexPath = path.join(docsDir, section, "index.md");
+    const indexPath = path.join(outDir, section, "index.md");
     await ensureDirForFile(indexPath);
     await writeFile(indexPath, indexBody, "utf8");
   }
 
   const rootBody = buildRootIndex([...sectionSet]);
-  await writeFile(path.join(docsDir, "index.md"), rootBody, "utf8");
+  await writeFile(path.join(outDir, "index.md"), rootBody, "utf8");
 
-  const message = `generate ok: wrote ${pagesWritten} page(s), ${sectionSet.size} section index(es)${lang ? ` (lang=${lang})` : ""}${skipped ? `, skipped ${skipped}` : ""} → ${docsDir}/`;
+  const message = `generate ok: wrote ${pagesWritten} page(s), ${sectionSet.size} section index(es)${lang ? ` (lang=${lang})` : ""}${skipped ? `, skipped ${skipped}` : ""} → ${outDir}/`;
 
   return {
     ok: skipped === 0,

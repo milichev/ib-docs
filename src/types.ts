@@ -34,10 +34,10 @@ export type GenerateOptions = {
   lang?: string;
   section?: string;
   cacheDir: string;
-  docsDir: string;
+  outDir: string;
 };
 
 export type ValidateOptions = {
   cacheDir: string;
-  docsDir: string;
+  outDir: string;
 };

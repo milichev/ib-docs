@@ -180,7 +180,7 @@ describe("validate integration", () => {
       `[source](https://www.interactivebrokers.com/docs/tws-api/doc/introduction)\n\n# Introduction\n\nHello.\n`,
     );
 
-    const result = await validate({ cacheDir, docsDir });
+    const result = await validate({ cacheDir, outDir: docsDir });
     expect(result.ok).toBe(true);
     expect(result.report?.discovery.expectedPages).toBe(1);
   });
@@ -223,7 +223,7 @@ describe("validate integration", () => {
       `# Mirror\n\n- [Missing](nope.md)\n`,
     );
 
-    const result = await validate({ cacheDir, docsDir });
+    const result = await validate({ cacheDir, outDir: docsDir });
     expect(result.ok).toBe(false);
     expect(result.report?.linkGraph.missingTargets.length).toBeGreaterThan(0);
   });
