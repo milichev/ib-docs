@@ -54,10 +54,6 @@ Duration to wait for the response until termination. Function-specific timeout d
 
 ---
 
-```python
-app.get_historical_data(contract=contract, end_date_time="20260708", duration_str="1 D", bar_size_setting="1 hour", what_to_show="TRADES", use_rth=True)
-```
-
 ## Response Object
 
 Requesting historical bars will return a list containing all Bar objects for the requested duration. Please be aware that directly printing this information may result in the memory address being displayed.
@@ -67,28 +63,3 @@ Requesting historical bars will return a list containing all Bar objects for the
 ```
 
 ## Example Implementation
-
-```python
-from ibapi.sync_wrapper import TWSSyncWrapper
-app = TWSSyncWrapper(timeout=30)
-
-# Connect to TWS
-if not app.connect_and_start(host="127.0.0.1", port=7496, client_id=0):
-    # If the connection fails and False is returned, notify the user and gracefully exit the application.
-    print("Failed to connect to TWS")
-    exit(1)
-else:
-    # If the connection succeeded, notify the user.
-    print("Connected to TWS")
-
-contract = Contract()
-contract.symbol = "AAPL"
-contract.secType = "STK"
-contract.exchange = "SMART"
-contract.primaryExchange = "NASDAQ"
-contract.currency = "USD"
-
-hist_data = app.get_historical_data(contract=contract, end_date_time="", duration_str="1 D", bar_size_setting="1 hour", what_to_show="TRADES")
-for bar in hist_data:
-   print(bar)
-```

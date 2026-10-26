@@ -4,11 +4,11 @@
 
 ## Introduction
 
-Interactive Brokers provides 15-minute delayed market data for US Network exchanges, which includes NYSE and NASDAQ listed stocks. By default, requests for [Streaming Data](streaming-data.md) will attempt to return Live data. In the event a [valid market data subscription](/docs/general/market-data-subscriptions/popular-market-data-subscriptions/introduction) is not active for the user, delayed market data may be requested. Alternatively Trader Workstation setting may be modified to retrieve delayed data by default.
+Interactive Brokers provides 15-minute delayed market data for US Network exchanges, which includes NYSE and NASDAQ listed stocks. By default, requests for [Streaming Data](streaming-data.md) will attempt to return Live data. In the event a [valid market data subscription](../../../general/market-data-subscriptions/popular-market-data-subscriptions/introduction.md) is not active for the user, delayed market data may be requested. Alternatively Trader Workstation setting may be modified to retrieve delayed data by default.
 
 > **Error**
 >
-> Live market data in Trader Workstation is not always available through the API. See our [Market Data page](/docs/general/market-data-subscriptions/tws-data-vs-api-data) for more details.
+> Live market data in Trader Workstation is not always available through the API. See our [Market Data page](../../../general/market-data-subscriptions/tws-data-vs-api-data.md) for more details.
 
 ## Market Data Types
 
@@ -39,36 +39,6 @@ Type of market data to retrieve. See [Market Data Types](#market-data-types) for
 
 ---
 
-#### Python
-
-```python
-self.reqMarketDataType(3)
-```
-
-#### Java
-
-```java
-client.reqMarketDataType(2);
-```
-
-#### C++
-
-```cpp
-m_pClient->reqMarketDataType(3);
-```
-
-#### C#
-
-```csharp
-client.reqMarketDataType(3);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqMarketDataType(4)
-```
-
 ---
 
 ## Receive Market Data Type
@@ -88,44 +58,3 @@ Request identifier used to track data.
 Type of market data to retrieve.
 
 ---
-
-#### Python
-
-```python
-def marketDataType(self, reqId: TickerId, marketDataType: int):
-	print("MarketDataType. ReqId:", reqId, "Type:", marketDataType)
-```
-
-#### Java
-
-```java
-@Override
-public void marketDataType(int reqId, int marketDataType) {
-	System.out.println("MarketDataType: " + EWrapperMsgGenerator.marketDataType(reqId, marketDataType));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::marketDataType(TickerId reqId, int marketDataType) {
-    printf( "MarketDataType. ReqId: %ld, Type: %d\n", reqId, marketDataType);
-}
-```
-
-#### C#
-
-```csharp
-public virtual void marketDataType(int reqId, int marketDataType)
-{
-	Console.WriteLine("MarketDataType. "+reqId+", Type: "+marketDataType+"\n");
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub marketDataType(reqId As Integer, marketDataType As Integer) Implements IBApi.EWrapper.marketDataType
-	Console.WriteLine("MarketDataType - ReqId [" & reqId & "] MarketDataType [" & marketDataType & "]")
-End Sub
-```

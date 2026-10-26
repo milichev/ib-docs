@@ -7,33 +7,3 @@
 This method will cancel ALL open orders including those placed directly from TWS.
 
 **orderCancel:** orderCancel. An OrderCancel object that can receive the manualOrderCancelTime, manualOrderIndicator, and extOperator fields. See OrderCancel Reference for more insight on the OrderCancel class.
-
-#### Python
-
-```python
-self.reqGlobalCancel(OrderCancel())
-```
-
-#### Java
-
-```java
-client.reqGlobalCancel(new OrderCancel());
-```
-
-#### C++
-
-```cpp
-m_pClient->reqGlobalCancel(OrderCancel());
-```
-
-#### C#
-
-```csharp
-client.reqGlobalCancel(OrderCancel());
-```
-
-#### VB.NET
-
-```vbnet
-client.reqGlobalCancel()
-```

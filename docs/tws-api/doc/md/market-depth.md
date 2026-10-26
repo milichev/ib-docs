@@ -58,36 +58,6 @@ Internal use only. Leave an empty array or None type.
 
 ---
 
-#### Python
-
-```python
-self.reqMktDepth(2001, contract, 5, False, [])
-```
-
-#### Java
-
-```java
-client.reqMktDepth(2001, contract, 5, false, null);
-```
-
-#### C++
-
-```cpp
-m_pClient->reqMktDepth(2001, contract, 5, false, TagValueListSPtr());
-```
-
-#### C#
-
-```csharp
-client.reqMarketDepth(2001, contract, 5, false, null);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqMarketDepth(2001, contract, 5, False, Nothing)
-```
-
 ---
 
 ## Receive Market Depth
@@ -138,47 +108,6 @@ The order's price
 The order's size
 
 ---
-
-#### Python
-
-```python
-def updateMktDepth(self, reqId: TickerId, position: int, operation: int, side: int, price: float, size: Decimal):
-		print("UpdateMarketDepth. ReqId:", reqId, "Position:", position, "Operation:", operation, "Side:", side, "Price:", floatMaxString(price), "Size:", decimalMaxString(size))
-```
-
-#### Java
-
-```java
-@Override
-public void updateMktDepth(int tickerId, int position, int operation, int side, double price, Decimal size) {
-	System.out.println(EWrapperMsgGenerator.updateMktDepth(tickerId, position, operation, side, price, size));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::updateMktDepth(TickerId id, int position, int operation, int side, double price, Decimal size) {
-    printf( "UpdateMarketDepth. %ld - Position: %s, Operation: %d, Side: %d, Price: %s, Size: %s\n", id, Utils::intMaxString(position).c_str(), operation, side, Utils::doubleMaxString(price).c_str(), decimalStringToDisplay(size).c_str());
-}
-```
-
-#### C#
-
-```csharp
-public virtual void updateMktDepth(int tickerId, int position, int operation, int side, double price, decimal size)
-{
-	Console.WriteLine("UpdateMarketDepth. " + tickerId + " - Position: " + position + ", Operation: " + operation + ", Side: " + side + ", Price: " + Util.DoubleMaxString(price) + ", Size: " + Util.DecimalMaxString(size));
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub updateMktDepth(tickerId As Integer, position As Integer, operation As Integer, side As Integer, price As Double, size As Decimal) Implements IBApi.EWrapper.updateMktDepth
-	Console.WriteLine("UpdateMarketDepth. " & CStr(tickerId) & " - Position: " & CStr(position) & ", Operation: " & CStr(operation) & ", Side: " & CStr(side) & ", Price: " & Util.DoubleMaxString(price) & ", Size: " & Util.DecimalMaxString(size))
-End Sub
-```
 
 ---
 
@@ -236,47 +165,6 @@ Flag indicating if this is smart depth response (True) or the MPID of the market
 
 ---
 
-#### Python
-
-```python
-def updateMktDepthL2(self, reqId: TickerId, position: int, marketMaker: str, operation: int, side: int, price: float, size: Decimal, isSmartDepth: bool):
-	print("UpdateMarketDepthL2. ReqId:", reqId, "Position:", position, "MarketMaker:", marketMaker, "Operation:", operation, "Side:", side, "Price:", floatMaxString(price), "Size:", decimalMaxString(size), "isSmartDepth:", isSmartDepth)
-```
-
-#### Java
-
-```java
-@Override
-public void updateMktDepthL2(int tickerId, int position, String marketMaker, int operation, int side, double price, Decimal size, boolean isSmartDepth) {
-	System.out.println(EWrapperMsgGenerator.updateMktDepthL2( tickerId, position, marketMaker, operation, side, price, size, isSmartDepth));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::updateMktDepthL2(TickerId id, int position, const std::string& marketMaker, int operation, int side, double price, Decimal size, bool isSmartDepth) {
-    printf( "UpdateMarketDepthL2. %ld - Position: %s, Operation: %d, Side: %d, Price: %s, Size: %s, isSmartDepth: %d\n", id, Utils::intMaxString(position).c_str(), operation, side, Utils::doubleMaxString(price).c_str(), decimalStringToDisplay(size).c_str(), isSmartDepth);
-}
-```
-
-#### C#
-
-```csharp
-public virtual void updateMktDepthL2(int tickerId, int position, string marketMaker, int operation, int side, double price, decimal size, bool isSmartDepth)
-{
-	Console.WriteLine("UpdateMarketDepthL2. " + tickerId + " - Position: " + position + ", Operation: " + operation + ", Side: " + side + ", Price: " + Util.DoubleMaxString(price) + ", Size: " + Util.DecimalMaxString(size) + ", isSmartDepth: " + isSmartDepth);
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub updateMktDepthL2(tickerId As Integer, position As Integer, marketMaker As String, operation As Integer, side As Integer, price As Double, size As Decimal, isSmartDepth As Boolean) Implements IBApi.EWrapper.updateMktDepthL2
-	Console.WriteLine("UpdateMarketDepthL2. " & CStr(tickerId) & " MarketMaker: " & marketMaker & ", Position: " & CStr(position) & ", Operation: " & CStr(operation) & ", Side: " & CStr(side) & ", Price: " & Util.DoubleMaxString(price) & ", Size: " & Util.DecimalMaxString(size) & ", isSmartDepth: " & CStr(isSmartDepth))
-End Sub
-```
-
 ---
 
 ### EWrapper.rerouteMktDepthReq
@@ -303,47 +191,6 @@ Primary exchange of the underlying.
 
 ---
 
-#### Python
-
-```python
-def rerouteMktDepthReq(self, reqId: int, conId: int, exchange: str):
-	print("Re-route market depth request. ReqId:", reqId, "ConId:", conId, "Exchange:", exchange)
-```
-
-#### Java
-
-```java
-@Override
-public void rerouteMktDepthReq(int reqId, int conId, String exchange) {
-	System.out.println(EWrapperMsgGenerator.rerouteMktDepthReq(reqId, conId, exchange));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::rerouteMktDepthReq(int reqId, int conid, const std::string& exchange) {
-    printf( "Re-route market depth request. ReqId: %d, ConId: %d, Exchange: %s\n", reqId, conid, exchange.c_str());
-}
-```
-
-#### C#
-
-```csharp
-public void rerouteMktDepthReq(int reqId, int conId, string exchange)
-{
-	Console.WriteLine("Re-route market depth request. Req Id: {0}, ConId: {1}, Exchange: {2}", reqId, conId, exchange);
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub rerouteMktDepthReq(reqId As Integer, conId As Integer, exchange As String) Implements IBApi.EWrapper.rerouteMktDepthReq
-            Console.WriteLine("Re-route market depth request. Req Id: {0}, Con Id: {1}, Exchange: {2}", reqId, conId, exchange)
-        End Sub
-```
-
 ---
 
 ## Cancel Market Depth
@@ -364,36 +211,6 @@ Flag indicates that this is smart depth request.
 
 ---
 
-#### Python
-
-```python
-self.cancelMktDepth(2001, False)
-```
-
-#### Java
-
-```java
-client.cancelMktDepth(2001, false);
-```
-
-#### C++
-
-```cpp
-m_pClient->cancelMktDepth(2001, false);
-```
-
-#### C#
-
-```csharp
-client.cancelMktDepth(2001, false);
-```
-
-#### VB.NET
-
-```vbnet
-client.cancelMktDepth(2001, False)
-```
-
 ---
 
 ## Requesting Market Depth Exchanges
@@ -401,36 +218,6 @@ client.cancelMktDepth(2001, False)
 `EClient.reqMktDepthExchanges()`
 
 Requests venues for which market depth data is available.
-
-#### Python
-
-```python
-self.reqMktDepthExchanges()
-```
-
-#### Java
-
-```java
-client.reqMktDepthExchanges();
-```
-
-#### C++
-
-```cpp
-m_pClient->reqMktDepthExchanges();
-```
-
-#### C#
-
-```csharp
-client.reqMktDepthExchanges();
-```
-
-#### VB.NET
-
-```vbnet
-client.reqMktDepthExchanges()
-```
 
 ---
 
@@ -445,56 +232,3 @@ Called when receives Depth Market Data Descriptions.
 A list containing [DepthMarketDataDescription](../../protobuf/depth-market-data-description.md) objects. Each object contains information about what security types are availble at a given exchange, and indicates if the exchange may only provide direct-routed Level 2 (Deep2) data, or if smart market depth is supported.
 
 ---
-
-#### Python
-
-```python
-def mktDepthExchanges(self, depthMktDataDescriptions:ListOfDepthExchanges):
-	print("MktDepthExchanges:")
-	for desc in depthMktDataDescriptions:
-		print("DepthMktDataDescription.", desc)
-```
-
-#### Java
-
-```java
-@Override
-public void mktDepthExchanges(DepthMktDataDescription[] depthMktDataDescriptions) {
-	System.out.println(EWrapperMsgGenerator.mktDepthExchanges(depthMktDataDescriptions));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::mktDepthExchanges(const std::vector &depthMktDataDescriptions) {
-	printf("Mkt Depth Exchanges (%lu):\n", depthMktDataDescriptions.size());
-	for (unsigned int i = 0; i < depthMktDataDescriptions.size(); i++) {
-		printf("Depth Mkt Data Description [%d] - exchange: %s secType: %s listingExch: %s serviceDataType: %s aggGroup: %s\n", i, depthMktDataDescriptions[i].exchange.c_str(), depthMktDataDescriptions[i].secType.c_str(), depthMktDataDescriptions[i].listingExch.c_str(), depthMktDataDescriptions[i].serviceDataType.c_str(), Utils::intMaxString(depthMktDataDescriptions[i].aggGroup).c_str());
-	}
-}
-```
-
-#### C#
-
-```csharp
-public void mktDepthExchanges(DepthMktDataDescription[] depthMktDataDescriptions)
-{
-	Console.WriteLine("Market Depth Exchanges:");
-	foreach (var depthMktDataDescription in depthMktDataDescriptions)
-	{
-		Console.WriteLine("Depth Market Data Description: Exchange: {0}, Security Type: {1}, Listing Exch: {2}, Service Data Type: {3}, Agg Group: {4}", depthMktDataDescription.Exchange, depthMktDataDescription.SecType, depthMktDataDescription.ListingExch, depthMktDataDescription.ServiceDataType, Util.IntMaxString(depthMktDataDescription.AggGroup));
-	}
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub mktDepthExchanges(depthMktDataDescriptions As DepthMktDataDescription()) Implements EWrapper.mktDepthExchanges
-	Console.WriteLine("Market Depth Exchanges:")
-	For Each depthMktDataDescription In depthMktDataDescriptions
-		Console.WriteLine("Depth Market Data Descriprion. Exchange: " & depthMktDataDescription.Exchange & " Security Type: " & depthMktDataDescription.SecType & " Listing Exch: " & depthMktDataDescription.ListingExch & " Service Data Type: " & depthMktDataDescription.ServiceDataType & "  Agg Group: " & Util.IntMaxString(depthMktDataDescription.AggGroup))
-	Next
-End Sub
-```

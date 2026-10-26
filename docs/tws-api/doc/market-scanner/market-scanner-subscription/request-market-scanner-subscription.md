@@ -14,33 +14,3 @@
 )
 
 Starts a subscription to market scan results based on the provided parameters.
-
-#### Python
-
-```python
-self.reqScannerSubscription(7002, scannerSubscription, [], filterTagvalues)
-```
-
-#### Java
-
-```java
-client.reqScannerSubscription(7002, scannerSubscription, null, FilterTagValues);
-```
-
-#### C++
-
-```cpp
-m_pClient->reqScannerSubscription(7002, scannerSubscription, TagValueListSPtr(), filterTagValues);
-```
-
-#### C#
-
-```csharp
-client.reqScannerSubscription(7002, scannerSubscription, null, filterTagValues);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqScannerSubscription(7002, scannerSubscription, Nothing, filterTagValues)
-```

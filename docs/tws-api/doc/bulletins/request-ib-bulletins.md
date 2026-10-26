@@ -8,33 +8,3 @@
 )
 
 Subscribes to IB's News Bulletins.
-
-#### Python
-
-```python
-self.reqNewsBulletins(True)
-```
-
-#### Java
-
-```java
-client.reqNewsBulletins(true);
-```
-
-#### C++
-
-```cpp
-m_pClient->reqNewsBulletins(true);
-```
-
-#### C#
-
-```csharp
-client.reqNewsBulletins(true);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqNewsBulletins(True)
-```

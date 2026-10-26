@@ -8,33 +8,3 @@
 )
 
 Cancels real time subscription for a positions daily PnL information.
-
-#### Python
-
-```python
-self.cancelPnLSingle(requestId);
-```
-
-#### Java
-
-```java
-client.cancelPnLSingle(reqId);
-```
-
-#### C++
-
-```cpp
-m_pClient->cancelPnLSingle(reqId);
-```
-
-#### C#
-
-```csharp
-client.cancelPnLSingle(reqId);
-```
-
-#### VB.NET
-
-```vbnet
-client.cancelPnLSingle(reqId);
-```

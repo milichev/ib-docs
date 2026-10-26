@@ -8,33 +8,3 @@
 )
 
 Cancels a TWS Window Group subscription.
-
-#### Python
-
-```python
-self.unsubscribeFromGroupEvents(19002)
-```
-
-#### Java
-
-```java
-client.unsubscribeFromGroupEvents(9002);
-```
-
-#### C++
-
-```cpp
-m_pClient->unsubscribeFromGroupEvents(9002);
-```
-
-#### C#
-
-```csharp
-client.unsubscribeFromGroupEvents(9002);
-```
-
-#### VB.NET
-
-```vbnet
-client.unsubscribeFromGroupEvents(9002)
-```

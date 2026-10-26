@@ -1,0 +1,23 @@
+[source](https://www.interactivebrokers.com/docs/excel/dde/dde-socket-bridge/configuring-the-socket-bridge/configure-the-connecting-service-name)
+
+# Configure the Connecting Service Name
+
+1. Launch Trader Workstation or IB Gateway
+2. Open the Windows File Explorer
+3. Navigate to `C:\TWS API\samples\DdeSocketBridge`
+4. Right click the "runDdeSocketBridge.bat" file.
+5. Click **Edit** from the list. This will open a new Notepad window.
+   * NOTE: Windows 11 users may need to choose "Show more options" first.
+6. On the third line after "DdeSocketBridge.jar" **add -s** followed by whichever Service name you wish to use in Excel.
+
+NOTE: Be sure on each page of your connected DDE that you match the User Name cell with what is listed here.
+
+```
+echo off
+if not exist "DdeSocketBridge.jar" goto :error
+java -Djava.library.path=.\src\main\resources -jar DdeSocketBridge.jar -sExcelsior
+goto :end
+:error
+echo DdeSocketBridge.jar is not found
+:end
+```

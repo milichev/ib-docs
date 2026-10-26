@@ -11,9 +11,3 @@ The `TWSSyncWrapper` class is produced from the `ibapi/sync_wrapper` file. Clien
 Default timeout in seconds applied to all connected functions. If not specified, a default value of 30 seconds is used.
 
 ---
-
-```python
-from ibapi.sync_wrapper import TWSSyncWrapper
-
-app = TWSSyncWrapper(timeout=30)
-```

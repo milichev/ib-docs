@@ -9,15 +9,3 @@ Once the subscription to account summary is no longer needed, it can be cancelle
 **reqId:** int. The identifier of the previously performed account request
 
 )
-
-#### Python
-
-```python
-self.cancelAccountSummary(9001)
-```
-
-#### C++
-
-```cpp
-m_pClient->cancelAccountSummary(9001);
-```

@@ -104,17 +104,33 @@ export function isSectionRoot(u: URL): boolean {
   return parts.length === 1 && KNOWN_SECTION_SET.has(parts[0]!);
 }
 
-/** Section slug from a docs URL, or null for root llms. */
+/**
+ * True if the path segment is a section directory slug, not a root-level file
+ * (e.g. openapi.json.md must not become section "openapi.json.md").
+ */
+export function isSectionSlug(segment: string): boolean {
+  return Boolean(segment) && !segment.includes(".");
+}
+
+/** Section slug from a docs URL, or null for root llms / root-level files. */
 export function sectionOfUrl(u: URL): string | null {
   const rest = u.pathname.replace(/^\/docs\/?/, "");
   if (!rest || rest === "llms.txt") return null;
   const first = rest.split("/")[0];
-  return first ?? null;
+  if (!first || !isSectionSlug(first)) return null;
+  return first;
+}
+
+/** True when the last path segment has an extension (file.md, openapi.json). */
+function hasFileExtension(pathname: string): boolean {
+  const base = pathname.split("/").pop() ?? "";
+  const dot = base.lastIndexOf(".");
+  return dot > 0 && dot < base.length - 1;
 }
 
 /**
  * Ensure page URLs end with .md when appropriate.
- * Leaves llms.txt and already-.md paths alone.
+ * Leaves llms.txt, already-extensioned files, and already-.md paths alone.
  * Returns null for non-page targets (llms, section roots).
  */
 export function toPageUrl(u: URL): URL | null {
@@ -125,7 +141,9 @@ export function toPageUrl(u: URL): URL | null {
     pathname = pathname.slice(0, -1);
   }
 
-  if (!pathname.endsWith(".md")) {
+  // Append .md only for extensionless page paths.
+  // openapi.json / openapi.yaml already name a file; adding .md 404s.
+  if (!hasFileExtension(pathname)) {
     pathname = `${pathname}.md`;
   }
 

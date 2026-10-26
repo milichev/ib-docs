@@ -12,33 +12,3 @@
 **MIN_SERVER_VER_WSH_EVENT_DATA_FILTERS_DATE:** \*Only passed in the Python implementation. Server version of the API implementationmust be passed. This can be accomplished with the EClient.serverVersion() function call.
 
 Requests event data from the WSH calendar.
-
-#### Python
-
-```python
-self.reqWshEventData(1101, eventDataObj, serverVersion)
-```
-
-#### Java
-
-```java
-client.reqWshEventData(1101, eventDataObj, serverVersion);
-```
-
-#### C++
-
-```cpp
- m_pClient->reqWshEventData(30002, eventDataObj, serverVersion);
-```
-
-#### C#
-
-```csharp
-client.reqWshEventData(1101, eventDataObj, serverVersion);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqWshEventData(1101, eventDataobj, serverVersion)
-```

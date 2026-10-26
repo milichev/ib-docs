@@ -5,33 +5,3 @@
 #### EClient.reqManagedAccts()
 
 Requests the accounts to which the logged user has access to.
-
-#### Python
-
-```python
-self.reqManagedAccts()
-```
-
-#### Java
-
-```java
-client.reqManagedAccts();
-```
-
-#### C++
-
-```cpp
-m_pClient->reqManagedAccts();
-```
-
-#### C#
-
-```csharp
-client.reqManagedAccts();
-```
-
-#### VB.NET
-
-```vbnet
-client.reqManagedAccts()
-```

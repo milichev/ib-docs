@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { mapPool } from "../concurrency.ts";
 import {
@@ -18,6 +18,7 @@ import {
 } from "../urls.ts";
 import { classifyLinks } from "./discover.ts";
 import { fetchDocsText } from "./fetch.ts";
+import { recoverNotFoundPage } from "./recover.ts";
 
 export type ScrapeResult = {
   ok: boolean;
@@ -37,6 +38,32 @@ function sha256(text: string): string {
 
 async function ensureDirForFile(filePath: string): Promise<void> {
   await mkdir(path.dirname(filePath), { recursive: true });
+}
+
+/**
+ * Scrape always writes a clear cache. If the directory already has entries,
+ * warn and remove them before fetching.
+ */
+export async function resetCacheIfNotEmpty(cacheDir: string): Promise<void> {
+  let names: string[];
+  try {
+    names = await readdir(cacheDir);
+  } catch (err) {
+    const code = (err as NodeJS.ErrnoException).code;
+    if (code === "ENOENT") {
+      await mkdir(cacheDir, { recursive: true });
+      return;
+    }
+    throw err;
+  }
+
+  if (names.length === 0) return;
+
+  console.warn(
+    `Warning: ${cacheDir} is not empty (${names.length} entries). Removing previous contents before scrape.`,
+  );
+  await rm(cacheDir, { recursive: true, force: true });
+  await mkdir(cacheDir, { recursive: true });
 }
 
 async function writeCacheFile(
@@ -89,6 +116,30 @@ async function fetchAndStore(
   const result = await fetchDocsText(requestUrl);
 
   if (!result.ok) {
+    if (kind === "page" && result.error === "Page Not Found") {
+      const recovered = await recoverNotFoundPage(requestUrl);
+      if (recovered?.ok) {
+        const recoveredUrl = normalizeDocsUrl(recovered.finalUrl);
+        const recoveredPath = recoveredUrl
+          ? urlToLocalPath(recoveredUrl)
+          : cachePath;
+        const recoveredSection = recoveredUrl
+          ? sectionOfUrl(recoveredUrl)
+          : section;
+        console.warn(`  recovered ${requestUrl} -> ${recovered.finalUrl}`);
+        await writeCacheFile(cacheDir, recoveredPath, recovered.body);
+        return {
+          url: requestUrl,
+          finalUrl: recovered.finalUrl,
+          kind,
+          section: recoveredSection,
+          cachePath: recoveredPath,
+          sha256: sha256(recovered.body),
+          status: "ok",
+          fetchedAt,
+        };
+      }
+    }
     return {
       url: requestUrl,
       finalUrl: result.finalUrl,
@@ -128,7 +179,7 @@ export async function scrape(options: Partial<ScrapeOptions> = {}): Promise<Scra
     cacheDir: options.cacheDir ?? CACHE_DIR,
   };
 
-  await mkdir(opts.cacheDir, { recursive: true });
+  await resetCacheIfNotEmpty(opts.cacheDir);
 
   const existing = opts.force ? null : await loadExistingManifest(opts.cacheDir);
   const existingOk = new Map<string, ManifestEntry>();
@@ -269,6 +320,12 @@ export async function scrape(options: Partial<ScrapeOptions> = {}): Promise<Scra
   for (const { entry, skipped } of pageEntries) {
     if (skipped) pagesSkipped++;
     entries.push(entry);
+  }
+
+  for (const entry of entries) {
+    if (entry.kind === "page" && entry.status === "error") {
+      console.warn(`  failed: ${entry.url} (${entry.error})`);
+    }
   }
 
   const manifest = buildManifest(entries, sectionPageOrder);

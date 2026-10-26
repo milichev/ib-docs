@@ -1,0 +1,17 @@
+[source](https://www.interactivebrokers.com/docs/openapi.json)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Available APIs</title>
+  <link rel="stylesheet" href="/docs/_astro/inline.GerVO0HLPOqsbf2H.css">
+</head>
+<body>
+  <h1>Available APIs</h1>
+<p class="subtitle">Select an API to view its OpenAPI specification.</p>
+<ul class="api-list"><li><a href="openapi/api-reference.json"><svg class="api-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/></svg><span>API Reference</span></a></li>
+<li><a href="openapi/flex-web-service.json"><svg class="api-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/></svg><span>Flex Web Service</span></a></li></ul>
+</body>
+</html>

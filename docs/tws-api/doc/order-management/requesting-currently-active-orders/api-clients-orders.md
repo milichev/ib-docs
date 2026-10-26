@@ -11,33 +11,3 @@ Because binding the order will change the order ID, this function will be reject
 #### EClient.reqOpenOrders ()
 
 Requests all open orders places by this specific API client (identified by the API client id). For client ID 0, this will bind previous manual TWS orders.
-
-#### Python
-
-```python
-self.reqOpenOrders()
-```
-
-#### Java
-
-```java
-client.reqOpenOrders();
-```
-
-#### C++
-
-```cpp
-m_pClient->reqOpenOrders();
-```
-
-#### C#
-
-```csharp
-client.reqOpenOrders();
-```
-
-#### VB.NET
-
-```vbnet
-client.reqOpenOrders()
-```

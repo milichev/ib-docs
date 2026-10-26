@@ -6,7 +6,7 @@
 
 Interactive Brokers offers market data for our users to manage their trading behavior. Market data can be retrieved in many forms, including tick data, historical bars, and more.
 
-The [Market Data Page](/docs/general/market-data-subscriptions/introduction) should be thoroughly reviewed prior to implementing any Live or Historical data functionality. The API behavior is heavily dependent upon user permissions and account settings.
+The [Market Data Page](../../../general/market-data-subscriptions/introduction.md) should be thoroughly reviewed prior to implementing any Live or Historical data functionality. The API behavior is heavily dependent upon user permissions and account settings.
 
 ## Live Data Limitations
 

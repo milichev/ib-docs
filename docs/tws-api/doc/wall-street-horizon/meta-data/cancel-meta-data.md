@@ -8,33 +8,3 @@
 )
 
 Cancels pending request for WSH metadata.
-
-#### Python
-
-```python
-self.cancelWshMetaData(1100)
-```
-
-#### Java
-
-```java
-client.cancelWshMetaData(1100);
-```
-
-#### C++
-
-```cpp
-m_pClient->cancelWshMetaData(30001);
-```
-
-#### C#
-
-```csharp
-client.cancelWshMetaData(1100);
-```
-
-#### VB.NET
-
-```vbnet
-client.cancelWshMetaData(1100)
-```

@@ -50,6 +50,21 @@ describe("auditClassifyLinks", () => {
     );
   });
 
+  test("keeps openapi.json and openapi.yaml extensions", () => {
+    const text = `
+- [OpenAPI JSON](https://ibkrcampus.com/docs/openapi.json)
+- [OpenAPI YAML](https://ibkrcampus.com/docs/openapi.yaml)
+`;
+    const { pageUrls } = auditClassifyLinks(text);
+    expect(pageUrls).toContain(
+      "https://www.interactivebrokers.com/docs/openapi.json",
+    );
+    expect(pageUrls).toContain(
+      "https://www.interactivebrokers.com/docs/openapi.yaml",
+    );
+    expect(pageUrls.some((u) => u.endsWith(".md"))).toBe(false);
+  });
+
   test("extractRawLinksIndependent finds markdown and bare urls", () => {
     const raw = extractRawLinksIndependent(
       "[a](https://ibkrcampus.com/docs/tws-api/llms.txt) https://www.interactivebrokers.com/docs/x.md",

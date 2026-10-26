@@ -9,36 +9,3 @@ The socket EOF is handled slightly differently in different API languages. For i
 Clients can validate a broken connection with the EWrapper.connectionClosed and EClient.isConnected functions.
 
 Once a connection fails for any reason, the EWrapper.connectionClosed function will be called. This function can be used to build reconnection logic or affirm a system disconnect.
-
-#### Python
-
-```python
-def connectClosed(self):
-    print("API Connection Lost.")
-```
-
-#### Java
-
-```java
-public void connectClosed(){
-	System.out.println("API Connection Lost.");
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::connectClosed()
-{
-    printf("API Connection Lost.");
-}
-```
-
-#### C#
-
-```csharp
-public void connectClosed()
-{
-    Console.WriteLine("API Connection Lost.");
-}
-```

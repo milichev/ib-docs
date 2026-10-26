@@ -20,34 +20,3 @@ An order can be sent to TWS but not transmitted to the IB server by setting the 
 )
 
 Places or modifies an order.
-
-#### Python
-
-```python
-self.placeOrder(orderId, contract, order)
-```
-
-#### Java
-
-```java
-client.placeOrder(nextOrderId++, contract, order);
-```
-
-#### C++
-
-```cpp
-m_pClient->placeOrder(m_orderId++, 
- contract, order);
-```
-
-#### C#
-
-```csharp
-client.placeOrder(orderId, contract, order);
-```
-
-#### VB.NET
-
-```vbnet
-client.placeOrder(orderId, contract, order)
-```

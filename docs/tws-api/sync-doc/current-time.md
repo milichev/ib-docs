@@ -12,14 +12,6 @@ Duration to wait for the response until termination. Function-specific timeout d
 
 ---
 
-```python
-app.get_current_time()
-```
-
 ## Response Object
 
 `get_current_time()` will return the current timestamp as an integer representing an epoch timestamp.
-
-```python
-1760478515
-```

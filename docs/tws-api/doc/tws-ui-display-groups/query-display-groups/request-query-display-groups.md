@@ -8,33 +8,3 @@
 )
 
 Requests all available Display Groups in TWS.
-
-#### Python
-
-```python
-self.queryDisplayGroups(requestId)
-```
-
-#### Java
-
-```java
-client.queryDisplayGroups(requestId);
-```
-
-#### C++
-
-```cpp
-m_pClient->queryDisplayGroups(requestId);
-```
-
-#### C#
-
-```csharp
-client.queryDisplayGroups(requestId);
-```
-
-#### VB.NET
-
-```vbnet
-client.queryDisplayGroups(requestId)
-```

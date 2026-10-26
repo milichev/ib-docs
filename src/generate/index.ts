@@ -8,6 +8,7 @@ import {
   buildSectionIndex,
   type IndexPage,
 } from "./indexes.ts";
+import { isSectionSlug } from "../urls.ts";
 import { resolveLangId } from "./lang.ts";
 import { transformPage } from "./transform.ts";
 
@@ -101,10 +102,11 @@ export async function generate(
     if (e.finalUrl) urlToPath.set(e.finalUrl, e.cachePath);
   }
 
-  // Sections we will index (from filtered pages + sectionPageOrder keys)
+  // Sections we will index (from filtered pages). Ignore file-like "sections"
+  // from older manifests (e.g. openapi.json.md at docs root).
   const sectionSet = new Set<string>();
   for (const e of pages) {
-    if (e.section) sectionSet.add(e.section);
+    if (e.section && isSectionSlug(e.section)) sectionSet.add(e.section);
   }
   if (sectionFilter) {
     sectionSet.clear();
@@ -152,7 +154,7 @@ export async function generate(
     pagesWritten++;
 
     const section = entry.section;
-    if (section) {
+    if (section && isSectionSlug(section)) {
       let map = pagesBySection.get(section);
       if (!map) {
         map = new Map();

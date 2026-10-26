@@ -10,33 +10,3 @@
 )
 
 Requests matching stock symbols.
-
-#### Python
-
-```python
-self.reqMatchingSymbols(reqId, "IBM")
-```
-
-#### Java
-
-```java
-client.reqMatchingSymbols(reqId, "IB");
-```
-
-#### C++
-
-```cpp
-m_pClient->reqMatchingSymbols(reqId, "IBM");
-```
-
-#### C#
-
-```csharp
-client.reqMatchingSymbols(reqId, "IBM");
-```
-
-#### VB.NET
-
-```vbnet
-client.reqMatchingSymbols(reqId, "IBM")
-```

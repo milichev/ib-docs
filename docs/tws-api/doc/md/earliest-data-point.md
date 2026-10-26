@@ -47,36 +47,6 @@ Using 1 will return UTC time in YYYYMMDD-hh:mm:ss format. Using 2 will return ep
 
 ---
 
-#### Python
-
-```python
-self.reqHeadTimeStamp(1, ContractSamples.USStockAtSmart(), "TRADES", 1, 1)
-```
-
-#### Java
-
-```java
-client.reqHeadTimestamp(4003, contract, "TRADES", 1, 1);
-```
-
-#### C++
-
-```cpp
-m_pClient->reqHeadTimestamp(14001, contract, "MIDPOINT", 1, 1);
-```
-
-#### C#
-
-```csharp
-client.reqHeadTimestamp(14001, contract, "TRADES", 1, 1);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqHeadTimestamp(14001, ContractSamples.USStock(), "TRADES", 1, 1)
-```
-
 ---
 
 ## Receive HeadTimeStamp
@@ -97,47 +67,6 @@ Value identifying earliest data date
 
 ---
 
-#### Python
-
-```python
-def headTimestamp(self, reqId, headTimestamp):
-        print(reqId, headTimestamp)
-```
-
-#### Java
-
-```java
-@Override
-public void headTimestamp(int reqId, String headTimestamp) {
-	System.out.println(EWrapperMsgGenerator.headTimestamp(reqId, headTimestamp));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::headTimestamp(int reqId, const std::string& headTimestamp) {
-    printf( "Head time stamp. ReqId: %d - Head time stamp: %s,\n", reqId, headTimestamp.c_str());
-}
-```
-
-#### C#
-
-```csharp
-public void headTimestamp(int reqId, string headTimestamp)
-{
-	Console.WriteLine("Head time stamp. Request Id: {0}, Head time stamp: {1}", reqId, headTimestamp);
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub headTimestamp(requestId As Integer, timeStamp As String) Implements IBApi.EWrapper.headTimestamp
-	Console.WriteLine("Head time stamp. Request Id: {0}, Head time stamp: {1}", requestId, timeStamp)
-End Sub
-```
-
 ---
 
 ## Cancel HeadTimeStamp
@@ -151,35 +80,5 @@ A reqHeadTimeStamp request can be cancelled with EClient.cancelHeadTimestamp
 Request identifier used to track data.
 
 ---
-
-#### Python
-
-```python
-self.cancelHeadTimeStamp(14001)
-```
-
-#### Java
-
-```java
-client.cancelHeadTimestamp(4003);
-```
-
-#### C++
-
-```cpp
-m_pClient->cancelHeadTimestamp(14001);
-```
-
-#### C#
-
-```csharp
-client.cancelHeadTimestamp(14001);
-```
-
-#### VB.NET
-
-```vbnet
-client.cancelHeadTimestamp(14001)
-```
 
 ---

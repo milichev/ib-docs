@@ -7,6 +7,20 @@ export type FetchResult =
 const MAX_REDIRECTS = 8;
 const MAX_RETRIES = 3;
 
+/**
+ * Fern serves missing docs as HTTP 200 text/plain with this body,
+ * while real markdown pages are text/markdown.
+ */
+export function isNotFoundPage(body: string): boolean {
+  const lines = body.replace(/^\uFEFF/, "").split(/\r?\n/);
+  let i = 0;
+  while (i < lines.length && lines[i]!.trim() === "") i++;
+  if (lines[i]?.trim() !== "# Page Not Found") return false;
+  i++;
+  while (i < lines.length && lines[i]!.trim() === "") i++;
+  return lines[i]?.trim() === "This page does not exist.";
+}
+
 function sleep(ms: number): Promise<void> {
   return new Promise((r) => setTimeout(r, ms));
 }
@@ -108,6 +122,14 @@ async function fetchOnce(requestUrl: string): Promise<FetchResult> {
     }
 
     const body = await res.text();
+    if (isNotFoundPage(body)) {
+      return {
+        ok: false,
+        error: "Page Not Found",
+        finalUrl: current,
+        status: 404,
+      };
+    }
     return { ok: true, body, finalUrl: current, status: res.status };
   }
 

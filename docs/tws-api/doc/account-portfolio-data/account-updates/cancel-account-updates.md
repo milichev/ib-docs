@@ -13,33 +13,3 @@ Once the subscription to account updates is no longer needed, it can be cancelle
 **acctCode:** String. The account id (i.e. U123456) for which the information is requested.
 
 )
-
-#### Python
-
-```python
-self.reqAccountUpdates(False, self.account)
-```
-
-#### Java
-
-```java
-client.reqAccountUpdates(false, "U1234567");
-```
-
-#### C++
-
-```cpp
-m_pClient->reqAccountUpdates(true, "U150462");
-```
-
-#### C#
-
-```csharp
-client.reqAccountUpdates(true, "U1234567");
-```
-
-#### VB.NET
-
-```vbnet
-client.reqAccountUpdates(True, "U1234567")
-```

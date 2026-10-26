@@ -70,36 +70,6 @@ This is a field used exclusively for internal use.
 
 ---
 
-#### Python
-
-```python
-self.reqHistoricalData(4102, contract, queryTime, "1 M", "1 day", "MIDPOINT", 1, 1, False, [])
-```
-
-#### Java
-
-```java
-client.reqHistoricalData(4002, contract, formatted, "10 D", "1 min", "TRADES", 1, 1, false, null);
-```
-
-#### C++
-
-```cpp
-m_pClient->reqHistoricalData(4001, contract, queryTime, "1 M", "1 day", "MIDPOINT", 1, 1, false, TagValueListSPtr());
-```
-
-#### C#
-
-```csharp
-client.reqHistoricalData(4001, contract, queryTime, "1 M", "1 day", "MIDPOINT", 1, 1, false, null);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqHistoricalData(4001, contract, queryTime, "1 M", "1 day", "MIDPOINT", 1, 1, False, Nothing)
-```
-
 ---
 
 ## Receive Historical Bars
@@ -120,50 +90,6 @@ The OHLC historical data Bar. The time zone of the bar is the time zone chosen o
 
 ---
 
-#### Python
-
-```python
-def historicalData(self, reqId:int, bar: BarData):
-	print("HistoricalData. ReqId:", reqId, "BarData.", bar)
-```
-
-#### Java
-
-```java
-@Override
-public void historicalData(int reqId, Bar bar) {
-	System.out.println("HistoricalData:  " + EWrapperMsgGenerator.historicalData(reqId, bar.time(), bar.open(), bar.high(), bar.low(), bar.close(), bar.volume(), bar.count(), bar.wap()));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::historicalData(TickerId reqId, const Bar& bar) {
-    printf( "HistoricalData. ReqId: %ld - Date: %s, Open: %s, High: %s, Low: %s, Close: %s, Volume: %s, Count: %s, WAP: %s\n", reqId, bar.time.c_str(), 
-        Utils::doubleMaxString(bar.open).c_str(), Utils::doubleMaxString(bar.high).c_str(), Utils::doubleMaxString(bar.low).c_str(), Utils::doubleMaxString(bar.close).c_str(), 
-        decimalStringToDisplay(bar.volume).c_str(), Utils::intMaxString(bar.count).c_str(), decimalStringToDisplay(bar.wap).c_str());
-}
-```
-
-#### C#
-
-```csharp
-public virtual void historicalData(int reqId, Bar bar)
-{
-	Console.WriteLine("HistoricalData. " + reqId + " - Time: " + bar.Time + ", Open: " + Util.DoubleMaxString(bar.Open) + ", High: " + Util.DoubleMaxString(bar.High) + ", Low: " + Util.DoubleMaxString(bar.Low) + ", Close: " + Util.DoubleMaxString(bar.Close) + ", Volume: " + Util.DecimalMaxString(bar.Volume) + ", Count: " + Util.IntMaxString(bar.Count) + ", WAP: " + Util.DecimalMaxString(bar.WAP));
-}
-```
-
-#### VB.NET
-
-```vbnet
-public virtual void historicalData(int reqId, Bar bar)
-{
-	Console.WriteLine("HistoricalData. " + reqId + " - Time: " + bar.Time + ", Open: " + Util.DoubleMaxString(bar.Open) + ", High: " + Util.DoubleMaxString(bar.High) + ", Low: " + Util.DoubleMaxString(bar.Low) + ", Close: " + Util.DoubleMaxString(bar.Close) + ", Volume: " + Util.DecimalMaxString(bar.Volume) + ", Count: " + Util.IntMaxString(bar.Count) + ", WAP: " + Util.DecimalMaxString(bar.WAP));
-}
-```
-
 ---
 
 ## Updating Historical Bars
@@ -183,52 +109,6 @@ Request identifier used to track data.
 The OHLC historical data Bar. The time zone of the bar is the time zone chosen on the TWS login screen.
 
 ---
-
-#### Python
-
-```python
-def historicalDataUpdate(self, reqId: int, bar: BarData):
-	print("HistoricalDataUpdate. ReqId:", reqId, "BarData.", bar)
-```
-
-#### Java
-
-```java
-@Override
-public void historicalDataUpdate(int reqId, Bar bar) {
-	System.out.println("HistoricalDataUpdate. " + EWrapperMsgGenerator.historicalData(reqId, bar.time(), bar.open(), bar.high(), bar.low(), bar.close(), bar.volume(), bar.count(), bar.wap()));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::historicalDataUpdate(TickerId reqId, const Bar& bar) {
-    printf( "HistoricalDataUpdate. ReqId: %ld - Date: %s, Open: %s, High: %s, Low: %s, Close: %s, Volume: %s, Count: %s, WAP: %s\n", reqId, bar.time.c_str(), 
-        Utils::doubleMaxString(bar.open).c_str(), Utils::doubleMaxString(bar.high).c_str(), Utils::doubleMaxString(bar.low).c_str(), Utils::doubleMaxString(bar.close).c_str(), 
-        decimalStringToDisplay(bar.volume).c_str(), Utils::intMaxString(bar.count).c_str(), decimalStringToDisplay(bar.wap).c_str());
-}
-```
-
-#### C#
-
-```csharp
-public void historicalDataUpdate(int reqId, Bar bar)
-{
-	Console.WriteLine("HistoricalDataUpdate. " + reqId + " - Time: " + bar.Time + ", Open: " + Util.DoubleMaxString(bar.Open) + ", High: " + Util.DoubleMaxString(bar.High) + 
-		", Low: " + Util.DoubleMaxString(bar.Low) + ", Close: " + Util.DoubleMaxString(bar.Close) + ", Volume: " + Util.DecimalMaxString(bar.Volume) + 
-		", Count: " + Util.IntMaxString(bar.Count) + ", WAP: " + Util.DecimalMaxString(bar.WAP));
-}
-```
-
-#### VB.NET
-
-```vbnet
-public void historicalDataUpdate(int reqId, Bar bar)
-{
-	Console.WriteLine("HistoricalDataUpdate. " + reqId + " - Time: " + bar.Time + ", Open: " + Util.DoubleMaxString(bar.Open) + ", High: " + Util.DoubleMaxString(bar.High) + ", Low: " + Util.DoubleMaxString(bar.Low) + ", Close: " + Util.DoubleMaxString(bar.Close) + ", Volume: " + Util.DecimalMaxString(bar.Volume) + ", Count: " + Util.IntMaxString(bar.Count) + ", WAP: " + Util.DecimalMaxString(bar.WAP));
-}
-```
 
 ---
 
@@ -275,48 +155,6 @@ Returns the starting time of the first historical data bar.
 Returns the end time of the last historical data bar.
 
 ---
-
-#### Python
-
-```python
-def historicalDataEnd(self, reqId: int, start: str, end: str):
-	print("HistoricalDataEnd. ReqId:", reqId, "from", start, "to", end)
-```
-
-#### Java
-
-```java
-@Override
-public void historicalDataEnd(int reqId, String startDateStr, String endDateStr) {
-	System.out.println("HistoricalDataEnd. " + EWrapperMsgGenerator.historicalDataEnd(reqId, startDateStr, endDateStr));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::historicalDataEnd(int reqId, const std::string& startDateStr, const std::string& endDateStr) {
-    std::cout << "HistoricalDataEnd. ReqId: " << reqId << " - Start Date: " << startDateStr << ", End Date: " << endDateStr << std::endl;   
-}
-```
-
-#### C#
-
-```csharp
-public virtual void historicalDataEnd(int reqId, string startDate, string endDate)
-{
-	Console.WriteLine("HistoricalDataEnd - "+reqId+" from "+startDate+" to "+endDate);
-}
-```
-
-#### VB.NET
-
-```vbnet
-public virtual void historicalDataEnd(int reqId, string startDate, string endDate)
-        {
-            Console.WriteLine("HistoricalDataEnd - "+reqId+" from "+startDate+" to "+endDate);
-        }
-```
 
 ---
 

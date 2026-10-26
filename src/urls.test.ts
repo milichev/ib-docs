@@ -2,7 +2,9 @@ import { describe, expect, test } from "bun:test";
 import {
   isLlmsUrl,
   isSectionRoot,
+  isSectionSlug,
   normalizeDocsUrl,
+  sectionOfUrl,
   toPageUrl,
   urlToLocalPath,
 } from "./urls.ts";
@@ -70,6 +72,14 @@ describe("toPageUrl / classification", () => {
     const u = normalizeDocsUrl("/docs/tws-api/doc/introduction")!;
     expect(toPageUrl(u)?.pathname).toBe("/docs/tws-api/doc/introduction.md");
   });
+
+  test("does not append .md onto an existing file extension", () => {
+    const json = normalizeDocsUrl("https://ibkrcampus.com/docs/openapi.json")!;
+    const yaml = normalizeDocsUrl("https://ibkrcampus.com/docs/openapi.yaml")!;
+    expect(toPageUrl(json)?.pathname).toBe("/docs/openapi.json");
+    expect(toPageUrl(yaml)?.pathname).toBe("/docs/openapi.yaml");
+    expect(urlToLocalPath(toPageUrl(json)!)).toBe("openapi.json");
+  });
 });
 
 describe("urlToLocalPath", () => {
@@ -81,5 +91,23 @@ describe("urlToLocalPath", () => {
   test("root llms", () => {
     const u = normalizeDocsUrl("/docs/llms.txt")!;
     expect(urlToLocalPath(u)).toBe("llms.txt");
+  });
+});
+
+describe("sectionOfUrl", () => {
+  test("known nested page", () => {
+    const u = normalizeDocsUrl("/docs/tws-api/doc/introduction.md")!;
+    expect(sectionOfUrl(u)).toBe("tws-api");
+  });
+
+  test("root-level file is not a section", () => {
+    const u = normalizeDocsUrl("/docs/openapi.json.md")!;
+    expect(isSectionSlug("openapi.json.md")).toBe(false);
+    expect(sectionOfUrl(u)).toBeNull();
+  });
+
+  test("root llms has no section", () => {
+    const u = normalizeDocsUrl("/docs/llms.txt")!;
+    expect(sectionOfUrl(u)).toBeNull();
   });
 });

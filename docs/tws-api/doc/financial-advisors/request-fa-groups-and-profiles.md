@@ -9,36 +9,6 @@
 
 Requests the FA configuration as set in TWS for the given FA Group or Profile.
 
-#### Python
-
-```python
-self.requestFA(1)
-```
-
-#### Java
-
-```java
-client.requestFA(1);
-```
-
-#### C++
-
-```cpp
-m_pClient->requestFA(1);
-```
-
-#### C#
-
-```csharp
-client.requestFA(1);
-```
-
-#### VB.NET
-
-```vbnet
-client.requestFA(1)
-```
-
 #### requestFA FA Data Types
 
 | Type Code | Type Name       | Description                                                                                                          |

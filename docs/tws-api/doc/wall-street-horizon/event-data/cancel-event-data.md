@@ -9,33 +9,3 @@
 )
 
 Cancels pending WSH event data request.
-
-#### Python
-
-```python
-self.cancelWshEventData(1101, eventDataObj)
-```
-
-#### Java
-
-```java
-client.cancelWshEventData(1101, eventDataObj);
-```
-
-#### C++
-
-```cpp
- m_pClient->cancelWshEventData(30002, eventDataObj);
-```
-
-#### C#
-
-```csharp
-client.cancelWshEventData(1101, eventDataObj);
-```
-
-#### VB.NET
-
-```vbnet
-client.cancelWshEventData(1101, eventDataobj)
-```

@@ -1,0 +1,44 @@
+[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/watchlists/delete-a-watchlist)
+
+# Delete a Watchlist
+
+Permanently delete a specific watchlist for all platforms.
+
+`DELETE /iserver/watchlist`
+
+#### Request Object
+
+**id:** String. Required\
+Include the watchlist ID you wish to delete.
+
+#### Abap
+
+```abap
+curl \
+--url {{baseUrl}}/iserver/watchlist?id=1234 \
+--request DELETE
+```
+
+#### Response Object
+
+**Data:** Object.\
+Returns the data about the deleted watchlist.
+
+**deleted:** String.\
+Returns the ID for the deleted watchlist.
+
+**action:** String.\
+Always returns "context".
+
+**MID:** String.\
+Returns the id for the number of times /iserver/watchlist was called this session.
+
+```
+{
+  "data": {
+    "deleted": "1234"
+  },
+  "action": "context",
+  "MID": "2"
+}
+```

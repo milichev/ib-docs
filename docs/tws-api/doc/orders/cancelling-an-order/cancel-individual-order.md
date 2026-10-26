@@ -12,33 +12,3 @@
 Cancels an active order placed by from the same API client ID.
 
 **Note:** API clients cannot cancel individual orders placed by other clients. Only reqGlobalCancel is available.
-
-#### Python
-
-```python
-self.cancelOrder(orderId, OrderCancel())
-```
-
-#### Java
-
-```java
-client.cancelOrder(cancelID, new OrderCancel());
-```
-
-#### C++
-
-```cpp
-m_pClient->cancelOrder(m_orderId-1, OrderCancel());
-```
-
-#### C#
-
-```csharp
-client.cancelOrder(nextOrderId - 1, OrderCancel());
-```
-
-#### VB.NET
-
-```vbnet
-client.cancelOrder(nextOrderId - 1, OrderCancel)
-```

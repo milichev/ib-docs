@@ -10,23 +10,6 @@ The content shown here is an example of what the Sync Wrapper structure looks li
 
 #### Initialize our connection
 
-```python
-# Import our Sync Wrapper and Contract objects
-from ibapi.sync_wrapper import *
-from datetime import datetime
-
-# Instantiate the reference for our sync class
-app = TWSSyncWrapper(timeout=30)
-
-# make a connection to Trader Workstation
-# In this case, we're connecting on Localhost with port 7496 and Client ID 0.
-if not app.connect_and_start(host="127.0.0.1", port=7496, client_id=8675309):
-    print("Failed to connect to TWS")
-    exit(1)
-else:
-    print("Connected to TWS")
-```
-
 This will display `"Connected to TWS"` in our console.
 
 ```
@@ -46,18 +29,6 @@ For those familiar with the standard Trader Workstation API, this function call 
 Now that the session is connect, we are able to start working with the API.
 In this scenario, we will define and qualify a Contract object to trade. Here we are trading `AAPL`, though the procedure can be interchanged with any [supported product at Interactive Brokers](https://www.interactivebrokers.com/en/trading/products-exchanges.php#/).
 
-```python
-    # Create a contract class reference.
-    contract = Contract()
-    contract.symbol = "AAPL"
-    contract.secType = "STK"
-    contract.exchange = "SMART"
-    contract.currency = "USD"
-
-    contract_details = app.get_contract_details(contract)
-    print(contract_details)
-```
-
 Contract details requests will return all contracts the match the details of our contract object in a list.
 
 ```
@@ -65,11 +36,6 @@ Contract details requests will return all contracts the match the details of our
 ```
 
 Because a list is returned, we are taking the first (or 0 index) contract returned.
-
-```python
-    aapl_contract = contract_details[0].contract
-    print(aapl_contract)
-```
 
 This returns a single qualified contract which can be used in market data requests or order submissions.
 
@@ -84,11 +50,6 @@ We can save time in future sessions by storing information like the ConID and Ex
 With a qualified contract, we begin acting on the behavior. In this case, we need to find the current price of the contract prior to submitting a trade.
 This is done with `get_market_data_snapshot()` and retrieving the [tick type](../doc/md/streaming-data.md#available-tick-types) from the returned list.
 
-```python
-    market_data = app.get_market_data_snapshot(aapl_contract)
-    print(market_data)
-```
-
 This will return a dictionary of [tick types](../doc/md/streaming-data.md#available-tick-types).
 
 ```
@@ -100,23 +61,7 @@ This will return a dictionary of [tick types](../doc/md/streaming-data.md#availa
 With the price of the instrument in hand we can make an informed decision to price our trade.
 We would start by defining the attributes of our order object, including those required parameters such as `action`, `orderType`, `totalQuantity`, `tif`, and because of our `orderType`, we'll also assign `lmtPrice`. The `lmtPrice` is precisely why the market data was needed in this scenario.
 
-```python
-    order = Order()
-    order.action = "BUY"
-    order.orderType = "LMT"
-    order.totalQuantity = 100
-    order.lmtPrice = round(market_data["LAST"],2)
-    order.tif = "DAY"
-    order.outsideRth = True
-```
-
 The `Order` class can then be submitted to the market using the `place_order_sync` function call.
-
-```python
-    order_status = app.place_order_sync(contract, order)
-    print(order_status)
-    oid = order_status["orderId"]
-```
 
 The returned order status object includes details like our current `'status'` and `orderId` which can be used to track the order, or cancel it if need be.
 
@@ -128,56 +73,6 @@ The returned order status object includes details like our current `'status'` an
 
 With the session out of the way, all that is left is to disconnect our session to avoid overlapping with the connection in the future.
 
-```python
-    app.disconnect_and_stop()
-```
-
 #### Full Script
 
 The contents below are the full script referenced above to help test the complete example.
-
-```python
-    # Import our Sync Wrapper and Contract objects
-    from ibapi.sync_wrapper import *
-
-    # Instantiate the reference for our sync class
-    app = TWSSyncWrapper(timeout=30)
-
-    # make a connection to Trader Workstation
-    # In this case, we're connecting on Localhost with port 7496 and Client ID 0.
-    if not app.connect_and_start(host="127.0.0.1", port=7497, client_id=0):
-    print("Failed to connect to TWS")
-    exit(1)
-    else:
-    print("Connected to TWS")
-
-    contract = Contract()
-    contract.symbol = "AAPL"
-    contract.secType = "STK"
-    contract.exchange = "SMART"
-    contract.primaryExchange = "ISLAND"
-    contract.currency = "USD"
-
-    contract_details = app.get_contract_details(contract)
-    print(contract_details)
-    aapl_contract = contract_details[0].contract
-    print(aapl_contract)
-
-    market_data = app.get_market_data_snapshot(aapl_contract)
-    print(market_data)
-
-    order = Order()
-    order.action = "BUY"
-    order.orderType = "LMT"
-    order.totalQuantity = 100
-    order.lmtPrice = round(market_data["LAST"],2)
-    order.tif = "DAY"
-    order.outsideRth = True
-
-    order_status = app.place_order_sync(contract, order)
-    print(order_status)
-    oid = order_status["orderId"]
-
-
-    app.disconnect_and_stop()
-```

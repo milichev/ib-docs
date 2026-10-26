@@ -24,23 +24,6 @@ Duration to wait for the response until termination. Uses the default timeout va
 
 ---
 
-```python
-contract = Contract()
-contract.symbol = "AAPL"
-contract.secType = "STK"
-contract.exchange = "SMART"
-contract.primaryExchange = "NASDAQ"
-contract.currency = "USD"
-
-order = Order()
-order.action = "BUY"
-order.orderType = "LMT"
-order.totalQuantity = 100
-order.lmtPrice = 250
-
-app.place_order_sync(contract, order)
-```
-
 ## Response Object
 
 Returns a dictionary containing the order status at the time of submission.
@@ -118,33 +101,3 @@ If an order is capped due to it exceeding the market price and the price is auto
 ```
 
 ## Example Implementation
-
-```python
-from ibapi.sync_wrapper import TWSSyncWrapper
-app = TWSSyncWrapper(timeout=30)
-
-# Connect to TWS
-if not app.connect_and_start(host="127.0.0.1", port=7496, client_id=0):
-    # If the connection fails and False is returned, notify the user and gracefully exit the application.
-    print("Failed to connect to TWS")
-    exit(1)
-else:
-    # If the connection succeeded, notify the user.
-    print("Connected to TWS")
-
-contract = Contract()
-contract.symbol = "AAPL"
-contract.secType = "STK"
-contract.exchange = "SMART"
-contract.primaryExchange = "NASDAQ"
-contract.currency = "USD"
-
-order = Order()
-order.action = "BUY"
-order.orderType = "LMT"
-order.totalQuantity = 100
-order.lmtPrice = 350
-
-aapl_order = app.place_order_sync(contract, order)
-AAPL_ORDER_ID = aapl_order["orderId"]
-```

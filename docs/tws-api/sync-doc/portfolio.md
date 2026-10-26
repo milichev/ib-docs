@@ -18,10 +18,6 @@ Duration to wait for the response until termination. Function-specific timeout d
 
 ---
 
-```python
-app.get_portfolio(account_code="U1234567")
-```
-
 ## Response Object
 
 Returns a dictionary keyed by account ID. Each value is a list of position objects for all contracts held in that account.
@@ -87,20 +83,3 @@ The account identifier that holds the given position.
 ```
 
 ## Example Implementation
-
-```python
-from ibapi.sync_wrapper import TWSSyncWrapper
-app = TWSSyncWrapper(timeout=30)
-
-# Connect to TWS
-if not app.connect_and_start(host="127.0.0.1", port=7496, client_id=0):
-    # If the connection fails and False is returned, notify the user and gracefully exit the application.
-    print("Failed to connect to TWS")
-    exit(1)
-else:
-    # If the connection succeeded, notify the user.
-    print("Connected to TWS")
-
-for portfolio in app.get_portfolio():
-    print(portfolio)
-```

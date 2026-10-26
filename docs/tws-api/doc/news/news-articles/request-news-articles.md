@@ -14,34 +14,3 @@
 )
 
 Requests news article body given articleId.
-
-#### Python
-
-```python
-self.reqNewsArticle(10002,"BRFG", "BRFG$04fb9da2", [])
-```
-
-#### Java
-
-```java
-client.reqNewsArticle(10002, "BZ", "BZ$04507322", null);
-```
-
-#### C++
-
-```cpp
-TagValueList* list = new TagValueList();
-m_pClient->reqNewsArticle(12001, "MST", "MST$06f53098", TagValueListSPtr(list));
-```
-
-#### C#
-
-```csharp
-client.reqNewsArticle(12002, "BZ", "BZ$04507322", null);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqNewsArticle(10002, "BZ", "BZ$04507322", Nothing)
-```

@@ -8,33 +8,3 @@
 )
 
 Cancels subscription for real time updated daily PnL params reqId
-
-#### Python
-
-```python
-self.cancelPnL(reqId)
-```
-
-#### Java
-
-```java
-client.cancelPnL(reqId);
-```
-
-#### C++
-
-```cpp
-m_pClient->cancelPnL(7001);
-```
-
-#### C#
-
-```csharp
-client.cancelPnL(reqId);
-```
-
-#### VB.NET
-
-```vbnet
-client.cancelPnL(reqId)
-```

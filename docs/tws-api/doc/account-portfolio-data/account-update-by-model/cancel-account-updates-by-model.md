@@ -13,33 +13,3 @@
 **ledgerAndNLV:** bool. Specify false to cancel your subscription.
 
 )
-
-#### Python
-
-```python
-self.reqAccountUpdatesMulti(reqId, self.account, "", False)
-```
-
-#### Java
-
-```java
-client.reqAccountUpdatesMulti(reqId, "U1234567", "", false);
-```
-
-#### C++
-
-```cpp
-m_pClient->reqAccountUpdatesMulti(reqId, "U1234567", "", true);
-```
-
-#### C#
-
-```csharp
-client.reqAccountUpdatesMulti(reqId, "U1234567", "", false);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqAccountUpdatesMulti(reqId, "U1234567", "", False)
-```

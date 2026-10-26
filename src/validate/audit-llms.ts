@@ -112,6 +112,12 @@ function isLlmsPath(pathname: string): boolean {
   return pathname.endsWith("/llms.txt") || pathname === "/docs/llms.txt";
 }
 
+function hasFileExtension(pathname: string): boolean {
+  const base = pathname.split("/").pop() ?? "";
+  const dot = base.lastIndexOf(".");
+  return dot > 0 && dot < base.length - 1;
+}
+
 function isSectionRootPath(pathname: string): boolean {
   const parts = pathname.replace(/^\/docs\/?/, "").split("/").filter(Boolean);
   return parts.length === 1 && KNOWN_SECTION_SET.has(parts[0]!);
@@ -146,7 +152,8 @@ export function auditClassifyLinks(text: string): AuditedLinks {
     if (isSectionRootPath(pathname)) continue;
 
     let pagePath = pathname;
-    if (!pagePath.endsWith(".md")) {
+    // Match scrape: append .md only when the path has no file extension.
+    if (!hasFileExtension(pagePath)) {
       pagePath = `${pagePath}.md`;
     }
     if (pagePath.includes("/.md")) continue;
@@ -161,7 +168,7 @@ export function auditClassifyLinks(text: string): AuditedLinks {
   return { llmsUrls, pageUrls };
 }
 
-/** Section slug from a canonical docs URL, or null for root llms. */
+/** Section slug from a canonical docs URL, or null for root llms / root files. */
 export function sectionOfCanonicalUrl(url: string): string | null {
   let pathname: string;
   try {
@@ -171,5 +178,7 @@ export function sectionOfCanonicalUrl(url: string): string | null {
   }
   const rest = pathname.replace(/^\/docs\/?/, "");
   if (!rest || rest === "llms.txt") return null;
-  return rest.split("/")[0] ?? null;
+  const first = rest.split("/")[0];
+  if (!first || first.includes(".")) return null;
+  return first;
 }

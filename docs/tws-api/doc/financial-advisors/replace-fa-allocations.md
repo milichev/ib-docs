@@ -11,36 +11,6 @@
 **xml:** String. XML configuration for allocation profiles or group. See [Allocation Method XML Format](allocation-method-xml-format/introduction.md) for more details.\
 )
 
-#### Python
-
-```python
-self.replaceFa(reqId, 1, xml)
-```
-
-#### Java
-
-```java
-client.replaceFa(reqId, 1, xml);
-```
-
-#### C++
-
-```cpp
-m_pClient->replaceFa(reqId, 1, xml);
-```
-
-#### C#
-
-```csharp
-client.replaceFa(reqId, 1, xml);
-```
-
-#### VB.NET
-
-```vbnet
-client.replaceFa(reqId, 1, xml)
-```
-
 #### replaceFA FA Data Types
 
 | replaceFA Type Code | Type Name       | Description                                                                                                          |
@@ -63,45 +33,3 @@ In order to confirm that your FA changes were saved, you may wait for the [EWrap
 )
 
 Marks the ending of the replaceFA reception.
-
-#### Python
-
-```python
-def replaceFAEnd(self, reqId: int, text: str):
-    super().replaceFAEnd(reqId, text)
-    print("ReplaceFAEnd.", "ReqId:", reqId, "Text:", text)
-```
-
-#### Java
-
-```java
-@Override
-public void replaceFAEnd(int reqId, String text) {
-        System.out.println(EWrapperMsgGenerator.replaceFAEnd(reqId, text));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::replaceFAEnd(int reqId, const std::string& text) {
-    printf("Replace FA End. Request: %d, Text:%s\n", reqId, text.c_str());
-}
-```
-
-#### C#
-
-```csharp
-public virtual void replaceFAEnd(int reqId, string text)
-{
-    Console.WriteLine("Replace FA End. ReqId: " + reqId + ", Text: " + text + "\n");
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub replaceFAEnd(reqId As Integer, text As String) Implements IBApi.EWrapper.replaceFAEnd
-    Console.WriteLine("replaceFAEnd. ReqId: {0}, Text: {1}", reqId, text)
-End Sub
-```

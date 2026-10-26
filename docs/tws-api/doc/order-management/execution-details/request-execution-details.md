@@ -10,33 +10,3 @@
 )
 
 Requests current day's (since midnight) executions and commission report matching the filter. Only the current day's executions can be retrieved.
-
-#### Python
-
-```python
-self.reqExecutions(10001, ExecutionFilter())
-```
-
-#### Java
-
-```java
-client.reqExecutions(10001, new ExecutionFilter());
-```
-
-#### C++
-
-```cpp
-m_pClient->reqExecutions(10001, ExecutionFilter());
-```
-
-#### C#
-
-```csharp
-client.reqExecutions(10001, new ExecutionFilter());
-```
-
-#### VB.NET
-
-```vbnet
-client.reqExecutions(10001, New ExecutionFilter())
-```

@@ -18,10 +18,6 @@ Duration to wait for the response until termination. Function-specific timeout d
 
 ---
 
-```python
-app.get_executions(exec_filter)
-```
-
 ## Response Object
 
 Returns a list of execution objects. Each item in the list contains the associated contract and execution details.
@@ -45,20 +41,3 @@ Returns a list of execution objects. Each item in the list contains the associat
 ```
 
 ## Example Implementation
-
-```python
-from ibapi.sync_wrapper import TWSSyncWrapper
-app = TWSSyncWrapper(timeout=30)
-
-# Connect to TWS
-if not app.connect_and_start(host="127.0.0.1", port=7496, client_id=0):
-    # If the connection fails and False is returned, notify the user and gracefully exit the application.
-    print("Failed to connect to TWS")
-    exit(1)
-else:
-    # If the connection succeeded, notify the user.
-    print("Connected to TWS")
-
-for exec in app.get_executions():
-   print(f'{exec["execution"].side} {exec["execution"].shares} @ {exec["execution"].avgPrice} {exec["contract"].symbol} @ {exec["execution"].exchange}')
-```

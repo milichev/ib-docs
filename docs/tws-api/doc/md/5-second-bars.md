@@ -8,7 +8,7 @@ Real time and historical data functionality is combined through the `EClient.req
 
 > **Note**
 >
-> RealTimeBars also adheres to [Market Data Lines](/docs/general/market-data-subscriptions/market-data-lines/introduction) and [Live Data Limitations](introduction.md#live-data-limitations) limitations and requirements.
+> RealTimeBars also adheres to [Market Data Lines](../../../general/market-data-subscriptions/market-data-lines/introduction.md) and [Live Data Limitations](introduction.md#live-data-limitations) limitations and requirements.
 
 ## Request 5 Second Bars
 
@@ -53,36 +53,6 @@ Set to 0 to obtain the data which was also generated outside of the Regular Trad
 Internal use only.
 
 ---
-
-#### Python
-
-```python
-self.reqRealTimeBars(3001, contract, 5, "MIDPOINT", 0, [])
-```
-
-#### Java
-
-```java
-client.reqRealTimeBars(3001, contract, 5, "MIDPOINT", true, null);
-```
-
-#### C++
-
-```cpp
-m_pClient->reqRealTimeBars(3001, contract, 5, "MIDPOINT", true, TagValueListSPtr());
-```
-
-#### C#
-
-```csharp
-client.reqRealTimeBars(3001, contract, 5, "MIDPOINT", true, null);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqRealTimeBars(3001, contract, 5, "MIDPOINT", True, Nothing)
-```
 
 ---
 
@@ -146,47 +116,6 @@ The number of trades during the bar's timespan (only available for TRADES).
 
 ---
 
-#### Python
-
-```python
-def realtimeBar(self, reqId: TickerId, time:int, open_: float, high: float, low: float, close: float, volume: Decimal, wap: Decimal, count: int):
-	print("RealTimeBar. TickerId:", reqId, RealTimeBar(time, -1, open_, high, low, close, volume, wap, count))
-```
-
-#### Java
-
-```java
-@Override
-public void realtimeBar(int reqId, long time, double open, double high, double low, double close, Decimal volume, Decimal wap, int count) {
-	System.out.println("RealTimeBar: " + EWrapperMsgGenerator.realtimeBar(reqId, time, open, high, low, close, volume, wap, count));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::realtimeBar(TickerId reqId, long time, double open, double high, double low, double close, Decimal volume, Decimal wap, int count) {
-    printf( "RealTimeBars. %ld - Time: %s, Open: %s, High: %s, Low: %s, Close: %s, Volume: %s, Count: %s, WAP: %s\n", reqId, Utils::longMaxString(time).c_str(), Utils::doubleMaxString(open).c_str(), Utils::doubleMaxString(high).c_str(), Utils::doubleMaxString(low).c_str(), Utils::doubleMaxString(close).c_str(), decimalStringToDisplay(volume).c_str(), Utils::intMaxString(count).c_str(), decimalStringToDisplay(wap).c_str());
-}
-```
-
-#### C#
-
-```csharp
-public virtual void realtimeBar(int reqId, long time, double open, double high, double low, double close, decimal volume, decimal WAP, int count)
-{
-	Console.WriteLine("RealTimeBars. " + reqId + " - Time: " + Util.LongMaxString(time) + ", Open: " + Util.DoubleMaxString(open) + ", High: " + Util.DoubleMaxString(high) +  ", Low: " + Util.DoubleMaxString(low) + ", Close: " + Util.DoubleMaxString(close) + ", Volume: " + Util.DecimalMaxString(volume) + ", Count: " + Util.IntMaxString(count) + ", WAP: " + Util.DecimalMaxString(WAP));
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub realtimeBar(reqId As Integer, time As Long, open As Double, high As Double, low As Double, close As Double, volume As Decimal, WAP As Decimal, count As Integer) Implements IBApi.EWrapper.realtimeBar
-	Console.WriteLine("RealTimeBars. " & reqId & " - Time: " & Util.LongMaxString(time) & ", Open: " & Util.DoubleMaxString(open) & ", High: " & Util.DoubleMaxString(high) & ", Low: " & Util.DoubleMaxString(low) & ", Close: " & Util.DoubleMaxString(close) & ", Volume: " & Util.DecimalMaxString(volume) & ", Count: " & Util.IntMaxString(count) & ", WAP: " & Util.DecimalMaxString(WAP))
-End Sub
-```
-
 ---
 
 ## Cancel 5 Second Bars
@@ -200,35 +129,5 @@ Cancels Real Time Bars' subscription.
 Request identifier used to track data.
 
 ---
-
-#### Python
-
-```python
-self.cancelRealTimeBars(3001)
-```
-
-#### Java
-
-```java
-client.cancelRealTimeBars(3001);
-```
-
-#### C++
-
-```cpp
-m_pClient->cancelRealTimeBars(3001);
-```
-
-#### C#
-
-```csharp
-client.cancelRealTimeBars(3001);
-```
-
-#### VB.NET
-
-```vbnet
-client.cancelRealTimeBars(3001)
-```
 
 ---

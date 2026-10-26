@@ -30,33 +30,3 @@ For example, if your action is "exercise" and the option is not in-the-money, by
 Exercises an options contract.
 
 **Note:** this function is affected by a TWS setting which specifies if an exercise request must be finalized.
-
-#### Python
-
-```python
-self.exerciseOptions(5003, contract, 1, 1, self.account, 1, "")
-```
-
-#### Java
-
-```java
-client.exerciseOptions(5003, contract, 1, 1, "", 1, "");
-```
-
-#### C++
-
-```cpp
-m_pClient->exerciseOptions(5003, contract, 1, 1, "", 1, "");
-```
-
-#### C#
-
-```csharp
-client.exerciseOptions(5003, contract, 1, 1, null, 1, null);
-```
-
-#### VB.NET
-
-```vbnet
-client.exerciseOptions(5003, contract, 1, 1, Nothing, 1, Nothing)
-```

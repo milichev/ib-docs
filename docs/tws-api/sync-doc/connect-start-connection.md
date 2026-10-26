@@ -33,17 +33,3 @@ The function call will return a single boolean value, `True` or `False`, in refe
 Developers may look to implement code such as this that will gracefully handle the connection procedure should it fail to connect rather than proceeding with the rest of the code implementation.
 
 ## Example Implementation
-
-```python
-from ibapi.sync_wrapper import TWSSyncWrapper
-app = TWSSyncWrapper(timeout=30)
-
-# Connect to TWS
-if not app.connect_and_start(host="127.0.0.1", port=7496, client_id=0):
-    # If the connection fails and False is returned, notify the user and gracefully exit the application.
-    print("Failed to connect to TWS")
-    exit(1)
-else:
-    # If the connection succeeded, notify the user.
-    print("Connected to TWS")
-```

@@ -36,36 +36,6 @@ String value of requested date range. This will be tied to the same bar size str
 
 ---
 
-#### Python
-
-```python
-self.reqHistogramData(4004, contract, false, "3 days")
-```
-
-#### Java
-
-```java
-client.reqHistogramData(4004, contract, false, "3 days");
-```
-
-#### C++
-
-```cpp
-m_pClient->reqHistogramData(15001, contract, false, "1 weeks");
-```
-
-#### C#
-
-```csharp
-client.reqHistogramData(15001, contract, false, "1 week");
-```
-
-#### VB.NET
-
-```vbnet
-client.reqHistogramData(15001, contract, False, "1 week")
-```
-
 ---
 
 ## Receive Histogram Data
@@ -86,52 +56,6 @@ Returned Tuple of histogram data, number of trades at specified price level.
 
 ---
 
-#### Python
-
-```python
-def histogramData(self, reqId:int, items:HistogramDataList):
-	print("HistogramData. reqid, items)
-```
-
-#### Java
-
-```java
-@Override
-public void histogramData(int reqId, List items) {
-	System.out.println(EWrapperMsgGenerator.histogramData(reqId, items));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::histogramData(int reqId, const HistogramDataVector& data) {
-    printf("Histogram. ReqId: %d, data length: %lu\n", reqId, data.size());
-    for (const HistogramEntry& entry : data) {
-        printf("\t price: %s, size: %s\n", Utils::doubleMaxString(entry.price).c_str(), decimalStringToDisplay(entry.size).c_str());
-    }
-}
-```
-
-#### C#
-
-```csharp
-public void histogramData(int reqId, HistogramEntry[] data)
-{
-	Console.WriteLine("Histogram data. Request Id: {0}, data size: {1}", reqId, data.Length);
-	data.ToList().ForEach(i => Console.WriteLine("\tPrice: {0}, Size: {1}", Util.DoubleMaxString(i.Price), Util.DecimalMaxString(i.Size)));
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub histogramData(reqId As Integer, data As HistogramEntry()) Implements EWrapper.histogramData
-	Console.WriteLine("Histogram data. Request Id: {0}, data size: {1}", reqId, data.Length) 
-	data.ToList().ForEach(Sub(i) Console.WriteLine(vbTab & "Price: {0}, Size: {1}", Util.DoubleMaxString(i.Price), Util.DecimalMaxString(i.Size)))
-End Sub
-```
-
 ---
 
 ## Cancel Histogram Data
@@ -145,35 +69,5 @@ An active histogram request which has not returned data can be cancelled with EC
 Request identifier used to track data.
 
 ---
-
-#### Python
-
-```python
-self.reqHistogramData(4004)
-```
-
-#### Java
-
-```java
-client.cancelHistogramData(4004);
-```
-
-#### C++
-
-```cpp
-m_pClient->cancelHistogramData(15001);
-```
-
-#### C#
-
-```csharp
-client.cancelHistogramData(15001);
-```
-
-#### VB.NET
-
-```vbnet
-client.cancelHistogramData(15001)
-```
 
 ---

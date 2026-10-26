@@ -9,33 +9,3 @@
 )
 
 Cancels positions request for account and/or model.
-
-#### Python
-
-```python
-self.cancelPositionsMulti(requestid)
-```
-
-#### Java
-
-```java
-client.cancelPositionsMulti(requestid);
-```
-
-#### C++
-
-```cpp
-m_pClient->cancelPositionsMulti(requestid);
-```
-
-#### C#
-
-```csharp
-client.cancelPositionsMulti(requestid);
-```
-
-#### VB.NET
-
-```vbnet
-client.cancelPositionsMulti(requestid)
-```

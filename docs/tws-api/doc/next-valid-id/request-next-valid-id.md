@@ -8,33 +8,3 @@
 )
 
 Requests the next valid order ID at the current moment be returned to the EWrapper.nextValidId function.
-
-#### Python
-
-```python
-self.reqIds(-1)
-```
-
-#### Java
-
-```java
-client.reqIds(-1);
-```
-
-#### C++
-
-```cpp
-m_pClient->reqIds(-1);
-```
-
-#### C#
-
-```csharp
-client.reqIds(-1);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqIds(-1)
-```

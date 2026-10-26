@@ -24,12 +24,6 @@ Duration to wait for the response until termination. Function-specific timeout d
 
 ---
 
-```python
-from ibapi.account_summary_tags import AccountSummaryTags
-
-app.get_account_summary(AccountSummaryTags.AllTags, "All")
-```
-
 ## Response Object
 
 The total size of the response may vary depending on number of linked accounts and the number of tags requested.

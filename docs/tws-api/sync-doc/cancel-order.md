@@ -24,10 +24,6 @@ Duration to wait for the response until termination. Function-specific timeout d
 
 ---
 
-```python
-app.cancel_order_sync(347, OrderCancel())
-```
-
 ## Response Object
 
 Returns a dictionary containing the order status at the time of cancellation.
@@ -105,21 +101,3 @@ If an order is capped due to it exceeding the market price and the price is auto
 ```
 
 ## Example Implementation
-
-```python
-from ibapi.sync_wrapper import TWSSyncWrapper
-app = TWSSyncWrapper(timeout=30)
-
-# Connect to TWS
-if not app.connect_and_start(host="127.0.0.1", port=7496, client_id=0):
-    # If the connection fails and False is returned, notify the user and gracefully exit the application.
-    print("Failed to connect to TWS")
-    exit(1)
-else:
-    # If the connection succeeded, notify the user.
-    print("Connected to TWS")
-
-app.cancel_order_sync(
-    order_id=AAPL_ORDER_ID, # See our *Place Order* example for how the order_id was found.
-)
-```

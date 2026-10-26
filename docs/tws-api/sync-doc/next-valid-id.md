@@ -14,14 +14,6 @@ Duration to wait for the response until termination. Uses the default timeout va
 
 ---
 
-```python
-app.get_next_valid_id()
-```
-
 ## Response Object
 
 Requests to `get_next_valid_id()` will return the next valid order ID, which may be used in order submission.
-
-```python
-123456789
-```

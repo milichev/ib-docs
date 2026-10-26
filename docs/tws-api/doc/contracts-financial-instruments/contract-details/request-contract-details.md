@@ -13,33 +13,3 @@ Typically contains at least the Symbol, SecType, Exchange, and Currency.\
 Upon requesting EClient.reqContractDetails, all contracts matching the requested \[Contract Object] will be returned to [EWrapper.contractDetails](request-contract-details.md) or [EWrapper.bondContractDetails](receive-bond-details.md).
 
 When reqContractDetails is called for STK using symbol security type, exchange, and currency, TWS caches the contract data internally. Future order submissions for these contracts utilizing contract ID and exchange combination utilize the cached values to expedite order transmission speeds.
-
-#### Python
-
-```python
-self.reqContractDetails(reqId, contract)
-```
-
-#### Java
-
-```java
-client.reqContractDetails(reqId, contract)
-```
-
-#### C++
-
-```cpp
-m_pClient->reqContractDetails(reqId, contract);
-```
-
-#### C#
-
-```csharp
-client.reqContractDetails(reqId, contract);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqContractDetails(reqId, contract)
-```

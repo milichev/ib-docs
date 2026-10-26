@@ -5,33 +5,3 @@
 #### EClient.reqAllOpenOrders ()
 
 Requests all current open orders in associated accounts at the current moment. The existing orders will be received via the [openOrder](#open-order) and [orderStatus](#order-status) events. Open orders are returned once; this function does not initiate a subscription.
-
-#### Python
-
-```python
-self.reqAllOpenOrders()
-```
-
-#### Java
-
-```java
-client.reqAllOpenOrders();
-```
-
-#### C++
-
-```cpp
-m_pClient->reqAllOpenOrders();
-```
-
-#### C#
-
-```csharp
-client.reqAllOpenOrders();
-```
-
-#### VB.NET
-
-```vbnet
-client.reqAllOpenOrders()
-```

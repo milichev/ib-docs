@@ -30,17 +30,6 @@ Duration to wait for the response until termination. Uses the default timeout va
 
 ---
 
-```python
-contract = Contract()
-contract.symbol = "AAPL"
-contract.secType = "STK"
-contract.exchange = "SMART"
-contract.primaryExchange = "NASDAQ"
-contract.currency = "USD"
-
-market_data = app.get_market_data_snapshot(contract, "225,232", False)
-```
-
 ## Response Object
 
 Data returned by `get_market_data_snapshot()` is delivered as a dictionary object. Values are returned as the affiliated tick types alongside any price or attribute data.
@@ -58,27 +47,3 @@ The value for the given tick type. Can include price values (`float`), size valu
 ```
 
 ## Example Implementation
-
-```python
-from ibapi.sync_wrapper import TWSSyncWrapper
-app = TWSSyncWrapper(timeout=30)
-
-# Connect to TWS
-if not app.connect_and_start(host="127.0.0.1", port=7496, client_id=0):
-    # If the connection fails and False is returned, notify the user and gracefully exit the application.
-    print("Failed to connect to TWS")
-    exit(1)
-else:
-    # If the connection succeeded, notify the user.
-    print("Connected to TWS")
-
-contract = Contract()
-contract.symbol = "AAPL"
-contract.secType = "STK"
-contract.exchange = "SMART"
-contract.primaryExchange = "NASDAQ"
-contract.currency = "USD"
-
-market_data = app.get_market_data_snapshot(contract)
-AAPL_BID_PRICE = market_data["BID"]
-```

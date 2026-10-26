@@ -22,35 +22,3 @@ You can set either startDateTime or endDateTime. If both are set, endDateTime is
 )
 
 Requests historical news headlines.
-
-#### Python
-
-```python
-self.reqHistoricalNews(reqId, 8314, "BRFG", "", "", 10, [])
-```
-
-#### Java
-
-```java
-client.reqHistoricalNews(reqId, 8314, "BZ+FLY", "", "", 10, null);
-```
-
-#### C++
-
-```cpp
-TagValueList* list = new TagValueList();
-list->push_back((TagValueSPtr)new TagValue("manual", "1"));
-m_pClient->reqHistoricalNews(reqId, 8314, "BZ+FLY", "", "", 5, TagValueListSPtr(list));
-```
-
-#### C#
-
-```csharp
-client.reqHistoricalNews(reqId, 8314, "BZ+FLY", "", "", 10, null);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqHistoricalNews(reqId, 8314, "BZ+FLY", "", "", 10, Nothing)
-```

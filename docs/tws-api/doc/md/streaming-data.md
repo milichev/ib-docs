@@ -4,7 +4,7 @@
 
 > **Warning**
 >
-> Market Data typically requires a paid subscription to receive real-time data. See [Market Data](/docs/general/market-data-subscriptions/market-data-requirements) for more information.
+> Market Data typically requires a paid subscription to receive real-time data. See [Market Data](../../../general/market-data-subscriptions/market-data-requirements.md) for more information.
 
 ## Introduction
 
@@ -14,7 +14,7 @@ This data is not tick-by-tick but consists of aggregate snapshots taken several 
 
 A set of standard tick types are returned by default with additional values available with the `genericTickList` field in the market data request. Most columns available through the Trader Workstation watchlist are available as a [generic tick type](streaming-data.md#available-tick-types).
 
-Real-time data will only be delivered if an affiliated [market data subscription](/docs/general/market-data-subscriptions/popular-market-data-subscriptions/introduction) is available to the user requesting data.
+Real-time data will only be delivered if an affiliated [market data subscription](../../../general/market-data-subscriptions/popular-market-data-subscriptions/introduction.md) is available to the user requesting data.
 
 > **Info**
 >
@@ -76,36 +76,6 @@ Used to retrieve a single snapshot of paid data. Each snapshot costs \$0.01. See
 Internal use only.
 
 ---
-
-#### Python
-
-```python
-self.reqMktData(reqId, contract, "", False, False, [])
-```
-
-#### Java
-
-```java
-client.reqMktData(reqId, contract, "", false, false, null);
-```
-
-#### C++
-
-```cpp
-m_pClient->reqMktData(reqId, contract, "", false, false, TagValueListSPtr());
-```
-
-#### C#
-
-```csharp
-client.reqMktData(reqId, contract, "", false, false, null);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqMktData(reqId, contract, "", False, False, Nothing)
-```
 
 ---
 
@@ -357,47 +327,6 @@ Return value corresponding to value. See Available Tick Types for more details.
 
 ---
 
-#### Python
-
-```python
-def tickGeneric(self, reqId: TickerId, tickType: TickType, value: float):
-	print("TickGeneric. TickerId:", reqId, "TickType:", tickType, "Value:", floatMaxString(value))
-```
-
-#### Java
-
-```java
-@Override
-public void tickGeneric(int tickerId, int tickType, double value) {
-	System.out.println("Tick Generic: " + EWrapperMsgGenerator.tickGeneric(tickerId, tickType, value));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::tickGeneric(TickerId tickerId, TickType tickType, double value) {
-    printf( "Tick Generic. Ticker Id: %ld, Type: %d, Value: %s\n", tickerId, (int)tickType, Utils::doubleMaxString(value).c_str());
-}
-```
-
-#### C#
-
-```csharp
-public virtual void tickGeneric(int tickerId, int field, double value)
-{
-	Console.WriteLine("Tick Generic. Ticker Id:" + tickerId + ", Field: " + field + ", Value: " + Util.DoubleMaxString(value));
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub tickGeneric(tickerId As Integer, field As Integer, value As Double) Implements IBApi.EWrapper.tickGeneric
-	Console.WriteLine("Tick Generic. Ticker Id:" & tickerId & ", Field: " & field & ", Value: " & Util.DoubleMaxString(value))
-End Sub
-```
-
 ---
 
 ### EWrapper.TickPrice
@@ -430,47 +359,6 @@ A TickAttrib object that contains price attributes such as TickAttrib::CanAutoEx
 
 ---
 
-#### Python
-
-```python
-def tickPrice(self, reqId: TickerId, tickType: TickType, price: float, attrib: TickAttrib):
-	print(reqId, tickType, price, attrib)
-```
-
-#### Java
-
-```java
-@Override
-public void tickPrice(int tickerId, int field, double price, TickAttrib attribs) {
-	System.out.println("Tick Price: " + EWrapperMsgGenerator.tickPrice( tickerId, field, price, attribs));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::tickPrice( TickerId tickerId, TickType field, double price, const TickAttrib& attribs) {
-    printf( "Tick Price. Ticker Id: %ld, Field: %d, Price: %s, CanAutoExecute: %d, PastLimit: %d, PreOpen: %d\n", tickerId, (int)field, Utils::doubleMaxString(price).c_str(), attribs.canAutoExecute, attribs.pastLimit, attribs.preOpen);
-}
-```
-
-#### C#
-
-```csharp
-public virtual void tickPrice(int tickerId, int field, double price, TickAttrib attribs) 
-{
-	Console.WriteLine("Tick Price. Ticker Id:" + tickerId + ", Field: " + field + ", Price: " + Util.DoubleMaxString(price) + ", CanAutoExecute: " + attribs.CanAutoExecute + ", PastLimit: " + attribs.PastLimit + ", PreOpen: " + attribs.PreOpen);
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub tickPrice(tickerId As Integer, field As Integer, price As Double, attribs As TickAttrib) Implements IBApi.EWrapper.tickPrice
-	Console.WriteLine("TickPrice - TickerId [" & CStr(tickerId) & "] Field [" & TickType.getField(field) & "] Price [" & Util.DoubleMaxString(price) & "] PreOpen [" & attribs.PreOpen & "]")
-End Sub
-```
-
 ---
 
 ### EWrapper.TickSize
@@ -496,47 +384,6 @@ the type of size being received (i.e. bid size)
 the actual size. US stocks have a multiplier of 100.
 
 ---
-
-#### Python
-
-```python
-def tickSize(self, reqId: TickerId, tickType: TickType, size: Decimal):
-	print("TickSize. TickerId:", reqId, "TickType:", tickType, "Size: ", decimalMaxString(size))
-```
-
-#### Java
-
-```java
-@Override
-public void tickSize(int tickerId, int field, Decimal size) {
-    System.out.println("Tick Size: " + EWrapperMsgGenerator.tickSize( tickerId, field, size));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::tickSize( TickerId tickerId, TickType field, Decimal size) {
-    printf( "Tick Size. Ticker Id: %ld, Field: %d, Size: %s\n", tickerId, (int)field, decimalStringToDisplay(size).c_str());
-}
-```
-
-#### C#
-
-```csharp
-public virtual void tickSize(int tickerId, int field, decimal size)
-{
-	Console.WriteLine("Tick Size. Ticker Id:" + tickerId + ", Field: " + field + ", Size: " + Util.DecimalMaxString(size));
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub tickSize(tickerId As Integer, field As Integer, size As Decimal) Implements IBApi.EWrapper.tickSize
-	Console.WriteLine("Tick Size. Ticker Id:" & CStr(tickerId) & ", Field: " & TickType.getField(field) & ", Size: " & Util.DecimalMaxString(size))
-End Sub
-```
 
 ---
 
@@ -567,47 +414,6 @@ The type of the tick being received
 Variable containining message response.
 
 ---
-
-#### Python
-
-```python
-def tickString(self, reqId: TickerId, tickType: TickType, value: str):
-	print("TickString. TickerId:", reqId, "Type:", tickType, "Value:", value)
-```
-
-#### Java
-
-```java
-@Override
-    public void tickString(int tickerId, int tickType, String value) {
-        System.out.println("Tick String: " + EWrapperMsgGenerator.tickString(tickerId, tickType, value));
-    }
-```
-
-#### C++
-
-```cpp
-void TestCppClient::tickString(TickerId tickerId, TickType tickType, const std::string& value) {
-    printf( "Tick String. Ticker Id: %ld, Type: %d, Value: %s\n", tickerId, (int)tickType, value.c_str());
-}
-```
-
-#### C#
-
-```csharp
-public virtual void tickString(int tickerId, int tickType, string value)
-{
-	Console.WriteLine("Tick string. Ticker Id:" + tickerId + ", Type: " + tickType + ", Value: " + value);
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub tickString(tickerId As Integer, field As Integer, value As String) Implements IBApi.EWrapper.tickString
-	Console.WriteLine("Tick string. Ticker Id:" & CStr(tickerId) & ", Type: " & TickType.getField(field) & ", Value: " & value)
-End Sub
-```
 
 ---
 
@@ -645,49 +451,6 @@ Based on the snapshot parameter in EClient.reqMktData.
 
 ---
 
-#### Python
-
-```python
-def tickReqParams(self, tickerId:int, minTick:float, bboExchange:str, snapshotPermissions:int):
-	print("TickReqParams. TickerId:", tickerId, "MinTick:", floatMaxString(minTick), "BboExchange:", bboExchange, "SnapshotPermissions:", intMaxString(snapshotPermissions))
-```
-
-#### Java
-
-```java
-@Override
-public void tickReqParams(int tickerId, double minTick, String bboExchange, int snapshotPermissions) {
-	System.out.println("Tick req params: " + EWrapperMsgGenerator.tickReqParams(tickerId, minTick, bboExchange, snapshotPermissions));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::tickReqParams(int tickerId, double minTick, const std::string& bboExchange, int snapshotPermissions) {
-    printf("tickerId: %d, minTick: %s, bboExchange: %s, snapshotPermissions: %u\n", tickerId, Utils::doubleMaxString(minTick).c_str(), bboExchange.c_str(), snapshotPermissions);
-    m_bboExchange = bboExchange;
-}
-```
-
-#### C#
-
-```csharp
-public void tickReqParams(int tickerId, double minTick, string bboExchange, int snapshotPermissions)
-{
-	Console.WriteLine("id={0} minTick = {1} bboExchange = {2} snapshotPermissions = {3}", tickerId, Util.DoubleMaxString(minTick), bboExchange, Util.IntMaxString(snapshotPermissions)); BboExchange = bboExchange;
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub tickReqParams(tickerId As Integer, minTick As Double, bboExchange As String, snapshotPermissions As Integer) Implements EWrapper.tickReqParams
-	Console.WriteLine("id={0} minTick = {1} bboExchange = {2} snapshotPermissions = {3}", tickerId, Util.DoubleMaxString(minTick), bboExchange, Util.IntMaxString(snapshotPermissions))
-	Me.BboExchange = bboExchange
-End Sub
-```
-
 ---
 
 ### EWrapper.rerouteMktDataReq
@@ -712,47 +475,6 @@ Primary exchange of the underlying.
 
 ---
 
-#### Python
-
-```python
-def rerouteMktDataReq(self, reqId: int, conId: int, exchange: str):
-	print("Re-route market data request. ReqId:", reqId, "ConId:", conId, "Exchange:", exchange)
-```
-
-#### Java
-
-```java
-@Override
-public void rerouteMktDataReq(int reqId, int conId, String exchange) {
-	System.out.println(EWrapperMsgGenerator.rerouteMktDataReq(reqId, conId, exchange));
-}
-```
-
-#### C++
-
-```cpp
-void TestCppClient::rerouteMktDataReq(int reqId, int conid, const std::string& exchange) {
-    printf( "Re-route market data request. ReqId: %d, ConId: %d, Exchange: %s\n", reqId, conid, exchange.c_str());
-}
-```
-
-#### C#
-
-```csharp
-public void rerouteMktDataReq(int reqId, int conId, string exchange)
-{
-	Console.WriteLine("Re-route market data request. Req Id: {0}, ConId: {1}, Exchange: {2}", reqId, conId, exchange);
-}
-```
-
-#### VB.NET
-
-```vbnet
-Public Sub rerouteMktDataReq(reqId As Integer, conId As Integer, exchange As String) Implements IBApi.EWrapper.rerouteMktDataReq
-	Console.WriteLine("Re-route market data request. Req Id: {0}, Con Id: {1}, Exchange: {2}", reqId, conId, exchange)
-End Sub
-```
-
 ---
 
 ## Cancel Streaming Data
@@ -766,33 +488,3 @@ Cancels a watchlist market data request.
 Request identifier used to track data.
 
 ---
-
-#### Python
-
-```python
-self.cancelMktData(2001)
-```
-
-#### Java
-
-```java
-client.cancelMktData(2001);
-```
-
-#### C++
-
-```cpp
-m_pClient->cancelMktData(2001);
-```
-
-#### C#
-
-```csharp
-client.cancelMktData(2001);
-```
-
-#### VB.NET
-
-```vbnet
-client.cancelMktData(2001)
-```

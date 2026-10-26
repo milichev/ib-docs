@@ -16,33 +16,3 @@
 )
 
 Requests security definition option parameters for viewing a contract's option chain.
-
-#### Python
-
-```python
-self.reqSecDefOptParams(0, "IBM", "", "STK", 8314)
-```
-
-#### Java
-
-```java
-client.reqSecDefOptParams(0, "IBM", "", "STK", 8314);
-```
-
-#### C++
-
-```cpp
-m_pClient->reqSecDefOptParams(0, "IBM", "", "STK", 8314);
-```
-
-#### C#
-
-```csharp
-client.reqSecDefOptParams(0, "IBM", "", "STK", 8314);
-```
-
-#### VB.NET
-
-```vbnet
-client.reqSecDefOptParams(0, "IBM", "", "STK", 8314)
-```
