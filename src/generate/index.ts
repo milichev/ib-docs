@@ -1,16 +1,27 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { CACHE_DIR, OUT_DIR, MANIFEST_FILE } from "../constants.ts";
+import { isGhostPage } from "../content.ts";
 import type { GenerateOptions, Manifest, ManifestEntry } from "../types.ts";
 import { extractH1Title } from "./headings.ts";
 import {
   buildRootIndex,
   buildSectionIndex,
+  indexLinkTitle,
   type IndexPage,
 } from "./indexes.ts";
 import { isSectionSlug } from "../urls.ts";
 import { resolveLangId } from "./lang.ts";
 import { transformPage } from "./transform.ts";
+
+async function removeIfExists(filePath: string): Promise<void> {
+  try {
+    await unlink(filePath);
+  } catch (err) {
+    const code = (err as NodeJS.ErrnoException).code;
+    if (code !== "ENOENT") throw err;
+  }
+}
 
 export type GenerateResult = {
   ok: boolean;
@@ -19,6 +30,7 @@ export type GenerateResult = {
     pagesWritten: number;
     sections: number;
     skipped: number;
+    ghosts: number;
   };
 };
 
@@ -38,14 +50,6 @@ async function ensureDirForFile(filePath: string): Promise<void> {
   await mkdir(path.dirname(filePath), { recursive: true });
 }
 
-function titleFromPath(relativePath: string): string {
-  const base = path.posix.basename(relativePath, ".md");
-  return base
-    .split("-")
-    .map((w) => (w ? w[0]!.toUpperCase() + w.slice(1) : w))
-    .join(" ");
-}
-
 function pageEntries(
   manifest: Manifest,
   sectionFilter?: string,
@@ -60,7 +64,7 @@ function pageEntries(
 }
 
 /**
- * Stage 2: build docs/ from cache/ (no network).
+ * Stage 2: build out/ from cache/ (no network).
  */
 export async function generate(
   options: Partial<GenerateOptions> = {},
@@ -97,34 +101,11 @@ export async function generate(
     };
   }
 
-  const urlToPath = new Map<string, string>();
-  for (const e of manifest.entries) {
-    if (e.status !== "ok") continue;
-    if (e.url) urlToPath.set(e.url, e.cachePath);
-    if (e.finalUrl) urlToPath.set(e.finalUrl, e.cachePath);
-  }
-
-  // Sections we will index (from filtered pages). Ignore file-like "sections"
-  // from older manifests (e.g. openapi.json.md at docs root).
-  const sectionSet = new Set<string>();
-  for (const e of pages) {
-    if (e.section && isSectionSlug(e.section)) sectionSet.add(e.section);
-  }
-  if (sectionFilter) {
-    sectionSet.clear();
-    sectionSet.add(sectionFilter);
-  }
-
-  const sectionIndexPaths = new Map<string, string>();
-  for (const s of sectionSet) {
-    sectionIndexPaths.set(s, `${s}/index.md`);
-  }
-
-  await mkdir(outDir, { recursive: true });
-
-  let pagesWritten = 0;
+  type LoadedPage = { entry: ManifestEntry; raw: string };
+  const loaded: LoadedPage[] = [];
   let skipped = 0;
-  const pagesBySection = new Map<string, Map<string, IndexPage>>();
+  let ghosts = 0;
+  const ghostUrls = new Set<string>();
 
   for (const entry of pages) {
     const cacheFull = path.join(cacheDir, entry.cachePath);
@@ -139,6 +120,51 @@ export async function generate(
       continue;
     }
 
+    if (isGhostPage({ body: raw, contentType: entry.contentType })) {
+      ghosts++;
+      ghostUrls.add(entry.url);
+      if (entry.finalUrl) ghostUrls.add(entry.finalUrl);
+      // Drop stale copies from a prior generate that wrote the HTML through.
+      await removeIfExists(path.join(outDir, entry.cachePath));
+      continue;
+    }
+
+    loaded.push({ entry, raw });
+  }
+
+  // Mirrored link targets: ok non-ghost pages + llms. Ghosts stay absolute.
+  const urlToPath = new Map<string, string>();
+  for (const e of manifest.entries) {
+    if (e.status !== "ok") continue;
+    if (e.kind === "page" && ghostUrls.has(e.url)) continue;
+    if (e.url) urlToPath.set(e.url, e.cachePath);
+    if (e.finalUrl) urlToPath.set(e.finalUrl, e.cachePath);
+  }
+
+  // Sections we will index (from filtered pages). Ignore file-like "sections"
+  // from older manifests (e.g. openapi.json.md at docs root).
+  const sectionSet = new Set<string>();
+  for (const { entry } of loaded) {
+    if (entry.section && isSectionSlug(entry.section)) {
+      sectionSet.add(entry.section);
+    }
+  }
+  if (sectionFilter) {
+    sectionSet.clear();
+    sectionSet.add(sectionFilter);
+  }
+
+  const sectionIndexPaths = new Map<string, string>();
+  for (const s of sectionSet) {
+    sectionIndexPaths.set(s, `${s}/index.md`);
+  }
+
+  await mkdir(outDir, { recursive: true });
+
+  let pagesWritten = 0;
+  const pagesBySection = new Map<string, Map<string, IndexPage>>();
+
+  for (const { entry, raw } of loaded) {
     const body = transformPage(raw, {
       sourceFinalUrl: entry.finalUrl || entry.url,
       sourceUrl: entry.url,
@@ -162,7 +188,10 @@ export async function generate(
         map = new Map();
         pagesBySection.set(section, map);
       }
-      const title = extractH1Title(body) ?? titleFromPath(entry.cachePath);
+      const title = indexLinkTitle(
+        entry.cachePath,
+        extractH1Title(body),
+      );
       map.set(entry.url, {
         relativePath: entry.cachePath,
         title,
@@ -202,7 +231,14 @@ export async function generate(
   const rootBody = buildRootIndex([...sectionSet]);
   await writeFile(path.join(outDir, "index.md"), rootBody, "utf8");
 
-  const message = `generate ok: wrote ${pagesWritten} page(s), ${sectionSet.size} section index(es)${lang ? ` (lang=${lang})` : ""}${skipped ? `, skipped ${skipped}` : ""} → ${outDir}/`;
+  const skipNote = [
+    skipped ? `skipped ${skipped}` : "",
+    ghosts ? `ghosts ${ghosts}` : "",
+  ]
+    .filter(Boolean)
+    .join(", ");
+
+  const message = `generate ok: wrote ${pagesWritten} page(s), ${sectionSet.size} section index(es)${lang ? ` (lang=${lang})` : ""}${skipNote ? `, ${skipNote}` : ""} → ${outDir}/`;
 
   return {
     ok: skipped === 0,
@@ -211,6 +247,7 @@ export async function generate(
       pagesWritten,
       sections: sectionSet.size,
       skipped,
+      ghosts,
     },
   };
 }

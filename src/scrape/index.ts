@@ -136,6 +136,7 @@ async function fetchAndStore(
           cachePath: recoveredPath,
           sha256: sha256(recovered.body),
           status: "ok",
+          contentType: recovered.contentType ?? undefined,
           fetchedAt,
         };
       }
@@ -149,6 +150,7 @@ async function fetchAndStore(
       sha256: "",
       status: "error",
       error: result.error,
+      contentType: result.contentType ?? undefined,
       fetchedAt,
     };
   }
@@ -163,6 +165,7 @@ async function fetchAndStore(
     cachePath,
     sha256: sha256(result.body),
     status: "ok",
+    contentType: result.contentType ?? undefined,
     fetchedAt,
   };
 }

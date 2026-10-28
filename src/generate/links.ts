@@ -71,12 +71,28 @@ function lookupPath(
 }
 
 /**
+ * IB changelog/prose sometimes emits `\[label]/(section/...)` instead of a
+ * real markdown link (`[label](/section/...)`). Repair before rewrite.
+ * Bare `\[Label]` with no path is left alone (no reliable target).
+ */
+export function repairBrokenIbLinks(md: string): string {
+  return md.replace(
+    /\\\[([^\]]+)\]\/\(([^)\s]+)\)/g,
+    (_full, text: string, href: string) => {
+      const path = href.startsWith("/") ? href : `/${href}`;
+      return `[${text}](${path})`;
+    },
+  );
+}
+
+/**
  * Rewrite markdown links whose targets normalize to in-scope docs URLs
  * into posix relative `.md` (or section index) hrefs. Preserve `#fragment`.
  * External links are left absolute. Unknown llms targets are dropped (text kept).
  */
 export function rewriteLinks(md: string, ctx: LinkRewriteContext): string {
   const base = basePageUrlFor(ctx.currentRelativePath);
+  md = repairBrokenIbLinks(md);
 
   return md.replace(/\[([^\]]*)\]\(([^)\s]+)\)/g, (full, text: string, href: string) => {
     const hashIdx = href.indexOf("#");

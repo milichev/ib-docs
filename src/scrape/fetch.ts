@@ -1,8 +1,20 @@
 import { CANONICAL_HOST } from "../constants.ts";
 
 export type FetchResult =
-  | { ok: true; body: string; finalUrl: string; status: number }
-  | { ok: false; error: string; finalUrl: string; status?: number };
+  | {
+      ok: true;
+      body: string;
+      finalUrl: string;
+      status: number;
+      contentType: string | null;
+    }
+  | {
+      ok: false;
+      error: string;
+      finalUrl: string;
+      status?: number;
+      contentType?: string | null;
+    };
 
 const MAX_REDIRECTS = 8;
 const MAX_RETRIES = 3;
@@ -121,6 +133,7 @@ async function fetchOnce(requestUrl: string): Promise<FetchResult> {
       };
     }
 
+    const contentType = res.headers.get("content-type");
     const body = await res.text();
     if (isNotFoundPage(body)) {
       return {
@@ -128,9 +141,16 @@ async function fetchOnce(requestUrl: string): Promise<FetchResult> {
         error: "Page Not Found",
         finalUrl: current,
         status: 404,
+        contentType,
       };
     }
-    return { ok: true, body, finalUrl: current, status: res.status };
+    return {
+      ok: true,
+      body,
+      finalUrl: current,
+      status: res.status,
+      contentType,
+    };
   }
 
   return {

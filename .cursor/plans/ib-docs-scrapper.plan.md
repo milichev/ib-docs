@@ -1,6 +1,6 @@
 ---
 name: IB Docs Scraper
-overview: Three-stage CLI (scrape -> generate -> validate) that caches raw IB docs under cache/, builds a sectioned docs/ mirror with relative links, optional language filtering for code examples, and independent completeness checks.
+overview: Three-stage CLI (scrape -> generate -> validate) that caches raw IB docs under cache/, builds a sectioned out/ mirror with relative links, optional language filtering for code examples, and independent completeness checks.
 todos:
   - id: cli-stages
     content: "Wire CLI commands: scrape, generate, validate"
@@ -12,7 +12,7 @@ todos:
     content: Implement normalizeDocsUrl (canonical host, ibkrcampus rewrite, /section -> /docs/section)
     status: completed
   - id: generate-docs
-    content: "Generate docs/: strip boilerplate, source link, unescape headings, rewrite only mirrored pages (not assets/uncached), indexes, --lang"
+    content: "Generate out/: strip boilerplate, source link, unescape headings, rewrite only mirrored pages (not assets/uncached), indexes, --lang"
     status: completed
   - id: validate
     content: Independent llms.txt audit + output link-graph (relatives must exist; uncached/asset hrefs may stay absolute)
@@ -27,16 +27,18 @@ isProject: false
 
 **Status:** CLI + `scrape` + `generate` + **`validate`** are implemented.
 
+Concise stage docs (preferred for humans): [`docs/stages/`](../../docs/stages/). This plan is the detailed reference.
+
 Three-stage tool:
 
 1. **`scrape`** — done: fetch sources into `cache/`, record `cache/manifest.json`.
-2. **`generate`** — done: build `docs/` only from `cache/` (no network). Clean/transform content, rewrite links, emit indexes, optional language filter.
-3. **`validate`** — done: evidence pass over `cache/` + `docs/` (independent audit + link-graph checks).
+2. **`generate`** — done: build `out/` only from `cache/` (no network). Clean/transform content, rewrite links, emit indexes, optional language filter.
+3. **`validate`** — done: evidence pass over `cache/` + `out/` (independent audit + link-graph checks).
 
 Also:
 
 - Canonical host `www.interactivebrokers.com`; rewrite `ibkrcampus.com`.
-- Sectioned local tree under `docs/`, discoverable from `docs/index.md`.
+- Sectioned local tree under `out/` (gitignored), discoverable from `out/index.md`.
 
 ## CLI
 
@@ -51,8 +53,8 @@ Suggested package scripts map 1:1 to these commands. Each stage exits non-zero o
 | Stage      | Reads                           | Writes                                                  | Network |
 | ---------- | ------------------------------- | ------------------------------------------------------- | ------- |
 | `scrape`   | (optional existing cache)       | `cache/**`, `cache/manifest.json`                       | yes     |
-| `generate` | `cache/**`, manifest            | `docs/**`                                               | no      |
-| `validate` | `cache/**`, `docs/**`, manifest | report (stdout / optional `cache/validate-report.json`) | no      |
+| `generate` | `cache/**`, manifest            | `out/**`                                                | no      |
+| `validate` | `cache/**`, `out/**`, manifest  | report (stdout / optional `cache/validate-report.json`) | no      |
 
 ## Directory layout
 
@@ -68,7 +70,7 @@ cache/
   web-api/
     ...
 
-docs/
+out/                                    # generate output (gitignored)
   index.md                              # root: section indexes only
   tws-api/
     index.md                            # section TOC (llms.txt order)
@@ -76,7 +78,7 @@ docs/
     ...
 ```
 
-**Sectioned, not flat.** Remote `/docs/{section}/...` maps to the same relative path under both `cache/` and `docs/` after stripping `/docs/`. Cross-section links stay correct with one relative-path helper.
+**Sectioned, not flat.** Remote `/docs/{section}/...` maps to the same relative path under both `cache/` and `out/` after stripping `/docs/`. Cross-section links stay correct with one relative-path helper.
 
 Example: from `tws-api/doc/introduction.md` to `web-api/introduction.md` -> `../../web-api/introduction.md`.
 
@@ -89,7 +91,7 @@ Reference only; do not re-litigate unless bugs appear.
 - Discover pages via `/llms.txt`.
 - Fetch raw `llms.txt` and `.md` bodies into `cache/`.
 - Append/update `cache/manifest.json`.
-- Do **not** rewrite content or write `docs/`.
+- Do **not** rewrite content or write `out/`.
 
 ### Key rules
 
@@ -169,7 +171,7 @@ Scrape success = all intended fetches attempted and manifest flushed. Partial er
 
 ## Stage 2 — `generate` (implemented)
 
-Reads only `cache/` + manifest. Writes `docs/`. No network.
+Reads only `cache/` + manifest. Writes `out/`. No network.
 
 ### Mapping
 
@@ -178,7 +180,7 @@ function urlToLocalPath(u: URL): string
 // /docs/tws-api/doc/x.md -> tws-api/doc/x.md
 ```
 
-Disk: `docs/${relativePath}`. Manifest `cachePath` should match that relative path.
+Disk: `out/${relativePath}`. Manifest `cachePath` should match that relative path.
 
 ### Pipeline per cached page
 
@@ -188,7 +190,7 @@ Disk: `docs/${relativePath}`. Manifest `cachePath` should match that relative pa
 4. Optional **language filter**.
 5. Rewrite internal links to posix relatives.
 6. **Prepend source link** to the canonical Interactive Brokers page.
-7. Write `docs/${relativePath}`.
+7. Write `out/${relativePath}`.
 
 ### Strip IB boilerplate header
 
@@ -241,7 +243,7 @@ Body already uses correct inline code: `` `get_account_summary()` ``. Renderers 
 
 ### Link rewrite
 
-Rewrite to a relative path **only when the target is in the mirrored set** (ok manifest map). Uncached docs pages and static assets keep their original hrefs so `docs/` does not contain broken relatives.
+Rewrite to a relative path **only when the target is in the mirrored set** (ok manifest map). Uncached docs pages and static assets keep their original hrefs so `out/` does not contain broken relatives.
 
 Rules:
 
@@ -269,7 +271,7 @@ path.posix.relative(path.posix.dirname(currentRelativePath), targetRelativePath)
 
 Never `path.relative(currentFile, targetFile)` (extra `../`). Always posix `/` in emitted links.
 
-Build lookup from manifest `ok` pages only: `url -> cachePath` (same as docs relative path).
+Build lookup from manifest `ok` pages only: `url -> cachePath` (same as out relative path).
 
 ### Language filter (`--lang`)
 
@@ -285,6 +287,7 @@ When `--lang <id>` is set (e.g. `python`, `java`, `javascript`, `csharp`, `cpp`,
 - Drop orphaned language headings that only introduced a removed fence (e.g. remove `#### Java` when filtering to python).
 - Leave non-code prose untouched.
 - Untagged fences: keep (unknown) or drop via explicit policy; default **keep**.
+- **Fallback:** if the page has no examples in `<id>`, use the first present of python → java → csharp (so `--lang javascript` still yields examples on TWS pages that omit JS).
 
 Without `--lang`, emit all languages (noisy reference pages unchanged).
 
@@ -294,7 +297,7 @@ Language filter does not affect scrape/cache; re-run `generate --lang ...` anyti
 
 ### Indexes
 
-**`docs/index.md`** — only section indexes for sections present in cache:
+**`out/index.md`** — only section indexes for sections present in cache:
 
 ```md
 # Interactive Brokers Docs Mirror
@@ -308,12 +311,12 @@ Local snapshot of selected pages from `https://www.interactivebrokers.com/docs`.
 ...
 ```
 
-**`docs/{section}/index.md`** — pages in original section `llms.txt` order; links relative to the section index (`doc/introduction.md`, …). Optional nested headings by path segments; order must follow llms, not alphabetical.
+**`out/{section}/index.md`** — pages in original section `llms.txt` order; links relative to the section index (`doc/introduction.md`, …). Nested `##` / `###` … headings from path segments (`doc` → Docs, `notes-limitations` → Notes Limitations); pages with no nesting stay flat. Order follows llms, not alphabetical.
 
 Discoverability:
 
 ```
-docs/index.md -> {section}/index.md -> pages
+out/index.md -> {section}/index.md -> pages
 ```
 
 ## Stage 3 — `validate` (implemented)
@@ -333,24 +336,24 @@ Evidence pass; does not trust the scraper's in-memory discovery alone.
    - Report missing and extras; missing => fail.
 
 3. **Output link-graph** (render / relative-path guarantee)
-   - From `docs/index.md`, BFS markdown links.
+   - From `out/index.md`, BFS markdown links.
    - Every **relative** target exists on disk (strip `#fragment`). This is the hard guarantee after the generate fix above.
    - Absolute `/docs/...` or canonical docs hrefs may remain for **uncached pages**, **static assets**, and intentional `[source](...)` links — allowlist those; do not require every docs-looking href to become relative.
    - Fail on `ibkrcampus.com` leftovers if policy still rewrites campus -> canonical everywhere generate touches (or allowlist if left raw).
-   - Every manifest `ok` page has a corresponding `docs/{cachePath}` (generated indexes exempt from remote URL requirement).
+   - Every manifest `ok` page has a corresponding `out/{cachePath}` (generated indexes exempt from remote URL requirement).
 
-4. Optional: section count `llms.md links == docs/{section} page files` (excluding `index.md`).
+4. Optional: section count `llms.md links == out/{section} page files` (excluding `index.md`).
 
 Validate exits non-zero on any failed check; print a concise report.
 
-Note: validate does **not** prove the remote site has no other pages outside llms indices; it proves the cache matches those indices and every **relative** link in `docs/` resolves. Absolute leftovers for non-mirrored targets are expected.
+Note: validate does **not** prove the remote site has no other pages outside llms indices; it proves the cache matches those indices and every **relative** link in `out/` resolves. Absolute leftovers for non-mirrored targets are expected.
 
 ## Optional scope (`--section`)
 
 On `scrape` (and optionally filter `generate`/`validate`):
 
 - Keep only paths under `/docs/{section}/` (e.g. `tws-api`).
-- Root `docs/index.md` then links only that section.
+- Root `out/index.md` then links only that section.
 
 ## Implementation notes
 

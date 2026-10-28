@@ -7,6 +7,7 @@
     "scrape": "bun run index.ts scrape",
     "generate": "bun run index.ts generate",
     "validate": "bun run index.ts validate",
+    "produce": "bun run scrape && bun run generate && bun run validate",
     "typecheck": "bun check",
     "test": "bun test"
   },

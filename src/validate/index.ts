@@ -1,6 +1,7 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { CACHE_DIR, OUT_DIR, MANIFEST_FILE } from "../constants.ts";
+import { isGhostPage, isHtmlContentType } from "../content.ts";
 import type { Manifest, ValidateOptions } from "../types.ts";
 import { auditClassifyLinks, sectionOfCanonicalUrl } from "./audit-llms.ts";
 import { checkLinkGraph } from "./link-graph.ts";
@@ -163,7 +164,7 @@ function summarizeFailures(report: ValidateReport): string[] {
 }
 
 /**
- * Stage 3: independent audit of cache/ + docs/ (no network).
+ * Stage 3: independent audit of cache/ + out/ (no network).
  */
 export async function validate(
   options: Partial<ValidateOptions> = {},
@@ -197,11 +198,19 @@ export async function validate(
   const okPageUrls = new Set<string>();
   const okPagePaths: string[] = [];
   for (const e of manifest.entries) {
-    if (e.kind === "page" && e.status === "ok") {
-      okPageUrls.add(e.url);
-      if (e.finalUrl) okPageUrls.add(e.finalUrl);
-      okPagePaths.push(e.cachePath);
+    if (e.kind !== "page" || e.status !== "ok") continue;
+    okPageUrls.add(e.url);
+    if (e.finalUrl) okPageUrls.add(e.finalUrl);
+
+    // Ghost HTML pages are cache-only; generate skips them — don't require out/.
+    if (isHtmlContentType(e.contentType)) continue;
+    try {
+      const body = await readFile(path.join(cacheDir, e.cachePath), "utf8");
+      if (isGhostPage({ body, contentType: e.contentType })) continue;
+    } catch {
+      // Missing file handled by manifest integrity.
     }
+    okPagePaths.push(e.cachePath);
   }
 
   const expectedPages = new Set<string>();

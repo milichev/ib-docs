@@ -11,6 +11,8 @@ export type ManifestEntry = {
   sha256: string;
   status: ManifestStatus;
   error?: string;
+  /** Response Content-Type when fetched (optional on older manifests). */
+  contentType?: string;
   fetchedAt: string;
 };
 

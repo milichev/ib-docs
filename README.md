@@ -1,12 +1,10 @@
 # ib-docs
 
-Ad-hoc scraper that mirrors [Interactive Brokers docs](https://www.interactivebrokers.com/docs) into a local `docs/` tree for Docs-MCP ingestion.
+Ad-hoc scraper that mirrors [Interactive Brokers docs](https://www.interactivebrokers.com/docs) into a local `out/` tree for Docs-MCP ingestion.
 
 ## Stages
 
-1. **`scrape`** — fetch sources into `cache/`, write `cache/manifest.json`
-2. **`generate`** — build `docs/` from `cache/` only (no network)
-3. **`validate`** — audit cache + docs — *not yet implemented*
+See [`docs/stages/`](docs/stages/).
 
 ## Setup
 
@@ -34,14 +32,14 @@ bun run scrape --section tws-api
 ## Layout
 
 ```
-cache/
+cache/         # raw fetches + manifest (gitignored)
   manifest.json
   llms.txt
   tws-api/
     llms.txt
     doc/introduction.md
     ...
-docs/          # produced by generate
+out/           # produced by generate (gitignored)
   index.md
   tws-api/
     index.md
