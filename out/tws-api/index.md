@@ -1,0 +1,819 @@
+# TWS API
+
+## Docs
+
+- [Introduction](doc/introduction.md)
+
+### Notes Limitations
+
+- [Requirements](doc/notes-limitations/requirements.md)
+- [Supported Two Factor Authentication (2FA)](doc/notes-limitations/supported-two-factor-authentication-2-fa.md)
+- [TWS API Limitations](doc/notes-limitations/tws-api-limitations.md)
+
+### Quick Start
+
+- [Installation](doc/quick-start/installation.md)
+- [OrderId](doc/quick-start/order-id.md)
+- [Placing Orders](doc/quick-start/placing-orders.md)
+- [Requesting Portfolio Data](doc/quick-start/requesting-portfolio-data.md)
+- [Requesting Market Data](doc/quick-start/requesting-market-data.md)
+
+## Docs
+
+- [TWSAPI Basics Tutorial](doc/twsapi-basics-tutorial.md)
+
+### Trader Workstation And Ib Gateway
+
+- [Download TWS or IB Gateway](doc/trader-workstation-and-ib-gateway/download-tws-or-ib-gateway.md)
+- [TWS Online or Offline Version?](doc/trader-workstation-and-ib-gateway/tws-online-or-offline-version.md)
+
+### Tws Settings
+
+- [Introduction](doc/tws-settings/introduction.md)
+
+#### Tws Configuration For Api Use
+
+- ["Never Lock Trader Workstation" Setting](doc/tws-settings/tws-configuration-for-api-use/never-lock-trader-workstation-setting.md)
+
+### Tws Settings
+
+- [Memory Allocation](doc/tws-settings/memory-allocation.md)
+- [Daily & Weekly Reauthentication](doc/tws-settings/daily-weekly-reauthentication.md)
+- [Order Precautions](doc/tws-settings/order-precautions.md)
+- [Connected IB Server Location in TWS](doc/tws-settings/connected-ib-server-location-in-tws.md)
+- [Smart Routing](doc/tws-settings/smart-algorithm.md)
+- [Allocation Setup (For Financial Advisors)](doc/tws-settings/allocation-setup-for-financial-advisors.md)
+- [Intelligent Order Resubmission](doc/tws-settings/intelligent-order-resubmission.md)
+- [Per-Currency Account Value Prefix](doc/tws-settings/per-currency-account-value-prefix.md)
+- [Disconnect on Invalid Format](doc/tws-settings/disconnect-on-invalid-format.md)
+- [Historical Date Format](doc/tws-settings/historical-date-format.md)
+
+### Download The Tws Api
+
+- [TWS API Download](doc/download-the-tws-api/introduction.md)
+- [Install the TWS API on Windows](doc/download-the-tws-api/install-the-tws-api-on-windows.md)
+- [Install the TWS API on MacOs / Linux](doc/download-the-tws-api/install-the-tws-api-on-mac-os-linux.md)
+- [TWS API File Location & Tools](doc/download-the-tws-api/tws-api-file-location-tools.md)
+
+#### Unique Configurations
+
+- [Introduction](doc/download-the-tws-api/unique-configurations/introduction.md)
+- [Implementing the Intel Decimal Library for MacOS and Linux](doc/download-the-tws-api/unique-configurations/implementing-the-intel-decimal-library-for-mac-os-and-linux.md)
+- [Update The Python Interpreter](doc/download-the-tws-api/unique-configurations/updating-the-python-interpreter.md)
+- [Implementing Visual Basic .NET](doc/download-the-tws-api/unique-configurations/implementing-visual-basic-net.md)
+
+### Troubleshooting Support
+
+- [Introduction](doc/troubleshooting-support/introduction.md)
+
+#### Log Files
+
+- [Introduction](doc/troubleshooting-support/log-files/introduction.md)
+- [API Logs](doc/troubleshooting-support/log-files/api-logs.md)
+- [How To Enable Debug Logging](doc/troubleshooting-support/log-files/how-to-enable-debug-logging.md)
+- [Location of Interactive Brokers Logs](doc/troubleshooting-support/log-files/location-of-interactive-brokers-logs.md)
+- [How To Delete Logs](doc/troubleshooting-support/log-files/how-to-delete-logs.md)
+- [Uploading Logs](doc/troubleshooting-support/log-files/uploading-logs.md)
+- [Exporting Logs](doc/troubleshooting-support/log-files/exporting-logs.md)
+- [Reading Exported Logs](doc/troubleshooting-support/log-files/reading-exported-logs.md)
+
+### Troubleshooting Support
+
+- [Unset Values](doc/troubleshooting-support/unset-values.md)
+
+### Architecture
+
+- [Introduction](doc/architecture/introduction.md)
+
+#### The Trader Workstation
+
+- [Introduction](doc/architecture/the-trader-workstation/introduction.md)
+- [The IB Gateway](doc/architecture/the-trader-workstation/the-ib-gateway.md)
+
+### Pacing Limitations
+
+- [Introduction](doc/pacing-limitations/introduction.md)
+- [Pacing Behavior](doc/pacing-limitations/pacing-behavior.md)
+
+### Connectivity
+
+- [Introduction](doc/connectivity/introduction.md)
+- [Establishing an API connection](doc/connectivity/establishing-an-api-connection.md)
+- [Verify API Connection](doc/connectivity/verify-api-connection.md)
+
+#### The E Reader Thread
+
+- [Introduction](doc/connectivity/the-e-reader-thread/introduction.md)
+- [C++, C#, and Java Implementations](doc/connectivity/the-e-reader-thread/c-c-and-java-implementations.md)
+- [Python Implementation](doc/connectivity/the-e-reader-thread/python-implementation.md)
+
+### Connectivity
+
+- [Remote TWS API Connections with Trader Workstation](doc/connectivity/remote-tws-api-connections-with-trader-workstation.md)
+- [Accepting an API connection from TWS](doc/connectivity/accepting-an-api-connection-from-tws.md)
+- [Logging into multiple applications](doc/connectivity/logging-into-multiple-applications.md)
+- [Broken API socket connection](doc/connectivity/broken-api-socket-connection.md)
+
+### Third Party Api Platforms
+
+- [Introduction](doc/third-party-api-platforms/introduction.md)
+
+#### Non Standard Tws Api Languages And Packages
+
+- [Introduction](doc/third-party-api-platforms/non-standard-tws-api-languages-and-packages/introduction.md)
+- [ib_insync and ib_async](doc/third-party-api-platforms/non-standard-tws-api-languages-and-packages/ib-insync-and-ib-async.md)
+
+### Account Portfolio Data
+
+- [Introduction](doc/account-portfolio-data/introduction.md)
+
+#### Account Summary
+
+- [Introduction](doc/account-portfolio-data/account-summary/introduction.md)
+- [Requesting Account Summary](doc/account-portfolio-data/account-summary/requesting-account-summary.md)
+- [Account Summary Tags](doc/account-portfolio-data/account-summary/account-summary-tags.md)
+- [Receiving Account Summary](doc/account-portfolio-data/account-summary/receiving-account-summary.md)
+- [Cancel Account Summary](doc/account-portfolio-data/account-summary/cancel-account-summary.md)
+
+#### Account Updates
+
+- [Introduction](doc/account-portfolio-data/account-updates/introduction.md)
+- [Requesting Account Updates](doc/account-portfolio-data/account-updates/requesting-account-updates.md)
+- [Receiving Account Updates](doc/account-portfolio-data/account-updates/receiving-account-updates.md)
+- [Account Value Keys](doc/account-portfolio-data/account-updates/account-value-keys.md)
+- [Cancel Account Updates](doc/account-portfolio-data/account-updates/cancel-account-updates.md)
+
+#### Account Update By Model
+
+- [Requesting Account Update by Model](doc/account-portfolio-data/account-update-by-model/requesting-account-update-by-model.md)
+- [Receiving Account Updates by Model](doc/account-portfolio-data/account-update-by-model/receiving-account-updates-by-model.md)
+- [Cancel Account Updates by Model](doc/account-portfolio-data/account-update-by-model/cancel-account-updates-by-model.md)
+
+#### Family Codes
+
+- [Introduction](doc/account-portfolio-data/family-codes/introduction.md)
+- [Request Family Codes](doc/account-portfolio-data/family-codes/request-family-codes.md)
+- [Receive Family Codes](doc/account-portfolio-data/family-codes/receive-family-codes.md)
+
+#### Managed Accounts
+
+- [Introduction](doc/account-portfolio-data/managed-accounts/introduction.md)
+- [Request Managed Accounts](doc/account-portfolio-data/managed-accounts/request-managed-accounts.md)
+- [Receive Managed Accounts](doc/account-portfolio-data/managed-accounts/receive-managed-accounts.md)
+
+#### Positions
+
+- [Introduction](doc/account-portfolio-data/positions/introduction.md)
+- [Request Positions](doc/account-portfolio-data/positions/request-positions.md)
+- [Receive Positions](doc/account-portfolio-data/positions/receive-positions.md)
+- [Cancel Positions Request](doc/account-portfolio-data/positions/cancel-positions-request.md)
+
+#### Positions By Model
+
+- [Introduction](doc/account-portfolio-data/positions-by-model/introduction.md)
+- [Request Positions By Model](doc/account-portfolio-data/positions-by-model/request-positions-by-model.md)
+- [Receive Positions By Model](doc/account-portfolio-data/positions-by-model/receive-positions-by-model.md)
+- [Cancel Positions By Model](doc/account-portfolio-data/positions-by-model/cancel-positions-by-model.md)
+
+#### Profit Loss Pn L
+
+- [Introduction](doc/account-portfolio-data/profit-loss-pn-l/introduction.md)
+- [Request P&L for individual positions](doc/account-portfolio-data/profit-loss-pn-l/request-p-l-for-individual-positions.md)
+- [Receive P&L for individual positions](doc/account-portfolio-data/profit-loss-pn-l/receive-p-l-for-individual-positions.md)
+- [Cancel P&L request for individual positions](doc/account-portfolio-data/profit-loss-pn-l/cancel-p-l-request-for-individual-positions.md)
+- [Request P&L for accounts](doc/account-portfolio-data/profit-loss-pn-l/request-p-l-for-accounts.md)
+- [Receive P&L for accounts](doc/account-portfolio-data/profit-loss-pn-l/receive-p-l-for-accounts.md)
+- [Cancel P&L subscription requests for accounts](doc/account-portfolio-data/profit-loss-pn-l/cancel-p-l-subscription-requests-for-accounts.md)
+
+#### White Branding User Info
+
+- [Introduction](doc/account-portfolio-data/white-branding-user-info/introduction.md)
+- [Requesting White Branding Info](doc/account-portfolio-data/white-branding-user-info/requesting-white-branding-info.md)
+- [Receiving White Branding Info](doc/account-portfolio-data/white-branding-user-info/receiving-white-branding-info.md)
+
+### Bulletins
+
+- [Introduction](doc/bulletins/introduction.md)
+- [Request IB Bulletins](doc/bulletins/request-ib-bulletins.md)
+- [Receive IB Bulletins](doc/bulletins/receive-ib-bulletins.md)
+- [Cancel Bulletin Request](doc/bulletins/cancel-bulletin-request.md)
+
+### Contracts Financial Instruments
+
+- [Introduction](doc/contracts-financial-instruments/introduction.md)
+- [The Contract Object](doc/contracts-financial-instruments/the-contract-object.md)
+- [Finding Contract Details in Trader Workstation](doc/contracts-financial-instruments/finding-contract-details-in-trader-workstation.md)
+
+#### Contract Details
+
+- [Introduction](doc/contracts-financial-instruments/contract-details/introduction.md)
+- [Request Contract Details](doc/contracts-financial-instruments/contract-details/request-contract-details.md)
+- [Receive Contract Details](doc/contracts-financial-instruments/contract-details/receive-contract-details.md)
+- [Receive Bond Details](doc/contracts-financial-instruments/contract-details/receive-bond-details.md)
+
+#### Option Chains
+
+- [Introduction](doc/contracts-financial-instruments/option-chains/introduction.md)
+- [Request Option Chains](doc/contracts-financial-instruments/option-chains/request-option-chains.md)
+- [Receive Option Chains](doc/contracts-financial-instruments/option-chains/receive-option-chains.md)
+
+#### Stock Symbol Search
+
+- [Introduction](doc/contracts-financial-instruments/stock-symbol-search/introduction.md)
+- [Request Stock Contract Search](doc/contracts-financial-instruments/stock-symbol-search/request-stock-contract-search.md)
+- [Receive Searched Stock Contract](doc/contracts-financial-instruments/stock-symbol-search/receive-searched-stock-contract.md)
+
+### Event Trading
+
+- [Introduction](doc/event-trading/introduction.md)
+- [Event Contract Definition & Discovery](doc/event-trading/contracts.md)
+- [Market Data](doc/event-trading/market-data.md)
+- [Event Contract Orders](doc/event-trading/orders.md)
+
+### Error Handling
+
+- [Introduction](doc/error-handling/introduction.md)
+- [Understanding Message Codes](doc/error-handling/understanding-message-codes.md)
+- [System Message Codes](doc/error-handling/system-message-codes.md)
+- [Error Codes](doc/error-handling/error-codes.md)
+- [Receiving Error Messages](doc/error-handling/receiving-error-messages.md)
+
+#### Common Error Resolution
+
+- [Introduction](doc/error-handling/common-error-resolution/introduction.md)
+- [Market data farm connection is OK](doc/error-handling/common-error-resolution/market-data-farm-connection-is-ok.md)
+- [Requested market data requires additional subscription for API. See link in 'Market Data Connections' dialog for more details.Delayed market data is available.](doc/error-handling/common-error-resolution/requested-market-data-requires-additional-subscription-for-api-see-link-in-market-data-connections-dialog-for-more-details-delayed-market-data-is-available.md)
+
+### Financial Advisors
+
+- [Introduction](doc/financial-advisors/introduction.md)
+- [Request FA Groups and Profiles](doc/financial-advisors/request-fa-groups-and-profiles.md)
+- [Receiving FA Groups and Profiles](doc/financial-advisors/receiving-fa-groups-and-profiles.md)
+- [Replace FA Allocations](doc/financial-advisors/replace-fa-allocations.md)
+- [Allocation Methods and Groups](doc/financial-advisors/allocation-methods-and-groups.md)
+
+#### Allocation Method Xml Format
+
+- [Introduction](doc/financial-advisors/allocation-method-xml-format/introduction.md)
+- [Available Equity](doc/financial-advisors/allocation-method-xml-format/available-equity.md)
+- [Contracts Or Shares](doc/financial-advisors/allocation-method-xml-format/contracts-or-shares.md)
+- [Equal Quantity](doc/financial-advisors/allocation-method-xml-format/equal-quantity.md)
+- [MonetaryAmount](doc/financial-advisors/allocation-method-xml-format/monetary-amount.md)
+- [Net Liquidation Value](doc/financial-advisors/allocation-method-xml-format/net-liquidation-value.md)
+- [Percentages](doc/financial-advisors/allocation-method-xml-format/percentages.md)
+- [Ratios](doc/financial-advisors/allocation-method-xml-format/ratios.md)
+
+### Financial Advisors
+
+- [Model Portfolios and the API](doc/financial-advisors/model-portfolios-and-the-api.md)
+- [Unification of Groups and Profiles](doc/financial-advisors/unification-of-groups-and-profiles.md)
+- [Order Placement](doc/financial-advisors/order-placement.md)
+
+### Md
+
+- [Market Data](doc/md/introduction.md)
+- [Streaming Data](doc/md/streaming-data.md)
+- [Historical Bars (OHLC)](doc/md/historical-bars.md)
+- [5 Second Bars](doc/md/5-second-bars.md)
+- [Component Exchange Mapping](doc/md/component-exchanges.md)
+- [Delayed Market Data](doc/md/delayed-data.md)
+- [Earliest Data Point](doc/md/earliest-data-point.md)
+- [Histogram Data](doc/md/histogram-data.md)
+- [Historical Time & Sales](doc/md/historical-ticks.md)
+- [Market Depth](doc/md/market-depth.md)
+- [Options & Greeks](doc/md/option-greeks.md)
+- [Tick-By-Tick Data](doc/md/live-ticks.md)
+
+### Market Scanner
+
+- [Introduction](doc/market-scanner/introduction.md)
+
+#### Market Scanner Parameters
+
+- [Introduction](doc/market-scanner/market-scanner-parameters/introduction.md)
+- [Request Market Scanner Parameters](doc/market-scanner/market-scanner-parameters/request-market-scanner-parameters.md)
+- [Receive Market Scanner Parameters](doc/market-scanner/market-scanner-parameters/receive-market-scanner-parameters.md)
+
+#### Market Scanner Subscription
+
+- [Introduction](doc/market-scanner/market-scanner-subscription/introduction.md)
+- [Request Market Scanner Subscription](doc/market-scanner/market-scanner-subscription/request-market-scanner-subscription.md)
+- [Receive Market Scanner Subscription](doc/market-scanner/market-scanner-subscription/receive-market-scanner-subscription.md)
+- [Cancel Market Scanner Subscription](doc/market-scanner/market-scanner-subscription/cancel-market-scanner-subscription.md)
+
+### News
+
+- [Introduction](doc/news/introduction.md)
+
+#### News Providers
+
+- [Introduction](doc/news/news-providers/introduction.md)
+- [Request News Providers](doc/news/news-providers/request-news-providers.md)
+- [Receive News Providers](doc/news/news-providers/receive-news-providers.md)
+
+#### Live News Headlines
+
+- [Introduction](doc/news/live-news-headlines/introduction.md)
+- [Request Contract Specific News](doc/news/live-news-headlines/request-contract-specific-news.md)
+- [Request BroadTape News](doc/news/live-news-headlines/request-broad-tape-news.md)
+- [Receive Live News Headlines](doc/news/live-news-headlines/receive-live-news-headlines.md)
+
+#### Historical News Headlines
+
+- [Introduction](doc/news/historical-news-headlines/introduction.md)
+- [Requesting Historical News](doc/news/historical-news-headlines/requesting-historical-news.md)
+- [Receive Historical News](doc/news/historical-news-headlines/receive-historical-news.md)
+
+#### News Articles
+
+- [Introduction](doc/news/news-articles/introduction.md)
+- [Request News Articles](doc/news/news-articles/request-news-articles.md)
+- [Receive News Articles](doc/news/news-articles/receive-news-articles.md)
+
+### Next Valid Id
+
+- [Introduction](doc/next-valid-id/introduction.md)
+- [Request Next Valid ID](doc/next-valid-id/request-next-valid-id.md)
+- [Receive Next Valid ID](doc/next-valid-id/receive-next-valid-id.md)
+- [Reset Order ID Sequence](doc/next-valid-id/reset-order-id-sequence.md)
+
+### Order Management
+
+- [ClientId 0 and the Master Client ID](doc/order-management/client-id-0-and-the-master-client-id.md)
+- [Commission And Fees Report](doc/order-management/commission-and-fees-report.md)
+
+#### Execution Details
+
+- [Introduction](doc/order-management/execution-details/introduction.md)
+- [ExecID Behavior](doc/order-management/execution-details/exec-id-behavior.md)
+- [The Execution Object](doc/order-management/execution-details/the-execution-object.md)
+- [Request Execution Details](doc/order-management/execution-details/request-execution-details.md)
+- [Receive Execution Details](doc/order-management/execution-details/receive-execution-details.md)
+
+### Order Management
+
+- [Open Orders](doc/order-management/open-orders.md)
+
+#### Order Status
+
+- [Introduction](doc/order-management/order-status/introduction.md)
+- [Understanding Order Status Message](doc/order-management/order-status/understanding-order-status-message.md)
+
+#### Requesting Currently Active Orders
+
+- [Introduction](doc/order-management/requesting-currently-active-orders/introduction.md)
+- [API client's orders](doc/order-management/requesting-currently-active-orders/api-clients-orders.md)
+- [All submitted orders](doc/order-management/requesting-currently-active-orders/all-submitted-orders.md)
+- [Manually Submitted TWS Orders](doc/order-management/requesting-currently-active-orders/manually-submitted-tws-orders.md)
+- [Order Binding Notification](doc/order-management/requesting-currently-active-orders/order-binding-notification.md)
+
+#### Retrieving Completed Orders
+
+- [Introduction](doc/order-management/retrieving-completed-orders/introduction.md)
+- [Requesting Completed Orders](doc/order-management/retrieving-completed-orders/requesting-completed-orders.md)
+- [Receiving Completed Orders](doc/order-management/retrieving-completed-orders/receiving-completed-orders.md)
+
+### Orders
+
+- [The Order and Contract Objects](doc/orders/the-order-and-contract-objects.md)
+
+#### Cancelling An Order
+
+- [Introduction](doc/orders/cancelling-an-order/introduction.md)
+- [Cancel Individual Order](doc/orders/cancelling-an-order/cancel-individual-order.md)
+- [Cancel All Open Orders](doc/orders/cancelling-an-order/cancel-all-open-orders.md)
+
+### Orders
+
+- [Exercise Options](doc/orders/exercise-options.md)
+
+#### Minimum Price Increment
+
+- [Introduction](doc/orders/minimum-price-increment/introduction.md)
+- [Request Market Rule](doc/orders/minimum-price-increment/request-market-rule.md)
+- [Receive Market Rule](doc/orders/minimum-price-increment/receive-market-rule.md)
+
+### Orders
+
+- [MiFIR Transaction Reporting Fields](doc/orders/mi-fir-transaction-reporting-fields.md)
+- [Modifying Orders](doc/orders/modifying-orders.md)
+
+#### Place Order
+
+- [Introduction](doc/orders/place-order/introduction.md)
+- [Adding a Profit Taker and Stop Loss](doc/orders/place-order/adding-a-profit-taker-and-stop-loss.md)
+- [Combo Orders](doc/orders/place-order/combo-orders.md)
+- [Trading The Overnight Session](doc/orders/place-order/trading-the-overnight-session.md)
+- [Understanding Order Precautions](doc/orders/place-order/understanding-order-precautions.md)
+- [Order Placement Considerations](doc/orders/place-order/order-placement-considerations.md)
+
+### Orders
+
+- [Pre-Borrow Shares For Shorting](doc/orders/pre-borrow-shares-for-shorting.md)
+- [Test Order Impact (WhatIf)](doc/orders/test-order-impact-what-if.md)
+- [Trigger Methods](doc/orders/trigger-methods.md)
+
+### Setting Management
+
+- [Introduction](doc/setting-management/introduction.md)
+- [Request Configuration](doc/setting-management/request-configuration.md)
+- [Receive Configuration](doc/setting-management/receive-configuration.md)
+- [Request Configuration Update](doc/setting-management/request-configuration-update.md)
+- [Receive Configuration Update](doc/setting-management/receive-configuration-update.md)
+
+### Tws Ui Display Groups
+
+- [Introduction](doc/tws-ui-display-groups/introduction.md)
+
+#### Query Display Groups
+
+- [Introduction](doc/tws-ui-display-groups/query-display-groups/introduction.md)
+- [Request Query Display Groups](doc/tws-ui-display-groups/query-display-groups/request-query-display-groups.md)
+- [Receive Query Display Groups](doc/tws-ui-display-groups/query-display-groups/receive-query-display-groups.md)
+
+#### Subscribe To Group Events
+
+- [Introduction](doc/tws-ui-display-groups/subscribe-to-group-events/introduction.md)
+- [Request Group Events Subscription](doc/tws-ui-display-groups/subscribe-to-group-events/request-group-events-subscription.md)
+- [Receive Group Events Subscription](doc/tws-ui-display-groups/subscribe-to-group-events/receive-group-events-subscription.md)
+- [Unsubscribe From Group Events](doc/tws-ui-display-groups/subscribe-to-group-events/unsubscribe-from-group-events.md)
+
+### Tws Ui Display Groups
+
+- [Update Display Group](doc/tws-ui-display-groups/update-display-group.md)
+
+### Wall Street Horizon
+
+- [Introduction](doc/wall-street-horizon/introduction.md)
+
+#### Meta Data
+
+- [Introduction](doc/wall-street-horizon/meta-data/introduction.md)
+- [Meta Data Filters](doc/wall-street-horizon/meta-data/meta-data-filters.md)
+- [Requesting Meta Data](doc/wall-street-horizon/meta-data/requesting-meta-data.md)
+- [Receive Meta Data](doc/wall-street-horizon/meta-data/receive-meta-data.md)
+- [Cancel Meta Data](doc/wall-street-horizon/meta-data/cancel-meta-data.md)
+
+#### Event Data
+
+- [Introduction](doc/wall-street-horizon/event-data/introduction.md)
+- [WshEventData Object](doc/wall-street-horizon/event-data/wsh-event-data-object.md)
+- [Request Event Data](doc/wall-street-horizon/event-data/request-event-data.md)
+- [Receive Event Data](doc/wall-street-horizon/event-data/receive-event-data.md)
+- [Cancel Event Data](doc/wall-street-horizon/event-data/cancel-event-data.md)
+
+## Sync Doc
+
+- [Introduction](sync-doc/introduction.md)
+- [TWSSyncWrapper Class](sync-doc/tws-sync-wrapper-class.md)
+- [connect_and_start()](sync-doc/connect-start-connection.md)
+- [disconnect_and_stop()](sync-doc/disconnect-stop-connection.md)
+- [get_current_time()](sync-doc/current-time.md)
+- [get_next_valid_id()](sync-doc/next-valid-id.md)
+- [get_account_summary()](sync-doc/account-summary.md)
+- [get_contract_details()](sync-doc/contract-details.md)
+- [get_market_data_snapshot()](sync-doc/live-market-data.md)
+- [get_historical_data()](sync-doc/historical-market-data.md)
+- [place_order_sync()](sync-doc/place-order.md)
+- [cancel_order_sync()](sync-doc/cancel-order.md)
+- [get_open_orders()](sync-doc/open-orders.md)
+- [get_executions()](sync-doc/executions.md)
+- [get_positions()](sync-doc/positions.md)
+- [get_portfolio()](sync-doc/portfolio.md)
+
+## Reference
+
+- [Introduction](ref/introduction.md)
+- [AccountSummaryTags](ref/account-summary-tags.md)
+- [Commission And Fees Report](ref/commission-and-fees-report.md)
+- [ComboLeg](ref/combo-leg.md)
+- [Contract](ref/contract.md)
+- [Contract Description](ref/contract-description.md)
+- [Contract Details](ref/contract-details.md)
+- [Delta Neutral Contract](ref/delta-neutral-contract.md)
+- [Execution](ref/execution.md)
+- [Family Code](ref/family-code.md)
+- [News Provider](ref/news-provider.md)
+- [Price Increment](ref/price-increment.md)
+- [Histogram Data](ref/histogram-data.md)
+- [Historical Session](ref/historical-session.md)
+- [Historical Tick](ref/historical-tick.md)
+- [Historical Tick Bid Ask](ref/historical-tick-bid-ask.md)
+- [Historical Tick Last](ref/historical-tick-last.md)
+- [Ineligibility Reason](ref/ineligibility-reason.md)
+- [Order](ref/order.md)
+- [Order Cancel](ref/order-cancel.md)
+
+### Order Conditions
+
+- [Introduction](ref/order-conditions/execution-condition.md)
+- [PercentChangeCondition](ref/order-conditions/percentage-condition.md)
+- [Introduction](ref/order-conditions/price-condition.md)
+- [Margin Condition](ref/order-conditions/margin-condition.md)
+- [Time Condition](ref/order-conditions/time-condition.md)
+- [Volume Condition](ref/order-conditions/volume-condition.md)
+
+## Reference
+
+- [Order State](ref/order-state.md)
+- [Smart Component](ref/smart-component.md)
+- [SoftDollarTier](ref/soft-dollar-tier.md)
+- [Introduction](ref/tag-value.md)
+- [Tick Attrib Last](ref/tick-attrib-last.md)
+- [Tick Attrib Bid Ask](ref/tick-attrib-bid-ask.md)
+- [WshEventData](ref/wsh-event-data.md)
+
+## Protobuf
+
+- [Introduction](protobuf/introduction.md)
+
+### Important Protobuf Functions
+
+- [Understanding Protobuf Behavior](protobuf/important-protobuf-functions/introduction.md)
+- [CopyFrom](protobuf/important-protobuf-functions/copy-from.md)
+
+## Protobuf
+
+- [Account Data End](protobuf/account-data-end.md)
+- [Account Data Request](protobuf/account-data-request.md)
+- [Account Summary](protobuf/account-summary.md)
+- [Account Summary End](protobuf/account-summary-end.md)
+- [Account Summary Request](protobuf/account-summary-request.md)
+- [Account Update Multi](protobuf/account-update-multi.md)
+- [Account Update Multi End](protobuf/account-update-multi-end.md)
+- [Account Updates Multi Request](protobuf/account-updates-multi-request.md)
+- [Account Update Time](protobuf/account-update-time.md)
+- [Account Value](protobuf/account-value.md)
+- [All Open Orders Request](protobuf/all-open-orders-request.md)
+- [Api Config](protobuf/api-config.md)
+- [Api Precautions Config](protobuf/api-precautions-config.md)
+- [Api Settings Config](protobuf/api-settings-config.md)
+- [Attached Orders](protobuf/attached-orders.md)
+- [Auto Open Orders Request](protobuf/auto-open-orders-request.md)
+- [Calculate Implied Volatility Request](protobuf/calculate-implied-volatility-request.md)
+- [Calculate Option Price Request](protobuf/calculate-option-price-request.md)
+- [Cancel Account Summary](protobuf/cancel-account-summary.md)
+- [Cancel Account Updates Multi](protobuf/cancel-account-updates-multi.md)
+- [Cancel Calculate Implied Volatility](protobuf/cancel-calculate-implied-volatility.md)
+- [Cancel Calculate Option Price](protobuf/cancel-calculate-option-price.md)
+- [Cancel Contract Data](protobuf/cancel-contract-data.md)
+- [Cancel Head Timestamp](protobuf/cancel-head-timestamp.md)
+- [Cancel Histogram Data](protobuf/cancel-histogram-data.md)
+- [Cancel Historical Data](protobuf/cancel-historical-data.md)
+- [Cancel Historical Ticks](protobuf/cancel-historical-ticks.md)
+- [Cancel Market Data](protobuf/cancel-market-data.md)
+- [Cancel Market Depth](protobuf/cancel-market-depth.md)
+- [Cancel News Bulletins](protobuf/cancel-news-bulletins.md)
+- [Cancel Order Request](protobuf/cancel-order-request.md)
+- [Cancel Pn L](protobuf/cancel-pn-l.md)
+- [Cancel Pn L Single](protobuf/cancel-pn-l-single.md)
+- [Cancel Positions](protobuf/cancel-positions.md)
+- [Cancel Positions Multi](protobuf/cancel-positions-multi.md)
+- [Cancel Real Time Bars](protobuf/cancel-real-time-bars.md)
+- [Cancel Scanner Subscription](protobuf/cancel-scanner-subscription.md)
+- [Cancel Tick By Tick](protobuf/cancel-tick-by-tick.md)
+- [Cancel Wsh Event Data](protobuf/cancel-wsh-event-data.md)
+- [Cancel Wsh Meta Data](protobuf/cancel-wsh-meta-data.md)
+- [Combo Leg](protobuf/combo-leg.md)
+- [Completed Order](protobuf/completed-order.md)
+- [Completed Orders End](protobuf/completed-orders-end.md)
+- [Completed Orders Request](protobuf/completed-orders-request.md)
+- [Config Request](protobuf/config-request.md)
+- [Config Response](protobuf/config-response.md)
+- [Contract Data](protobuf/contract-data.md)
+- [Contract Data End](protobuf/contract-data-end.md)
+- [Contract Data Request](protobuf/contract-data-request.md)
+- [Current Time](protobuf/current-time.md)
+- [Current Time In Millis](protobuf/current-time-in-millis.md)
+- [Current Time In Millis Request](protobuf/current-time-in-millis-request.md)
+- [Current Time Request](protobuf/current-time-request.md)
+- [Depth Market Data Description](protobuf/depth-market-data-description.md)
+- [Display Group List](protobuf/display-group-list.md)
+- [Display Group Updated](protobuf/display-group-updated.md)
+- [Error Message](protobuf/error-message.md)
+- [Execution Details](protobuf/execution-details.md)
+- [Execution Details End](protobuf/execution-details-end.md)
+- [Execution Filter](protobuf/execution-filter.md)
+- [Execution Request](protobuf/execution-request.md)
+- [Exercise Options Request](protobuf/exercise-options-request.md)
+- [Family Codes](protobuf/family-codes.md)
+- [Family Codes Request](protobuf/family-codes-request.md)
+- [Fa Replace](protobuf/fa-replace.md)
+- [Fa Request](protobuf/fa-request.md)
+- [Global Cancel Request](protobuf/global-cancel-request.md)
+- [Head Timestamp](protobuf/head-timestamp.md)
+- [Head Timestamp Request](protobuf/head-timestamp-request.md)
+- [Histogram Data Entry](protobuf/histogram-data-entry.md)
+- [Histogram Data Request](protobuf/histogram-data-request.md)
+- [Historical Data](protobuf/historical-data.md)
+- [Historical Data Bar](protobuf/historical-data-bar.md)
+- [Historical Data End](protobuf/historical-data-end.md)
+- [Historical Data Request](protobuf/historical-data-request.md)
+- [Historical Data Update](protobuf/historical-data-update.md)
+- [Historical News](protobuf/historical-news.md)
+- [Historical News End](protobuf/historical-news-end.md)
+- [Historical News Request](protobuf/historical-news-request.md)
+- [Historical Schedule](protobuf/historical-schedule.md)
+- [Historical Ticks](protobuf/historical-ticks.md)
+- [Historical Ticks Bid Ask](protobuf/historical-ticks-bid-ask.md)
+- [Historical Ticks Last](protobuf/historical-ticks-last.md)
+- [Historical Ticks Request](protobuf/historical-ticks-request.md)
+- [Ids Request](protobuf/ids-request.md)
+- [Lock And Exit Config](protobuf/lock-and-exit-config.md)
+- [Managed Accounts](protobuf/managed-accounts.md)
+- [Managed Accounts Request](protobuf/managed-accounts-request.md)
+- [Market Data Request](protobuf/market-data-request.md)
+- [Market Data Type](protobuf/market-data-type.md)
+- [Market Data Type Request](protobuf/market-data-type-request.md)
+- [Market Depth](protobuf/market-depth.md)
+- [Market Depth Data](protobuf/market-depth-data.md)
+- [Market Depth Exchanges](protobuf/market-depth-exchanges.md)
+- [Market Depth Exchanges Request](protobuf/market-depth-exchanges-request.md)
+- [Market Depth L 2](protobuf/market-depth-l-2.md)
+- [Market Depth Request](protobuf/market-depth-request.md)
+- [Market Rule](protobuf/market-rule.md)
+- [Market Rule Request](protobuf/market-rule-request.md)
+- [Matching Symbols Request](protobuf/matching-symbols-request.md)
+- [Message Config](protobuf/message-config.md)
+- [News Article](protobuf/news-article.md)
+- [News Article Request](protobuf/news-article-request.md)
+- [News Bulletin](protobuf/news-bulletin.md)
+- [News Bulletins Request](protobuf/news-bulletins-request.md)
+- [News Providers](protobuf/news-providers.md)
+- [News Providers Request](protobuf/news-providers-request.md)
+- [Next Valid Id](protobuf/next-valid-id.md)
+- [Open Order](protobuf/open-order.md)
+- [Open Orders End](protobuf/open-orders-end.md)
+- [Open Orders Request](protobuf/open-orders-request.md)
+- [Order Allocation](protobuf/order-allocation.md)
+- [Order Bound](protobuf/order-bound.md)
+- [Order Condition](protobuf/order-condition.md)
+- [Orders Config](protobuf/orders-config.md)
+- [Orders Smart Routing Config](protobuf/orders-smart-routing-config.md)
+- [Order Status](protobuf/order-status.md)
+- [Place Order Request](protobuf/place-order-request.md)
+- [Pn L](protobuf/pn-l.md)
+- [Pn L Request](protobuf/pn-l-request.md)
+- [Pn L Single](protobuf/pn-l-single.md)
+- [Pn L Single Request](protobuf/pn-l-single-request.md)
+- [Portfolio Value](protobuf/portfolio-value.md)
+- [Position](protobuf/position.md)
+- [Position End](protobuf/position-end.md)
+- [Position Multi](protobuf/position-multi.md)
+- [Position Multi End](protobuf/position-multi-end.md)
+- [Positions Multi Request](protobuf/positions-multi-request.md)
+- [Positions Request](protobuf/positions-request.md)
+- [Query Display Groups Request](protobuf/query-display-groups-request.md)
+- [Real Time Bars Request](protobuf/real-time-bars-request.md)
+- [Real Time Bar Tick](protobuf/real-time-bar-tick.md)
+- [Receive Fa](protobuf/receive-fa.md)
+- [Replace Fa End](protobuf/replace-fa-end.md)
+- [Reroute Market Data Request](protobuf/reroute-market-data-request.md)
+- [Reroute Market Depth Request](protobuf/reroute-market-depth-request.md)
+- [Scanner Data](protobuf/scanner-data.md)
+- [Scanner Data Element](protobuf/scanner-data-element.md)
+- [Scanner Parameters](protobuf/scanner-parameters.md)
+- [Scanner Parameters Request](protobuf/scanner-parameters-request.md)
+- [Scanner Subscription](protobuf/scanner-subscription.md)
+- [Scanner Subscription Request](protobuf/scanner-subscription-request.md)
+- [Sec Def Opt Parameter](protobuf/sec-def-opt-parameter.md)
+- [Sec Def Opt Parameter End](protobuf/sec-def-opt-parameter-end.md)
+- [Sec Def Opt Params Request](protobuf/sec-def-opt-params-request.md)
+- [Set Server Log Level Request](protobuf/set-server-log-level-request.md)
+- [Smart Components](protobuf/smart-components.md)
+- [Smart Components Request](protobuf/smart-components-request.md)
+- [Soft Dollar Tiers](protobuf/soft-dollar-tiers.md)
+- [Soft Dollar Tiers Request](protobuf/soft-dollar-tiers-request.md)
+- [Start Api Request](protobuf/start-api-request.md)
+- [Subscribe To Group Events Request](protobuf/subscribe-to-group-events-request.md)
+- [Symbol Samples](protobuf/symbol-samples.md)
+- [Tick By Tick Data](protobuf/tick-by-tick-data.md)
+- [Tick By Tick Request](protobuf/tick-by-tick-request.md)
+- [Tick Generic](protobuf/tick-generic.md)
+- [Tick News](protobuf/tick-news.md)
+- [Tick Option Computation](protobuf/tick-option-computation.md)
+- [Tick Price](protobuf/tick-price.md)
+- [Tick Req Params](protobuf/tick-req-params.md)
+- [Tick Size](protobuf/tick-size.md)
+- [Tick Snapshot End](protobuf/tick-snapshot-end.md)
+- [Tick String](protobuf/tick-string.md)
+- [Unsubscribe From Group Events Request](protobuf/unsubscribe-from-group-events-request.md)
+- [Update Config Request](protobuf/update-config-request.md)
+- [Update Config Response](protobuf/update-config-response.md)
+- [Update Config Warning](protobuf/update-config-warning.md)
+- [Update Display Group Request](protobuf/update-display-group-request.md)
+- [User Info](protobuf/user-info.md)
+- [User Info Request](protobuf/user-info-request.md)
+- [Verify Completed](protobuf/verify-completed.md)
+- [Verify Message Api](protobuf/verify-message-api.md)
+- [Verify Message Request](protobuf/verify-message-request.md)
+- [Verify Request](protobuf/verify-request.md)
+- [Wsh Event Data](protobuf/wsh-event-data.md)
+- [Wsh Event Data Request](protobuf/wsh-event-data-request.md)
+- [Wsh Meta Data](protobuf/wsh-meta-data.md)
+- [Wsh Meta Data Request](protobuf/wsh-meta-data-request.md)
+
+## Contracts
+
+- [Introduction](contracts/introduction.md)
+
+### Contract Management
+
+- [How to Find Contract Details](contracts/contract-management/how-to-find-contract-details.md)
+- [The Value Exchange](contracts/contract-management/the-value-exchange.md)
+
+## Contracts
+
+- [Bonds](contracts/bonds.md)
+- [CFDs](contracts/cf-ds.md)
+- [Commodities](contracts/commodities.md)
+- [Combos & Spreads](contracts/combos-spreads.md)
+- [Contracts specified by CUSIP, FIGI, or ISIN](contracts/contracts-specified-by-cusip-figi-or-isin.md)
+- [Cryptocurrency](contracts/cryptocurrency.md)
+- [Event Contract](contracts/event-contracts.md)
+- [Futures](contracts/futures.md)
+- [Futures Options](contracts/futures-options.md)
+- [FX Pairs](contracts/fx-pairs.md)
+- [Index](contracts/indices.md)
+- [Market Indicators](contracts/market-indicators.md)
+- [Mutual Funds](contracts/mutual-funds.md)
+- [Options](contracts/options.md)
+- [Stocks](contracts/stocks.md)
+- [Warrants](contracts/warrants.md)
+
+## Changelog
+
+### 2023
+
+#### 10
+
+- [2023-10-18](changelog/2023/10/18.md)
+- [2023-10-26](changelog/2023/10/26.md)
+
+#### 12
+
+- [2023-12-08](changelog/2023/12/8.md)
+
+### 2024
+
+#### 10
+
+- [2024-10-18](changelog/2024/10/18.md)
+
+#### 11
+
+- [2024-11-11](changelog/2024/11/11.md)
+
+#### 12
+
+- [2024-12-17](changelog/2024/12/17.md)
+
+#### 2
+
+- [2024-02-08](changelog/2024/2/8.md)
+
+#### 4
+
+- [2024-04-16](changelog/2024/4/16.md)
+
+#### 6
+
+- [2024-06-12](changelog/2024/6/12.md)
+
+#### 7
+
+- [2024-07-08](changelog/2024/7/8.md)
+
+### 2025
+
+#### 1
+
+- [2025-01-13](changelog/2025/1/13.md)
+- [2025-01-16](changelog/2025/1/16.md)
+
+#### 2
+
+- [2025-02-07](changelog/2025/2/7.md)
+
+### 2026
+
+#### 1
+
+- [2026-01-26](changelog/2026/1/26.md)
+
+#### 10
+
+- [2026-10-13](changelog/2026/10/13.md)
+- [2026-10-16](changelog/2026/10/16.md)
+- [2026-10-05](changelog/2026/10/5.md)
+- [2026-10-08](changelog/2026/10/8.md)
+
+#### 8
+
+- [2026-08-03](changelog/2026/8/3.md)
+
+#### 9
+
+- [2026-09-24](changelog/2026/9/24.md)
+- [Docs](doc.md)
+- [Reference](ref.md)

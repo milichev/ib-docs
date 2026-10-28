@@ -1,0 +1,14 @@
+> For clean Markdown of any page, append .md to the page URL.
+> For a complete documentation index, see https://ibkrcampus.com/docs/fix/llms.txt.
+
+# FIX
+
+## Docs
+
+- [Introduction](https://ibkrcampus.com/docs/fix/intro.md)
+- [Requirements & Costs](https://ibkrcampus.com/docs/fix/requirements.md)
+- [Connectivity](https://ibkrcampus.com/docs/fix/connectivity.md)
+- [Onboarding and Integration](https://ibkrcampus.com/docs/fix/onboarding.md)
+- [FIX for OMS Vendors](https://ibkrcampus.com/docs/fix/fix-for-oms-vendors.md)
+- [FIX Implementation Manual](https://ibkrcampus.com/docs/fix/manual.md)
+- [Changelog](https://ibkrcampus.com/docs/fix/changelog/llms.txt)

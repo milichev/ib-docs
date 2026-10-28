@@ -1,0 +1,14 @@
+> This page is for TWS API.
+
+> For clean Markdown of any page, append .md to the page URL.
+> For a complete documentation index, see https://ibkrcampus.com/docs/llms.txt.
+
+# Calendar Event Data through WSH
+
+Calendar and Event data can be retrieved from the Wall Street Horizon Event Calendar and accessed via the TWS API through the functions `EClient.reqWshMetaData` and `EClient.reqWshEventData`.
+
+It is necessary to have the **Wall Street Horizon Corporate Event Data** research subscription activated first in [Account Management](https://www.ibkrguides.com/clientportal/usersettings/marketdatasubscriptions.htm).
+
+WSH provides IBKR with corporate event datasets, including earnings dates, dividend dates, options expiration dates, splits, spinoffs and a wide variety of investor-related conferences.
+
+Data Classes and Fields PDF

@@ -1,0 +1,12 @@
+> For clean Markdown of any page, append .md to the page URL.
+> For a complete documentation index, see https://ibkrcampus.com/docs/excel/changelog/llms.txt.
+
+# Changelog
+
+## Entries
+
+- [IBKR Excel API](https://ibkrcampus.com/docs/excel/changelog/2026/10/20.md)
+- [IBKR Excel API](https://ibkrcampus.com/docs/excel/changelog/2026/10/5.md)
+- [IBKR API Changelog](https://ibkrcampus.com/docs/excel/changelog/2024/11/11.md)
+- [IBKR Excel API | Excel ActiveX | Excel DDE | Excel RTD](https://ibkrcampus.com/docs/excel/changelog/2024/9/6.md)
+- [Excel DDE](https://ibkrcampus.com/docs/excel/changelog/2023/10/18.md)

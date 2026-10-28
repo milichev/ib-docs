@@ -1,0 +1,67 @@
+> This page is for General.
+
+> For clean Markdown of any page, append .md to the page URL.
+> For a complete documentation index, see https://ibkrcampus.com/docs/llms.txt.
+
+# Auction Pegged to Stock
+
+For option orders routed to the Boston Options Exchange (BOX) you may elect to participate in the BOX's price improvement auction in pennies. All BOX-directed price improvement orders are immediately sent from Interactive Brokers to the BOX order book, and when the terms allow, IB will evaluate it for inclusion in a price improvement auction based on price and volume priority. In the auction, your order will have priority over broker-dealer price improvement orders at the same price. An Auction Pegged to Stock order adjusts the order price by the product of a signed delta (which is entered as an absolute and assumed to be positive for calls, negative for puts) and the change of the option's underlying stock price. A buy or sell call order price is determined by adding the delta times a change in an underlying stock price change to a specified starting price for the call. To determine the change in price, a stock reference price (NBBO midpoint at the time of the order is assumed if no reference price is entered) is subtracted from the current NBBO midpoint. A stock range may also be entered that cancels an order when reached. The delta times the change in stock price will be rounded to the nearest penny in favor of the order and will be used as your auction improvement amount.
+
+Products: OPT (BOX only)
+
+More on [price improvement orders](https://www.interactivebrokers.com/en/index.php?f=614)
+
+#### Python
+
+```python
+order = Order()
+order.action = action
+order.orderType = "PEG STK"
+order.totalQuantity = quantity
+order.delta = delta
+order.startingPrice = startingPrice
+```
+
+#### Java
+
+```java
+Order order = new Order();
+order.action(action);
+order.orderType("PEG STK");
+order.totalQuantity(quantity);
+order.delta(delta);
+order.startingPrice(startingPrice);
+```
+
+#### C++
+
+```cpp
+Order order;
+order.action = action;
+order.orderType = "PEG STK";
+order.totalQuantity = quantity;
+order.delta = delta;
+order.startingPrice = startingPrice;
+```
+
+#### C\#
+
+```csharp
+Order order = new Order();
+order.Action = action;
+order.OrderType = "PEG STK";
+order.TotalQuantity = quantity;
+order.Delta = delta;
+order.StartingPrice = startingPrice;
+```
+
+#### VB.NET
+
+```vbnet
+Dim order As Order = New Order
+order.Action = action
+order.OrderType = "PEG STK"
+order.TotalQuantity = quantity
+order.Delta = delta
+order.StartingPrice = startingPrice
+```

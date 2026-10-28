@@ -1,0 +1,10 @@
+> This page is for TWS API.
+
+> For clean Markdown of any page, append .md to the page URL.
+> For a complete documentation index, see https://ibkrcampus.com/docs/llms.txt.
+
+## ManagedAccounts
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `accountsList` | `string` | A comma-separated string with the managed account ids. |

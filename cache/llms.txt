@@ -1,0 +1,182 @@
+# IBKR API Home
+
+At Interactive Brokers (IBKR) we offer a comprehensive suite of API integration options, providing scalable and efficient access to essential services. We support multiple methods including REST-based Web API, FIX, and TCP socket connection, to suit various use cases. IBKR's APIs can be used to automate trading strategies, build custom interfaces, and create seamless third party integrations. Explore our API service types to find the best solution for your needs.
+
+#### [Web API](/web-api/)
+
+A REST-based API supporting both HTTP and Websocket access to IBKR's trading and account management services for brokers, advisors, and clients.
+
+#### [TWS API](/tws-api/)
+
+A TCP socket-based API supporting Python, Java, C++, C#, and more via protobuf to integrate with Trader Workstation or IB Gateway.
+
+#### [Excel](/excel/)
+
+A C# or Java-based API that bridges Microsoft Excel directly with TWS or IB Gateway for spreadsheet-driven trading and market data workflows.
+
+#### [FIX](/fix/)
+
+An industry-standard messaging protocol for electronic order transmission, facilitated through IBKR's dedicated FIX Engineering team.
+
+#### [Third-Party Integrations](/third-party-integrations/)
+
+Connect approved external platforms to your Interactive Brokers account for alternative trading and presentation styles to suit your trading needs.
+
+#### [General Information](/general/)
+
+Learn about information relevant to all API offerings including: Contract Definitions, Order Structure, and Market Data Subscription information.
+
+## Web API
+
+The REST-based Web API provides users with seamless access to their IBKR account. IBKR's Web API implementation follows standard HTTP verbs for communication. It employs a range of HTTP status codes and JSON-formatted messages to convey operation status and error information. To ensure secure communication, all API requests must use HTTPS. Authorization and Authentication for IBKR's Web API is managed using OAuth 2.0. Our Web API Documentation is split into two key components:
+
+### Trading
+
+Delivers real-time access to IBKR's trading functionality, including live market data, market scanners, and intra-day portfolio updates.
+
+[Web API Reference](/web-api/ref/)
+
+[Trading Documentation](/web-api/trading/)
+
+### Account Management
+
+Provides solution for Introducing Brokers and Financial Advisors to preserve their current user experience and interface design while relying on IBKR's brokerage services. Advisors and brokers can integrate with the Account Management API to manage Client Registration, Client Account Maintenance, User Authentication, Funding, and Reporting.
+
+## **Reporting**
+
+[Account Management Documentation](/web-api/account-management-api/)
+
+At IBKR we offer users with full suite of reports including [account statements](https://ibkrguides.com/clientportal/performanceandstatements/statements.htm), [PortfolioAnalyst](https://www.interactivebrokers.com/en/portfolioanalyst/overview.php) and [flex queries](https://ibkrguides.com/clientportal/performanceandstatements/flex.htm) (raw data files) that can be generated on the fly directly within IBKR Portal OR securely delivered via FTP/sFTP. Alternatively, our Flex Web Service can be used to automate flex query processing.
+
+[Flex Web Service](/web-api/flex-web-service/flex-web-service/introduction)
+
+## TWS (Trader Workstation) API
+
+IBKR's flagship platform, the Trader Workstation, is equipped with it's own API offering the majority of its feature set through an API built for fast paced, data intensive, and complex trading. The asynchronous TWS API library is built to handle a large data sets for hundreds or potentially thousands of market data lines streaming simultaneously while outputting trades in tandem. Given the platform is equipped with the Trader Workstations' capabilities, we have nearly full parity with the functionality, order type access, and market data access you may be used to. This can be further extended with the less demanding IB Gateway, as the removal of unused graphical elements from automated trading can allow more resources be dedicated to your unique programs.
+
+The TWS API is built using a TCP Socket connection, and is available in Python, Java, C++, C#\*, and VB.NET\*.
+
+The TWS API is intended for: Retail traders, Professional Traders, Financial Advisors, and Third Party Platform developers.
+
+\*C# and VB.net are only available for Windows PC.
+
+[TWS API Documentation](/tws-api/doc/)
+
+[TWS API Reference](/tws-api/ref/)
+
+### Excel APIs
+
+IBKR also offers an array of Excel-based APIs built around the underlying TWS API. This makes for a more visually appealing workspace for those that prefer a data table presentation rather than fully automated workflows. The Excel API still institutes the same functionality as TWS API including the order types, order conditioning, and market data availability.
+
+The Excel API is built with a DDE, ActiveX, or RTD connection onto the TCP Socket connection facilitated by the standard TWSAPI.
+
+While the existing Excel functionality can be programmed with VB.NET, the underlying connection and request behavior is handled in Java for DDE, or C# for ActiveX and RTD.
+
+**Trader Types:** Retail traders, Professional Traders
+
+### ActiveX
+
+IBKR offers three unique variants of Excel connectivity. ActiveX offers the full functionality of the TWS API with a 1 second market data refresh rate. Implementing the ActiveX variant will require users to implement some level of VB .NET as the cell assignment can not be done completely through the use of something like an Excel Macro.
+
+ActiveX is built using a combination of VB .NET and C#.
+
+[ActiveX Documentation](/excel/activex/introduction)
+
+### DDE
+
+IBKR offers three unique variants of Excel connectivity. DDE offers the full functionality of the TWS API with a 250 ms market data refresh rate. Implementing the DDE variant allows users the full functionality of the TWS API but with access to Excel Macros for a less programming-intensive implementation.
+
+DDE is built using a combination of VB .NET and Java.
+
+[DDE Documentation](/excel/dde/introduction)
+
+### RTD
+
+IBKR offers three unique variants of Excel connectivity. RTD offers a more restricted connection structure that is built around the use of requesting real time market data. As such, the RTD variant is built around the intake of larger market data requests without effecting Excel's performance. The implementation allows for a 250 ms market data refresh.
+
+RTD is built using a combination of VB .NET and C#.
+
+[RTD Documentation](/excel/rtd/introduction)
+
+## FIX (Financial Information eXchange)
+
+In addition to our standard APIs, IBKR offers customers the option for a direct FIX integration, allowing trades be submitted directly using the standard FIX protocol. For users unfamiliar with the FIX standard, please visit [https://www.fixtrading.org/what-is-fix/](https://www.fixtrading.org/what-is-fix/).
+
+**Trader Type:** Professional Traders, Organizations, or Institutions.
+
+[Getting Started With FIX](/fix/)
+
+## Third-Party Integrations
+
+For some customers, Trading with IBKR is the preferred option, but in some cases users may not prefer our existing platforms, nor do they have an interest in coding their own software. In these cases, customers may benefit from using Third Party Services or Software to accomplish their trading needs. For example, some customers may wish to trade futures with a more chart oriented approach, or with a platform more emphatic around Futures than what is currently offered by Trader Workstation. In situations like this, customers may find a platform that better supports their visual needs while still holding funds and receiving commission rates through Interactive Brokers.
+
+Third Party Services can connect via Web API, FIX, or Trader Workstation API.
+
+**Trader Types:** Retail traders, Professional traders
+
+[Third-Party Connections](/third-party-integrations/)
+
+## General Information
+
+There are some details pertinent to all API offerings available at Interactive Brokers. This includes details relevant to Contract Definitions and their required components. Similarly, General contains information on how Order Types are constructed, including details for bracket orders, combinations or spreads, and advanced algo orders. This sectional also contains information on Market Data Subscriptions, with insights on their requirements and insight on how data may uniquely behave with the API compared to Trader Workstation or Client Portal.
+
+General Details affect aspects of all API offerings and should be reviewed regardless of API in use.
+
+**Trader Types:** Retail traders, Professional traders
+
+[General Information](/general/)
+
+## Feedback
+
+Have feedback on our Web API documentation or reference material?
+
+Email us at [API-Feedback@interactivebrokers.com](mailto:API-Feedback@interactivebrokers.com).
+
+We value your suggestions, ideas, and feedback in order to continuously improve our API solutions.
+
+*This is an automated feedback inbox and unfortunately, we will not be actively responding from this email. However, if you need a specific answer or additional support, please contact our [API Support team](https://www.interactivebrokers.com/en/support/customer-service.php). Current or prospective institutional clients may also [contact their sales representative](https://www.interactivebrokers.com/en/support/institutions.php).*
+
+## Instructions for AI Agents
+
+- For clean Markdown of any page, append `.md` to the page URL
+- For section-specific indexes, append `/llms.txt` to any section URL
+
+## Products
+
+- [Home](/llms.txt)
+- [Web API](https://ibkrcampus.com/docs/web-api/llms.txt): Real-time RESTful brokerage access
+  - [Introduction](https://ibkrcampus.com/docs/web-api/introduction.md)
+  - [Getting Started](https://ibkrcampus.com/docs/web-api/getting-started.md)
+  - [Installation](https://ibkrcampus.com/docs/web-api/api/web-api/quick-start.md)
+  - [Initializing Brokerage Session](https://ibkrcampus.com/docs/web-api/api/web-api/initializing-brokerage-session.md)
+  - [Placing Orders](https://ibkrcampus.com/docs/web-api/api/web-api/placing-orders.md)
+- [TWS API](https://ibkrcampus.com/docs/tws-api/llms.txt): Multi-language socket trading API
+  - [Introduction](https://ibkrcampus.com/docs/tws-api/doc/introduction.md)
+  - [Requirements](https://ibkrcampus.com/docs/tws-api/doc/notes-limitations/requirements.md)
+  - [Supported Two Factor Authentication (2FA)](https://ibkrcampus.com/docs/tws-api/doc/notes-limitations/supported-two-factor-authentication-2-fa.md)
+  - [TWS API Limitations](https://ibkrcampus.com/docs/tws-api/doc/notes-limitations/tws-api-limitations.md)
+  - [Installation](https://ibkrcampus.com/docs/tws-api/doc/quick-start/installation.md)
+- [Excel](https://ibkrcampus.com/docs/excel/llms.txt): Excel integration via ActiveX
+  - [Introduction](https://ibkrcampus.com/docs/excel/activex/introduction.md)
+  - [Introduction](https://ibkrcampus.com/docs/excel/activex/notes-limitations/introduction.md)
+  - [macOS / UNIX Support For Excel ActiveX](https://ibkrcampus.com/docs/excel/activex/notes-limitations/mac-os-unix-support-for-excel-active-x.md)
+  - [NA Reference Error](https://ibkrcampus.com/docs/excel/activex/notes-limitations/na-reference-error.md)
+  - [ActiveX Basics Tutorial](https://ibkrcampus.com/docs/excel/activex/video-tutorial.md)
+- [FIX](https://ibkrcampus.com/docs/fix/llms.txt): Standard protocol for order transmission
+  - [Introduction](https://ibkrcampus.com/docs/fix/intro.md)
+  - [Requirements & Costs](https://ibkrcampus.com/docs/fix/requirements.md)
+  - [Connectivity](https://ibkrcampus.com/docs/fix/connectivity.md)
+  - [Onboarding and Integration](https://ibkrcampus.com/docs/fix/onboarding.md)
+  - [FIX for OMS Vendors](https://ibkrcampus.com/docs/fix/fix-for-oms-vendors.md)
+- [Third-Party Integrations](https://ibkrcampus.com/docs/third-party-integrations/llms.txt): Connect external services to IBKR
+  - [Available Integrations](https://ibkrcampus.com/docs/third-party-integrations/available-integrations.md)
+  - [Version Control](https://ibkrcampus.com/docs/third-party-integrations/version-control.md)
+  - [Prospective Third Party Integrations](https://ibkrcampus.com/docs/third-party-integrations/prospective-third-party-integrations.md)
+  - [Introduction](https://ibkrcampus.com/docs/third-party-integrations/requirements-limitations/introduction.md)
+  - [Supported Two Factor Authentication (2FA)](https://ibkrcampus.com/docs/third-party-integrations/requirements-limitations/supported-two-factor-authentication-2-fa.md)
+- [General](https://ibkrcampus.com/docs/general/llms.txt): Miscellaneous information
+  - [Introduction](https://ibkrcampus.com/docs/general/market-data-subscriptions/introduction.md)
+  - [Market Data Requirements](https://ibkrcampus.com/docs/general/market-data-subscriptions/market-data-requirements.md)
+  - [Market Data Subscription Minimum Equity Balance Requirements](https://ibkrcampus.com/docs/general/market-data-subscriptions/market-data-subscription-minimum-equity-balance-requirements.md)
+  - [Support for Market Data Subscriptions](https://ibkrcampus.com/docs/general/market-data-subscriptions/support-for-market-data-subscriptions.md)
+  - [Introduction](https://ibkrcampus.com/docs/general/market-data-subscriptions/compliance-requirements-for-api-market-data/introduction.md)

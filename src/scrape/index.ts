@@ -126,7 +126,9 @@ async function fetchAndStore(
         const recoveredSection = recoveredUrl
           ? sectionOfUrl(recoveredUrl)
           : section;
-        console.warn(`  recovered ${requestUrl} -> ${recovered.finalUrl}`);
+        process.stdout.write(
+          `\n  recovered ${requestUrl} -> ${recovered.finalUrl}\n`,
+        );
         await writeCacheFile(cacheDir, recoveredPath, recovered.body);
         return {
           url: requestUrl,
@@ -246,14 +248,21 @@ export async function scrape(options: Partial<ScrapeOptions> = {}): Promise<Scra
 
   const allPageUrls: string[] = [];
   const seenPages = new Set<string>();
+  /** First discoverer (llms.txt URL) that listed each page. */
+  const pageOrigin = new Map<string, string>();
   const queuedLlms = new Set<string>(sectionLlmsUrls);
+
+  const notePage = (pageUrl: string, originUrl: string) => {
+    if (!seenPages.has(pageUrl)) {
+      seenPages.add(pageUrl);
+      allPageUrls.push(pageUrl);
+      pageOrigin.set(pageUrl, originUrl);
+    }
+  };
 
   // Also collect any page links that appeared on the root index (rare but possible)
   for (const p of rootLinks.pageUrls) {
-    if (!seenPages.has(p)) {
-      seenPages.add(p);
-      allPageUrls.push(p);
-    }
+    notePage(p, rootKey);
   }
 
   for (let i = 0; i < sectionLlmsUrls.length; i++) {
@@ -278,10 +287,7 @@ export async function scrape(options: Partial<ScrapeOptions> = {}): Promise<Scra
     }
 
     for (const p of links.pageUrls) {
-      if (!seenPages.has(p)) {
-        seenPages.add(p);
-        allPageUrls.push(p);
-      }
+      notePage(p, llmsUrl);
     }
 
     // Nested llms (unlikely) — queue if any
@@ -325,11 +331,7 @@ export async function scrape(options: Partial<ScrapeOptions> = {}): Promise<Scra
     entries.push(entry);
   }
 
-  for (const entry of entries) {
-    if (entry.kind === "page" && entry.status === "error") {
-      console.warn(`  failed: ${entry.url} (${entry.error})`);
-    }
-  }
+  printPageErrors(entries, pageOrigin);
 
   const manifest = buildManifest(entries, sectionPageOrder);
   await flushManifest(opts.cacheDir, manifest);
@@ -353,6 +355,32 @@ export async function scrape(options: Partial<ScrapeOptions> = {}): Promise<Scra
   console.log(`Manifest: ${path.join(opts.cacheDir, MANIFEST_FILE)}`);
 
   return { ok, manifest, stats };
+}
+
+function printPageErrors(
+  entries: ManifestEntry[],
+  pageOrigin: Map<string, string>,
+): void {
+  const failed = entries.filter((e) => e.kind === "page" && e.status === "error");
+  if (failed.length === 0) return;
+
+  const byOrigin = new Map<string, ManifestEntry[]>();
+  for (const entry of failed) {
+    const origin = pageOrigin.get(entry.url) ?? "(unknown)";
+    const list = byOrigin.get(origin);
+    if (list) list.push(entry);
+    else byOrigin.set(origin, [entry]);
+  }
+
+  console.warn("errors:");
+  for (const [origin, group] of byOrigin) {
+    console.warn(`  origin: ${origin}`);
+    for (const entry of group) {
+      const code =
+        entry.error === "Page Not Found" ? "404" : (entry.error ?? "error");
+      console.warn(`    failed (${code}): ${entry.url}`);
+    }
+  }
 }
 
 function buildManifest(

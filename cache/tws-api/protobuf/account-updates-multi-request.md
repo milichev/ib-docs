@@ -1,0 +1,13 @@
+> This page is for TWS API.
+
+> For clean Markdown of any page, append .md to the page URL.
+> For a complete documentation index, see https://ibkrcampus.com/docs/llms.txt.
+
+## AccountUpdatesMultiRequest
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `reqId` | `int32` | Unique request identifier used for tracking across EWrapper |
+| `account` | `string` | The IBKR account identifier to affiliate the request with |
+| `modelCode` | `string` | Is used to place an order to a model. For example |
+| `ledgerAndNLV` | `bool` | Specify false to cancel your subscription |

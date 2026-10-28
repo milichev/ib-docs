@@ -1,10 +1,6 @@
 # dependencies (bun install)
 node_modules
 
-# output
-out
-dist
-
 *.tgz
 
 # code coverage
@@ -25,8 +21,6 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 # caches
 .eslintcache
-.cache
-cache
 *.tsbuildinfo
 tmp
 

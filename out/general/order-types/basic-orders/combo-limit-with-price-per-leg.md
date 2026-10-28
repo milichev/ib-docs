@@ -1,0 +1,28 @@
+[source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/combo-limit-with-price-per-leg)
+
+# Combo Limit with Price per Leg
+
+Create combination orders that include options, stock and futures legs (stock legs can be included if the order is routed through SmartRouting). Although a combination/spread order is constructed of separate legs, it is executed as a single transaction if it is routed directly to an exchange. For combination orders that are SmartRouted, each leg may be executed separately to ensure best execution.
+
+Products: OPT, STK, FUT
+
+#### Java
+
+```java
+Order order = new Order();
+order.action(action);
+order.orderType("LMT");
+order.totalQuantity(quantity);
+order.orderComboLegs(new ArrayList<>());
+
+for(double price : legPrices) {
+	OrderComboLeg comboLeg = new OrderComboLeg();
+	comboLeg.price(5.0);
+	order.orderComboLegs().add(comboLeg);
+}
+
+if (nonGuaranteed)
+{
+	order.smartComboRoutingParams().add(new TagValue("NonGuaranteed", "1"));
+}
+```

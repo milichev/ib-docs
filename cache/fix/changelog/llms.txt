@@ -1,0 +1,8 @@
+> For clean Markdown of any page, append .md to the page URL.
+> For a complete documentation index, see https://ibkrcampus.com/docs/fix/changelog/llms.txt.
+
+# Changelog
+
+## Entries
+
+- [IBKR API Changelog](https://ibkrcampus.com/docs/fix/changelog/2024/11/11.md)

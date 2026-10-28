@@ -1,0 +1,591 @@
+> This page is for Web API.
+
+> For clean Markdown of any page, append .md to the page URL.
+> For a complete documentation index, see https://ibkrcampus.com/docs/llms.txt.
+
+# View Cash Balances
+
+POST https://localhost:5000/gw/api/v1/balances/query
+Content-Type: application/json
+
+View available cash for withdrawal and account equity value by accountId**Scope**: `balances.read`**Security Policy**: `Signed JWT`
+
+Reference: https://ibkrcampus.com/docs/web-api/api-reference/third-parties/third-parties-cash-balances/create-balances-query
+
+## Authentication
+
+- `Authorization` header (bearer token, required) — RS256-signed JWT access token signed with your registered private key.
+
+## Servers
+
+- `https://localhost:5000` (Client Portal Gateway, default)
+- `https://api.ibkr.com` (Production)
+- `https://qa.interactivebrokers.com` (Sandbox)
+
+## Request
+
+### Path parameters
+
+- `client-id` (string, required) — The client's clientId
+
+### Body (application/json)
+
+This endpoint expects an object.
+
+- `instructionType` (enum, required)
+  - Allowed values: `QUERY_WITHDRAWABLE_CASH_EQUITY`
+- `instruction` (GwApiV1BalancesQueryPostRequestBodyContentApplicationJsonSchemaInstruction, required)
+
+## Response
+
+### 201
+
+Instruction successfully created and processed synchronously
+
+- `Third Parties Cash Balances_createBalancesQuery_Response_201`
+  - QueryWithdrawableCashEquityResponse: QueryWithdrawableCashEquityResponse
+
+## Errors
+
+### 400 Bad Request Error
+
+Returns a Problem detail instance representing a bad request.
+
+- `type` (string, required)
+- `title` (string, required)
+- `status` (long, required)
+- `invalidArguments` (list of InvalidArgument, optional)
+
+### 403 Forbidden Error
+
+Returns a Problem detail instance representing a forbidden request.
+
+- `type` (string, required) — URI reference identifying the problem type.
+- `title` (string, required) — Short, human-readable summary of the problem.
+- `status` (long, required) — HTTP status code.
+- `detail` (string, required) — Human-readable explanation of the problem.
+- `instructionSetId` (long, required) — Identifier of the instruction set grouping the submitted instructions.
+- `instructionResult` (InstructionErrorResult, required) — Result of the submitted instruction.
+
+### 422 Unprocessable Entity Error
+
+Returns a Problem detail instance representing a business error.
+
+- `type` (string, required) — URI reference identifying the problem type.
+- `title` (string, required) — Short, human-readable summary of the problem.
+- `status` (long, required) — HTTP status code (422).
+- `instructionSetId` (long, required) — Identifier of the instruction set grouping the submitted instructions.
+- `instructionResult` (InstructionErrorResult, optional) — Result of the submitted instruction.
+
+### 500 Internal Server Error
+
+Returns a Problem detail instance representing an internal server error.
+
+- `type` (string, required)
+- `title` (string, required)
+- `status` (long, required)
+
+## Types
+
+### GwApiV1BalancesQueryPostRequestBodyContentApplicationJsonSchemaInstruction
+
+- QueryWithdrawableCashEquity: QueryWithdrawableCashEquity
+
+### QueryWithdrawableCashEquityResponse
+
+Response containing withdrawable cash and equity for an account.
+
+- `status` (double, required) — HTTP status code for the request.
+- `instructionSetId` (double, required) — Identifier of the instruction set grouping the submitted instructions.
+- `instructionResult` (QueryWithdrawableCashEquityResult, optional) — Result of the submitted instruction.
+
+### InvalidArgument
+
+- `field` (string, required)
+- `description` (string, optional)
+
+### InstructionErrorResult
+
+Instruction result carrying error details for a rejected instruction.
+
+- `clientInstructionId` (double, required) — Client-assigned identifier for this instruction; must be a positive number and unique within the request.
+- `error` (InstructionErrorResultError, required) — Error details returned when the instruction is rejected.
+- `instructionId` (double, required) — Funds and Banking identifier of the instruction.
+- `instructionStatus` (enum, required) — Processing state of the instruction.
+  - Allowed values: `PENDING`, `PROCESSED`, `REJECTED`, `PENDING_VERIFICATION`
+- `instructionType` (enum, required) — Type of the instruction.
+  - Allowed values: `ACH_INSTRUCTION`, `CANCEL_INSTRUCTION`, `COMPLEX_ASSET_TRANSFER`, `DELETE_BANK_INSTRUCTION`, `DEPOSIT`, `DWAC`, `EXTERNAL_POSITION_TRANSFER`, `FOP`, `QUERY_RECENT_INSTRUCTIONS`, `QUERY_WITHDRAWABLE_FUNDS`, `INTERNAL_POSITION_TRANSFER`, `INTERNAL_CASH_TRANSFER`, `MICRO_AMOUNT`, `OPEN_BANKING_INSTRUCTION`, `PREDEFINED_DESTINATION_INSTRUCTION`, `TRADITIONAL_BANK_INSTRUCTION_VERIFICATION`, `WITHDRAWAL`, `WITHDRAWAL_INSTRUCTION`, `QUERY_IRA_CONTRIBUTIONS`, `EDDA_INSTRUCTION`, `QUERY_RECENT_RECURRING_EVENTS`, `QUERY_RECURRING_INSTRUCTIONS`, `QUERY_ACCOUNT_BALANCES`, `QUERY_BANK_INSTRUCTION`, `QUERY_WITHDRAWABLE_CASH_EQUITY`, `ISA_TRANSFER`
+- `depositDetails` (DepositDetails, optional) — Present only for the DEPOSIT instruction type.
+- `description` (string, optional) — Human-readable note about the result (e.g. polling guidance).
+- `details` (InstructionResultDetails, optional) — Present only for OPEN_BANKING_INSTRUCTION and WITHDRAWAL_INSTRUCTION instruction types.
+- `ibReferenceId` (double, optional) — Interactive Brokers global identifier of the request.
+- `processedTimestamp` (datetime, optional) — Timestamp at which the instruction was processed.
+
+### QueryWithdrawableCashEquity
+
+Request to query withdrawable cash and equity for an account.
+
+- `clientInstructionId` (double, required) — Client-assigned identifier for this instruction; must be a positive number and unique within the request.
+- `accountId` (string, required) — Interactive Brokers account identifier the instruction applies to (e.g. "U46377").
+- `currency` (string, required) — ISO 4217 currency code (e.g. "USD").
+
+### QueryWithdrawableCashEquityResult
+
+Withdrawable cash and equity for an account.
+
+- `clientInstructionId` (double, required) — Client-assigned identifier for this instruction; must be a positive number and unique within the request.
+- `instructionType` (enum, required) — Type of the instruction.
+  - Allowed values: `ACH_INSTRUCTION`, `CANCEL_INSTRUCTION`, `COMPLEX_ASSET_TRANSFER`, `DELETE_BANK_INSTRUCTION`, `DEPOSIT`, `DWAC`, `EXTERNAL_POSITION_TRANSFER`, `FOP`, `QUERY_RECENT_INSTRUCTIONS`, `QUERY_WITHDRAWABLE_FUNDS`, `INTERNAL_POSITION_TRANSFER`, `INTERNAL_CASH_TRANSFER`, `MICRO_AMOUNT`, `OPEN_BANKING_INSTRUCTION`, `PREDEFINED_DESTINATION_INSTRUCTION`, `TRADITIONAL_BANK_INSTRUCTION_VERIFICATION`, `WITHDRAWAL`, `WITHDRAWAL_INSTRUCTION`, `QUERY_IRA_CONTRIBUTIONS`, `EDDA_INSTRUCTION`, `QUERY_RECENT_RECURRING_EVENTS`, `QUERY_RECURRING_INSTRUCTIONS`, `QUERY_ACCOUNT_BALANCES`, `QUERY_BANK_INSTRUCTION`, `QUERY_WITHDRAWABLE_CASH_EQUITY`, `ISA_TRANSFER`
+- `instructionStatus` (enum, required) — Processing state of the instruction.
+  - Allowed values: `PENDING`, `REJECTED`, `PROCESSED`
+- `instructionId` (double, required) — Funds and Banking identifier of the instruction.
+- `accountId` (string, required) — Interactive Brokers account identifier the instruction applies to (e.g. "U46377").
+- `currency` (string, required) — ISO 4217 currency code (e.g. "USD").
+- `withdrawableCashAmount` (double, required) — Cash amount available to withdraw.
+- `availableEquityValue` (double, required) — Available equity value of the account.
+- `ibReferenceId` (double, optional) — Interactive Brokers global identifier of the request.
+- `description` (string, optional) — Human-readable note about the result.
+- `details` (QueryWithdrawableCashEquityResultDetails, optional) — Present only for OPEN_BANKING_INSTRUCTION and WITHDRAWAL_INSTRUCTION instruction types.
+- `depositDetails` (DepositDetails, optional) — Present only for the DEPOSIT instruction type.
+- `error` (QueryWithdrawableCashEquityResultError, optional) — Error details returned when the instruction is rejected.
+- `processedTimestamp` (datetime, optional) — Timestamp at which the instruction was processed.
+
+### InstructionErrorResultError
+
+Error details returned when the instruction is rejected.
+
+- `errorCode` (string, required) — Machine-readable error code.
+- `errorMessage` (string, required) — Human-readable error message.
+
+### DepositDetails
+
+- `amount` (double, optional)
+- `currency` (string, optional)
+- `whenAvailable` (date, optional)
+- `openBanking` (DepositDetailsOpenBanking, optional) — Present only when bankInstructionMethod is OPEN_BANKING.
+
+### InstructionResultDetails
+
+Present only for OPEN_BANKING_INSTRUCTION and WITHDRAWAL_INSTRUCTION instruction types.
+
+- OpenBankingInstructionResultDetails: OpenBankingInstructionResultDetails
+- WithdrawalInstructionResultDetails: WithdrawalInstructionResultDetails
+
+### QueryWithdrawableCashEquityResultDetails
+
+Present only for OPEN_BANKING_INSTRUCTION and WITHDRAWAL_INSTRUCTION instruction types.
+
+- OpenBankingInstructionResultDetails: OpenBankingInstructionResultDetails
+- WithdrawalInstructionResultDetails: WithdrawalInstructionResultDetails
+
+### QueryWithdrawableCashEquityResultError
+
+Error details returned when the instruction is rejected.
+
+- `errorCode` (string, required) — Machine-readable error code.
+- `errorMessage` (string, required) — Human-readable error message.
+
+### DepositDetailsOpenBanking
+
+Present only when bankInstructionMethod is OPEN_BANKING.
+
+- `serviceProvider` (enum, optional)
+  - Allowed values: `PLAID`
+- `providerResponse` (DepositDetailsOpenBankingProviderResponse, optional) — Provider-specific data returned once the Plaid payment has been initiated.
+
+### OpenBankingInstructionResultDetails
+
+- `bankInstructionName` (string, optional)
+- `type` (string, optional)
+- `currency` (string, optional)
+- `bankRoutingNumber` (string, optional)
+- `bankAccountNumber` (string, optional)
+- `serviceProvider` (enum, optional)
+  - Allowed values: `PLAID`
+- `providerResponse` (OpenBankingInstructionResultDetailsProviderResponse, optional) — Provider-specific data. For PLAID, populated with hostedlinkUrl/linkToken only while account linkage is pending; absent once the account is linked.
+
+### WithdrawalInstructionResultDetails
+
+- `bankInstructionName` (string, optional)
+- `type` (string, optional)
+- `currency` (string, optional)
+- `bankRoutingNumber` (string, optional)
+- `bankAccountNumber` (string, optional)
+
+### DepositDetailsOpenBankingProviderResponse
+
+Provider-specific data returned once the Plaid payment has been initiated.
+
+- `paymentId` (string, optional)
+- `hostedlinkUrl` (string, optional)
+- `linkToken` (string, optional)
+
+### OpenBankingInstructionResultDetailsProviderResponse
+
+Provider-specific data. For PLAID, populated with hostedlinkUrl/linkToken only while account linkage is pending; absent once the account is linked.
+
+- `hostedlinkUrl` (string, optional)
+- `linkToken` (string, optional)
+
+## Examples
+
+### Query Withdrawable Cash Equity Response
+
+**Response**
+
+```json
+{
+  "instructionResult": {
+    "accountId": "U46377",
+    "availableEquityValue": 121538.65,
+    "clientInstructionId": 7013230,
+    "currency": "USD",
+    "ibReferenceId": 0,
+    "instructionId": 43133309,
+    "instructionStatus": "PROCESSED",
+    "instructionType": "QUERY_WITHDRAWABLE_CASH_EQUITY",
+    "withdrawableCashAmount": 250000
+  },
+  "instructionSetId": 17791,
+  "status": 201
+}
+```
+
+**SDK Code**
+
+```python Query Withdrawable Cash Equity Response
+import requests
+
+url = "https://localhost:5000/gw/api/v1/balances/query"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
+```javascript Query Withdrawable Cash Equity Response
+const url = 'https://localhost:5000/gw/api/v1/balances/query';
+const options = {method: 'POST', headers: {Authorization: 'Bearer <token>'}};
+
+try {
+  const response = await fetch(url, options);
+  const data = await response.json();
+  console.log(data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+```go Query Withdrawable Cash Equity Response
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"io"
+)
+
+func main() {
+
+	url := "https://localhost:5000/gw/api/v1/balances/query"
+
+	req, _ := http.NewRequest("POST", url, nil)
+
+	req.Header.Add("Authorization", "Bearer <token>")
+
+	res, _ := http.DefaultClient.Do(req)
+
+	defer res.Body.Close()
+	body, _ := io.ReadAll(res.Body)
+
+	fmt.Println(res)
+	fmt.Println(string(body))
+
+}
+```
+
+```ruby Query Withdrawable Cash Equity Response
+require 'uri'
+require 'net/http'
+
+url = URI("https://localhost:5000/gw/api/v1/balances/query")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["Authorization"] = 'Bearer <token>'
+
+response = http.request(request)
+puts response.read_body
+```
+
+```java Query Withdrawable Cash Equity Response
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+
+HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/balances/query")
+  .header("Authorization", "Bearer <token>")
+  .asString();
+```
+
+```php Query Withdrawable Cash Equity Response
+<?php
+require_once('vendor/autoload.php');
+
+$client = new \GuzzleHttp\Client();
+
+$response = $client->request('POST', 'https://localhost:5000/gw/api/v1/balances/query', [
+  'headers' => [
+    'Authorization' => 'Bearer <token>',
+  ],
+]);
+
+echo $response->getBody();
+```
+
+```csharp Query Withdrawable Cash Equity Response
+using RestSharp;
+
+var client = new RestClient("https://localhost:5000/gw/api/v1/balances/query");
+var request = new RestRequest(Method.POST);
+request.AddHeader("Authorization", "Bearer <token>");
+IRestResponse response = client.Execute(request);
+```
+
+```swift Query Withdrawable Cash Equity Response
+import Foundation
+
+let headers = ["Authorization": "Bearer <token>"]
+
+let request = NSMutableURLRequest(url: NSURL(string: "https://localhost:5000/gw/api/v1/balances/query")! as URL,
+                                        cachePolicy: .useProtocolCachePolicy,
+                                    timeoutInterval: 10.0)
+request.httpMethod = "POST"
+request.allHTTPHeaderFields = headers
+
+let session = URLSession.shared
+let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+  if (error != nil) {
+    print(error as Any)
+  } else {
+    let httpResponse = response as? HTTPURLResponse
+    print(httpResponse)
+  }
+})
+
+dataTask.resume()
+```
+
+### Query Withdrawable Cash amd Equity
+
+**Request**
+
+```json
+{
+  "instructionType": "QUERY_WITHDRAWABLE_CASH_EQUITY",
+  "instruction": {
+    "accountId": "U87440",
+    "clientInstructionId": 7009005,
+    "currency": "USD"
+  }
+}
+```
+
+**Response**
+
+```json
+{
+  "instructionResult": {
+    "accountId": "U46377",
+    "availableEquityValue": 121538.65,
+    "clientInstructionId": 7013230,
+    "currency": "USD",
+    "ibReferenceId": 0,
+    "instructionId": 43133309,
+    "instructionStatus": "PROCESSED",
+    "instructionType": "QUERY_WITHDRAWABLE_CASH_EQUITY",
+    "withdrawableCashAmount": 250000
+  },
+  "instructionSetId": 17791,
+  "status": 201
+}
+```
+
+**SDK Code**
+
+```python Query Withdrawable Cash amd Equity
+import requests
+
+url = "https://localhost:5000/gw/api/v1/balances/query"
+
+payload = {
+    "instructionType": "QUERY_WITHDRAWABLE_CASH_EQUITY",
+    "instruction": {
+        "accountId": "U87440",
+        "clientInstructionId": 7009005,
+        "currency": "USD"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
+```javascript Query Withdrawable Cash amd Equity
+const url = 'https://localhost:5000/gw/api/v1/balances/query';
+const options = {
+  method: 'POST',
+  headers: {Authorization: 'Bearer <token>', 'Content-Type': 'application/json'},
+  body: '{"instructionType":"QUERY_WITHDRAWABLE_CASH_EQUITY","instruction":{"accountId":"U87440","clientInstructionId":7009005,"currency":"USD"}}'
+};
+
+try {
+  const response = await fetch(url, options);
+  const data = await response.json();
+  console.log(data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+```go Query Withdrawable Cash amd Equity
+package main
+
+import (
+	"fmt"
+	"strings"
+	"net/http"
+	"io"
+)
+
+func main() {
+
+	url := "https://localhost:5000/gw/api/v1/balances/query"
+
+	payload := strings.NewReader("{\n  \"instructionType\": \"QUERY_WITHDRAWABLE_CASH_EQUITY\",\n  \"instruction\": {\n    \"accountId\": \"U87440\",\n    \"clientInstructionId\": 7009005,\n    \"currency\": \"USD\"\n  }\n}")
+
+	req, _ := http.NewRequest("POST", url, payload)
+
+	req.Header.Add("Authorization", "Bearer <token>")
+	req.Header.Add("Content-Type", "application/json")
+
+	res, _ := http.DefaultClient.Do(req)
+
+	defer res.Body.Close()
+	body, _ := io.ReadAll(res.Body)
+
+	fmt.Println(res)
+	fmt.Println(string(body))
+
+}
+```
+
+```ruby Query Withdrawable Cash amd Equity
+require 'uri'
+require 'net/http'
+
+url = URI("https://localhost:5000/gw/api/v1/balances/query")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["Authorization"] = 'Bearer <token>'
+request["Content-Type"] = 'application/json'
+request.body = "{\n  \"instructionType\": \"QUERY_WITHDRAWABLE_CASH_EQUITY\",\n  \"instruction\": {\n    \"accountId\": \"U87440\",\n    \"clientInstructionId\": 7009005,\n    \"currency\": \"USD\"\n  }\n}"
+
+response = http.request(request)
+puts response.read_body
+```
+
+```java Query Withdrawable Cash amd Equity
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+
+HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/balances/query")
+  .header("Authorization", "Bearer <token>")
+  .header("Content-Type", "application/json")
+  .body("{\n  \"instructionType\": \"QUERY_WITHDRAWABLE_CASH_EQUITY\",\n  \"instruction\": {\n    \"accountId\": \"U87440\",\n    \"clientInstructionId\": 7009005,\n    \"currency\": \"USD\"\n  }\n}")
+  .asString();
+```
+
+```php Query Withdrawable Cash amd Equity
+<?php
+require_once('vendor/autoload.php');
+
+$client = new \GuzzleHttp\Client();
+
+$response = $client->request('POST', 'https://localhost:5000/gw/api/v1/balances/query', [
+  'body' => '{
+  "instructionType": "QUERY_WITHDRAWABLE_CASH_EQUITY",
+  "instruction": {
+    "accountId": "U87440",
+    "clientInstructionId": 7009005,
+    "currency": "USD"
+  }
+}',
+  'headers' => [
+    'Authorization' => 'Bearer <token>',
+    'Content-Type' => 'application/json',
+  ],
+]);
+
+echo $response->getBody();
+```
+
+```csharp Query Withdrawable Cash amd Equity
+using RestSharp;
+
+var client = new RestClient("https://localhost:5000/gw/api/v1/balances/query");
+var request = new RestRequest(Method.POST);
+request.AddHeader("Authorization", "Bearer <token>");
+request.AddHeader("Content-Type", "application/json");
+request.AddParameter("application/json", "{\n  \"instructionType\": \"QUERY_WITHDRAWABLE_CASH_EQUITY\",\n  \"instruction\": {\n    \"accountId\": \"U87440\",\n    \"clientInstructionId\": 7009005,\n    \"currency\": \"USD\"\n  }\n}", ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+```
+
+```swift Query Withdrawable Cash amd Equity
+import Foundation
+
+let headers = [
+  "Authorization": "Bearer <token>",
+  "Content-Type": "application/json"
+]
+let parameters = [
+  "instructionType": "QUERY_WITHDRAWABLE_CASH_EQUITY",
+  "instruction": [
+    "accountId": "U87440",
+    "clientInstructionId": 7009005,
+    "currency": "USD"
+  ]
+] as [String : Any]
+
+let postData = JSONSerialization.data(withJSONObject: parameters, options: [])
+
+let request = NSMutableURLRequest(url: NSURL(string: "https://localhost:5000/gw/api/v1/balances/query")! as URL,
+                                        cachePolicy: .useProtocolCachePolicy,
+                                    timeoutInterval: 10.0)
+request.httpMethod = "POST"
+request.allHTTPHeaderFields = headers
+request.httpBody = postData as Data
+
+let session = URLSession.shared
+let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+  if (error != nil) {
+    print(error as Any)
+  } else {
+    let httpResponse = response as? HTTPURLResponse
+    print(httpResponse)
+  }
+})
+
+dataTask.resume()
+```

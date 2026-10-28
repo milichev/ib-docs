@@ -1,0 +1,240 @@
+$ bun run index.ts scrape
+Fetching root llms.txt: https://www.interactivebrokers.com/docs/llms.txt
+Found 6 section llms.txt URL(s)
+Fetching section llms: https://www.interactivebrokers.com/docs/web-api/llms.txt
+Fetching section llms: https://www.interactivebrokers.com/docs/tws-api/llms.txt
+Fetching section llms: https://www.interactivebrokers.com/docs/excel/llms.txt
+Fetching section llms: https://www.interactivebrokers.com/docs/fix/llms.txt
+Fetching section llms: https://www.interactivebrokers.com/docs/third-party-integrations/llms.txt
+Fetching section llms: https://www.interactivebrokers.com/docs/general/llms.txt
+Fetching section llms: https://www.interactivebrokers.com/docs/web-api/changelog/llms.txt
+Fetching section llms: https://www.interactivebrokers.com/docs/tws-api/changelog/llms.txt
+Fetching section llms: https://www.interactivebrokers.com/docs/excel/changelog/llms.txt
+Fetching section llms: https://www.interactivebrokers.com/docs/fix/changelog/llms.txt
+Fetching section llms: https://www.interactivebrokers.com/docs/third-party-integrations/changelog/llms.txt
+Fetching section llms: https://www.interactivebrokers.com/docs/general/changelog/llms.txt
+Fetching 1368 page(s) with concurrency=8
+.....................xx...............
+  recovered https://www.interactivebrokers.com/docs/web-api/flex-web-service/flex-web-service/introduction.md -> https://www.interactivebrokers.com/docs/web-api/flex-web-service/introduction.md
+...................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................x
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/download-the-tws-api/install-the-tws-api-on-windows.md -> https://www.interactivebrokers.com/docs/tws-api/doc/install-the-tws-api-on-windows.md
+.
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/download-the-tws-api/install-the-tws-api-on-mac-os-linux.md -> https://www.interactivebrokers.com/docs/tws-api/doc/install-the-tws-api-on-mac-os-linux.md
+.
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/tws-settings/tws-configuration-for-api-use/never-lock-trader-workstation-setting.md -> https://www.interactivebrokers.com/docs/tws-api/doc/tws-settings/never-lock-trader-workstation-setting.md
+.xxxx......x
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/download-the-tws-api/unique-configurations/updating-the-python-interpreter.md -> https://www.interactivebrokers.com/docs/tws-api/doc/unique-configurations/updating-the-python-interpreter.md
+.
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/download-the-tws-api/unique-configurations/implementing-the-intel-decimal-library-for-mac-os-and-linux.md -> https://www.interactivebrokers.com/docs/tws-api/doc/unique-configurations/implementing-the-intel-decimal-library-for-mac-os-and-linux.md
+.
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/download-the-tws-api/unique-configurations/implementing-visual-basic-net.md -> https://www.interactivebrokers.com/docs/tws-api/doc/unique-configurations/implementing-visual-basic-net.md
+.xx
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/troubleshooting-support/unset-values.md -> https://www.interactivebrokers.com/docs/tws-api/doc/unset-values.md
+...xxxx...xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/contracts-financial-instruments/finding-contract-details-in-trader-workstation.md -> https://www.interactivebrokers.com/docs/tws-api/doc/contracts/finding-contract-details-in-trader-workstation.md
+.xxxxxxxxxxxxx
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/event-trading/contracts.md -> https://www.interactivebrokers.com/docs/tws-api/doc/ec/contracts.md
+.
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/event-trading/orders.md -> https://www.interactivebrokers.com/docs/tws-api/doc/ec/orders.md
+.
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/event-trading/market-data.md -> https://www.interactivebrokers.com/docs/tws-api/doc/ec/market-data.md
+.xxxxxxxxxxxxxxxxxxxxx.x...x....x....xxxxxx.x
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/news/news-providers/introduction.md -> https://www.interactivebrokers.com/docs/tws-api/doc/news/introduction.md
+.xx
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/news/live-news-headlines/introduction.md -> https://www.interactivebrokers.com/docs/tws-api/doc/news/introduction.md
+.xx
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/news/historical-news-headlines/introduction.md -> https://www.interactivebrokers.com/docs/tws-api/doc/news/introduction.md
+.xxx
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/news/news-articles/introduction.md -> https://www.interactivebrokers.com/docs/tws-api/doc/news/introduction.md
+.xxxxxx.xxxxx.xxxxxxxxxxxxxxx.xxxxxxxxxxxx.xxxxx.xxxxxxx
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/tws-ui-display-groups/query-display-groups/introduction.md -> https://www.interactivebrokers.com/docs/tws-api/doc/tws-ui-display-groups/introduction.md
+...
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/tws-ui-display-groups/subscribe-to-group-events/introduction.md -> https://www.interactivebrokers.com/docs/tws-api/doc/tws-ui-display-groups/introduction.md
+.xxx
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/meta-data/introduction.md -> https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/introduction.md
+.xxx
+  recovered https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/event-data/introduction.md -> https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/introduction.md
+.x...xx...x........x.....x.........x............................................................................................................................................................................................................................................................................................................................................................x.......................................................................................................................................................................................................................................................
+errors:
+  origin: https://www.interactivebrokers.com/docs/llms.txt
+    failed (404): https://www.interactivebrokers.com/docs/web-api/ref.md
+    failed (404): https://www.interactivebrokers.com/docs/web-api/account-management-api.md
+  origin: https://www.interactivebrokers.com/docs/tws-api/llms.txt
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/trader-workstation-and-ib-gateway/download-tws-or-ib-gateway.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/trader-workstation-and-ib-gateway/tws-online-or-offline-version.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/tws-settings/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/download-the-tws-api/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/download-the-tws-api/tws-api-file-location-tools.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/download-the-tws-api/unique-configurations/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/troubleshooting-support/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/troubleshooting-support/log-files/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/troubleshooting-support/log-files/reading-exported-logs.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/architecture/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/architecture/the-trader-workstation/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/architecture/the-trader-workstation/the-ib-gateway.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/pacing-limitations/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/pacing-limitations/pacing-behavior.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/connectivity/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/connectivity/the-e-reader-thread/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/connectivity/the-e-reader-thread/c-c-and-java-implementations.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/connectivity/the-e-reader-thread/python-implementation.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/connectivity/accepting-an-api-connection-from-tws.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/third-party-api-platforms/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/third-party-api-platforms/non-standard-tws-api-languages-and-packages/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/third-party-api-platforms/non-standard-tws-api-languages-and-packages/ib-insync-and-ib-async.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/account-summary/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/account-summary/requesting-account-summary.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/account-summary/account-summary-tags.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/account-summary/receiving-account-summary.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/account-summary/cancel-account-summary.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/account-updates/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/account-updates/requesting-account-updates.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/account-updates/receiving-account-updates.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/account-updates/account-value-keys.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/account-updates/cancel-account-updates.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/account-update-by-model/requesting-account-update-by-model.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/account-update-by-model/receiving-account-updates-by-model.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/account-update-by-model/cancel-account-updates-by-model.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/family-codes/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/family-codes/request-family-codes.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/family-codes/receive-family-codes.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/managed-accounts/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/managed-accounts/request-managed-accounts.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/managed-accounts/receive-managed-accounts.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/positions/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/positions/request-positions.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/positions/receive-positions.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/positions/cancel-positions-request.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/positions-by-model/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/positions-by-model/request-positions-by-model.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/positions-by-model/receive-positions-by-model.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/positions-by-model/cancel-positions-by-model.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/profit-loss-pn-l/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/profit-loss-pn-l/request-p-l-for-individual-positions.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/profit-loss-pn-l/receive-p-l-for-individual-positions.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/profit-loss-pn-l/cancel-p-l-request-for-individual-positions.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/profit-loss-pn-l/request-p-l-for-accounts.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/profit-loss-pn-l/receive-p-l-for-accounts.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/profit-loss-pn-l/cancel-p-l-subscription-requests-for-accounts.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/white-branding-user-info/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/white-branding-user-info/requesting-white-branding-info.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/account-portfolio-data/white-branding-user-info/receiving-white-branding-info.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/bulletins/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/bulletins/request-ib-bulletins.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/bulletins/receive-ib-bulletins.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/bulletins/cancel-bulletin-request.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/contracts-financial-instruments/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/contracts-financial-instruments/the-contract-object.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/contracts-financial-instruments/contract-details/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/contracts-financial-instruments/contract-details/request-contract-details.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/contracts-financial-instruments/contract-details/receive-contract-details.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/contracts-financial-instruments/contract-details/receive-bond-details.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/contracts-financial-instruments/option-chains/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/contracts-financial-instruments/option-chains/request-option-chains.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/contracts-financial-instruments/option-chains/receive-option-chains.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/contracts-financial-instruments/stock-symbol-search/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/contracts-financial-instruments/stock-symbol-search/request-stock-contract-search.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/contracts-financial-instruments/stock-symbol-search/receive-searched-stock-contract.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/event-trading/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/error-handling/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/error-handling/understanding-message-codes.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/error-handling/system-message-codes.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/error-handling/error-codes.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/error-handling/receiving-error-messages.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/error-handling/common-error-resolution/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/error-handling/common-error-resolution/market-data-farm-connection-is-ok.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/error-handling/common-error-resolution/requested-market-data-requires-additional-subscription-for-api-see-link-in-market-data-connections-dialog-for-more-details-delayed-market-data-is-available.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/request-fa-groups-and-profiles.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/receiving-fa-groups-and-profiles.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/replace-fa-allocations.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/allocation-methods-and-groups.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/allocation-method-xml-format/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/allocation-method-xml-format/available-equity.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/allocation-method-xml-format/contracts-or-shares.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/allocation-method-xml-format/equal-quantity.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/allocation-method-xml-format/monetary-amount.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/allocation-method-xml-format/net-liquidation-value.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/allocation-method-xml-format/percentages.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/allocation-method-xml-format/ratios.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/model-portfolios-and-the-api.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/unification-of-groups-and-profiles.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/md/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/market-scanner/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/market-scanner/market-scanner-parameters/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/market-scanner/market-scanner-parameters/request-market-scanner-parameters.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/market-scanner/market-scanner-parameters/receive-market-scanner-parameters.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/market-scanner/market-scanner-subscription/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/market-scanner/market-scanner-subscription/request-market-scanner-subscription.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/market-scanner/market-scanner-subscription/receive-market-scanner-subscription.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/market-scanner/market-scanner-subscription/cancel-market-scanner-subscription.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/news/news-providers/request-news-providers.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/news/news-providers/receive-news-providers.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/news/live-news-headlines/request-contract-specific-news.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/news/live-news-headlines/request-broad-tape-news.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/news/live-news-headlines/receive-live-news-headlines.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/news/historical-news-headlines/requesting-historical-news.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/news/historical-news-headlines/receive-historical-news.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/news/news-articles/request-news-articles.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/news/news-articles/receive-news-articles.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/next-valid-id/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/next-valid-id/request-next-valid-id.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/next-valid-id/receive-next-valid-id.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/next-valid-id/reset-order-id-sequence.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/client-id-0-and-the-master-client-id.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/execution-details/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/execution-details/exec-id-behavior.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/execution-details/the-execution-object.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/execution-details/request-execution-details.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/execution-details/receive-execution-details.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/order-status/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/order-status/understanding-order-status-message.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/requesting-currently-active-orders/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/requesting-currently-active-orders/api-clients-orders.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/requesting-currently-active-orders/all-submitted-orders.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/requesting-currently-active-orders/manually-submitted-tws-orders.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/requesting-currently-active-orders/order-binding-notification.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/retrieving-completed-orders/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/retrieving-completed-orders/requesting-completed-orders.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/order-management/retrieving-completed-orders/receiving-completed-orders.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/the-order-and-contract-objects.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/cancelling-an-order/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/cancelling-an-order/cancel-individual-order.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/cancelling-an-order/cancel-all-open-orders.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/minimum-price-increment/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/minimum-price-increment/request-market-rule.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/minimum-price-increment/receive-market-rule.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/mi-fir-transaction-reporting-fields.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/modifying-orders.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/place-order/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/place-order/adding-a-profit-taker-and-stop-loss.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/place-order/combo-orders.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/place-order/trading-the-overnight-session.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/place-order/understanding-order-precautions.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/place-order/order-placement-considerations.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/pre-borrow-shares-for-shorting.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/orders/test-order-impact-what-if.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/setting-management/introduction.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/setting-management/request-configuration.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/setting-management/receive-configuration.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/setting-management/request-configuration-update.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/setting-management/receive-configuration-update.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/tws-ui-display-groups/query-display-groups/request-query-display-groups.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/tws-ui-display-groups/query-display-groups/receive-query-display-groups.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/tws-ui-display-groups/subscribe-to-group-events/request-group-events-subscription.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/tws-ui-display-groups/subscribe-to-group-events/receive-group-events-subscription.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/tws-ui-display-groups/subscribe-to-group-events/unsubscribe-from-group-events.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/meta-data/meta-data-filters.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/meta-data/requesting-meta-data.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/meta-data/receive-meta-data.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/meta-data/cancel-meta-data.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/event-data/wsh-event-data-object.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/event-data/request-event-data.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/event-data/receive-event-data.md
+    failed (404): https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/event-data/cancel-event-data.md
+  origin: https://www.interactivebrokers.com/docs/excel/llms.txt
+    failed (404): https://www.interactivebrokers.com/docs/excel/rtd/troubleshooting/introduction.md
+Scrape done: llms ok=13 err=0; pages ok=1192 err=176 skipped=0
+Manifest: cache/manifest.json
+error: script "scrape" exited with code 1
