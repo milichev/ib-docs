@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/send-request)
+[home](../../index.md) | [web-api](../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/send-request)
 
 # Trigger report generation
 
@@ -40,6 +40,18 @@ XML response indicating whether the report generation request succeeded or faile
 
 **SDK Code**
 
+```python Success
+import requests
+
+url = "https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/SendRequest"
+
+querystring = {"q":"1099104","t":"833145478193195254070598","v":"3"}
+
+response = requests.get(url, params=querystring)
+
+print(response.json())
+```
+
 ```go Success
 package main
 
@@ -79,14 +91,6 @@ request = Net::HTTP::Get.new(url)
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Success
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/SendRequest?q=1099104&t=833145478193195254070598&v=3")
-  .asString();
 ```
 
 ```php Success
@@ -131,6 +135,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Failure
+import requests
+
+url = "https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/SendRequest"
+
+querystring = {"q":"1099104","t":"833145478193195254070598","v":"3"}
+
+response = requests.get(url, params=querystring)
+
+print(response.json())
+```
+
 ```go Failure
 package main
 
@@ -170,14 +186,6 @@ request = Net::HTTP::Get.new(url)
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Failure
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/SendRequest?q=1099104&t=833145478193195254070598&v=3")
-  .asString();
 ```
 
 ```php Failure

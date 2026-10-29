@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-portfolio/get-position-by-conid)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-portfolio/get-position-by-conid)
 
 # Account Position In An Instrument
 
@@ -218,6 +218,18 @@ A single display rule increment.
 
 **SDK Code**
 
+```python individualPositionOpt
+import requests
+
+url = "https://localhost:5000/v1/api/portfolio/DU123456/position/265598"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go individualPositionOpt
 package main
 
@@ -260,15 +272,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java individualPositionOpt
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/portfolio/DU123456/position/265598")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php individualPositionOpt
@@ -375,6 +378,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python individualPositionStk
+import requests
+
+url = "https://localhost:5000/v1/api/portfolio/DU123456/position/265598"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go individualPositionStk
 package main
 
@@ -417,15 +432,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java individualPositionStk
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/portfolio/DU123456/position/265598")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php individualPositionStk
@@ -499,6 +505,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python individualPositionWithNoSecDef
+import requests
+
+url = "https://localhost:5000/v1/api/portfolio/DU123456/position/265598"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go individualPositionWithNoSecDef
 package main
 
@@ -541,15 +559,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java individualPositionWithNoSecDef
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/portfolio/DU123456/position/265598")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php individualPositionWithNoSecDef

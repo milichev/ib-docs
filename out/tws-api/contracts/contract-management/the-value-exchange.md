@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/contracts/contract-management/the-value-exchange)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/contracts/contract-management/the-value-exchange)
 
 # The Value Exchange
 

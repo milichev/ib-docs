@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/confirm-order-reply)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/confirm-order-reply)
 
 # Confirm Order Reply Message
 
@@ -135,6 +135,22 @@ Relates a message generated in response to the rejection of the submitted order 
 
 **SDK Code**
 
+```python orderSubmitSuccessExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/reply/99097238-9824-4830-84ef-46979aa22593"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go orderSubmitSuccessExample
 package main
 
@@ -183,17 +199,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orderSubmitSuccessExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/reply/99097238-9824-4830-84ef-46979aa22593")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php orderSubmitSuccessExample
@@ -271,6 +276,22 @@ dataTask.resume()
 
 **SDK Code**
 
+```python orderReplyMessageExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/reply/99097238-9824-4830-84ef-46979aa22593"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go orderReplyMessageExample
 package main
 
@@ -319,17 +340,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orderReplyMessageExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/reply/99097238-9824-4830-84ef-46979aa22593")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php orderReplyMessageExample
@@ -398,6 +408,22 @@ dataTask.resume()
 
 **SDK Code**
 
+```python orderSubmitErrorExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/reply/99097238-9824-4830-84ef-46979aa22593"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go orderSubmitErrorExample
 package main
 
@@ -446,17 +472,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orderSubmitErrorExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/reply/99097238-9824-4830-84ef-46979aa22593")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php orderSubmitErrorExample
@@ -525,6 +540,22 @@ dataTask.resume()
 
 **SDK Code**
 
+```python orderReplyNotFoundExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/reply/99097238-9824-4830-84ef-46979aa22593"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go orderReplyNotFoundExample
 package main
 
@@ -573,17 +604,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orderReplyNotFoundExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/reply/99097238-9824-4830-84ef-46979aa22593")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php orderReplyNotFoundExample
@@ -663,6 +683,22 @@ dataTask.resume()
 
 **SDK Code**
 
+```python advancedOrderRejectPromptExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/reply/99097238-9824-4830-84ef-46979aa22593"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go advancedOrderRejectPromptExample
 package main
 
@@ -711,17 +747,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java advancedOrderRejectPromptExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/reply/99097238-9824-4830-84ef-46979aa22593")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php advancedOrderRejectPromptExample

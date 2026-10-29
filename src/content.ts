@@ -14,7 +14,10 @@ export function isHtmlContentType(
 
 /** Heuristic for older manifests that lack contentType. */
 export function looksLikeHtml(body: string): boolean {
-  const start = body.replace(/^\uFEFF/, "").trimStart().slice(0, 512);
+  const start = body
+    .replace(/^\uFEFF/, "")
+    .trimStart()
+    .slice(0, 512);
   if (/^<!DOCTYPE\s+html\b/i.test(start)) return true;
   if (/^<html\b/i.test(start)) return true;
   // Leading HTML comments before doctype/html

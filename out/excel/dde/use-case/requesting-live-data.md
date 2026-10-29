@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/dde/use-case/requesting-live-data)
+[home](../../../index.md) | [excel](../../index.md) | [source](https://www.interactivebrokers.com/docs/excel/dde/use-case/requesting-live-data)
 
 # Requesting Live Data
 

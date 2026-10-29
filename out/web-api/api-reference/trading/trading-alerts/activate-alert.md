@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-alerts/activate-alert)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-alerts/activate-alert)
 
 # Activate Or Deactivate An Alert
 
@@ -77,6 +77,18 @@ Internal Server Error; unable to process incoming request due to invalid data in
 
 **SDK Code**
 
+```python activated-deactivated-successfully
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/U1234567/alert/activate"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go activated-deactivated-successfully
 package main
 
@@ -119,15 +131,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java activated-deactivated-successfully
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/U1234567/alert/activate")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php activated-deactivated-successfully
@@ -192,6 +195,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python activate-request
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/U1234567/alert/activate"
+
+payload = {
+    "alertId": 9876543210,
+    "alertActive": 1
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go activate-request
 package main
 
@@ -240,17 +262,6 @@ request.body = "{\n  \"alertId\": 9876543210,\n  \"alertActive\": 1\n}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java activate-request
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/U1234567/alert/activate")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"alertId\": 9876543210,\n  \"alertActive\": 1\n}")
-  .asString();
 ```
 
 ```php activate-request
@@ -330,6 +341,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python deactivate-request
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/U1234567/alert/activate"
+
+payload = {
+    "alertId": 9876543210,
+    "alertActive": 0
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go deactivate-request
 package main
 
@@ -378,17 +408,6 @@ request.body = "{\n  \"alertId\": 9876543210,\n  \"alertActive\": 0\n}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java deactivate-request
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/U1234567/alert/activate")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"alertId\": 9876543210,\n  \"alertActive\": 0\n}")
-  .asString();
 ```
 
 ```php deactivate-request

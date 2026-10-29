@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/activex/sample-spreadsheet-guide/navigating-through-the-sample)
+[home](../../../index.md) | [excel](../../index.md) | [source](https://www.interactivebrokers.com/docs/excel/activex/sample-spreadsheet-guide/navigating-through-the-sample)
 
 # Navigating Through The Sample
 

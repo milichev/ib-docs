@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/get-restriction-details)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/get-restriction-details)
 
 # Get Restriction Details
 
@@ -132,6 +132,20 @@ A single rule within a restriction. Field order: `ruleId`, `type`, `validityType
 
 **SDK Code**
 
+```python Restriction with one rule
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/restriction"
+
+querystring = {"masterUserName":"user1","restrictionId":"1001"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Restriction with one rule
 package main
 
@@ -174,15 +188,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Restriction with one rule
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/restriction?masterUserName=user1&restrictionId=1001")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Restriction with one rule
@@ -248,6 +253,20 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Restriction with trade-monitoring
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/restriction"
+
+querystring = {"masterUserName":"user1","restrictionId":"1001"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Restriction with trade-monitoring
 package main
 
@@ -290,15 +309,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Restriction with trade-monitoring
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/restriction?masterUserName=user1&restrictionId=1001")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Restriction with trade-monitoring

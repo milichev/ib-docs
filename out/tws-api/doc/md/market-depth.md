@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/md/market-depth)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/md/market-depth)
 
 # Market Depth
 
@@ -10,7 +10,7 @@ Unlike [Top Market Data (Level I)](streaming-data.md), market depth data is sent
 
 It is possible to Smart-route requests to receive aggregated data from all available exchanges.
 
-An integral part of processing the incoming data is monitoring [EWrapper.error](../error-handling/receiving-error-messages.md) for message 317 "Market depth data has been RESET. Please empty deep book contents before applying any new entries." and handling it appropriately, otherwise the update process would be corrupted.
+An integral part of processing the incoming data is monitoring [EWrapper.error](/docs/tws-api/doc/error/messages) for message 317 "Market depth data has been RESET. Please empty deep book contents before applying any new entries." and handling it appropriately, otherwise the update process would be corrupted.
 
 > **Info**
 >
@@ -48,7 +48,7 @@ The number of rows on each side of the order book.
 
 **`isSmartDepth`** `bool`
 
-Flag indicates that this is a Smart-routed market depth request. Supplying `True` will return data identical to the [TWS Book Trader](https://www.ibkrguides.com/traderworkstation/booktrader.htm) while `False` returns direct routed data similar to the [TWS Market Depth tool](https://www.ibkrguides.com/traderworkstation/level-ii-market-depth.htm). `isSmartDepth` should only be set to `True` if the [Contract Object](../contracts-financial-instruments/the-contract-object.md) uses "SMART" in the `exchange` field.
+Flag indicates that this is a Smart-routed market depth request. Supplying `True` will return data identical to the [TWS Book Trader](https://www.ibkrguides.com/traderworkstation/booktrader.htm) while `False` returns direct routed data similar to the [TWS Market Depth tool](https://www.ibkrguides.com/traderworkstation/level-ii-market-depth.htm). `isSmartDepth` should only be set to `True` if the [Contract Object](/docs/tws-api/doc/contracts/object) uses "SMART" in the `exchange` field.
 
 ---
 
@@ -58,10 +58,12 @@ Internal use only. Leave an empty array or None type.
 
 ---
 
-#### Java
+\
 
-```java
-client.reqMktDepth(2001, contract, 5, false, null);
+#### Python
+
+```python
+self.reqMktDepth(2001, contract, 5, False, [])
 ```
 
 ---
@@ -115,13 +117,13 @@ The order's size
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void updateMktDepth(int tickerId, int position, int operation, int side, double price, Decimal size) {
-	System.out.println(EWrapperMsgGenerator.updateMktDepth(tickerId, position, operation, side, price, size));
-}
+#### Python
+
+```python
+def updateMktDepth(self, reqId: TickerId, position: int, operation: int, side: int, price: float, size: Decimal):
+		print("UpdateMarketDepth. ReqId:", reqId, "Position:", position, "Operation:", operation, "Side:", side, "Price:", floatMaxString(price), "Size:", decimalMaxString(size))
 ```
 
 ---
@@ -180,13 +182,13 @@ Flag indicating if this is smart depth response (True) or the MPID of the market
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void updateMktDepthL2(int tickerId, int position, String marketMaker, int operation, int side, double price, Decimal size, boolean isSmartDepth) {
-	System.out.println(EWrapperMsgGenerator.updateMktDepthL2( tickerId, position, marketMaker, operation, side, price, size, isSmartDepth));
-}
+#### Python
+
+```python
+def updateMktDepthL2(self, reqId: TickerId, position: int, marketMaker: str, operation: int, side: int, price: float, size: Decimal, isSmartDepth: bool):
+	print("UpdateMarketDepthL2. ReqId:", reqId, "Position:", position, "MarketMaker:", marketMaker, "Operation:", operation, "Side:", side, "Price:", floatMaxString(price), "Size:", decimalMaxString(size), "isSmartDepth:", isSmartDepth)
 ```
 
 ---
@@ -215,13 +217,13 @@ Primary exchange of the underlying.
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void rerouteMktDepthReq(int reqId, int conId, String exchange) {
-	System.out.println(EWrapperMsgGenerator.rerouteMktDepthReq(reqId, conId, exchange));
-}
+#### Python
+
+```python
+def rerouteMktDepthReq(self, reqId: int, conId: int, exchange: str):
+	print("Re-route market depth request. ReqId:", reqId, "ConId:", conId, "Exchange:", exchange)
 ```
 
 ---
@@ -244,10 +246,12 @@ Flag indicates that this is smart depth request.
 
 ---
 
-#### Java
+\
 
-```java
-client.cancelMktDepth(2001, false);
+#### Python
+
+```python
+self.cancelMktDepth(2001, False)
 ```
 
 ---
@@ -258,10 +262,10 @@ client.cancelMktDepth(2001, false);
 
 Requests venues for which market depth data is available.
 
-#### Java
+#### Python
 
-```java
-client.reqMktDepthExchanges();
+```python
+self.reqMktDepthExchanges()
 ```
 
 ---
@@ -278,11 +282,13 @@ A list containing [DepthMarketDataDescription](../../protobuf/depth-market-data-
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void mktDepthExchanges(DepthMktDataDescription[] depthMktDataDescriptions) {
-	System.out.println(EWrapperMsgGenerator.mktDepthExchanges(depthMktDataDescriptions));
-}
+#### Python
+
+```python
+def mktDepthExchanges(self, depthMktDataDescriptions:ListOfDepthExchanges):
+	print("MktDepthExchanges:")
+	for desc in depthMktDataDescriptions:
+		print("DepthMktDataDescription.", desc)
 ```

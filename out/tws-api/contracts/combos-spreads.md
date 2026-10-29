@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/contracts/combos-spreads)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/contracts/combos-spreads)
 
 # Combos & Spreads
 
@@ -12,7 +12,7 @@ As with standard contracts, you will continue to define the standard values such
 
 Spread contracts combine two or more instruments. To define a combination contract it is required to know the conId of the contract in question.
 
-The conId of an instrument can easily be obtained via the [EClientSocket.reqContractDetails](/docs/tws-api/doc/contracts-financial-instruments/contract-details) request or the [/iserver/secdef/search endpoint](../../web-api/v1/endpoints/contract/search-contract-by-symbol.md).
+The conId of an instrument can easily be obtained via the [EClientSocket.reqContractDetails](/docs/tws-api/doc/contracts/details) request or the [/iserver/secdef/search endpoint](../../web-api/v1/endpoints/contract/search-contract-by-symbol.md).
 
 > **Note**
 >
@@ -20,72 +20,68 @@ The conId of an instrument can easily be obtained via the [EClientSocket.reqCont
 
 ###### ComboLeg()
 
-**ConId:** int. The conId, or contract Identifier, should be used to specify the exact contract. Symbols or local symbols can not be used for ComboLegs.
+**ConId:** integer. The conId, or contract Identifier, should be used to specify the exact contract. Symbols or local symbols can not be used for ComboLegs.
 
-**Ratio:** int. Specify the ratio for the specific leg. The ratio will be multiplied by the totalQuantity field for of the order object.
+**Ratio:** integer. Specify the ratio for the specific leg. The ratio will be multiplied by the totalQuantity field for of the order object.
 
 **Action:** String. Specify what to do with the order. Users may choose Buy or Sell for these orders.
 
 **Exchange:** String. Specify the routing exchange for the contract. SMART may be used.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("IBKR,MCD");
-contract.secType("BAG");
-contract.currency("USD");
-contract.exchange("SMART");
+```python
+contract = Contract()
+contract.symbol = "IBKR,MCD"
+contract.secType = "BAG"
+contract.currency = "USD"
+contract.exchange = "SMART"
 
-ComboLeg leg1 = new ComboLeg();
-ComboLeg leg2 = new ComboLeg();
-List addAllLegs = new ArrayList();
+leg1 = ComboLeg()
+leg1.conId = 43645865#IBKR STK
+leg1.ratio = 1
+leg1.action = "BUY"
+leg1.exchange = "SMART"
 
-leg1.conid(43645865);//IBKR STK
-leg1.ratio(1);
-leg1.action("BUY");
-leg1.exchange("SMART");
+leg2 = ComboLeg()
+leg2.conId = 9408#MCD STK
+leg2.ratio = 1
+leg2.action = "SELL"
+leg2.exchange = "SMART"
 
-leg2.conid(9408);//MCD STK
-leg2.ratio(1);
-leg2.action("SELL");
-leg2.exchange("SMART");
-addAllLegs.add(leg1);
-addAllLegs.add(leg2);
-
-contract.comboLegs(addAllLegs);
+contract.comboLegs = []
+contract.comboLegs.append(leg1)
+contract.comboLegs.append(leg2)
 ```
 
 ## Smart-Routed Futures Spreads
 
 Futures spreads can also be defined as Smart-routed (non-guaranteed) combos. When placing an order for a non-guaranteed combo from the API, the non-guaranteed flag must be set to 1. Historical data for smart-routed futures spreads is generally available from the API with the requisite market data subscriptions.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("WTI");  // WTI,COIL spread. Symbol can be defined as first leg symbol ("WTI") or currency ("USD").
-contract.secType("BAG");
-contract.currency("USD");
-contract.exchange("SMART"); // smart-routed rather than direct routed
+```python
+contract = Contract()
+contract.symbol = "WTI" # WTI,COIL spread. Symbol can be defined as first leg symbol ("WTI") or currency ("USD")
+contract.secType = "BAG"
+contract.currency = "USD"
+contract.exchange = "SMART"
 
-ComboLeg leg1 = new ComboLeg();
-ComboLeg leg2 = new ComboLeg();
-List addAllLegs = new ArrayList();
+leg1 = ComboLeg()
+leg1.conId = 55928698 # WTI future June 2017
+leg1.ratio = 1
+leg1.action = "BUY"
+leg1.exchange = "IPE"
 
-leg1.conid(55928698);// WTI future June 2017
-leg1.ratio(1);
-leg1.action("BUY");
-leg1.exchange("IPE");
+leg2 = ComboLeg()
+leg2.conId = 55850663 # COIL future June 2017
+leg2.ratio = 1
+leg2.action = "SELL"
+leg2.exchange = "IPE"
 
-leg2.conid(55850663);// COIL future June 2017
-leg2.ratio(1);
-leg2.action("SELL");
-leg2.exchange("IPE");
-
-addAllLegs.add(leg1);
-addAllLegs.add(leg2);
-contract.comboLegs(addAllLegs);
+contract.comboLegs = []
+contract.comboLegs.append(leg1)
+contract.comboLegs.append(leg2)
 ```
 
 ## Inter-commoddity Futures Spread
@@ -98,30 +94,28 @@ Please be mindful that inter-commodity spreads are offered by the exchange direc
 
 It is also possible in many cases to create a spread of the same future contracts in a inter-commodity spread which is smart-routed and non-guaranteed. Historical data for this spread would generally be available from the API. Also, historical data for expired spread contracts is not available in TWS or the API.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("COIL.WTI");
-contract.secType("BAG");
-contract.currency("USD");
-contract.exchange("IPE");
+```python
+contract = Contract()
+contract.symbol = "COL.WTI" #symbol is 'local symbol' of intercommodity spread. 
+contract.secType = "BAG"
+contract.currency = "USD"
+contract.exchange = "IPE"
 
-ComboLeg leg1 = new ComboLeg();
-ComboLeg leg2 = new ComboLeg();
-List addAllLegs = new ArrayList();
+leg1 = ComboLeg()
+leg1.conId = 183405603 #WTI�Dec'23�@IPE
+leg1.ratio = 1
+leg1.action = "BUY"
+leg1.exchange = "IPE"
 
-leg1.conid(183405603); //WTI�Dec'23�@IPE
-leg1.ratio(1);
-leg1.action("BUY");
-leg1.exchange("IPE");
+leg2 = ComboLeg()
+leg2.conId = 254011009 #COIL�Dec'23�@IPE
+leg2.ratio = 1
+leg2.action = "SELL"
+leg2.exchange = "IPE"
 
-leg2.conid(254011009); //COIL�Dec'23�@IPE
-leg2.ratio(1);
-leg2.action("SELL");
-leg2.exchange("IPE");
-addAllLegs.add(leg1);
-addAllLegs.add(leg2);
-
-contract.comboLegs(addAllLegs);
+contract.comboLegs = []
+contract.comboLegs.append(leg1)
+contract.comboLegs.append(leg2)
 ```

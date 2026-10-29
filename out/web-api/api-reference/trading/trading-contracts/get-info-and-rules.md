@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-contracts/get-info-and-rules)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-contracts/get-info-and-rules)
 
 # Instrument Info And Market Rules
 
@@ -286,6 +286,18 @@ Object containing details about your TIF value defaults. These defaults can be v
 
 **SDK Code**
 
+```python stk
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/contract/265598/info-and-rules"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go stk
 package main
 
@@ -328,15 +340,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java stk
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/contract/265598/info-and-rules")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php stk
@@ -482,6 +485,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python option
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/contract/265598/info-and-rules"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go option
 package main
 
@@ -524,15 +539,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java option
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/contract/265598/info-and-rules")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php option

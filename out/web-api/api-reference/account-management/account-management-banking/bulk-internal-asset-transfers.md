@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/bulk-internal-asset-transfers)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/bulk-internal-asset-transfers)
 
 # Creates Multiple Internal Asset Transfers Between The Provided Account Id Pairs
 
@@ -205,6 +205,25 @@ Provider-specific data returned once the Plaid payment has been initiated.
 
 **SDK Code**
 
+```python Internal Position Transfer
+import requests
+
+url = "https://localhost:5000/gw/api/v1/internal-asset-transfers:bulk"
+
+payload = {
+    "instructionType": "INTERNAL_POSITION_TRANSFER",
+    "instructions": ["string", "string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Internal Position Transfer
 package main
 
@@ -253,17 +272,6 @@ request.body = "{\n  \"instructionType\": \"INTERNAL_POSITION_TRANSFER\",\n  \"i
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Internal Position Transfer
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/internal-asset-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"INTERNAL_POSITION_TRANSFER\",\n  \"instructions\": [\n    \"string\",\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php Internal Position Transfer
@@ -355,6 +363,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Internal Position Transfer
+import requests
+
+url = "https://localhost:5000/gw/api/v1/internal-asset-transfers:bulk"
+
+payload = {
+    "instructionType": "INTERNAL_POSITION_TRANSFER",
+    "instructions": ["string", "string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Internal Position Transfer
 package main
 
@@ -403,17 +430,6 @@ request.body = "{\n  \"instructionType\": \"INTERNAL_POSITION_TRANSFER\",\n  \"i
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Internal Position Transfer
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/internal-asset-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"INTERNAL_POSITION_TRANSFER\",\n  \"instructions\": [\n    \"string\",\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php Internal Position Transfer

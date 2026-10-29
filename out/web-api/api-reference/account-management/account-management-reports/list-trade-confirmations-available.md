@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-reports/list-trade-confirmations-available)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-reports/list-trade-confirmations-available)
 
 # Fetch List Of Available Trade Confirmation Dates, For A Specific Account Id
 
@@ -111,6 +111,23 @@ Returns a Problem detail instance representing an internal server error.
 
 **SDK Code**
 
+```python
+import requests
+
+url = "https://localhost:5000/gw/api/v1/trade-confirmations/available"
+
+querystring = {"accountId":"UXXXX"}
+
+headers = {
+    "authorization": "Bearer eyJ0eXAiOiJKV1...",
+    "Authorization": "Bearer <token>"
+}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go
 package main
 
@@ -155,16 +172,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/trade-confirmations/available?accountId=UXXXX")
-  .header("authorization", "Bearer eyJ0eXAiOiJKV1...")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php

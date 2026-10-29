@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/ws/connection-guide)
+[home](../../index.md) | [web-api](../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/ws/connection-guide)
 
 If you require brokerage functionality, you will need to establish a brokerage session prior to opening a websocket, just as is required before making requests to /iserver endpoints. Please see [Authentication](../authentication/introduction.md) for more details.
 

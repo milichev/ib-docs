@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/fa-allocation-management/delete-allocation-group)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/fa-allocation-management/delete-allocation-group)
 
 # Delete Allocation Group
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-portfolio/get-portfolio-summary)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-portfolio/get-portfolio-summary)
 
 # Account Portfolio Summary
 
@@ -2351,6 +2351,18 @@ Indicates whether 'whatif' order preview functionality is enabled for a Portfoli
 
 **SDK Code**
 
+```python success
+import requests
+
+url = "https://localhost:5000/v1/api/portfolio/DU123456/summary"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go success
 package main
 
@@ -2393,15 +2405,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java success
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/portfolio/DU123456/summary")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php success

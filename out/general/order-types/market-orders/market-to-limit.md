@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/market-orders/market-to-limit)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/market-orders/market-to-limit)
 
 # Market to Limit
 
@@ -10,11 +10,11 @@ More on [Market to Limit Orders](https://www.interactivebrokers.com/en/index.php
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=mtl)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("MTL");
-order.totalQuantity(quantity);
+```python
+order = Order()
+order.action = action
+order.orderType = "MTL"
+order.totalQuantity = quantity
 ```

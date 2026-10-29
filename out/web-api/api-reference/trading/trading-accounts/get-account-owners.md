@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-accounts/get-account-owners)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-accounts/get-account-owners)
 
 # List Account Signatures And Owners
 
@@ -111,6 +111,18 @@ Provide information about the particular entity
 
 **SDK Code**
 
+```python success
+import requests
+
+url = "https://localhost:5000/v1/api/acesws/accountId/signatures-and-owners"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go success
 package main
 
@@ -153,15 +165,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java success
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/acesws/accountId/signatures-and-owners")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php success

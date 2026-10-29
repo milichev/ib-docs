@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/dark-ice)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/dark-ice)
 
 # DarkIce
 
@@ -17,6 +17,17 @@ Valid Value/Format: hh:mm:ss TMZ or YYYYMMDD-hh:mm:ss TMZ
 
 **allowPastEndTime:** bool. Allow trading past end time\
 Valid Value/Format: 1 (true) or 0 (false)
+
+#### Python
+
+```python
+order.algoStrategy = "DarkIce"
+order.algoParams = []
+order.algoParams.append(TagValue("displaySize", displaySize))
+order.algoParams.append(TagValue("startTime", startTime))
+order.algoParams.append(TagValue("endTime", endTime))
+order.algoParams.append(TagValue("allowPastEndTime", int(allowPastEndTime)))
+```
 
 #### Abap
 
@@ -43,15 +54,4 @@ curl {baseUrl}/iserver/account/{accountId}/orders \
     }
   ]
 }'
-```
-
-#### Java
-
-```java
-order.algoStrategy("DarkIce");
-order.algoParams(new ArrayList());
-order.algoParams().add(new TagValue("displaySize", String.valueOf(displaySize)));
-order.algoParams().add(new TagValue("startTime", startTime));
-order.algoParams().add(new TagValue("endTime", endTime));
-order.algoParams().add(new TagValue("allowPastEndTime", allowPastEndTime ? "1" : "0"));
 ```

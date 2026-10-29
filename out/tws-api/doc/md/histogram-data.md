@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/md/histogram-data)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/md/histogram-data)
 
 # Histogram Data
 
@@ -36,10 +36,12 @@ String value of requested date range. This will be tied to the same bar size str
 
 ---
 
-#### Java
+\
 
-```java
-client.reqHistogramData(4004, contract, false, "3 days");
+#### Python
+
+```python
+self.reqHistogramData(4004, contract, false, "3 days")
 ```
 
 ---
@@ -62,13 +64,13 @@ Returned Tuple of histogram data, number of trades at specified price level.
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void histogramData(int reqId, List items) {
-	System.out.println(EWrapperMsgGenerator.histogramData(reqId, items));
-}
+#### Python
+
+```python
+def histogramData(self, reqId:int, items:HistogramDataList):
+	print("HistogramData. reqid, items)
 ```
 
 ---
@@ -85,10 +87,12 @@ Request identifier used to track data.
 
 ---
 
-#### Java
+\
 
-```java
-client.cancelHistogramData(4004);
+#### Python
+
+```python
+self.reqHistogramData(4004)
 ```
 
 ---

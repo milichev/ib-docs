@@ -1,10 +1,7 @@
 # AGENTS.md
 
-This extends the global @~/.cursor/AGENTS.md
+Extends @~/.cursor/AGENTS.md
 
-## Goal
+Goal: scrape https://www.interactivebrokers.com/docs into `out/`; all pages discoverable from `out/index.md` (Docs-MCP).
 
-Create an ad-hoc tool for custom scrapping https://www.interactivebrokers.com/docs
-
-The tool should create a structure of `.md` files in the output directory `out`.
-All output files should be discoverable from the root index file to be ingested by the Docs-MCP-Server file crawler.
+Map: [README](README.md) · [docs/](docs/)

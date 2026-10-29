@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/md/historical-ticks)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/md/historical-ticks)
 
 # Historical Time & Sales
 
@@ -77,10 +77,12 @@ Should be defined as null; reserved for internal use.
 
 ---
 
-#### Java
+\
 
-```java
-client.reqHistoricalTicks(18001, contract, "20220808 10:00:00 US/Eastern", null, 10, "TRADES", 1, true, null);
+#### Python
+
+```python
+self.reqHistoricalTicks(18001, contract, "20170712 21:39:33 US/Eastern", "", 10, "TRADES", 1, True, [])
 ```
 
 ---
@@ -117,15 +119,14 @@ return whether or not this is the end of the historical ticks requested.
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void historicalTicks(int reqId, List ticks, boolean done) {
-	for (HistoricalTick tick : ticks) {
-		System.out.println(EWrapperMsgGenerator.historicalTick(reqId, tick.time(), tick.price(), tick.size()));
-	}
-}
+#### Python
+
+```python
+def historicalTicks(self, reqId: int, ticks: ListOfHistoricalTickLast, done: bool):
+	for tick in ticks:
+		print("historicalTicks. ReqId:", reqId, tick)
 ```
 
 ---
@@ -154,16 +155,14 @@ return whether or not this is the end of the historical ticks requested.
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void historicalTicksBidAsk(int reqId, List ticks, boolean done) {
-	for (HistoricalTickBidAsk tick : ticks) {
-		System.out.println(EWrapperMsgGenerator.historicalTickBidAsk(reqId, tick.time(), tick.tickAttribBidAsk(), tick.priceBid(), tick.priceAsk(), tick.sizeBid(),
-				tick.sizeAsk()));
-	}
-}   
+#### Python
+
+```python
+def historicalTicksBidAsk(self, reqId: int, ticks: ListOfHistoricalTickLast, done: bool):
+	for tick in ticks:
+		print("historicalTicksBidAsk. ReqId:", reqId, tick)
 ```
 
 ---
@@ -192,15 +191,14 @@ return whether or not this is the end of the historical ticks requested.
 
 ---
 
-#### Java
+\
 
-```java
-public void historicalTicksLast(int reqId, List ticks, boolean done) {
-	for (HistoricalTickLast tick : ticks) {
-		System.out.println(EWrapperMsgGenerator.historicalTickLast(reqId, tick.time(), tick.tickAttribLast(), tick.price(), tick.size(), tick.exchange(), 
-			tick.specialConditions()));
-	}
-}
+#### Python
+
+```python
+def historicalTicksLast(self, reqId: int, ticks: ListOfHistoricalTickLast, done: bool):
+	for tick in ticks:
+		print("HistoricalTickLast. ReqId:", reqId, tick)
 ```
 
 ---

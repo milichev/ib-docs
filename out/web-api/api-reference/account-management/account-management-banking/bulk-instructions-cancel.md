@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/bulk-instructions-cancel)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/bulk-instructions-cancel)
 
 # Creates Multiple Cancel Instructions
 
@@ -202,6 +202,18 @@ Provider-specific data returned once the Plaid payment has been initiated.
 
 **SDK Code**
 
+```python Response
+import requests
+
+url = "https://localhost:5000/gw/api/v1/instructions/cancel:bulk"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Response
 package main
 
@@ -244,15 +256,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Response
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/instructions/cancel:bulk")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Response
@@ -312,6 +315,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Response
+import requests
+
+url = "https://localhost:5000/gw/api/v1/instructions/cancel:bulk"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Response
 package main
 
@@ -354,15 +369,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Response
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/instructions/cancel:bulk")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Response
@@ -462,6 +468,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Cancel Instruction Bulk
+import requests
+
+url = "https://localhost:5000/gw/api/v1/instructions/cancel:bulk"
+
+payload = {
+    "instructionType": "CANCEL_INSTRUCTION",
+    "instructions": ["string", "string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Cancel Instruction Bulk
 package main
 
@@ -510,17 +535,6 @@ request.body = "{\n  \"instructionType\": \"CANCEL_INSTRUCTION\",\n  \"instructi
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Cancel Instruction Bulk
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/instructions/cancel:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"CANCEL_INSTRUCTION\",\n  \"instructions\": [\n    \"string\",\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php Cancel Instruction Bulk

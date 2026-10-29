@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/md/streaming-data)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/md/streaming-data)
 
 # Streaming Data
 
@@ -77,10 +77,12 @@ Internal use only.
 
 ---
 
-#### Java
+\
 
-```java
-client.reqMktData(reqId, contract, "", false, false, null);
+#### Python
+
+```python
+self.reqMktData(reqId, contract, "", False, False, [])
 ```
 
 ---
@@ -278,7 +280,7 @@ The fifth argument to reqMktData specifies a regulatory snapshot request to US s
 
 For stocks, there are individual exchange-specific market data subscriptions necessary to receive streaming quotes. For instance, for NYSE stocks this subscription is known as "Network A", for ARCA/AMEX stocks it is called "Network B" and for NASDAQ stocks it is "Network C". Each subscription is added a la carte and has a separate market data fee.
 
-Alternatively, there is also a "US Securities Snapshot Bundle" subscription which does not provide streaming data but which allows for real time calculated snapshots of US market NBBO prices. By setting the 5th parameter in the function EClient::reqMktData to **True**, a regulatory snapshot request can be made from the API. The returned value is a calculation of the current market state based on data from all available exchanges.
+Alternatively, there is also a "US Securities Snapshot Bundle" subscription which does not provide streaming data but which allows for real time calculated snapshots of US market NBBO prices. By setting the 5th parameter in the function EClient.reqMktData to **True**, a regulatory snapshot request can be made from the API. The returned value is a calculation of the current market state based on data from all available exchanges.
 
 > **Warning**
 >
@@ -333,13 +335,13 @@ Return value corresponding to value. See Available Tick Types for more details.
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void tickGeneric(int tickerId, int tickType, double value) {
-	System.out.println("Tick Generic: " + EWrapperMsgGenerator.tickGeneric(tickerId, tickType, value));
-}
+#### Python
+
+```python
+def tickGeneric(self, reqId: TickerId, tickType: TickType, value: float):
+	print("TickGeneric. TickerId:", reqId, "TickType:", tickType, "Value:", floatMaxString(value))
 ```
 
 ---
@@ -374,13 +376,13 @@ A TickAttrib object that contains price attributes such as TickAttrib::CanAutoEx
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void tickPrice(int tickerId, int field, double price, TickAttrib attribs) {
-	System.out.println("Tick Price: " + EWrapperMsgGenerator.tickPrice( tickerId, field, price, attribs));
-}
+#### Python
+
+```python
+def tickPrice(self, reqId: TickerId, tickType: TickType, price: float, attrib: TickAttrib):
+	print(reqId, tickType, price, attrib)
 ```
 
 ---
@@ -409,13 +411,13 @@ the actual size. US stocks have a multiplier of 100.
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void tickSize(int tickerId, int field, Decimal size) {
-    System.out.println("Tick Size: " + EWrapperMsgGenerator.tickSize( tickerId, field, size));
-}
+#### Python
+
+```python
+def tickSize(self, reqId: TickerId, tickType: TickType, size: Decimal):
+	print("TickSize. TickerId:", reqId, "TickType:", tickType, "Size: ", decimalMaxString(size))
 ```
 
 ---
@@ -448,13 +450,13 @@ Variable containining message response.
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-    public void tickString(int tickerId, int tickType, String value) {
-        System.out.println("Tick String: " + EWrapperMsgGenerator.tickString(tickerId, tickType, value));
-    }
+#### Python
+
+```python
+def tickString(self, reqId: TickerId, tickType: TickType, value: str):
+	print("TickString. TickerId:", reqId, "Type:", tickType, "Value:", value)
 ```
 
 ---
@@ -493,13 +495,13 @@ Based on the snapshot parameter in EClient.reqMktData.
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void tickReqParams(int tickerId, double minTick, String bboExchange, int snapshotPermissions) {
-	System.out.println("Tick req params: " + EWrapperMsgGenerator.tickReqParams(tickerId, minTick, bboExchange, snapshotPermissions));
-}
+#### Python
+
+```python
+def tickReqParams(self, tickerId:int, minTick:float, bboExchange:str, snapshotPermissions:int):
+	print("TickReqParams. TickerId:", tickerId, "MinTick:", floatMaxString(minTick), "BboExchange:", bboExchange, "SnapshotPermissions:", intMaxString(snapshotPermissions))
 ```
 
 ---
@@ -526,13 +528,13 @@ Primary exchange of the underlying.
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void rerouteMktDataReq(int reqId, int conId, String exchange) {
-	System.out.println(EWrapperMsgGenerator.rerouteMktDataReq(reqId, conId, exchange));
-}
+#### Python
+
+```python
+def rerouteMktDataReq(self, reqId: int, conId: int, exchange: str):
+	print("Re-route market data request. ReqId:", reqId, "ConId:", conId, "Exchange:", exchange)
 ```
 
 ---
@@ -549,8 +551,10 @@ Request identifier used to track data.
 
 ---
 
-#### Java
+\
 
-```java
-client.cancelMktData(2001);
+#### Python
+
+```python
+self.cancelMktData(2001)
 ```

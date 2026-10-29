@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/disconnect-stop-connection)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/disconnect-stop-connection)
 
 # disconnect_and_stop()
 

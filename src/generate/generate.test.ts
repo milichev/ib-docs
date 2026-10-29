@@ -15,13 +15,9 @@ import {
   titleFromSlug,
 } from "./indexes.ts";
 import { generate } from "./index.ts";
-import {
-  filterByLang,
-  pickLangWithFallback,
-  resolveLangId,
-} from "./lang.ts";
+import { filterByLang, pickLangWithFallback, resolveLangId } from "./lang.ts";
 import { relativeHref, repairBrokenIbLinks, rewriteLinks } from "./links.ts";
-import { prependSourceLink, toSourceUrl } from "./source.ts";
+import { buildPageHeader, prependPageHeader, toSourceUrl } from "./source.ts";
 import { transformPage } from "./transform.ts";
 
 function sha(text: string): string {
@@ -170,23 +166,39 @@ x = 1;
   });
 });
 
-describe("source link", () => {
+describe("page header", () => {
   test("strips .md for human URL", () => {
     expect(
       toSourceUrl(
         "https://www.interactivebrokers.com/docs/tws-api/contracts/bonds.md",
       ),
+    ).toBe("https://www.interactivebrokers.com/docs/tws-api/contracts/bonds");
+  });
+
+  test("builds home | section | source with relative hrefs", () => {
+    expect(
+      buildPageHeader({
+        currentRelativePath:
+          "tws-api/doc/connectivity/broken-api-socket-connection.md",
+        sourceUrl:
+          "https://www.interactivebrokers.com/docs/tws-api/doc/connectivity/broken-api-socket-connection",
+        sectionIndexPaths: new Map([["tws-api", "tws-api/index.md"]]),
+      }),
     ).toBe(
-      "https://www.interactivebrokers.com/docs/tws-api/contracts/bonds",
+      "[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/connectivity/broken-api-socket-connection)",
     );
   });
 
   test("prepends above H1", () => {
-    const out = prependSourceLink(
-      "# Title\n\nBody.\n",
-      "https://www.interactivebrokers.com/docs/tws-api/contracts/bonds",
-    );
-    expect(out.startsWith("[source](")).toBe(true);
+    const out = prependPageHeader("# Title\n\nBody.\n", {
+      currentRelativePath: "tws-api/contracts/bonds.md",
+      sourceUrl:
+        "https://www.interactivebrokers.com/docs/tws-api/contracts/bonds",
+      sectionIndexPaths: new Map([["tws-api", "tws-api/index.md"]]),
+    });
+    expect(out.startsWith("[home](")).toBe(true);
+    expect(out).toContain(" | [tws-api](");
+    expect(out).toContain(" | [source](");
     expect(out).toContain("\n# Title\n");
   });
 });
@@ -197,7 +209,10 @@ describe("relativeHref / rewriteLinks", () => {
       relativeHref("tws-api/doc/introduction.md", "web-api/introduction.md"),
     ).toBe("../../web-api/introduction.md");
     expect(
-      relativeHref("tws-api/doc/introduction.md", "tws-api/doc/quick-start/x.md"),
+      relativeHref(
+        "tws-api/doc/introduction.md",
+        "tws-api/doc/quick-start/x.md",
+      ),
     ).toBe("quick-start/x.md");
   });
 
@@ -273,7 +288,8 @@ describe("relativeHref / rewriteLinks", () => {
   });
 
   test("leaves external links", () => {
-    const md = "[oop](https://www.geeksforgeeks.org/introduction-of-object-oriented-programming/)";
+    const md =
+      "[oop](https://www.geeksforgeeks.org/introduction-of-object-oriented-programming/)";
     expect(
       rewriteLinks(md, {
         currentRelativePath: "tws-api/doc.md",
@@ -295,8 +311,7 @@ describe("relativeHref / rewriteLinks", () => {
   });
 
   test("leaves ghost openapi links absolute when not mirrored", () => {
-    const md =
-      "spec: [OpenAPI JSON](https://ibkrcampus.com/docs/openapi.json)";
+    const md = "spec: [OpenAPI JSON](https://ibkrcampus.com/docs/openapi.json)";
     const out = rewriteLinks(md, {
       currentRelativePath: "web-api/introduction.md",
       urlToPath: new Map([
@@ -350,11 +365,12 @@ describe("indexes", () => {
       indexLinkTitle("tws-api/changelog/2023/10/26.md", "IBKR TWS API"),
     ).toBe("2023-10-26");
     expect(indexLinkTitle("tws-api/doc.md", "Introduction")).toBe("Docs");
-    expect(indexLinkTitle("tws-api/ref.md", "Introduction")).toBe(
-      "Reference",
-    );
+    expect(indexLinkTitle("tws-api/ref.md", "Introduction")).toBe("Reference");
     expect(
-      indexLinkTitle("tws-api/doc/orders/exercise-options.md", "Exercise Options"),
+      indexLinkTitle(
+        "tws-api/doc/orders/exercise-options.md",
+        "Exercise Options",
+      ),
     ).toBe("Exercise Options");
   });
 
@@ -380,8 +396,7 @@ describe("indexes", () => {
         title: "Requirements",
       },
       {
-        relativePath:
-          "tws-api/doc/notes-limitations/tws-api-limitations.md",
+        relativePath: "tws-api/doc/notes-limitations/tws-api-limitations.md",
         title: "TWS API Limitations",
       },
       {
@@ -443,9 +458,11 @@ int x = 1;
         sectionIndexPaths: new Map([["tws-api", "tws-api/index.md"]]),
       },
     });
-    expect(out.startsWith("[source](https://www.interactivebrokers.com/docs/tws-api/contracts/bonds)")).toBe(
-      true,
-    );
+    expect(
+      out.startsWith(
+        "[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/contracts/bonds)",
+      ),
+    ).toBe(true);
     expect(out).toContain("# Bonds");
     expect(out).toContain("```python");
     expect(out).not.toContain("```java");
@@ -462,8 +479,7 @@ describe("generate ghosts", () => {
 
     const pageUrl =
       "https://www.interactivebrokers.com/docs/web-api/introduction.md";
-    const ghostUrl =
-      "https://www.interactivebrokers.com/docs/openapi.json";
+    const ghostUrl = "https://www.interactivebrokers.com/docs/openapi.json";
     const pageBody = `# Intro
 
 See [OpenAPI JSON](https://ibkrcampus.com/docs/openapi.json).
@@ -502,7 +518,10 @@ See [OpenAPI JSON](https://ibkrcampus.com/docs/openapi.json).
       ],
     };
 
-    await writeFile(path.join(cacheDir, "web-api", "introduction.md"), pageBody);
+    await writeFile(
+      path.join(cacheDir, "web-api", "introduction.md"),
+      pageBody,
+    );
     await writeFile(path.join(cacheDir, "openapi.json"), ghostBody);
     await writeFile(
       path.join(cacheDir, "manifest.json"),

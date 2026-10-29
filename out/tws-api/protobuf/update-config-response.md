@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/protobuf/update-config-response)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/protobuf/update-config-response)
 
 ## UpdateConfigResponse
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/peg-orders/pegged-to-market)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/peg-orders/pegged-to-market)
 
 # Pegged To Market
 
@@ -10,12 +10,12 @@ More on [Pegged To Market Orders](https://www.interactivebrokers.com/en/index.ph
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=pegmkt)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("PEG MKT");
-order.totalQuantity(Decimal.ONE_HUNDRED);
-order.auxPrice(marketOffset);//Offset price
+```python
+order = Order()
+order.action = action
+order.orderType = "PEG MKT"
+order.totalQuantity = quantity
+order.auxPrice = marketOffset#Offset price
 ```

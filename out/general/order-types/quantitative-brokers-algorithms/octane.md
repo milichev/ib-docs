@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/quantitative-brokers-algorithms/octane)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/quantitative-brokers-algorithms/octane)
 
 # Octane
 
@@ -16,13 +16,13 @@ Valid Value/Format: 10. A value of -99 will specify that the end time should be 
 **Urgency:** String. Fill urgency\
 Valid Value/Format: High, Ultra_High
 
-#### Java
+#### Python
 
-```java
-order.algoStrategy("Octane");
-order.algoParams(new ArrayList());
-order.algoParams().add(new TagValue("StartTime", startTime));
-order.algoParams().add(new TagValue("EndTime", endTime));
-order.algoParams().add(new TagValue("Duration", Duration));
-order.algoParams().add(new TagValue("Urgency", Urgency));
+```python
+order.algoStrategy = "Octane"
+order.algoParams = []
+order.algoParams.append(TagValue("StartTime", StartTime))
+order.algoParams.append(TagValue("EndTime", EndTime))
+order.algoParams.append(TagValue("Duration", Duration))
+order.algoParams.append(TagValue("Urgency", Urgency))
 ```

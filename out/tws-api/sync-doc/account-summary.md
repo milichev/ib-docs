@@ -1,8 +1,8 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/account-summary)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/account-summary)
 
 # get_account_summary()
 
-The `get_account_summary()` function returns all relevant account details identical to Trader Workstation's "Account" window. Users may query to receive all available data or a narrow window based on the [Account Summary Tag](../doc/account-portfolio-data/account-summary/account-summary-tags.md).
+The `get_account_summary()` function returns all relevant account details identical to Trader Workstation's "Account" window. Users may query to receive all available data or a narrow window based on the [Account Summary Tag](/docs/tws-api/doc/accounts/summary#account-summary-tags).
 
 ## Request Arguments
 

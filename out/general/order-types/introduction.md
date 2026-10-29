@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/introduction)
+[home](../../index.md) | [general](../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/introduction)
 
 # Introduction
 
@@ -6,5 +6,5 @@ This page is used to document all available order types available through the In
 
 You can find the available fields or parameters for orders in their respective interfaces:
 
-* [TWS API's Order Object](../../tws-api/doc/orders/the-order-and-contract-objects.md)
+* [TWS API's Order Object](/docs/tws-api/doc/orders/objects)
 * \[CPAPI's /iserver/account/\{\{accountId}}/orders endpoint]

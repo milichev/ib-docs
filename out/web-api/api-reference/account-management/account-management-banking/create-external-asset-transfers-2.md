@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-external-asset-transfers-2)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-external-asset-transfers-2)
 
 # Transfer Positions Externally (FOP, DWAC, Complex Asset Transfer)
 
@@ -353,6 +353,18 @@ Instrument identified by security id and asset type (used when no contract id is
 
 **SDK Code**
 
+```python FOP
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go FOP
 package main
 
@@ -395,15 +407,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java FOP
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php FOP
@@ -464,6 +467,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python DWAC
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go DWAC
 package main
 
@@ -506,15 +521,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java DWAC
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php DWAC
@@ -575,6 +581,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Complex Asset Transfer
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Complex Asset Transfer
 package main
 
@@ -617,15 +635,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Complex Asset Transfer
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Complex Asset Transfer
@@ -718,6 +727,48 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Partial ACATS - transfer using contractID (conid)
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+payload = {
+    "instructionType": "EXTERNAL_POSITION_TRANSFER",
+    "instruction": {
+        "accountAtBroker": "SOL12345",
+        "accountId": "U2323232",
+        "brokerId": "0226",
+        "brokerName": "Wall Street Financial Group",
+        "clientInstructionId": 7013040,
+        "contraBrokerAccountId": "12345678A",
+        "contraBrokerDtcCode": "534",
+        "currency": "USD",
+        "direction": "IN",
+        "positions": [
+            {
+                "conid": 265598,
+                "quantity": 100
+            },
+            {
+                "conid": 272093,
+                "quantity": 50
+            }
+        ],
+        "signature": "sample signature",
+        "subType": "ACATS",
+        "type": "PARTIAL"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Partial ACATS - transfer using contractID (conid)
 package main
 
@@ -766,17 +817,6 @@ request.body = "{\n  \"instructionType\": \"EXTERNAL_POSITION_TRANSFER\",\n  \"i
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Partial ACATS - transfer using contractID (conid)
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"EXTERNAL_POSITION_TRANSFER\",\n  \"instruction\": {\n    \"accountAtBroker\": \"SOL12345\",\n    \"accountId\": \"U2323232\",\n    \"brokerId\": \"0226\",\n    \"brokerName\": \"Wall Street Financial Group\",\n    \"clientInstructionId\": 7013040,\n    \"contraBrokerAccountId\": \"12345678A\",\n    \"contraBrokerDtcCode\": \"534\",\n    \"currency\": \"USD\",\n    \"direction\": \"IN\",\n    \"positions\": [\n      {\n        \"conid\": 265598,\n        \"quantity\": 100\n      },\n      {\n        \"conid\": 272093,\n        \"quantity\": 50\n      }\n    ],\n    \"signature\": \"sample signature\",\n    \"subType\": \"ACATS\",\n    \"type\": \"PARTIAL\"\n  }\n}")
-  .asString();
 ```
 
 ```php Partial ACATS - transfer using contractID (conid)
@@ -944,6 +984,62 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Partial ACATS - positions and cash
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+payload = {
+    "instructionType": "EXTERNAL_POSITION_TRANSFER",
+    "instruction": {
+        "accountAtBroker": "SOL12345",
+        "accountId": "U2323232",
+        "brokerId": "0226",
+        "brokerName": "Wall Street Financial Group",
+        "cash": [
+            {
+                "amount": 1500.5,
+                "currency": "USD",
+                "type": "BALANCE"
+            },
+            {
+                "currency": "EUR",
+                "transferAll": True,
+                "type": "MARGIN_LOAN"
+            }
+        ],
+        "clientInstructionId": 7013042,
+        "contraBrokerAccountId": "12345678A",
+        "contraBrokerDtcCode": "534",
+        "currency": "USD",
+        "direction": "IN",
+        "positions": [
+            {
+                "conid": 265598,
+                "quantity": 100,
+                "type": "LONG"
+            },
+            {
+                "conid": 272093,
+                "transferAll": True,
+                "type": "SHORT"
+            }
+        ],
+        "signature": "sample signature",
+        "subType": "ACATS",
+        "type": "PARTIAL"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Partial ACATS - positions and cash
 package main
 
@@ -992,17 +1088,6 @@ request.body = "{\n  \"instructionType\": \"EXTERNAL_POSITION_TRANSFER\",\n  \"i
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Partial ACATS - positions and cash
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"EXTERNAL_POSITION_TRANSFER\",\n  \"instruction\": {\n    \"accountAtBroker\": \"SOL12345\",\n    \"accountId\": \"U2323232\",\n    \"brokerId\": \"0226\",\n    \"brokerName\": \"Wall Street Financial Group\",\n    \"cash\": [\n      {\n        \"amount\": 1500.5,\n        \"currency\": \"USD\",\n        \"type\": \"BALANCE\"\n      },\n      {\n        \"currency\": \"EUR\",\n        \"transferAll\": true,\n        \"type\": \"MARGIN_LOAN\"\n      }\n    ],\n    \"clientInstructionId\": 7013042,\n    \"contraBrokerAccountId\": \"12345678A\",\n    \"contraBrokerDtcCode\": \"534\",\n    \"currency\": \"USD\",\n    \"direction\": \"IN\",\n    \"positions\": [\n      {\n        \"conid\": 265598,\n        \"quantity\": 100,\n        \"type\": \"LONG\"\n      },\n      {\n        \"conid\": 272093,\n        \"transferAll\": true,\n        \"type\": \"SHORT\"\n      }\n    ],\n    \"signature\": \"sample signature\",\n    \"subType\": \"ACATS\",\n    \"type\": \"PARTIAL\"\n  }\n}")
-  .asString();
 ```
 
 ```php Partial ACATS - positions and cash
@@ -1185,6 +1270,49 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Partial ACATS - transfer using tradingInstrumentDescription
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+payload = {
+    "instructionType": "EXTERNAL_POSITION_TRANSFER",
+    "instruction": {
+        "accountAtBroker": "SOL12345",
+        "accountId": "U2323232",
+        "brokerId": "0226",
+        "brokerName": "Wall Street Financial Group",
+        "clientInstructionId": 7013041,
+        "contraBrokerAccountId": "12345678A",
+        "contraBrokerDtcCode": "534",
+        "currency": "USD",
+        "direction": "IN",
+        "positions": [
+            {
+                "conid": 459200101,
+                "quantity": 75,
+                "tradingInstrumentDescription": {
+                    "assetType": "STK",
+                    "securityId": "88160R101",
+                    "securityIdType": "CUSIP"
+                }
+            }
+        ],
+        "signature": "sample signature",
+        "subType": "ACATS",
+        "type": "PARTIAL"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Partial ACATS - transfer using tradingInstrumentDescription
 package main
 
@@ -1233,17 +1361,6 @@ request.body = "{\n  \"instructionType\": \"EXTERNAL_POSITION_TRANSFER\",\n  \"i
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Partial ACATS - transfer using tradingInstrumentDescription
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"EXTERNAL_POSITION_TRANSFER\",\n  \"instruction\": {\n    \"accountAtBroker\": \"SOL12345\",\n    \"accountId\": \"U2323232\",\n    \"brokerId\": \"0226\",\n    \"brokerName\": \"Wall Street Financial Group\",\n    \"clientInstructionId\": 7013041,\n    \"contraBrokerAccountId\": \"12345678A\",\n    \"contraBrokerDtcCode\": \"534\",\n    \"currency\": \"USD\",\n    \"direction\": \"IN\",\n    \"positions\": [\n      {\n        \"conid\": 459200101,\n        \"quantity\": 75,\n        \"tradingInstrumentDescription\": {\n          \"assetType\": \"STK\",\n          \"securityId\": \"88160R101\",\n          \"securityIdType\": \"CUSIP\"\n        }\n      }\n    ],\n    \"signature\": \"sample signature\",\n    \"subType\": \"ACATS\",\n    \"type\": \"PARTIAL\"\n  }\n}")
-  .asString();
 ```
 
 ```php Partial ACATS - transfer using tradingInstrumentDescription
@@ -1389,6 +1506,38 @@ dataTask.resume()
 
 **SDK Code**
 
+```python FOP - transfer using contractID (conid)
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+payload = {
+    "instructionType": "FOP",
+    "instruction": {
+        "accountId": "U46377",
+        "clientInstructionId": 7013038,
+        "contraBrokerAccountId": "12345678A",
+        "contraBrokerDtcCode": "534",
+        "currency": "USD",
+        "direction": "IN",
+        "positions": [
+            {
+                "conid": 12123,
+                "quantity": 1000
+            }
+        ]
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go FOP - transfer using contractID (conid)
 package main
 
@@ -1437,17 +1586,6 @@ request.body = "{\n  \"instructionType\": \"FOP\",\n  \"instruction\": {\n    \"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java FOP - transfer using contractID (conid)
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"FOP\",\n  \"instruction\": {\n    \"accountId\": \"U46377\",\n    \"clientInstructionId\": 7013038,\n    \"contraBrokerAccountId\": \"12345678A\",\n    \"contraBrokerDtcCode\": \"534\",\n    \"currency\": \"USD\",\n    \"direction\": \"IN\",\n    \"positions\": [\n      {\n        \"conid\": 12123,\n        \"quantity\": 1000\n      }\n    ]\n  }\n}")
-  .asString();
 ```
 
 ```php FOP - transfer using contractID (conid)
@@ -1576,6 +1714,43 @@ dataTask.resume()
 
 **SDK Code**
 
+```python FOP - transfer using tradingInstrument.detail
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+payload = {
+    "instructionType": "FOP",
+    "instruction": {
+        "accountId": "U46377",
+        "clientInstructionId": 7013039,
+        "contraBrokerAccountId": "12345678A",
+        "contraBrokerDtcCode": "534",
+        "currency": "USD",
+        "direction": "IN",
+        "positions": [
+            {
+                "conid": 459200101,
+                "quantity": 1000,
+                "tradingInstrumentDescription": {
+                    "assetType": "STK",
+                    "securityId": "459200101",
+                    "securityIdType": "ISIN"
+                }
+            }
+        ]
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go FOP - transfer using tradingInstrument.detail
 package main
 
@@ -1624,17 +1799,6 @@ request.body = "{\n  \"instructionType\": \"FOP\",\n  \"instruction\": {\n    \"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java FOP - transfer using tradingInstrument.detail
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"FOP\",\n  \"instruction\": {\n    \"accountId\": \"U46377\",\n    \"clientInstructionId\": 7013039,\n    \"contraBrokerAccountId\": \"12345678A\",\n    \"contraBrokerDtcCode\": \"534\",\n    \"currency\": \"USD\",\n    \"direction\": \"IN\",\n    \"positions\": [\n      {\n        \"conid\": 459200101,\n        \"quantity\": 1000,\n        \"tradingInstrumentDescription\": {\n          \"assetType\": \"STK\",\n          \"securityId\": \"459200101\",\n          \"securityIdType\": \"ISIN\"\n        }\n      }\n    ]\n  }\n}")
-  .asString();
 ```
 
 ```php FOP - transfer using tradingInstrument.detail
@@ -1771,6 +1935,41 @@ dataTask.resume()
 
 **SDK Code**
 
+```python DWAC - transfer using contractID (conid)
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+payload = {
+    "instructionType": "DWAC",
+    "instruction": {
+        "accountId": "U1001095",
+        "accountTitle": "Special Company Holding LLC",
+        "clientInstructionId": 7013036,
+        "contraBrokerAccountId": "12345678A",
+        "contraBrokerDtcCode": "534",
+        "contraBrokerTaxId": "123456789",
+        "currency": "USD",
+        "direction": "IN",
+        "positions": [
+            {
+                "conid": 12123,
+                "quantity": 1000
+            }
+        ],
+        "referenceId": "refId"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go DWAC - transfer using contractID (conid)
 package main
 
@@ -1819,17 +2018,6 @@ request.body = "{\n  \"instructionType\": \"DWAC\",\n  \"instruction\": {\n    \
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java DWAC - transfer using contractID (conid)
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"DWAC\",\n  \"instruction\": {\n    \"accountId\": \"U1001095\",\n    \"accountTitle\": \"Special Company Holding LLC\",\n    \"clientInstructionId\": 7013036,\n    \"contraBrokerAccountId\": \"12345678A\",\n    \"contraBrokerDtcCode\": \"534\",\n    \"contraBrokerTaxId\": \"123456789\",\n    \"currency\": \"USD\",\n    \"direction\": \"IN\",\n    \"positions\": [\n      {\n        \"conid\": 12123,\n        \"quantity\": 1000\n      }\n    ],\n    \"referenceId\": \"refId\"\n  }\n}")
-  .asString();
 ```
 
 ```php DWAC - transfer using contractID (conid)
@@ -1967,6 +2155,46 @@ dataTask.resume()
 
 **SDK Code**
 
+```python DWAC - transfer using tradingInstrument.detail
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+payload = {
+    "instructionType": "DWAC",
+    "instruction": {
+        "accountId": "U1001095",
+        "accountTitle": "Special Company Holding LLC",
+        "clientInstructionId": 7013037,
+        "contraBrokerAccountId": "12345678A",
+        "contraBrokerDtcCode": "534",
+        "contraBrokerTaxId": "123456789",
+        "currency": "USD",
+        "direction": "IN",
+        "positions": [
+            {
+                "conid": 459200101,
+                "quantity": 1000,
+                "tradingInstrumentDescription": {
+                    "assetType": "STK",
+                    "securityId": "459200101",
+                    "securityIdType": "ISIN"
+                }
+            }
+        ],
+        "referenceId": "refId"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go DWAC - transfer using tradingInstrument.detail
 package main
 
@@ -2015,17 +2243,6 @@ request.body = "{\n  \"instructionType\": \"DWAC\",\n  \"instruction\": {\n    \
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java DWAC - transfer using tradingInstrument.detail
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"DWAC\",\n  \"instruction\": {\n    \"accountId\": \"U1001095\",\n    \"accountTitle\": \"Special Company Holding LLC\",\n    \"clientInstructionId\": 7013037,\n    \"contraBrokerAccountId\": \"12345678A\",\n    \"contraBrokerDtcCode\": \"534\",\n    \"contraBrokerTaxId\": \"123456789\",\n    \"currency\": \"USD\",\n    \"direction\": \"IN\",\n    \"positions\": [\n      {\n        \"conid\": 459200101,\n        \"quantity\": 1000,\n        \"tradingInstrumentDescription\": {\n          \"assetType\": \"STK\",\n          \"securityId\": \"459200101\",\n          \"securityIdType\": \"ISIN\"\n        }\n      }\n    ],\n    \"referenceId\": \"refId\"\n  }\n}")
-  .asString();
 ```
 
 ```php DWAC - transfer using tradingInstrument.detail
@@ -2175,6 +2392,48 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Complex Asset Transfer - using contractID (conid)
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+payload = {
+    "instructionType": "COMPLEX_ASSET_TRANSFER",
+    "instruction": {
+        "accountId": "U399192",
+        "clientInstructionId": 7013040,
+        "contraBrokerAccountId": "12345678A",
+        "contraBrokerDtcCode": "534",
+        "contraBrokerInfo": {
+            "accountType": "ORG",
+            "brokerAccountId": "as3456567678578N",
+            "brokerName": "JP MORGAN",
+            "contactEmail": "a@gmail.com",
+            "contactName": "as",
+            "contactPhone": "2039126155",
+            "country": "United States",
+            "depositoryId": "1234"
+        },
+        "currency": "USD",
+        "direction": "IN",
+        "positions": [
+            {
+                "conid": 12123,
+                "quantity": 10
+            }
+        ]
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Complex Asset Transfer - using contractID (conid)
 package main
 
@@ -2223,17 +2482,6 @@ request.body = "{\n  \"instructionType\": \"COMPLEX_ASSET_TRANSFER\",\n  \"instr
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Complex Asset Transfer - using contractID (conid)
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"COMPLEX_ASSET_TRANSFER\",\n  \"instruction\": {\n    \"accountId\": \"U399192\",\n    \"clientInstructionId\": 7013040,\n    \"contraBrokerAccountId\": \"12345678A\",\n    \"contraBrokerDtcCode\": \"534\",\n    \"contraBrokerInfo\": {\n      \"accountType\": \"ORG\",\n      \"brokerAccountId\": \"as3456567678578N\",\n      \"brokerName\": \"JP MORGAN\",\n      \"contactEmail\": \"a@gmail.com\",\n      \"contactName\": \"as\",\n      \"contactPhone\": \"2039126155\",\n      \"country\": \"United States\",\n      \"depositoryId\": \"1234\"\n    },\n    \"currency\": \"USD\",\n    \"direction\": \"IN\",\n    \"positions\": [\n      {\n        \"conid\": 12123,\n        \"quantity\": 10\n      }\n    ]\n  }\n}")
-  .asString();
 ```
 
 ```php Complex Asset Transfer - using contractID (conid)
@@ -2392,6 +2640,53 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Complex Asset Transfer - using tradingInstrument.detail
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+payload = {
+    "instructionType": "COMPLEX_ASSET_TRANSFER",
+    "instruction": {
+        "accountId": "U399192",
+        "clientInstructionId": 7013042,
+        "contraBrokerAccountId": "12345678A",
+        "contraBrokerDtcCode": "534",
+        "contraBrokerInfo": {
+            "accountType": "ORG",
+            "brokerAccountId": "as3456567678578N",
+            "brokerName": "JP MORGAN",
+            "contactEmail": "a@gmail.com",
+            "contactName": "as",
+            "contactPhone": "2039126155",
+            "country": "United States",
+            "depositoryId": "1234"
+        },
+        "currency": "USD",
+        "direction": "IN",
+        "positions": [
+            {
+                "conid": 459200101,
+                "quantity": 10,
+                "tradingInstrumentDescription": {
+                    "assetType": "STK",
+                    "securityId": "459200101",
+                    "securityIdType": "ISIN"
+                }
+            }
+        ]
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Complex Asset Transfer - using tradingInstrument.detail
 package main
 
@@ -2440,17 +2735,6 @@ request.body = "{\n  \"instructionType\": \"COMPLEX_ASSET_TRANSFER\",\n  \"instr
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Complex Asset Transfer - using tradingInstrument.detail
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"COMPLEX_ASSET_TRANSFER\",\n  \"instruction\": {\n    \"accountId\": \"U399192\",\n    \"clientInstructionId\": 7013042,\n    \"contraBrokerAccountId\": \"12345678A\",\n    \"contraBrokerDtcCode\": \"534\",\n    \"contraBrokerInfo\": {\n      \"accountType\": \"ORG\",\n      \"brokerAccountId\": \"as3456567678578N\",\n      \"brokerName\": \"JP MORGAN\",\n      \"contactEmail\": \"a@gmail.com\",\n      \"contactName\": \"as\",\n      \"contactPhone\": \"2039126155\",\n      \"country\": \"United States\",\n      \"depositoryId\": \"1234\"\n    },\n    \"currency\": \"USD\",\n    \"direction\": \"IN\",\n    \"positions\": [\n      {\n        \"conid\": 459200101,\n        \"quantity\": 10,\n        \"tradingInstrumentDescription\": {\n          \"assetType\": \"STK\",\n          \"securityId\": \"459200101\",\n          \"securityIdType\": \"ISIN\"\n        }\n      }\n    ]\n  }\n}")
-  .asString();
 ```
 
 ```php Complex Asset Transfer - using tradingInstrument.detail
@@ -2628,6 +2912,62 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Complex Asset Transfer - where user is nonDisclosed type
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+payload = {
+    "instructionType": "COMPLEX_ASSET_TRANSFER",
+    "instruction": {
+        "accountId": "U399192",
+        "clientInstructionId": 7013041,
+        "contraBrokerAccountId": "12345678A",
+        "contraBrokerDtcCode": "534",
+        "contraBrokerInfo": {
+            "accountType": "ORG",
+            "brokerAccountId": "as3456567678578N",
+            "brokerName": "JP MORGAN",
+            "contactEmail": "a@gmail.com",
+            "contactName": "as",
+            "contactPhone": "2039126155",
+            "country": "United States",
+            "depositoryId": "1234"
+        },
+        "currency": "USD",
+        "direction": "IN",
+        "nonDisclosedDetail": {
+            "buyerSellBic": "",
+            "memberAccountId": "",
+            "psetBic": "",
+            "reagDeagBic": "",
+            "safeKeepingAccountId": "",
+            "settleDate": "2018-03-20T09:12:13Z",
+            "tradeDate": "2018-03-20T09:12:13Z"
+        },
+        "positions": [
+            {
+                "conid": 459200101,
+                "quantity": 10,
+                "tradingInstrumentDescription": {
+                    "assetType": "STK",
+                    "securityId": "459200101",
+                    "securityIdType": "ISIN"
+                }
+            }
+        ]
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Complex Asset Transfer - where user is nonDisclosed type
 package main
 
@@ -2676,17 +3016,6 @@ request.body = "{\n  \"instructionType\": \"COMPLEX_ASSET_TRANSFER\",\n  \"instr
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Complex Asset Transfer - where user is nonDisclosed type
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"COMPLEX_ASSET_TRANSFER\",\n  \"instruction\": {\n    \"accountId\": \"U399192\",\n    \"clientInstructionId\": 7013041,\n    \"contraBrokerAccountId\": \"12345678A\",\n    \"contraBrokerDtcCode\": \"534\",\n    \"contraBrokerInfo\": {\n      \"accountType\": \"ORG\",\n      \"brokerAccountId\": \"as3456567678578N\",\n      \"brokerName\": \"JP MORGAN\",\n      \"contactEmail\": \"a@gmail.com\",\n      \"contactName\": \"as\",\n      \"contactPhone\": \"2039126155\",\n      \"country\": \"United States\",\n      \"depositoryId\": \"1234\"\n    },\n    \"currency\": \"USD\",\n    \"direction\": \"IN\",\n    \"nonDisclosedDetail\": {\n      \"buyerSellBic\": \"\",\n      \"memberAccountId\": \"\",\n      \"psetBic\": \"\",\n      \"reagDeagBic\": \"\",\n      \"safeKeepingAccountId\": \"\",\n      \"settleDate\": \"2018-03-20T09:12:13Z\",\n      \"tradeDate\": \"2018-03-20T09:12:13Z\"\n    },\n    \"positions\": [\n      {\n        \"conid\": 459200101,\n        \"quantity\": 10,\n        \"tradingInstrumentDescription\": {\n          \"assetType\": \"STK\",\n          \"securityId\": \"459200101\",\n          \"securityIdType\": \"ISIN\"\n        }\n      }\n    ]\n  }\n}")
-  .asString();
 ```
 
 ```php Complex Asset Transfer - where user is nonDisclosed type
@@ -2884,6 +3213,64 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Complex Asset Transfer with internal broker details - accountIdAtCurrentBroker and accountTitle
+import requests
+
+url = "https://localhost:5000/gw/api/v2/external-asset-transfers"
+
+payload = {
+    "instructionType": "COMPLEX_ASSET_TRANSFER",
+    "instruction": {
+        "accountId": "U399192",
+        "accountIdAtCurrentBroker": "8E90075",
+        "clientInstructionId": 7013041,
+        "contraBrokerAccountId": "12345678A",
+        "contraBrokerDtcCode": "534",
+        "contraBrokerInfo": {
+            "accountTitle": "test",
+            "accountType": "ORG",
+            "brokerAccountId": "as3456567678578N",
+            "brokerName": "JP MORGAN",
+            "contactEmail": "a@gmail.com",
+            "contactName": "as",
+            "contactPhone": "2039126155",
+            "country": "United States",
+            "depositoryId": "1234"
+        },
+        "currency": "USD",
+        "direction": "IN",
+        "nonDisclosedDetail": {
+            "buyerSellBic": "",
+            "memberAccountId": "",
+            "psetBic": "",
+            "reagDeagBic": "",
+            "safeKeepingAccountId": "",
+            "settleDate": "2018-03-20T09:12:13Z",
+            "tradeDate": "2018-03-20T09:12:13Z"
+        },
+        "positions": [
+            {
+                "conid": 459200101,
+                "quantity": 10,
+                "tradingInstrumentDescription": {
+                    "assetType": "STK",
+                    "securityId": "459200101",
+                    "securityIdType": "ISIN"
+                }
+            }
+        ]
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Complex Asset Transfer with internal broker details - accountIdAtCurrentBroker and accountTitle
 package main
 
@@ -2932,17 +3319,6 @@ request.body = "{\n  \"instructionType\": \"COMPLEX_ASSET_TRANSFER\",\n  \"instr
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Complex Asset Transfer with internal broker details - accountIdAtCurrentBroker and accountTitle
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v2/external-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"COMPLEX_ASSET_TRANSFER\",\n  \"instruction\": {\n    \"accountId\": \"U399192\",\n    \"accountIdAtCurrentBroker\": \"8E90075\",\n    \"clientInstructionId\": 7013041,\n    \"contraBrokerAccountId\": \"12345678A\",\n    \"contraBrokerDtcCode\": \"534\",\n    \"contraBrokerInfo\": {\n      \"accountTitle\": \"test\",\n      \"accountType\": \"ORG\",\n      \"brokerAccountId\": \"as3456567678578N\",\n      \"brokerName\": \"JP MORGAN\",\n      \"contactEmail\": \"a@gmail.com\",\n      \"contactName\": \"as\",\n      \"contactPhone\": \"2039126155\",\n      \"country\": \"United States\",\n      \"depositoryId\": \"1234\"\n    },\n    \"currency\": \"USD\",\n    \"direction\": \"IN\",\n    \"nonDisclosedDetail\": {\n      \"buyerSellBic\": \"\",\n      \"memberAccountId\": \"\",\n      \"psetBic\": \"\",\n      \"reagDeagBic\": \"\",\n      \"safeKeepingAccountId\": \"\",\n      \"settleDate\": \"2018-03-20T09:12:13Z\",\n      \"tradeDate\": \"2018-03-20T09:12:13Z\"\n    },\n    \"positions\": [\n      {\n        \"conid\": 459200101,\n        \"quantity\": 10,\n        \"tradingInstrumentDescription\": {\n          \"assetType\": \"STK\",\n          \"securityId\": \"459200101\",\n          \"securityIdType\": \"ISIN\"\n        }\n      }\n    ]\n  }\n}")
-  .asString();
 ```
 
 ```php Complex Asset Transfer with internal broker details - accountIdAtCurrentBroker and accountTitle

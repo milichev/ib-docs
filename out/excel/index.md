@@ -13,12 +13,14 @@
 ## Activex
 
 - [ActiveX Basics Tutorial](activex/video-tutorial.md)
-- [Download TWS or IB Gateway](activex/downloads.md)
 
 ### Downloads
 
 - [Download TWS or IB Gateway](activex/downloads/download-tws-or-ib-gateway.md)
 - [TWS Online or Offline Version?](activex/downloads/tws-online-or-offline-version.md)
+- [TWS API Download](activex/downloads/api-download.md)
+- [Install the TWS API on Windows](activex/downloads/install-the-api-on-windows.md)
+- [Uninstall The API](activex/downloads/uninstall-the-api.md)
 
 ## Activex
 
@@ -62,6 +64,13 @@
 - [Introduction](dde/notes-limitations/introduction.md)
 - [macOS / Unix Support For Excel DDE](dde/notes-limitations/mac-os-unix-support-for-excel-dde.md)
 - [Unset Value Responses](dde/notes-limitations/unset-value-responses.md)
+
+### Downloads
+
+- [Download TWS or IB Gateway](dde/downloads/download-tws-or-ib-gateway.md)
+- [TWS Online or Offline Version?](dde/downloads/tws-online-or-offline-version.md)
+- [TWS API Download](dde/downloads/api-download.md)
+- [Install the TWS API on Windows](dde/downloads/install-the-api-on-windows.md)
 
 ## Dde
 
@@ -157,11 +166,13 @@
 
 ### Downloads
 
-- [Uninstall The API](rtd/downloads/uninstall-the-api.md)
+- [Download TWS or IB Gateway](rtd/downloads/download-tws-or-ib-gateway.md)
+- [TWS Online or Offline Version?](rtd/downloads/tws-online-or-offline-version.md)
+- [TWS API Download](rtd/downloads/api-download.md)
+- [Install the TWS API on Windows](rtd/downloads/install-the-api-on-windows.md)
 
 ### Troubleshooting
 
-- [Introduction](rtd/troubleshooting/introduction.md)
 - [Receiving "Cannot connect to Excel" or all fields are returned as "0"](rtd/troubleshooting/receiving-cannot-connect-to-excel-or-all-fields-are-returned-as-0.md)
 - [DLL Management](rtd/troubleshooting/dll-management.md)
 

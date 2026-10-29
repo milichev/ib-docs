@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-accounts/create-accounts-documents)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-accounts/create-accounts-documents)
 
 # Submit General Agreements And Disclosures
 
@@ -161,6 +161,22 @@ Returns error description representing internal server error
 
 **SDK Code**
 
+```python
+import requests
+
+url = "https://localhost:5000/gw/api/v1/accounts/documents"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go
 package main
 
@@ -209,17 +225,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/accounts/documents")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php

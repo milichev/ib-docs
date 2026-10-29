@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-session/logout)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-session/logout)
 
 # Terminate Web API Session
 
@@ -48,6 +48,18 @@ Missing, invalid, or unparseable Authorization token.
 
 **SDK Code**
 
+```python success
+import requests
+
+url = "https://localhost:5000/v1/api/logout"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go success
 package main
 
@@ -90,15 +102,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java success
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/logout")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php success

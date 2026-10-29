@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/fy-is-and-notifications/delete-a-device)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/fy-is-and-notifications/delete-a-device)
 
 # Delete a Device
 

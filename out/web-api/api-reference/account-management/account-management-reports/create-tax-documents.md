@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-reports/create-tax-documents)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-reports/create-tax-documents)
 
 # Fetch Tax Forms In Supported Formats Based On Request Parameters.
 
@@ -135,6 +135,28 @@ Returns a Problem detail instance representing an internal server error.
 
 **SDK Code**
 
+```python
+import requests
+
+url = "https://localhost:5000/gw/api/v1/tax-documents"
+
+payload = {
+    "accountId": "UXXXX",
+    "year": "2023",
+    "type": "ALL,1099,1099R,1042S,8949",
+    "format": "HTML,CSV,PDF"
+}
+headers = {
+    "authorization": "Bearer eyJ0eXAiOiJKV1...",
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go
 package main
 
@@ -185,18 +207,6 @@ request.body = "{\n  \"accountId\": \"UXXXX\",\n  \"year\": \"2023\",\n  \"type\
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/tax-documents")
-  .header("authorization", "Bearer eyJ0eXAiOiJKV1...")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"accountId\": \"UXXXX\",\n  \"year\": \"2023\",\n  \"type\": \"ALL,1099,1099R,1042S,8949\",\n  \"format\": \"HTML,CSV,PDF\"\n}")
-  .asString();
 ```
 
 ```php

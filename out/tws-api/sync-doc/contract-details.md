@@ -1,8 +1,8 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/contract-details)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/contract-details)
 
 # get_contract_details()
 
-Interactive Brokers trading is centered around [Contract Objects](../doc/contracts-financial-instruments/the-contract-object.md). This is used when submitting requests for market data, retrieving position information, and placing orders. The Synchronous Wrapper utilizes the same [Contract Object](../doc/contracts-financial-instruments/the-contract-object.md) as the standard TWS API.
+Interactive Brokers trading is centered around [Contract Objects](/docs/tws-api/doc/contracts/object). This is used when submitting requests for market data, retrieving position information, and placing orders. The Synchronous Wrapper utilizes the same [Contract Object](/docs/tws-api/doc/contracts/object) as the standard TWS API.
 
 Passing as much known information through a Contract Details request will return all contracts that match the requesting information. At a minimum, the Contract ID, or Symbol and Security Type must be passed for contract discovery.
 
@@ -10,7 +10,7 @@ Passing as much known information through a Contract Details request will return
 
 **`contract`** `object` — required
 
-[Contract Object](../doc/contracts-financial-instruments/the-contract-object.md) containing the details to search for.
+[Contract Object](/docs/tws-api/doc/contracts/object) containing the details to search for.
 
 ---
 
@@ -30,7 +30,7 @@ app.get_contract_details(contract=contract)
 
 ## Response Object
 
-The `get_contract_details()` function will return a list of [Contract](../doc/contracts-financial-instruments/the-contract-object.md) objects. Unless a relatively narrow scope is provided during the initial contract details request, multiple contract objects may be returned within the list. Please be aware that directly printing this information may result in the memory address being displayed, such as `3039334541648` in the example below.
+The `get_contract_details()` function will return a list of [Contract](/docs/tws-api/doc/contracts/object) objects. Unless a relatively narrow scope is provided during the initial contract details request, multiple contract objects may be returned within the list. Please be aware that directly printing this information may result in the memory address being displayed, such as `3039334541648` in the example below.
 
 ```python wordWrap
 [3039334541648: ConId: 265598, Symbol: AAPL, SecType: STK, LastTradeDateOrContractMonth: , Strike: 0, Right: , Multiplier: , Exchange: SMART, PrimaryExchange: ISLAND, Currency: USD, LocalSymbol: AAPL, TradingClass: NMS, IncludeExpired: False, SecIdType: , SecId: , Description: , IssuerId: Combo:,NMS,0.01, ...]

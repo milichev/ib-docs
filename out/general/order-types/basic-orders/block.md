@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/block)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/block)
 
 # Block
 
@@ -10,13 +10,13 @@ More on [Block Orders](https://www.interactivebrokers.com/en/index.php?f=580)
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=block)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("LMT");
-order.totalQuantity(quantity);//Large volumes!
-order.lmtPrice(price);
-order.blockOrder(true);
+```python
+order = Order()
+order.action = action
+order.orderType = "LMT"
+order.totalQuantity = quantity#Large volumes!
+order.lmtPrice = price
+order.blockOrder = True
 ```

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/accounts/set-dynamic-account)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/accounts/set-dynamic-account)
 
 # Set Dynamic Account
 

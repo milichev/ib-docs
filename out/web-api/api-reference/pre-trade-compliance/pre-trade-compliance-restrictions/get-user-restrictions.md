@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/get-user-restrictions)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/get-user-restrictions)
 
 # Get Restriction IDs For A User
 
@@ -94,6 +94,20 @@ Internal server error.
 
 **SDK Code**
 
+```python Master user querying their own restrictions
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/user"
+
+querystring = {"masterUserName":"user1","userName":"user1"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Master user querying their own restrictions
 package main
 
@@ -136,15 +150,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Master user querying their own restrictions
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/user?masterUserName=user1&userName=user1")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Master user querying their own restrictions
@@ -203,6 +208,20 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Master user querying a sub-user
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/user"
+
+querystring = {"masterUserName":"user1","userName":"user1"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Master user querying a sub-user
 package main
 
@@ -245,15 +264,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Master user querying a sub-user
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/user?masterUserName=user1&userName=user1")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Master user querying a sub-user
@@ -309,6 +319,20 @@ dataTask.resume()
 
 **SDK Code**
 
+```python User with no restrictions
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/user"
+
+querystring = {"masterUserName":"user1","userName":"user1"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go User with no restrictions
 package main
 
@@ -351,15 +375,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java User with no restrictions
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/user?masterUserName=user1&userName=user1")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php User with no restrictions

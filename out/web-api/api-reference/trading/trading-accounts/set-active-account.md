@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-accounts/set-active-account)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-accounts/set-active-account)
 
 # Switch Selected Account
 
@@ -78,6 +78,22 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python successfully-set-account
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go successfully-set-account
 package main
 
@@ -126,17 +142,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java successfully-set-account
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php successfully-set-account

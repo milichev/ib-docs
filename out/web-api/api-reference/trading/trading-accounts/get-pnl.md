@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-accounts/get-pnl)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-accounts/get-pnl)
 
 # Account Profit And Loss
 
@@ -92,6 +92,18 @@ The account or model's Profit and Loss.
 
 **SDK Code**
 
+```python success
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/pnl/partitioned"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go success
 package main
 
@@ -134,15 +146,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java success
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/account/pnl/partitioned")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php success
@@ -196,6 +199,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python can-be-empty-for-initial-request
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/pnl/partitioned"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go can-be-empty-for-initial-request
 package main
 
@@ -238,15 +253,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java can-be-empty-for-initial-request
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/account/pnl/partitioned")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php can-be-empty-for-initial-request

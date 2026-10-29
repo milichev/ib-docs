@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/market-orders/market-order)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/market-orders/market-order)
 
 # Market Order
 
@@ -9,6 +9,15 @@ Products: BOND, CFD, EFP, CASH, FUND, FUT, FOP, OPT, STK, WAR
 More on [Market Orders](https://www.interactivebrokers.com/en/index.php?f=602)
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=mkt)
+
+#### Python
+
+```python
+order = Order()
+order.action = action
+order.orderType = "MKT"
+order.totalQuantity = quantity
+```
 
 #### Abap
 
@@ -27,13 +36,4 @@ curl --insecure https://localhost:5000/v1/api/iserver/account/{{accountId}}/orde
     }
   ]
 }
-```
-
-#### Java
-
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("MKT");
-order.totalQuantity(quantity);
 ```

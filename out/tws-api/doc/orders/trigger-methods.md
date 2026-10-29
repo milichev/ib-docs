@@ -1,8 +1,8 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/orders/trigger-methods)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/orders/trigger-methods)
 
 # Trigger Methods
 
-The Trigger Method defined in the [IBApi.Order](the-order-and-contract-objects.md) class specifies how simulated stop, stop-limit, and trailling stops, and conditional orders are triggered. Valid values are:
+The Trigger Method defined in the [IBApi.Order](/docs/tws-api/doc/orders/objects) class specifies how simulated stop, stop-limit, and trailling stops, and conditional orders are triggered. Valid values are:
 
 * 0 – The default method for instrument
 * 1 – "Double bid/ask" function, where stop orders are triggered based on two consecutive bid or ask prices.

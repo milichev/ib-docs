@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-model-portfolios/model-cash-analyzer)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-model-portfolios/model-cash-analyzer)
 
 # Model Cash Analyzer
 
@@ -108,6 +108,22 @@ Cash transfer between a source and destination model produced by the TWS invest/
 
 **SDK Code**
 
+```python success
+import requests
+
+url = "https://localhost:5000/v1/api/fa/model/cash-analyzer"
+
+payload = { "reqID": 398899 }
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go success
 package main
 
@@ -156,17 +172,6 @@ request.body = "{\n  \"reqID\": 398899\n}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java success
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/fa/model/cash-analyzer")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"reqID\": 398899\n}")
-  .asString();
 ```
 
 ```php success

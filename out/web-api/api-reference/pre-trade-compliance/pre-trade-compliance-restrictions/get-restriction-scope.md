@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/get-restriction-scope)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/get-restriction-scope)
 
 # Get Restriction Scope
 
@@ -92,6 +92,20 @@ Internal server error.
 
 **SDK Code**
 
+```python Active for family
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/restriction-scope"
+
+querystring = {"masterUserName":"user1","restrictionId":"1001"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Active for family
 package main
 
@@ -134,15 +148,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Active for family
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/restriction-scope?masterUserName=user1&restrictionId=1001")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Active for family
@@ -201,6 +206,20 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Active except
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/restriction-scope"
+
+querystring = {"masterUserName":"user1","restrictionId":"1001"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Active except
 package main
 
@@ -243,15 +262,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Active except
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/restriction-scope?masterUserName=user1&restrictionId=1001")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Active except
@@ -312,6 +322,20 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Active for some
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/restriction-scope"
+
+querystring = {"masterUserName":"user1","restrictionId":"1001"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Active for some
 package main
 
@@ -354,15 +378,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Active for some
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/restriction-scope?masterUserName=user1&restrictionId=1001")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Active for some
@@ -418,6 +433,20 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Inactive
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/restriction-scope"
+
+querystring = {"masterUserName":"user1","restrictionId":"1001"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Inactive
 package main
 
@@ -460,15 +489,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Inactive
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/restriction-scope?masterUserName=user1&restrictionId=1001")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Inactive

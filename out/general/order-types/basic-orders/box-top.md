@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/box-top)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/box-top)
 
 # Box Top
 
@@ -8,11 +8,11 @@ Products: OPT (BOX only)
 
 More on [Box Top Orders](https://www.interactivebrokers.com/en/index.php?f=582)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("BOX TOP");
-order.totalQuantity(quantity);
+```python
+order = Order()
+order.action = action
+order.orderType = "BOX TOP"
+order.totalQuantity = quantity
 ```

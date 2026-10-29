@@ -28,7 +28,9 @@ export function extractRawLinks(text: string): string[] {
   }
 
   // Bare root-absolute paths (/docs/... or /tws-api/...)
-  for (const m of text.matchAll(/(?:^|[\s("'])(\/(?:docs\/|[a-z0-9-]+\/)[^\s)<>"']*)/gim)) {
+  for (const m of text.matchAll(
+    /(?:^|[\s("'])(\/(?:docs\/|[a-z0-9-]+\/)[^\s)<>"']*)/gim,
+  )) {
     push(m[1]!);
   }
 
@@ -62,7 +64,11 @@ export function classifyLinks(
       const path = normalized.pathname;
       const prefix = `/docs/${sectionFilter}`;
       // Allow root llms; restrict everything else to the section
-      if (path !== "/docs/llms.txt" && !path.startsWith(`${prefix}/`) && path !== prefix) {
+      if (
+        path !== "/docs/llms.txt" &&
+        !path.startsWith(`${prefix}/`) &&
+        path !== prefix
+      ) {
         continue;
       }
     }

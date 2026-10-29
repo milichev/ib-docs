@@ -184,5 +184,8 @@ function findFenceEnd(lines: string[], openIdx: number): number {
 }
 
 function cleanupBlankRuns(md: string): string {
-  return md.replace(/\n{3,}/g, "\n\n").replace(/^\n+/, "").replace(/\n+$/, "\n");
+  return md
+    .replace(/\n{3,}/g, "\n\n")
+    .replace(/^\n+/, "")
+    .replace(/\n+$/, "\n");
 }

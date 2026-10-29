@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/cancel-open-order)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/cancel-open-order)
 
 # Cancel An Open Order
 
@@ -107,6 +107,18 @@ Indicates that the order reply message or submission was not accepted.
 
 **SDK Code**
 
+```python orderCancelSuccessExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/DU123456/order/1799796559"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.delete(url, headers=headers)
+
+print(response.json())
+```
+
 ```go orderCancelSuccessExample
 package main
 
@@ -149,15 +161,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orderCancelSuccessExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.delete("https://localhost:5000/v1/api/iserver/account/DU123456/order/1799796559")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php orderCancelSuccessExample
@@ -211,6 +214,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python orderCancelErrorExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/DU123456/order/1799796559"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.delete(url, headers=headers)
+
+print(response.json())
+```
+
 ```go orderCancelErrorExample
 package main
 
@@ -253,15 +268,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orderCancelErrorExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.delete("https://localhost:5000/v1/api/iserver/account/DU123456/order/1799796559")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php orderCancelErrorExample

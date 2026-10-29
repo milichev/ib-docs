@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/third-party-integrations/trading-view/frequently-asked-questions-faq/pine-script)
+[home](../../../index.md) | [third-party-integrations](../../index.md) | [source](https://www.interactivebrokers.com/docs/third-party-integrations/trading-view/frequently-asked-questions-faq/pine-script)
 
 # Can I use TradingView Pine Script during the connection between IB and TradingView?
 

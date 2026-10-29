@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/rtd/frequently-asked-questions)
+[home](../../index.md) | [excel](../index.md) | [source](https://www.interactivebrokers.com/docs/excel/rtd/frequently-asked-questions)
 
 # Frequently Asked Questions
 
@@ -20,4 +20,4 @@ The error message is displayed when you are trying to request for a live tick ty
 "Some data show '0' when requesting data for many securities"
 This is most likely because you have exceeded the limit of Market Data Lines . You can verify if this is reason by going to TWS and hold **Ctrl_Alt\_=** at the same time. This should show a small pop-up window and indicate the maximum allowed market data lines as well as the currently subscribed top market data count. If you are subscribed to more than the maximum allowed, some of the data point will show '0'. Explore further troubleshooting in our [Unset Value Responses](/docs/excel/rtd/notes-limitations/unset-value-responses/introduction) section.
 
-![rtd\_maxdataline.png](/docs/_fern-img/e20c9f7cf911b14abbf8473985e908f507829a0102181625b75724e9591a0ecc.webp)
+![rtd\_maxdataline.png](/docs/_fern-files/_img/e20c9f7cf911b14abbf8473985e908f507829a0102181625b75724e9591a0ecc.webp)

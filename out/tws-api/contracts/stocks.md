@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/contracts/stocks)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/contracts/stocks)
 
 # Stocks
 
@@ -10,14 +10,14 @@
 
 **Currency:** String. Specify the base currency of the stock.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("AAPL");
-contract.secType("STK");
-contract.exchange("SMART");
-contract.currency("USD");
+```python
+contract = Contract()
+contract.symbol = "AAPL"
+contract.secType = "STK"
+contract.exchange = "SMART"
+contract.currency = "USD"
 ```
 
 For certain smart-routed stock that have the same symbol, currency and exchange, you would also need to specify the primary exchange attribute to uniquely define the This should be defined as the native exchange of a and is good practice to include for all stocks.
@@ -34,13 +34,13 @@ For the purpose of requesting market data, the routing exchange and primary exch
 
 **PrimaryExchange:** Specify the primary listing exchange of the instrument.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("SPY");
-contract.secType("STK");
-contract.currency("USD");
-contract.exchange("SMART");
-contract.primaryExchange("ARCA");
+```python
+contract = Contract()
+contract.symbol = "SPY"
+contract.secType = "STK"
+contract.currency = "USD"
+contract.exchange = "SMART"
+contract.primaryExchange = "ARCA"
 ```

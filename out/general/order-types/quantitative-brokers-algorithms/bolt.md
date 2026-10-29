@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/quantitative-brokers-algorithms/bolt)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/quantitative-brokers-algorithms/bolt)
 
 # Bolt
 
@@ -28,17 +28,17 @@ Valid Value/Format: "0" (false) or "1" (true)
 **LiquidityAggressThreshold:** double. Liquidity Aggressiveness Threshold\
 Valid Value/Format: 0 \<= LiquidityAggressThreshold \<= 1
 
-#### Java
+#### Python
 
-```java
-order.algoStrategy("Bolt");
-order.algoParams(new ArrayList());
-order.algoParams().add(new TagValue("StartTime", startTime));
-order.algoParams().add(new TagValue("EndTime", endTime));
-order.algoParams().add(new TagValue("Duration", Duration));
-order.algoParams().add(new TagValue("Mode", Mode));
-order.algoParams().add(new TagValue("PercentVolume", PercentVolume));
-order.algoParams().add(new TagValue("EventPause", EventPause));
-order.algoParams().add(new TagValue("NoCleanup", NoCleanup));
-order.algoParams().add(new TagValue("LiquidityAggressThreshold", liqAggThreshold));
+```python
+order.algoStrategy = "Bolt"
+order.algoParams = []
+order.algoParams.append(TagValue("StartTime", StartTime))
+order.algoParams.append(TagValue("EndTime", EndTime))
+order.algoParams.append(TagValue("Duration", Duration))
+order.algoParams.append(TagValue("Mode", Mode))
+order.algoParams.append(TagValue("PercentVolume", PercentVolume))
+order.algoParams.append(TagValue("EventPause", EventPause))
+order.algoParams.append(TagValue("NoCleanup", NoCleanup))
+order.algoParams.append(TagValue("LiquidityAggressThreshold", liqAggThreshold))
 ```

@@ -188,10 +188,7 @@ export async function generate(
         map = new Map();
         pagesBySection.set(section, map);
       }
-      const title = indexLinkTitle(
-        entry.cachePath,
-        extractH1Title(body),
-      );
+      const title = indexLinkTitle(entry.cachePath, extractH1Title(body));
       map.set(entry.url, {
         relativePath: entry.cachePath,
         title,

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/third-party-integrations/trading-view/logout)
+[home](../../index.md) | [third-party-integrations](../index.md) | [source](https://www.interactivebrokers.com/docs/third-party-integrations/trading-view/logout)
 
 # Log Out Of Your Interactive Brokers Account
 
@@ -8,4 +8,4 @@ Many users may utilize Interactive Brokers Live and Paper accounts on TradingVie
 2. Next a user would need to select "Log out Interactive Brokers".
 3. This will show the Trading Panel as it had appeared when first connecting with TradingView. At this point, users can select the Interactive Brokers icon to login with their credentials.
 
-![](/docs/_fern-img/973d19decc31dab981bbaf7cea8a8c59721b0d9e2ab21f420af859fd480e5c69.webp)
+![](/docs/_fern-files/_img/973d19decc31dab981bbaf7cea8a8c59721b0d9e2ab21f420af859fd480e5c69.webp)

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/troubleshooting-support/log-files/exporting-logs)
+[home](../../../../index.md) | [tws-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/troubleshooting-support/log-files/exporting-logs)
 
 # Exporting Logs
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/protobuf/api-settings-config)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/protobuf/api-settings-config)
 
 ## ApiSettingsConfig
 
@@ -19,7 +19,7 @@
 | `splitInsuredDepositFromCashBalance` | `bool` | False: The API "Cash Balance" includes the "Insured Bank Deposit Sweep Program" balance. True: Report "Cash Balance" and "Insured Bank Deposit Sweep Program" balances separately in the API. |
 | `sendZeroPositionsForTodayOnly` | `bool` | True will return all positions that have already closed with a '0' value. |
 | `letApiAccountRequestsSwitchSubscription` | `bool` | Internal use. Market data management. |
-| `useAccountGroupsWithAllocationMethods` | `bool` | See [Unification of Groups and Profiles](../doc/financial-advisors/unification-of-groups-and-profiles.md) for details. |
+| `useAccountGroupsWithAllocationMethods` | `bool` | See [Unification of Groups and Profiles](https://www.interactivebrokers.com/docs/tws-api/doc/financial-advisors/unification-of-groups-and-profiles) for details. |
 | `loggingLevel` | `string` | Level of detail for API logs. Supports "system", "warning", "error", "info" and "detail". |
 | `masterClientId` | `int32` | The master identifier for order updates. |
 | `bulkDataTimeout` | `int32` | When amount of data sent by the Trader Workstation becomes too large, it is possible that network connection to API client cannot handle the load. Trader Workstation waits for specified amount of seconds and then disconnects API client if data cannot be sent fast enough. |

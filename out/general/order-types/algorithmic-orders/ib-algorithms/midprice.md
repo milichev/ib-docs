@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/midprice)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/midprice)
 
 # Midprice
 
@@ -10,6 +10,16 @@ A [Midprice](https://www.interactivebrokers.com/en/index.php?f=36735) order is d
 **Set OrderType to** "MIDPRICE".
 
 No algo params or strategy required.
+
+#### Python
+
+```python
+order = Order()
+order.action = action
+order.orderType = "MIDPRICE"
+order.totalQuantity = quantity
+order.lmtPrice = priceCap
+```
 
 #### Abap
 
@@ -32,13 +42,3 @@ curl --insecure https://localhost:5000/v1/api/iserver/account/{{accountId}}/orde
 ```
 
 For the Web API, a price must be included. If no price cap is desired, '"price": 0' should be included.
-
-#### Java
-
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("MIDPRICE");
-order.totalQuantity(quantity);
-order.lmtPrice(priceCap); 
-```

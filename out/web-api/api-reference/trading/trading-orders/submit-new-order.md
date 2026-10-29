@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/submit-new-order)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/submit-new-order)
 
 # Submit New Order
 
@@ -188,6 +188,22 @@ The assigned contents for how the order should be allocated amongst subaccount(s
 
 **SDK Code**
 
+```python orderSubmitSuccessExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/DU123456/orders"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go orderSubmitSuccessExample
 package main
 
@@ -236,17 +252,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orderSubmitSuccessExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/DU123456/orders")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php orderSubmitSuccessExample
@@ -324,6 +329,22 @@ dataTask.resume()
 
 **SDK Code**
 
+```python orderReplyMessageExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/DU123456/orders"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go orderReplyMessageExample
 package main
 
@@ -372,17 +393,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orderReplyMessageExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/DU123456/orders")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php orderReplyMessageExample
@@ -451,6 +461,22 @@ dataTask.resume()
 
 **SDK Code**
 
+```python orderSubmitErrorExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/DU123456/orders"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go orderSubmitErrorExample
 package main
 
@@ -499,17 +525,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orderSubmitErrorExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/DU123456/orders")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php orderSubmitErrorExample
@@ -589,6 +604,22 @@ dataTask.resume()
 
 **SDK Code**
 
+```python advancedOrderRejectPromptExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/DU123456/orders"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go advancedOrderRejectPromptExample
 package main
 
@@ -637,17 +668,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java advancedOrderRejectPromptExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/DU123456/orders")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php advancedOrderRejectPromptExample

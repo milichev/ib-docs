@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/authentication/oauth-1a/lst/validate-live-session-token)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/authentication/oauth-1a/lst/validate-live-session-token)
 
 # Validate the Live Session Token
 

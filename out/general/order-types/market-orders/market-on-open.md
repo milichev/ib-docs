@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/market-orders/market-on-open)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/market-orders/market-on-open)
 
 # Market On Open
 
@@ -9,6 +9,16 @@ Products: CFD, FUT, STK, WAR
 More on [Market On Open Orders](https://www.interactivebrokers.com/en/index.php?f=598)
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=moo)
+
+#### Python
+
+```python
+order = Order()
+order.action = action
+order.orderType = "MKT"
+order.totalQuantity = quantity
+order.tif = "OPG"
+```
 
 #### Abap
 
@@ -27,14 +37,4 @@ curl --insecure https://localhost:5000/v1/api/iserver/account/{{accountId}}/orde
     }
   ]
 }
-```
-
-#### Java
-
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("MKT");
-order.totalQuantity(quantity);
-order.tif("OPG");
 ```

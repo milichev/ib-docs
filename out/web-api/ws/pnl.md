@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/ws/pnl)
+[home](../../index.md) | [web-api](../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/ws/pnl)
 
 # Profit & Loss
 

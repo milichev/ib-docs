@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/troubleshooting-support/log-files/how-to-enable-debug-logging)
+[home](../../../../index.md) | [tws-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/troubleshooting-support/log-files/how-to-enable-debug-logging)
 
 # How To Enable Debug Logging
 

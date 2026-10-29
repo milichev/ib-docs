@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-accounts/get-dynamic-accounts)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-accounts/get-dynamic-accounts)
 
 # Search Dynamic Accounts
 
@@ -79,6 +79,18 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python successfully-found
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/search/U123"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go successfully-found
 package main
 
@@ -121,15 +133,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java successfully-found
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/account/search/U123")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php successfully-found
@@ -184,6 +187,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python not-found
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/search/U123"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go not-found
 package main
 
@@ -226,15 +241,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java not-found
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/account/search/U123")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php not-found

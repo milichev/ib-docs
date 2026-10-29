@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/executions)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/executions)
 
 # get_executions()
 
@@ -30,7 +30,7 @@ Returns a list of execution objects. Each item in the list contains the associat
 
 **`contract`** `object`
 
-[Contract Object](../doc/contracts-financial-instruments/the-contract-object.md) for the instrument that was traded.
+[Contract Object](/docs/tws-api/doc/contracts/object) for the instrument that was traded.
 
 ---
 

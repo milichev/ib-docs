@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/md/delayed-data)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/md/delayed-data)
 
 # Delayed Market Data
 
@@ -39,10 +39,12 @@ Type of market data to retrieve. See [Market Data Types](#market-data-types) for
 
 ---
 
-#### Java
+\
 
-```java
-client.reqMarketDataType(2);
+#### Python
+
+```python
+self.reqMarketDataType(3)
 ```
 
 ---
@@ -65,11 +67,11 @@ Type of market data to retrieve.
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void marketDataType(int reqId, int marketDataType) {
-	System.out.println("MarketDataType: " + EWrapperMsgGenerator.marketDataType(reqId, marketDataType));
-}
+#### Python
+
+```python
+def marketDataType(self, reqId: TickerId, marketDataType: int):
+	print("MarketDataType. ReqId:", reqId, "Type:", marketDataType)
 ```

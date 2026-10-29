@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/flex-web-service/client-portal-configuration/including-audit-trail-fields)
+[home](../../../index.md) | [web-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/flex-web-service/client-portal-configuration/including-audit-trail-fields)
 
 # Including Audit Trail Fields
 
@@ -8,4 +8,4 @@ This extends to Brokerage Order ID, Order Reference, Volatility Order Link, and 
 
 **Note:** These features are currently unavailable for Paper Trading Accounts, and would only be available in the Live trading environment.
 
-![include Audit Trail Fields](/docs/_fern-img/fa217e38789f6a29b3b584420cd53318d0f0ded37bb324b28ed1b6c38a59077b.webp)
+![include Audit Trail Fields](/docs/_fern-files/_img/fa217e38789f6a29b3b584420cd53318d0f0ded37bb324b28ed1b6c38a59077b.webp)

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/activex/best-practice-configure-tws-ib-gateway-for-active-x/weekly-reauthentication)
+[home](../../../index.md) | [excel](../../index.md) | [source](https://www.interactivebrokers.com/docs/excel/activex/best-practice-configure-tws-ib-gateway-for-active-x/weekly-reauthentication)
 
 # Weekly Reauthentication
 
@@ -8,7 +8,7 @@ In TWS/ IB Gateway – "Global Configuration" – "Lock and Exit", you can choos
 
 For API users, it is recommended to choose "Never lock Trader Workstation" and "Auto restart".
 
-![Highlights the Weekly Reauthentication options within the TWS Global Configuration window.](/docs/_fern-img/f0352b13ec3b7f156a6020cd56eef86acf439732ea3c5b469ba2289ada2e96b1.webp)
+![Highlights the Weekly Reauthentication options within the TWS Global Configuration window.](/docs/_fern-files/_img/f0352b13ec3b7f156a6020cd56eef86acf439732ea3c5b469ba2289ada2e96b1.webp)
 
 Note:
 

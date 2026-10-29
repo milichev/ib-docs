@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/third-parties/third-parties-tax-vouchers/fetch-dividends-1)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/third-parties/third-parties-tax-vouchers/fetch-dividends-1)
 
 # Fetch Dividend Details
 
@@ -126,6 +126,20 @@ Internal server error
 
 **SDK Code**
 
+```python
+import requests
+
+url = "https://localhost:5000/gw/api/v1/tax-vouchers/dividends"
+
+querystring = {"countryCode":"countryCode","custAcctId":"custAcctId","year":"year"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go
 package main
 
@@ -168,15 +182,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/tax-vouchers/dividends?countryCode=countryCode&custAcctId=custAcctId&year=year")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php

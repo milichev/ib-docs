@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/dde/review-trust-center-settings)
+[home](../../index.md) | [excel](../index.md) | [source](https://www.interactivebrokers.com/docs/excel/dde/review-trust-center-settings)
 
 # Review Trust Center Settings
 

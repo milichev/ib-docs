@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/close-price)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/close-price)
 
 # Close Price
 
@@ -17,6 +17,17 @@ Valid Value/Format: hh:mm:ss TMZ or YYYYMMDD-hh:mm:ss TMZ
 
 **forceCompletion:** bool. Attempt completion by the end of the day\
 Valid Value/Format: 1 (true) or 0 (false)
+
+#### Python
+
+```python
+order.algoStrategy = "ClosePx"
+order.algoParams = []
+order.algoParams.append(TagValue("maxPctVol", maxPctVol))
+order.algoParams.append(TagValue("riskAversion", riskAversion))
+order.algoParams.append(TagValue("startTime", startTime))
+order.algoParams.append(TagValue("forceCompletion", int(forceCompletion)))
+```
 
 #### Abap
 
@@ -43,15 +54,4 @@ curl {baseUrl}/iserver/account/{accountId}/orders \
     }
   ]
 }'
-```
-
-#### Java
-
-```java
-order.algoStrategy("ClosePx");
-order.algoParams(new ArrayList());
-order.algoParams().add(new TagValue("maxPctVol", String.valueOf(maxPctVol)));
-order.algoParams().add(new TagValue("riskAversion", riskAversion));
-order.algoParams().add(new TagValue("startTime", startTime));
-order.algoParams().add(new TagValue("forceCompletion", forceCompletion ? "1" : "0"));
 ```

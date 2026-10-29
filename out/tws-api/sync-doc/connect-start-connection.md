@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/connect-start-connection)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/connect-start-connection)
 
 # connect_and_start()
 
@@ -20,7 +20,7 @@ Determine the connecting port number configured in the Global Configuration in t
 
 **`client_id`** `int32` — required
 
-Determine the connecting client ID. TWS supports up to 32 simultaneous API connections. Users should connect with `0` for [optimal order management functionality](../doc/order-management/client-id-0-and-the-master-client-id.md).
+Determine the connecting client ID. TWS supports up to 32 simultaneous API connections. Users should connect with `0` for [optimal order management functionality](/docs/tws-api/doc/order-management/master-client-id).
 
 ---
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/tws-settings/disconnect-on-invalid-format)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/tws-settings/disconnect-on-invalid-format)
 
 # Disconnect on Invalid Format
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-accounts/list-accounts-login-messages)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-accounts/list-accounts-login-messages)
 
 # Get Login Messages
 
@@ -130,6 +130,20 @@ Returns error description representing internal server error
 
 **SDK Code**
 
+```python
+import requests
+
+url = "https://localhost:5000/gw/api/v1/accounts/login-messages"
+
+querystring = {"loginMessageRequest":"{\"endDate\":\"2023-01-15\",\"startDate\":\"2023-01-15\"}"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go
 package main
 
@@ -172,15 +186,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/accounts/login-messages?loginMessageRequest=%7B%22endDate%22%3A%222023-01-15%22%2C%22startDate%22%3A%222023-01-15%22%7D")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php

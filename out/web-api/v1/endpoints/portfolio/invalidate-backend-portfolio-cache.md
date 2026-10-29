@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/portfolio/invalidate-backend-portfolio-cache)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/portfolio/invalidate-backend-portfolio-cache)
 
 # Invalidate Backend Portfolio Cache
 

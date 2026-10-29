@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/bulk-internal-cash-transfers)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/bulk-internal-cash-transfers)
 
 # Creates Multiple Internal Cash Transfers Between The Provided Account Id Pairs
 
@@ -192,6 +192,18 @@ Provider-specific data returned once the Plaid payment has been initiated.
 
 **SDK Code**
 
+```python Internal Cash Transfer Bulk - All Accepted
+import requests
+
+url = "https://localhost:5000/gw/api/v1/internal-cash-transfers:bulk"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Internal Cash Transfer Bulk - All Accepted
 package main
 
@@ -234,15 +246,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Internal Cash Transfer Bulk - All Accepted
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/internal-cash-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Internal Cash Transfer Bulk - All Accepted
@@ -302,6 +305,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Internal Cash Transfer Bulk - Mixed Status
+import requests
+
+url = "https://localhost:5000/gw/api/v1/internal-cash-transfers:bulk"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Internal Cash Transfer Bulk - Mixed Status
 package main
 
@@ -344,15 +359,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Internal Cash Transfer Bulk - Mixed Status
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/internal-cash-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Internal Cash Transfer Bulk - Mixed Status
@@ -443,6 +449,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Internal Cash Transfer Bulk
+import requests
+
+url = "https://localhost:5000/gw/api/v1/internal-cash-transfers:bulk"
+
+payload = {
+    "instructionType": "INTERNAL_CASH_TRANSFER",
+    "instructions": ["string", "string", "string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Internal Cash Transfer Bulk
 package main
 
@@ -491,17 +516,6 @@ request.body = "{\n  \"instructionType\": \"INTERNAL_CASH_TRANSFER\",\n  \"instr
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Internal Cash Transfer Bulk
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/internal-cash-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"INTERNAL_CASH_TRANSFER\",\n  \"instructions\": [\n    \"string\",\n    \"string\",\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php Internal Cash Transfer Bulk

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/get-trade-history)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/get-trade-history)
 
 # Trade History
 
@@ -136,6 +136,18 @@ Object containing details of a single execution.
 
 **SDK Code**
 
+```python tradesResponseExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/trades"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go tradesResponseExample
 package main
 
@@ -178,15 +190,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java tradesResponseExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/account/trades")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php tradesResponseExample

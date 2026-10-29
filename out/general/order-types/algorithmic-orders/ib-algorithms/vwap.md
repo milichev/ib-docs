@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/vwap)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/vwap)
 
 # VWAP
 
@@ -25,6 +25,18 @@ Valid Value/Format: 1 (true) or 0 (false)
 
 **speedUp:** bool. Compensate for the decreased fill rate due to presence of limit price.\
 Valid Value/Format: 1 (true) or 0 (false)
+
+#### Python
+
+```python
+order.algoStrategy = "Vwap"
+order.algoParams = []
+order.algoParams.append(TagValue("maxPctVol", maxPctVol))
+order.algoParams.append(TagValue("startTime", startTime))
+order.algoParams.append(TagValue("endTime", endTime))
+order.algoParams.append(TagValue("allowPastEndTime", int(allowPastEndTime)))
+order.algoParams.append(TagValue("noTakeLiq", int(noTakeLiq)))
+```
 
 #### Abap
 
@@ -55,17 +67,4 @@ curl {baseUrl}/iserver/account/{accountId}/orders \
     }
   ]
 }'
-```
-
-#### Java
-
-```java
-order.algoStrategy("Vwap");
-order.algoParams(new ArrayList());
-order.algoParams().add(new TagValue("maxPctVol", String.valueOf(maxPctVol)));
-order.algoParams().add(new TagValue("startTime", startTime));
-order.algoParams().add(new TagValue("endTime", endTime));
-order.algoParams().add(new TagValue("allowPastEndTime", allowPastEndTime ? "1" : "0"));
-order.algoParams().add(new TagValue("noTakeLiq", noTakeLiq ? "1" : "0"));
-order.algoParams().add(new TagValue("speedUp", speedUp ? "1" : "0"));
 ```

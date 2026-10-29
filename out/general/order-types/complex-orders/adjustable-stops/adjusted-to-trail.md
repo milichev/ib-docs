@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/complex-orders/adjustable-stops/adjusted-to-trail)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/complex-orders/adjustable-stops/adjusted-to-trail)
 
 # Adjusted to Trail
 
@@ -14,18 +14,18 @@ This can be "amt" or "%".
 
 **AdjustedTrailingAmount:** The value to trail by. This will be a set amount or percentage based on the AdjustedTrailingUnit.
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("STP");
-order.auxPrice(stopPrice);
-order.totalQuantity(quantity);
+```python
+order = Order()
+order.action = action
+order.orderType = "STP"
+order.auxPrice = stopPrice
+order.totalQuantity = quantity
 
-order.triggerPrice(triggerPrice);
-order.adjustedOrderType("TRAIL");
-order.adjustedStopPrice(adjustStopPrice);
-order.adjustableTrailingUnit(trailUnit);
-order.adjustedTrailingAmount(adjustedTrailAmount);
+order.triggerPrice = triggerPrice
+order.adjustedOrderType = "TRAIL"
+order.adjustedStopPrice = adjustedStopPrice
+order.adjustableTrailingUnit = trailUnit
+order.adjustedTrailingAmount = adjustedTrailAmount
 ```

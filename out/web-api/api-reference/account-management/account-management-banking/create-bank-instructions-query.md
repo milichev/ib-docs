@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-bank-instructions-query)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-bank-instructions-query)
 
 # View Bank Instructions
 
@@ -383,6 +383,18 @@ Provider-specific data. For PLAID, populated with hostedlinkUrl/linkToken only w
 
 **SDK Code**
 
+```python Query Bank Instruction - WIRE
+import requests
+
+url = "https://localhost:5000/gw/api/v1/bank-instructions/query"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Query Bank Instruction - WIRE
 package main
 
@@ -425,15 +437,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query Bank Instruction - WIRE
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/bank-instructions/query")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Query Bank Instruction - WIRE
@@ -539,6 +542,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Query Bank Instruction - ACH
+import requests
+
+url = "https://localhost:5000/gw/api/v1/bank-instructions/query"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Query Bank Instruction - ACH
 package main
 
@@ -581,15 +596,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query Bank Instruction - ACH
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/bank-instructions/query")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Query Bank Instruction - ACH
@@ -670,6 +676,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Query Recent Recurring Events
+import requests
+
+url = "https://localhost:5000/gw/api/v1/bank-instructions/query"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Query Recent Recurring Events
 package main
 
@@ -712,15 +730,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query Recent Recurring Events
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/bank-instructions/query")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Query Recent Recurring Events
@@ -809,6 +818,29 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Query Recurring Instructions - using Account ID
+import requests
+
+url = "https://localhost:5000/gw/api/v1/bank-instructions/query"
+
+payload = {
+    "instructionType": "QUERY_RECURRING_INSTRUCTIONS",
+    "instruction": {
+        "accountId": "U399192",
+        "bankInstructionMethod": "WIRE",
+        "clientInstructionId": 1012983
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Query Recurring Instructions - using Account ID
 package main
 
@@ -857,17 +889,6 @@ request.body = "{\n  \"instructionType\": \"QUERY_RECURRING_INSTRUCTIONS\",\n  \
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query Recurring Instructions - using Account ID
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/bank-instructions/query")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"QUERY_RECURRING_INSTRUCTIONS\",\n  \"instruction\": {\n    \"accountId\": \"U399192\",\n    \"bankInstructionMethod\": \"WIRE\",\n    \"clientInstructionId\": 1012983\n  }\n}")
-  .asString();
 ```
 
 ```php Query Recurring Instructions - using Account ID
@@ -1009,6 +1030,29 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Query Bank Instruction - Wire
+import requests
+
+url = "https://localhost:5000/gw/api/v1/bank-instructions/query"
+
+payload = {
+    "instructionType": "QUERY_BANK_INSTRUCTION",
+    "instruction": {
+        "accountId": "U46377",
+        "bankInstructionMethod": "WIRE",
+        "clientInstructionId": 1012983
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Query Bank Instruction - Wire
 package main
 
@@ -1057,17 +1101,6 @@ request.body = "{\n  \"instructionType\": \"QUERY_BANK_INSTRUCTION\",\n  \"instr
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query Bank Instruction - Wire
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/bank-instructions/query")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"QUERY_BANK_INSTRUCTION\",\n  \"instruction\": {\n    \"accountId\": \"U46377\",\n    \"bankInstructionMethod\": \"WIRE\",\n    \"clientInstructionId\": 1012983\n  }\n}")
-  .asString();
 ```
 
 ```php Query Bank Instruction - Wire
@@ -1209,6 +1242,29 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Query Bank Instruction - ACH Instruction
+import requests
+
+url = "https://localhost:5000/gw/api/v1/bank-instructions/query"
+
+payload = {
+    "instructionType": "QUERY_BANK_INSTRUCTION",
+    "instruction": {
+        "accountId": "U46377",
+        "bankInstructionMethod": "ACH",
+        "clientInstructionId": 1012983
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Query Bank Instruction - ACH Instruction
 package main
 
@@ -1257,17 +1313,6 @@ request.body = "{\n  \"instructionType\": \"QUERY_BANK_INSTRUCTION\",\n  \"instr
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query Bank Instruction - ACH Instruction
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/bank-instructions/query")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"QUERY_BANK_INSTRUCTION\",\n  \"instruction\": {\n    \"accountId\": \"U46377\",\n    \"bankInstructionMethod\": \"ACH\",\n    \"clientInstructionId\": 1012983\n  }\n}")
-  .asString();
 ```
 
 ```php Query Bank Instruction - ACH Instruction
@@ -1411,6 +1456,31 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Query Recent Recurring Event
+import requests
+
+url = "https://localhost:5000/gw/api/v1/bank-instructions/query"
+
+payload = {
+    "instructionType": "QUERY_RECENT_RECURRING_EVENTS",
+    "instruction": {
+        "accountId": "U399192",
+        "bankInstructionMethod": "WIRE",
+        "clientInstructionId": 1012983,
+        "ibReferenceId": 206603050,
+        "numberOfTransactions": 100
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Query Recent Recurring Event
 package main
 
@@ -1459,17 +1529,6 @@ request.body = "{\n  \"instructionType\": \"QUERY_RECENT_RECURRING_EVENTS\",\n  
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query Recent Recurring Event
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/bank-instructions/query")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"QUERY_RECENT_RECURRING_EVENTS\",\n  \"instruction\": {\n    \"accountId\": \"U399192\",\n    \"bankInstructionMethod\": \"WIRE\",\n    \"clientInstructionId\": 1012983,\n    \"ibReferenceId\": 206603050,\n    \"numberOfTransactions\": 100\n  }\n}")
-  .asString();
 ```
 
 ```php Query Recent Recurring Event

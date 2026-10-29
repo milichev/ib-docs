@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/trading/instrument-discovery/finding-event-contracts)
+[home](../../../index.md) | [web-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/trading/instrument-discovery/finding-event-contracts)
 
 # Finding Event Contracts
 

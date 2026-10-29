@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/authentication/oauth-1a/first-party-oauth/first-party-o-auth-workflow)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/authentication/oauth-1a/first-party-oauth/first-party-o-auth-workflow)
 
 # First Party OAuth Workflow
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/limit-orders/limit-on-open)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/limit-orders/limit-on-open)
 
 # Limit On Open
 
@@ -9,6 +9,17 @@ Products: CFD, STK, OPT, WAR
 More on [Limit on Open Orders](https://www.interactivebrokers.com/en/index.php?f=590)
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=moo)
+
+#### Python
+
+```python
+order = Order()
+order.action = action
+order.tif = "OPG"
+order.orderType = "LMT"
+order.totalQuantity = quantity
+order.lmtPrice = limitPrice
+```
 
 #### Abap
 
@@ -28,15 +39,4 @@ More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=
     }
   ]
 }
-```
-
-#### Java
-
-```java
-Order order = new Order();
-order.action(action);
-order.tif("OPG");
-order.orderType("LOC");
-order.totalQuantity(quantity);
-order.lmtPrice(limitPrice);
 ```

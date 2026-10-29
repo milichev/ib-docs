@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/contracts/fx-pairs)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/contracts/fx-pairs)
 
 # FX Pairs
 
@@ -10,12 +10,12 @@
 
 **Currency:** String. Specify the base currency forex pair. This will dictate size with cash quantity trades.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("EUR");
-contract.secType("CASH");
-contract.exchange("IDEALPRO");
-contract.currency("GBP");
+```python
+contract = Contract()
+contract.symbol = "EUR"
+contract.secType = "CASH"
+contract.exchange = "IDEALPRO"
+contract.currency = "GBP"
 ```

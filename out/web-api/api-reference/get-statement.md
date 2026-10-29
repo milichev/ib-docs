@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/get-statement)
+[home](../../index.md) | [web-api](../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/get-statement)
 
 # Retrieve generated report
 
@@ -34,6 +34,18 @@ The generated report file. The format (e.g. CSV, XML) depends on the configurati
 ```
 
 **SDK Code**
+
+```python Succes
+import requests
+
+url = "https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/GetStatement"
+
+querystring = {"q":"7729029235","t":"833145478193195254070598","v":"3"}
+
+response = requests.get(url, params=querystring)
+
+print(response.json())
+```
 
 ```go Succes
 package main
@@ -74,14 +86,6 @@ request = Net::HTTP::Get.new(url)
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Succes
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/GetStatement?q=7729029235&t=833145478193195254070598&v=3")
-  .asString();
 ```
 
 ```php Succes
@@ -126,6 +130,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Failure
+import requests
+
+url = "https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/GetStatement"
+
+querystring = {"q":"7729029235","t":"833145478193195254070598","v":"3"}
+
+response = requests.get(url, params=querystring)
+
+print(response.json())
+```
+
 ```go Failure
 package main
 
@@ -165,14 +181,6 @@ request = Net::HTTP::Get.new(url)
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Failure
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/GetStatement?q=7729029235&t=833145478193195254070598&v=3")
-  .asString();
 ```
 
 ```php Failure

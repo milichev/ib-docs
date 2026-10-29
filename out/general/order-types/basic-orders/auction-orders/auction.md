@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/auction-orders/auction)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/auction-orders/auction)
 
 # Auction
 
@@ -10,15 +10,15 @@ More on [Auction Orders](https://www.interactivebrokers.com/en/index.php?f=578)
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=auc)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.tif("AUC");
-order.orderType("MTL");
-order.totalQuantity(quantity);
-order.lmtPrice(price);
+```python
+order = Order()
+order.action = action
+order.tif = "AUC"
+order.orderType = "MTL"
+order.totalQuantity = quantity
+order.lmtPrice = price
 ```
 
 #### Generic

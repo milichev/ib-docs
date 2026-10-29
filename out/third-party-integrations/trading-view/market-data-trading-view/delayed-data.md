@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/third-party-integrations/trading-view/market-data-trading-view/delayed-data)
+[home](../../../index.md) | [third-party-integrations](../../index.md) | [source](https://www.interactivebrokers.com/docs/third-party-integrations/trading-view/market-data-trading-view/delayed-data)
 
 # Delayed Market Data for Orders Warning
 
@@ -6,4 +6,4 @@ If a user is attempting to trade a contract while they do not have market data t
 
 This does not prevent users from trading with TradingView, and is only intended as a warning message. At this time, the only method to prevent this warning message is by purchasing market data directly through Interactive Brokers.
 
-![Delayed Order Message.](/docs/_fern-img/fa4639667e88020c25120f05cbaa83edcff36f2a18f0e7f43a010647ceb60177.webp)
+![Delayed Order Message.](/docs/_fern-files/_img/fa4639667e88020c25120f05cbaa83edcff36f2a18f0e7f43a010647ceb60177.webp)

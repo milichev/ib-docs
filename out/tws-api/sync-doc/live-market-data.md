@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/live-market-data)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/live-market-data)
 
 # get_market_data_snapshot()
 
@@ -8,7 +8,7 @@ Users may request market data using `get_market_data_snapshot()` to retrieve ava
 
 **`contract`** `object` — required
 
-[Contract Object](../doc/contracts-financial-instruments/the-contract-object.md) for the instrument to retrieve market data for.
+[Contract Object](/docs/tws-api/doc/contracts/object) for the instrument to retrieve market data for.
 
 ---
 

@@ -1,8 +1,8 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/introduction)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/wall-street-horizon/introduction)
 
-# Introduction
+# Calendar Event Data through WSH
 
-Calendar and Event data can be retrieved from the Wall Street Horizon Event Calendar and accessed via the TWS API through the functions IBApi.EClient.reqWshMetaData and IBApi.EClient.reqWshEventData.
+Calendar and Event data can be retrieved from the Wall Street Horizon Event Calendar and accessed via the TWS API through the functions `EClient.reqWshMetaData` and `EClient.reqWshEventData`.
 
 It is necessary to have the **Wall Street Horizon Corporate Event Data** research subscription activated first in [Account Management](https://www.ibkrguides.com/clientportal/usersettings/marketdatasubscriptions.htm).
 

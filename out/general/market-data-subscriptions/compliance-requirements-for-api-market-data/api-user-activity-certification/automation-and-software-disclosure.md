@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/market-data-subscriptions/compliance-requirements-for-api-market-data/api-user-activity-certification/automation-and-software-disclosure)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/market-data-subscriptions/compliance-requirements-for-api-market-data/api-user-activity-certification/automation-and-software-disclosure)
 
 # Automation and Software Disclosure
 

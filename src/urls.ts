@@ -21,12 +21,13 @@ function isCanonicalHost(hostname: string): boolean {
  * Normalize a raw href/path into a canonical docs URL, or null if out of scope.
  * Fragments are stripped; callers may reattach later.
  */
-export function normalizeDocsUrl(
-  raw: string,
-  basePageUrl?: URL,
-): URL | null {
+export function normalizeDocsUrl(raw: string, basePageUrl?: URL): URL | null {
   const trimmed = raw.trim();
-  if (!trimmed || trimmed.startsWith("mailto:") || trimmed.startsWith("javascript:")) {
+  if (
+    !trimmed ||
+    trimmed.startsWith("mailto:") ||
+    trimmed.startsWith("javascript:")
+  ) {
     return null;
   }
 
@@ -100,7 +101,10 @@ export function isLlmsUrl(u: URL): boolean {
  * Never produce .../tws-api/.md.
  */
 export function isSectionRoot(u: URL): boolean {
-  const parts = u.pathname.replace(/^\/docs\/?/, "").split("/").filter(Boolean);
+  const parts = u.pathname
+    .replace(/^\/docs\/?/, "")
+    .split("/")
+    .filter(Boolean);
   return parts.length === 1 && KNOWN_SECTION_SET.has(parts[0]!);
 }
 

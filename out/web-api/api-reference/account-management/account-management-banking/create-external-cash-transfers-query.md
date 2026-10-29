@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-external-cash-transfers-query)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-external-cash-transfers-query)
 
 # View Cash Balances
 
@@ -354,6 +354,29 @@ Provider-specific data. For PLAID, populated with hostedlinkUrl/linkToken only w
 
 **SDK Code**
 
+```python Query Withdrawable Funds
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers/query"
+
+payload = {
+    "instructionType": "QUERY_WITHDRAWABLE_FUNDS",
+    "instruction": {
+        "accountId": "U87440",
+        "clientInstructionId": 7009005,
+        "currency": "USD"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Query Withdrawable Funds
 package main
 
@@ -402,17 +425,6 @@ request.body = "{\n  \"instructionType\": \"QUERY_WITHDRAWABLE_FUNDS\",\n  \"ins
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query Withdrawable Funds
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers/query")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"QUERY_WITHDRAWABLE_FUNDS\",\n  \"instruction\": {\n    \"accountId\": \"U87440\",\n    \"clientInstructionId\": 7009005,\n    \"currency\": \"USD\"\n  }\n}")
-  .asString();
 ```
 
 ```php Query Withdrawable Funds
@@ -516,6 +528,31 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Query Withdrawable Funds Without Origination Hold
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers/query"
+
+payload = {
+    "instructionType": "QUERY_WITHDRAWABLE_FUNDS",
+    "instruction": {
+        "accountId": "U139838",
+        "bankAccountNumber": "9876543210",
+        "bankRoutingNumber": "122199983",
+        "clientInstructionId": 7009006,
+        "currency": "USD"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Query Withdrawable Funds Without Origination Hold
 package main
 
@@ -564,17 +601,6 @@ request.body = "{\n  \"instructionType\": \"QUERY_WITHDRAWABLE_FUNDS\",\n  \"ins
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query Withdrawable Funds Without Origination Hold
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers/query")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"QUERY_WITHDRAWABLE_FUNDS\",\n  \"instruction\": {\n    \"accountId\": \"U139838\",\n    \"bankAccountNumber\": \"9876543210\",\n    \"bankRoutingNumber\": \"122199983\",\n    \"clientInstructionId\": 7009006,\n    \"currency\": \"USD\"\n  }\n}")
-  .asString();
 ```
 
 ```php Query Withdrawable Funds Without Origination Hold
@@ -680,6 +706,30 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Query IRA Contributions
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers/query"
+
+payload = {
+    "instructionType": "QUERY_IRA_CONTRIBUTIONS",
+    "instruction": {
+        "accountId": "U68903",
+        "clientInstructionId": 7009007,
+        "currency": "USD",
+        "year": "2003"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Query IRA Contributions
 package main
 
@@ -728,17 +778,6 @@ request.body = "{\n  \"instructionType\": \"QUERY_IRA_CONTRIBUTIONS\",\n  \"inst
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query IRA Contributions
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers/query")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"QUERY_IRA_CONTRIBUTIONS\",\n  \"instruction\": {\n    \"accountId\": \"U68903\",\n    \"clientInstructionId\": 7009007,\n    \"currency\": \"USD\",\n    \"year\": \"2003\"\n  }\n}")
-  .asString();
 ```
 
 ```php Query IRA Contributions

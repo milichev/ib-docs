@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/contracts/bonds)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/contracts/bonds)
 
 # Bonds
 
@@ -10,12 +10,12 @@
 
 **Currency:** String. Specify the base currency the BOND is traded with.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("912828C57");
-contract.secType("BOND");
-contract.exchange("SMART");
-contract.currency("USD");
+```python
+contract = Contract()
+contract.symbol = "912828C57"
+contract.secType = "BOND"
+contract.exchange = "SMART"
+contract.currency = "USD"
 ```

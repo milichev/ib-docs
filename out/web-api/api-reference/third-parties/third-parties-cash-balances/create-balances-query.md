@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/third-parties/third-parties-cash-balances/create-balances-query)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/third-parties/third-parties-cash-balances/create-balances-query)
 
 # View Cash Balances
 
@@ -250,6 +250,18 @@ Provider-specific data. For PLAID, populated with hostedlinkUrl/linkToken only w
 
 **SDK Code**
 
+```python Query Withdrawable Cash Equity Response
+import requests
+
+url = "https://localhost:5000/gw/api/v1/balances/query"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Query Withdrawable Cash Equity Response
 package main
 
@@ -292,15 +304,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query Withdrawable Cash Equity Response
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/balances/query")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Query Withdrawable Cash Equity Response
@@ -379,6 +382,29 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Query Withdrawable Cash amd Equity
+import requests
+
+url = "https://localhost:5000/gw/api/v1/balances/query"
+
+payload = {
+    "instructionType": "QUERY_WITHDRAWABLE_CASH_EQUITY",
+    "instruction": {
+        "accountId": "U87440",
+        "clientInstructionId": 7009005,
+        "currency": "USD"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Query Withdrawable Cash amd Equity
 package main
 
@@ -427,17 +453,6 @@ request.body = "{\n  \"instructionType\": \"QUERY_WITHDRAWABLE_CASH_EQUITY\",\n 
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query Withdrawable Cash amd Equity
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/balances/query")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"QUERY_WITHDRAWABLE_CASH_EQUITY\",\n  \"instruction\": {\n    \"accountId\": \"U87440\",\n    \"clientInstructionId\": 7009005,\n    \"currency\": \"USD\"\n  }\n}")
-  .asString();
 ```
 
 ```php Query Withdrawable Cash amd Equity

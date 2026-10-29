@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/md/historical-bars)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/md/historical-bars)
 
 # Historical Bars (OHLC)
 
@@ -70,10 +70,12 @@ This is a field used exclusively for internal use.
 
 ---
 
-#### Java
+\
 
-```java
-client.reqHistoricalData(4002, contract, formatted, "10 D", "1 min", "TRADES", 1, 1, false, null);
+#### Python
+
+```python
+self.reqHistoricalData(4102, contract, queryTime, "1 M", "1 day", "MIDPOINT", 1, 1, False, [])
 ```
 
 ---
@@ -96,13 +98,13 @@ The OHLC historical data Bar. The time zone of the bar is the time zone chosen o
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void historicalData(int reqId, Bar bar) {
-	System.out.println("HistoricalData:  " + EWrapperMsgGenerator.historicalData(reqId, bar.time(), bar.open(), bar.high(), bar.low(), bar.close(), bar.volume(), bar.count(), bar.wap()));
-}
+#### Python
+
+```python
+def historicalData(self, reqId:int, bar: BarData):
+	print("HistoricalData. ReqId:", reqId, "BarData.", bar)
 ```
 
 ---
@@ -125,13 +127,13 @@ The OHLC historical data Bar. The time zone of the bar is the time zone chosen o
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void historicalDataUpdate(int reqId, Bar bar) {
-	System.out.println("HistoricalDataUpdate. " + EWrapperMsgGenerator.historicalData(reqId, bar.time(), bar.open(), bar.high(), bar.low(), bar.close(), bar.volume(), bar.count(), bar.wap()));
-}
+#### Python
+
+```python
+def historicalDataUpdate(self, reqId: int, bar: BarData):
+	print("HistoricalDataUpdate. ReqId:", reqId, "BarData.", bar)
 ```
 
 ---
@@ -180,13 +182,13 @@ Returns the end time of the last historical data bar.
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void historicalDataEnd(int reqId, String startDateStr, String endDateStr) {
-	System.out.println("HistoricalDataEnd. " + EWrapperMsgGenerator.historicalDataEnd(reqId, startDateStr, endDateStr));
-}
+#### Python
+
+```python
+def historicalDataEnd(self, reqId: int, start: str, end: str):
+	print("HistoricalDataEnd. ReqId:", reqId, "from", start, "to", end)
 ```
 
 ---

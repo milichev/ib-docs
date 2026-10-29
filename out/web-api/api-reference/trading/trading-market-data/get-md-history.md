@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-market-data/get-md-history)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-market-data/get-md-history)
 
 # Historical OHLC Bar Data
 
@@ -264,6 +264,20 @@ Object containing Midpoint data for a single OHLC bar.
 
 **SDK Code**
 
+```python iserverHistoryBidAskSuccessExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/marketdata/history"
+
+querystring = {"bar":"1min","conid":"265598","period":"1d"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go iserverHistoryBidAskSuccessExample
 package main
 
@@ -306,15 +320,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java iserverHistoryBidAskSuccessExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/marketdata/history?bar=1min&conid=265598&period=1d")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php iserverHistoryBidAskSuccessExample
@@ -422,6 +427,20 @@ dataTask.resume()
 
 **SDK Code**
 
+```python iserverHistoryLastSuccessExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/marketdata/history"
+
+querystring = {"bar":"1min","conid":"265598","period":"1d"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go iserverHistoryLastSuccessExample
 package main
 
@@ -464,15 +483,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java iserverHistoryLastSuccessExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/marketdata/history?bar=1min&conid=265598&period=1d")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php iserverHistoryLastSuccessExample
@@ -580,6 +590,20 @@ dataTask.resume()
 
 **SDK Code**
 
+```python iserverHistoryMidpointSuccessExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/marketdata/history"
+
+querystring = {"bar":"1min","conid":"265598","period":"1d"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go iserverHistoryMidpointSuccessExample
 package main
 
@@ -622,15 +646,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java iserverHistoryMidpointSuccessExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/marketdata/history?bar=1min&conid=265598&period=1d")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php iserverHistoryMidpointSuccessExample

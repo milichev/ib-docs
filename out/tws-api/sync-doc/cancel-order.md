@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/cancel-order)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/cancel-order)
 
 # cancel_order_sync()
 
@@ -42,7 +42,7 @@ The identifier for the order. Relevant for order tracking, modification, and can
 
 **`status`** `string`
 
-The current status of the order. See [Order Status](../doc/order-management/order-status/introduction.md) for more details.
+The current status of the order. See [Order Status](/docs/tws-api/doc/order-management/order-status) for more details.
 
 ---
 
@@ -84,7 +84,7 @@ The price of the most recent execution for the order.
 
 **`clientId`** `int32`
 
-The identifier for which client ID the order was placed through. Orders can only be cancelled or modified on the [clientId they are bound to](../doc/orders/modifying-orders.md).
+The identifier for which client ID the order was placed through. Orders can only be cancelled or modified on the [clientId they are bound to](/docs/tws-api/doc/orders/modify-order).
 
 ---
 

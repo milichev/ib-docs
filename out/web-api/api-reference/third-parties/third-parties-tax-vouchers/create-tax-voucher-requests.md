@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/third-parties/third-parties-tax-vouchers/create-tax-voucher-requests)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/third-parties/third-parties-tax-vouchers/create-tax-voucher-requests)
 
 # Create Tax Voucher Requests
 
@@ -111,6 +111,22 @@ Internal server error
 
 **SDK Code**
 
+```python
+import requests
+
+url = "https://localhost:5000/gw/api/v1/tax-vouchers"
+
+payload = "\"eyJhbGciOiJSUzI1NiJ9...\""
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "text/plain"
+}
+
+response = requests.post(url, data=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go
 package main
 
@@ -159,17 +175,6 @@ request.body = "\"eyJhbGciOiJSUzI1NiJ9...\""
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/tax-vouchers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "text/plain")
-  .body("\"eyJhbGciOiJSUzI1NiJ9...\"")
-  .asString();
 ```
 
 ```php

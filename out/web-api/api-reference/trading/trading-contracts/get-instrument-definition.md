@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-contracts/get-instrument-definition)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-contracts/get-instrument-definition)
 
 # Instrument Definition Detail
 
@@ -168,6 +168,20 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python response
+import requests
+
+url = "https://localhost:5000/v1/api/trsrv/secdef"
+
+querystring = {"conids":"265598,8314"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go response
 package main
 
@@ -210,15 +224,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java response
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/trsrv/secdef?conids=265598%2C8314")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php response

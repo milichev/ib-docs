@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/place-order)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/place-order)
 
 # place_order_sync()
 
@@ -8,13 +8,13 @@ The `place_order_sync()` function submits an order to Trader Workstation using t
 
 **`contract`** `object` — required
 
-[Contract Object](../doc/contracts-financial-instruments/the-contract-object.md) for the instrument to trade.
+[Contract Object](/docs/tws-api/doc/contracts/object) for the instrument to trade.
 
 ---
 
 **`order`** `object` — required
 
-[Order Object](../doc/orders/the-order-and-contract-objects.md) containing the order parameters to be traded.
+[Order Object](/docs/tws-api/doc/orders/objects) containing the order parameters to be traded.
 
 ---
 
@@ -55,7 +55,7 @@ The identifier for the order. Relevant for order tracking, modification, and can
 
 **`status`** `string`
 
-The current status of the order. See [Order Status](../doc/order-management/order-status/introduction.md) for more details.
+The current status of the order. See [Order Status](/docs/tws-api/doc/order-management/order-status) for more details.
 
 ---
 
@@ -97,7 +97,7 @@ The price of the most recent execution for the order.
 
 **`clientId`** `int32`
 
-The identifier for which client ID the order was placed through. Orders can only be cancelled or modified on the [clientId they are bound to](../doc/orders/modifying-orders.md).
+The identifier for which client ID the order was placed through. Orders can only be cancelled or modified on the [clientId they are bound to](/docs/tws-api/doc/orders/modify-order).
 
 ---
 

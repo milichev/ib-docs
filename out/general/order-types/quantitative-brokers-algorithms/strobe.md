@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/quantitative-brokers-algorithms/strobe)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/quantitative-brokers-algorithms/strobe)
 
 # Strobe
 
@@ -22,15 +22,15 @@ Valid Value/Format: 0 \<= PercentVolume \<= 1
 **NoCleanup:** bool. No Cleanup\
 Valid Value/Format: "0" (false) or "1" (true)
 
-#### Java
+#### Python
 
-```java
-order.algoStrategy("Strobe");
-order.algoParams(new ArrayList());
-order.algoParams().add(new TagValue("StartTime", startTime));
-order.algoParams().add(new TagValue("EndTime", endTime));
-order.algoParams().add(new TagValue("Duration", Duration));
-order.algoParams().add(new TagValue("Benchmark", Benchmark));
-order.algoParams().add(new TagValue("PercentVolume", PercentVolume));
-order.algoParams().add(new TagValue("NoCleanup", NoCleanup));
+```python
+order.algoStrategy = "Strobe"
+order.algoParams = []
+order.algoParams.append(TagValue("StartTime", StartTime))
+order.algoParams.append(TagValue("EndTime", EndTime))
+order.algoParams.append(TagValue("Duration", Duration))
+order.algoParams.append(TagValue("Benchmark", Benchmark))
+order.algoParams.append(TagValue("PercentVolume", PercentVolume))
+order.algoParams.append(TagValue("NoCleanup", NoCleanup))
 ```

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/market-data-subscriptions/market-data-users/finding-your-paper-user-credentials/step-one-log-in-to-client-portal)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/market-data-subscriptions/market-data-users/finding-your-paper-user-credentials/step-one-log-in-to-client-portal)
 
 # Step One: Log In To Client Portal
 

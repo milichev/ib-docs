@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/contracts/options)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/contracts/options)
 
 # Options
 
@@ -18,16 +18,16 @@
 
 **Multiplier:** String. Enter the multiplier of the derivative.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("GOOG");
-contract.secType("OPT");
-contract.exchange("BOX");
-contract.currency("USD");
-contract.lastTradeDateOrContractMonth("20190315");
-contract.strike(1180);
-contract.right("C");
-contract.multiplier("100");
+```python
+contract = Contract()
+contract.symbol = "GOOG"
+contract.secType = "OPT"
+contract.exchange = "BOX"
+contract.currency = "USD"
+contract.lastTradeDateOrContractMonth = "20190315"
+contract.strike = 1180
+contract.right = "C"
+contract.multiplier = "100"
 ```

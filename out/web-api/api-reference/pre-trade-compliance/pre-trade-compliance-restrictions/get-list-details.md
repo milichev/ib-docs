@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/get-list-details)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/get-list-details)
 
 # Get List Details
 
@@ -136,6 +136,20 @@ Instrument identifier parameters. Keys depend on entry type: ISSUER/CONID entrie
 
 **SDK Code**
 
+```python ISSUERORCONID list with two ISSUER entries
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/list"
+
+querystring = {"listId":"2001","masterUserName":"user1"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go ISSUERORCONID list with two ISSUER entries
 package main
 
@@ -178,15 +192,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java ISSUERORCONID list with two ISSUER entries
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/list?listId=2001&masterUserName=user1")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php ISSUERORCONID list with two ISSUER entries
@@ -245,6 +250,20 @@ dataTask.resume()
 
 **SDK Code**
 
+```python List with no entries
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/list"
+
+querystring = {"listId":"2001","masterUserName":"user1"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go List with no entries
 package main
 
@@ -287,15 +306,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java List with no entries
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/list?listId=2001&masterUserName=user1")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php List with no entries

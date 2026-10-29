@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/third-party-integrations/prospective-third-party-integrations)
+[home](../index.md) | [third-party-integrations](index.md) | [source](https://www.interactivebrokers.com/docs/third-party-integrations/prospective-third-party-integrations)
 
 # Prospective Integrations
 
@@ -6,6 +6,6 @@ Interactive Brokers’ Web API is the primary interface used by third-party soft
 
 [Web API for Third-Party Developers](../web-api/authentication/oauth-1a/third-party-oauth/registration-process.md)
 
-[TWS API for Third-Party Developers](../tws-api/doc/third-party-api-platforms/introduction.md)
+[TWS API for Third-Party Developers](/docs/tws-api/doc/third-party-api-platforms)
 
 [FIX for Third-Party Developers](../fix/intro.md)

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/authentication/oauth-1-0-a/req-temp-token)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/authentication/oauth-1-0-a/req-temp-token)
 
 # Obtain A Request Token
 
@@ -61,6 +61,18 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python Success
+import requests
+
+url = "https://localhost:5000/v1/api/oauth/request_token"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Success
 package main
 
@@ -103,15 +115,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Success
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/oauth/request_token")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Success

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/session/logout-of-the-current-session)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/session/logout-of-the-current-session)
 
 # Logout of the current session
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fy-is-and-notifications/read-fyi-notification)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fy-is-and-notifications/read-fyi-notification)
 
 # Mark Notification Read
 
@@ -91,6 +91,18 @@ Returns details about the notification read status.
 
 **SDK Code**
 
+```python acknowledged
+import requests
+
+url = "https://localhost:5000/v1/api/fyi/notifications/:notificationId"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.put(url, headers=headers)
+
+print(response.json())
+```
+
 ```go acknowledged
 package main
 
@@ -133,15 +145,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java acknowledged
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.put("https://localhost:5000/v1/api/fyi/notifications/:notificationId")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php acknowledged

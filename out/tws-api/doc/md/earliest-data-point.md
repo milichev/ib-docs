@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/md/earliest-data-point)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/md/earliest-data-point)
 
 # Earliest Data Point
 
@@ -9,7 +9,7 @@
 ReqHeadTimeStamp counts as an ongoing historical data request. As a result, users should always:
 
 * Cancel timestamp requests using [EClient.cancelHeadTimeStamp()](#cancel-head-time-stamp).
-* All `EClient.reqHeadTimestamp()` requests follow the [30 second bar limitations](introduction.md#pacing-violations-for-small-bars), regardless of which bar size value has been requested.
+* All `EClient.reqHeadTimestamp()` requests follow the [30 second bar limitations](/docs/tws-api/doc/md/market-data-limitations#pacing-violations-for-small-bars), regardless of which bar size value has been requested.
 
 ## Request HeadTimeStamp
 
@@ -47,10 +47,12 @@ Using 1 will return UTC time in YYYYMMDD-hh:mm:ss format. Using 2 will return ep
 
 ---
 
-#### Java
+\
 
-```java
-client.reqHeadTimestamp(4003, contract, "TRADES", 1, 1);
+#### Python
+
+```python
+self.reqHeadTimeStamp(1, ContractSamples.USStockAtSmart(), "TRADES", 1, 1)
 ```
 
 ---
@@ -73,13 +75,13 @@ Value identifying earliest data date
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void headTimestamp(int reqId, String headTimestamp) {
-	System.out.println(EWrapperMsgGenerator.headTimestamp(reqId, headTimestamp));
-}
+#### Python
+
+```python
+def headTimestamp(self, reqId, headTimestamp):
+        print(reqId, headTimestamp)
 ```
 
 ---
@@ -96,10 +98,12 @@ Request identifier used to track data.
 
 ---
 
-#### Java
+\
 
-```java
-client.cancelHeadTimestamp(4003);
+#### Python
+
+```python
+self.cancelHeadTimeStamp(14001)
 ```
 
 ---

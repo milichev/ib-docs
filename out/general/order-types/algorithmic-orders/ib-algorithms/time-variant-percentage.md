@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/time-variant-percentage)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/time-variant-percentage)
 
 # Time Variant Percentage
 
@@ -20,6 +20,18 @@ Valid Value/Format: hh:mm:ss TMZ or YYYYMMDD-hh:mm:ss TMZ
 
 **noTakeLiq:** bool. Attempt to never take liquidity\
 Valid Value/Format: 1 (true) or 0 (false)
+
+#### Python
+
+```python
+order.algoStrategy = "PctVolTm"
+order.algoParams = []
+order.algoParams.append(TagValue("startPctVol", startPctVol))
+order.algoParams.append(TagValue("endPctVol", endPctVol))
+order.algoParams.append(TagValue("startTime", startTime))
+order.algoParams.append(TagValue("endTime", endTime))
+order.algoParams.append(TagValue("noTakeLiq", int(noTakeLiq)))
+```
 
 #### Abap
 
@@ -49,16 +61,4 @@ curl {baseUrl}/iserver/account/{accountId}/orders \
     }
   ]
 }'
-```
-
-#### Java
-
-```java
-order.algoStrategy("PctVolTm");
-order.algoParams(new ArrayList());
-order.algoParams().add(new TagValue("startPctVol", String.valueOf(startPctVol)));
-order.algoParams().add(new TagValue("endPctVol", String.valueOf(endPctVol)));
-order.algoParams().add(new TagValue("startTime", startTime));
-order.algoParams().add(new TagValue("endTime", endTime));
-order.algoParams().add(new TagValue("noTakeLiq", noTakeLiq ? "1" : "0"));
 ```

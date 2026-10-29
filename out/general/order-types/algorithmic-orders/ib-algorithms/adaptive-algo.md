@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/adaptive-algo)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/adaptive-algo)
 
 # Adaptive Algo
 
@@ -8,6 +8,14 @@ The [Adaptive Algo](https://www.interactivebrokers.com/en/index.php?f=19091) com
 
 **adaptivePriority:** String. The 'Priority' selector determines the time taken to scan for better execution prices. The 'Urgent' setting scans only briefly, while the 'Patient' scan works more slowly and has a higher chance of achieving a better overall fill for your order.\
 Valid Value/Format: Urgent > Normal > Patient
+
+#### Python
+
+```python
+order.algoStrategy = "Adaptive"
+order.algoParams = []
+order.algoParams.append(TagValue("adaptivePriority", priority))
+```
 
 #### Abap
 
@@ -31,12 +39,4 @@ curl {baseUrl}/iserver/account/{accountId}/orders \
     }
   ]
 }'
-```
-
-#### Java
-
-```java
-order.algoStrategy("Adaptive");
-order.algoParams(new ArrayList());
-order.algoParams().add(new TagValue("adaptivePriority", priority));
 ```

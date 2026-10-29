@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/third-party-integrations/requirements-limitations/supported-two-factor-authentication-2-fa)
+[home](../../index.md) | [third-party-integrations](../index.md) | [source](https://www.interactivebrokers.com/docs/third-party-integrations/requirements-limitations/supported-two-factor-authentication-2-fa)
 
 # Supported Two Factor Authentication (2FA)
 

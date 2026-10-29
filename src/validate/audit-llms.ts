@@ -55,7 +55,11 @@ function isCanonicalHost(hostname: string): boolean {
  */
 export function minimalNormalizeDocsUrl(raw: string): string | null {
   const trimmed = raw.trim();
-  if (!trimmed || trimmed.startsWith("mailto:") || trimmed.startsWith("javascript:")) {
+  if (
+    !trimmed ||
+    trimmed.startsWith("mailto:") ||
+    trimmed.startsWith("javascript:")
+  ) {
     return null;
   }
 
@@ -119,7 +123,10 @@ function hasFileExtension(pathname: string): boolean {
 }
 
 function isSectionRootPath(pathname: string): boolean {
-  const parts = pathname.replace(/^\/docs\/?/, "").split("/").filter(Boolean);
+  const parts = pathname
+    .replace(/^\/docs\/?/, "")
+    .split("/")
+    .filter(Boolean);
   return parts.length === 1 && KNOWN_SECTION_SET.has(parts[0]!);
 }
 

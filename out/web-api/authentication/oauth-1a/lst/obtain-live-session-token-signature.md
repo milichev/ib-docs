@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/authentication/oauth-1a/lst/obtain-live-session-token-signature)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/authentication/oauth-1a/lst/obtain-live-session-token-signature)
 
 # Retrieve Live Session Token Signature
 

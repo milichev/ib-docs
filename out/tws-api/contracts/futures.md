@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/contracts/futures)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/contracts/futures)
 
 # Futures
 
@@ -6,16 +6,16 @@
 
 Index futures are typical futures contracts derived from an Index, such as "ES" or "DAX". Futures contracts may be generally defined with `Symbol`, `SecType`, `Exchange`, `Currency`, `LastTradeDateOrContractMonth`, `Multiplier`, and `TradingClass`.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("ES");
-contract.secType("FUT");
-contract.exchange("CME");
-contract.currency("USD");
-contract.lastTradeDateOrContractMonth("202809");
-contract.multiplier(50);
+```python
+contract = Contract()
+contract.symbol = "ES"
+contract.secType = "FUT"
+contract.exchange = "CME"
+contract.currency = "USD"
+contract.lastTradeDateOrContractMonth = "202809"
+contract.multiplier = 50
 ```
 
 ## Continuous Futures
@@ -31,14 +31,14 @@ Continuous Futures can **not** be used:
 * For **specific** historical data. Please be aware that endDateTime must be left as an empty string when requesting historical data for continuous futures contracts.
 * In the Web API
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("ES");
-contract.secType("CONTFUT");
-contract.exchange("CME");
-contract.currency("USD");
+```python
+contract = Contract()
+contract.symbol = "ES"
+contract.secType = "CONTFUT"
+contract.exchange = "CME"
+contract.currency = "USD"
 ```
 
 ## Expired Futures
@@ -46,14 +46,14 @@ contract.currency("USD");
 While they can not be traded, TWS API users can refer to expired Futures contracts by including the ["IncludeExpired"](../ref/contract.md) field. This will permit users to review historical market data for contracts that have expired within the last 2 years.
 This functionality is not supported in the web api.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("ES");
-contract.secType("FUT");
-contract.exchange("CME");
-contract.currency("USD");
-contract.lastTradeDateOrContractMonth("202309");
-contract.includeExpired(true);
+```python
+contract = Contract()
+contract.symbol = "ES"
+contract.secType = "FUT"
+contract.exchange = "CME"
+contract.currency = "USD"
+contract.lastTradeDateOrContractMonth = "202309"
+contract.includeExpired = True
 ```

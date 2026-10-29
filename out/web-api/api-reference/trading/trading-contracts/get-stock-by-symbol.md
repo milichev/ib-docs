@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-contracts/get-stock-by-symbol)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-contracts/get-stock-by-symbol)
 
 # Search Stocks By Symbol
 
@@ -132,6 +132,20 @@ Contains a series of objects for each symbol that matches the requested
 
 **SDK Code**
 
+```python ibm
+import requests
+
+url = "https://localhost:5000/v1/api/trsrv/stocks"
+
+querystring = {"symbols":"AAPL,IBKR"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go ibm
 package main
 
@@ -174,15 +188,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java ibm
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/trsrv/stocks?symbols=AAPL%2CIBKR")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php ibm

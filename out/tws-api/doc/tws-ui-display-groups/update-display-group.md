@@ -1,10 +1,10 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/tws-ui-display-groups/update-display-group)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/tws-ui-display-groups/update-display-group)
 
 # Update Display Group
 
 #### EClient.updateDisplayGroup (
 
-**requestId:** int. Request identifier used for tracking data.
+**requestId:** integer. Request identifier used for tracking data.
 
 **contractInfo:** String. An encoded value designating a unique IB contract. Possible values include:
 
@@ -15,14 +15,14 @@
 
 Updates the contract displayed in a TWS Window Group.
 
-#### Java
+#### Python
 
-```java
-client.updateDisplayGroup(9002, "8314@SMART");
+```python
+self.updateDisplayGroup(19002, "8314@SMART")
 ```
 
 **Note:** This request from the API does not get a response from TWS unless an error occurs.
 
 In this sample we have commanded TWS Windows that chained with Group #1 to display IBM\@SMART. The screenshot of TWS Mosaic to the right shows that both the pink chained (Group #1) windows are now displaying IBM\@SMART, while the green chained (Group #4) window remains unchanged.
 
-![Chained windows displaying IBM@SMART.](/docs/_fern-img/cac8e8cf60ea817cb256a787533a622e8ba104ec04d7e8b5b19e16e49b15bf24.webp)
+![Chained windows displaying IBM@SMART.](/docs/_fern-files/_img/cac8e8cf60ea817cb256a787533a622e8ba104ec04d7e8b5b19e16e49b15bf24.webp)

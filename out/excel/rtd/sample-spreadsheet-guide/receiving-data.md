@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/rtd/sample-spreadsheet-guide/receiving-data)
+[home](../../../index.md) | [excel](../../index.md) | [source](https://www.interactivebrokers.com/docs/excel/rtd/sample-spreadsheet-guide/receiving-data)
 
 # Receiving Data
 

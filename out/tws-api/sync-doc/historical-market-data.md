@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/historical-market-data)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/historical-market-data)
 
 # get_historical_data()
 
@@ -8,7 +8,7 @@ The `get_historical_data()` function retrieves historical bar data for a given c
 
 **`contract`** `object` — required
 
-[Contract Object](../doc/contracts-financial-instruments/the-contract-object.md) for the instrument to retrieve market data for.
+[Contract Object](/docs/tws-api/doc/contracts/object) for the instrument to retrieve market data for.
 
 ---
 

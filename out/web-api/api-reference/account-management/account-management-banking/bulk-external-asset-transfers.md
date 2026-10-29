@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/bulk-external-asset-transfers)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/bulk-external-asset-transfers)
 
 # Creates Multiple External Asset Transfers (Fop, DWAC And Complex Asset Transfer)
 
@@ -214,6 +214,25 @@ Provider-specific data returned once the Plaid payment has been initiated.
 
 **SDK Code**
 
+```python FOP
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-asset-transfers:bulk"
+
+payload = {
+    "instructionType": "FOP",
+    "instructions": ["string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go FOP
 package main
 
@@ -262,17 +281,6 @@ request.body = "{\n  \"instructionType\": \"FOP\",\n  \"instructions\": [\n    \
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java FOP
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-asset-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"FOP\",\n  \"instructions\": [\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php FOP
@@ -379,6 +387,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python DWAC
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-asset-transfers:bulk"
+
+payload = {
+    "instructionType": "DWAC",
+    "instructions": ["string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go DWAC
 package main
 
@@ -427,17 +454,6 @@ request.body = "{\n  \"instructionType\": \"DWAC\",\n  \"instructions\": [\n    
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java DWAC
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-asset-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"DWAC\",\n  \"instructions\": [\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php DWAC
@@ -555,6 +571,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python External Position Transfer
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-asset-transfers:bulk"
+
+payload = {
+    "instructionType": "EXTERNAL_POSITION_TRANSFER",
+    "instructions": ["string", "string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go External Position Transfer
 package main
 
@@ -603,17 +638,6 @@ request.body = "{\n  \"instructionType\": \"EXTERNAL_POSITION_TRANSFER\",\n  \"i
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java External Position Transfer
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-asset-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"EXTERNAL_POSITION_TRANSFER\",\n  \"instructions\": [\n    \"string\",\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php External Position Transfer
@@ -732,6 +756,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Complex Asset Transfer
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-asset-transfers:bulk"
+
+payload = {
+    "instructionType": "COMPLEX_ASSET_TRANSFER",
+    "instructions": ["string", "string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Complex Asset Transfer
 package main
 
@@ -780,17 +823,6 @@ request.body = "{\n  \"instructionType\": \"COMPLEX_ASSET_TRANSFER\",\n  \"instr
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Complex Asset Transfer
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-asset-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"COMPLEX_ASSET_TRANSFER\",\n  \"instructions\": [\n    \"string\",\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php Complex Asset Transfer
@@ -881,6 +913,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python FOP
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-asset-transfers:bulk"
+
+payload = {
+    "instructionType": "FOP",
+    "instructions": ["string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go FOP
 package main
 
@@ -929,17 +980,6 @@ request.body = "{\n  \"instructionType\": \"FOP\",\n  \"instructions\": [\n    \
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java FOP
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-asset-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"FOP\",\n  \"instructions\": [\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php FOP
@@ -1029,6 +1069,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python DWAC
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-asset-transfers:bulk"
+
+payload = {
+    "instructionType": "DWAC",
+    "instructions": ["string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go DWAC
 package main
 
@@ -1077,17 +1136,6 @@ request.body = "{\n  \"instructionType\": \"DWAC\",\n  \"instructions\": [\n    
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java DWAC
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-asset-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"DWAC\",\n  \"instructions\": [\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php DWAC
@@ -1178,6 +1226,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python External Position Transfer
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-asset-transfers:bulk"
+
+payload = {
+    "instructionType": "EXTERNAL_POSITION_TRANSFER",
+    "instructions": ["string", "string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go External Position Transfer
 package main
 
@@ -1226,17 +1293,6 @@ request.body = "{\n  \"instructionType\": \"EXTERNAL_POSITION_TRANSFER\",\n  \"i
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java External Position Transfer
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-asset-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"EXTERNAL_POSITION_TRANSFER\",\n  \"instructions\": [\n    \"string\",\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php External Position Transfer
@@ -1328,6 +1384,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Complex Asset Transfer
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-asset-transfers:bulk"
+
+payload = {
+    "instructionType": "COMPLEX_ASSET_TRANSFER",
+    "instructions": ["string", "string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Complex Asset Transfer
 package main
 
@@ -1376,17 +1451,6 @@ request.body = "{\n  \"instructionType\": \"COMPLEX_ASSET_TRANSFER\",\n  \"instr
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Complex Asset Transfer
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-asset-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"COMPLEX_ASSET_TRANSFER\",\n  \"instructions\": [\n    \"string\",\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php Complex Asset Transfer

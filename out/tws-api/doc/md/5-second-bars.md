@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/md/5-second-bars)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/md/5-second-bars)
 
 # 5 Second Bars
 
@@ -8,7 +8,7 @@ Real time and historical data functionality is combined through the `EClient.req
 
 > **Note**
 >
-> RealTimeBars also adheres to [Market Data Lines](../../../general/market-data-subscriptions/market-data-lines/introduction.md) and [Live Data Limitations](introduction.md#live-data-limitations) limitations and requirements.
+> RealTimeBars also adheres to [Market Data Lines](../../../general/market-data-subscriptions/market-data-lines/introduction.md) and [Live Data Limitations](/docs/tws-api/doc/md/market-data-limitations#live-data-limitations) limitations and requirements.
 
 ## Request 5 Second Bars
 
@@ -54,10 +54,12 @@ Internal use only.
 
 ---
 
-#### Java
+\
 
-```java
-client.reqRealTimeBars(3001, contract, 5, "MIDPOINT", true, null);
+#### Python
+
+```python
+self.reqRealTimeBars(3001, contract, 5, "MIDPOINT", 0, [])
 ```
 
 ---
@@ -122,13 +124,13 @@ The number of trades during the bar's timespan (only available for TRADES).
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void realtimeBar(int reqId, long time, double open, double high, double low, double close, Decimal volume, Decimal wap, int count) {
-	System.out.println("RealTimeBar: " + EWrapperMsgGenerator.realtimeBar(reqId, time, open, high, low, close, volume, wap, count));
-}
+#### Python
+
+```python
+def realtimeBar(self, reqId: TickerId, time:int, open_: float, high: float, low: float, close: float, volume: Decimal, wap: Decimal, count: int):
+	print("RealTimeBar. TickerId:", reqId, RealTimeBar(time, -1, open_, high, low, close, volume, wap, count))
 ```
 
 ---
@@ -145,10 +147,12 @@ Request identifier used to track data.
 
 ---
 
-#### Java
+\
 
-```java
-client.cancelRealTimeBars(3001);
+#### Python
+
+```python
+self.cancelRealTimeBars(3001)
 ```
 
 ---

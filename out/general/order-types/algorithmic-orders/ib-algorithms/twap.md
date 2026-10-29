@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/twap)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/twap)
 
 # TWAP
 
@@ -20,6 +20,18 @@ Valid Value/Format: 1 (true) or 0 (false)
 
 **conditionalPrice:** double. Enter the trade when a price is more aggressive than the listed value.\
 Valid Value/Format: 120.0
+
+#### Python
+
+```python
+order.algoStrategy = "Twap"
+order.algoParams = []
+order.algoParams.append(TagValue("catchUp", catchUp))
+order.algoParams.append(TagValue("startTime", startTime))
+order.algoParams.append(TagValue("endTime", endTime))
+order.algoParams.append(TagValue("allowPastEndTime", int(allowPastEndTime)))
+order.algoParams.append(TagValue("conditionalPrice", conditionalPrice))
+```
 
 #### Abap
 
@@ -47,16 +59,4 @@ curl {baseUrl}/iserver/account/{accountId}/orders \
     }
   ]
 }'
-```
-
-#### Java
-
-```java
-order.algoStrategy("Twap");
-order.algoParams(new ArrayList());
-order.algoParams().add(new TagValue("catchUp", catchUp));
-order.algoParams().add(new TagValue("startTime", startTime));
-order.algoParams().add(new TagValue("endTime", endTime));
-order.algoParams().add(new TagValue("allowPastEndTime", allowPastEndTime ? "1" : "0"));
-order.algoParams().add(new TagValue("conditionalPrice", conditionalPrice);
 ```

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/suppress-order-replies)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/suppress-order-replies)
 
 # Suppress Order Reply Messages
 
@@ -77,6 +77,22 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python success
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/questions/suppress"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go success
 package main
 
@@ -125,17 +141,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java success
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/questions/suppress")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php success

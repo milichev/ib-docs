@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/rtd/contract/combos-spreads/stock-spread)
+[home](../../../../index.md) | [excel](../../../index.md) | [source](https://www.interactivebrokers.com/docs/excel/rtd/contract/combos-spreads/stock-spread)
 
 # Stock Spread
 

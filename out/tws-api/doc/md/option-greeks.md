@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/md/option-greeks)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/md/option-greeks)
 
 # Options & Greeks
 
@@ -62,10 +62,12 @@ Internal use only.
 
 ---
 
-#### Java
+\
 
-```java
-client.reqMktData(reqId, OptionContract, "", false, false, null);
+#### Python
+
+```python
+self.reqMktData(reqId, OptionContract, "", False, False, [])
 ```
 
 ---
@@ -142,14 +144,13 @@ The price of the underlying.
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void tickOptionComputation(int tickerId, int field, int tickAttrib, double impliedVol, double delta, double optPrice,
-		double pvDividend, double gamma, double vega, double theta, double undPrice) {
-	System.out.println("TickOptionComputation: " + EWrapperMsgGenerator.tickOptionComputation( tickerId, field, tickAttrib, impliedVol, delta, optPrice, pvDividend, gamma, vega, theta, undPrice));
-}
+#### Python
+
+```python
+def tickOptionComputation(self, reqId: TickerId, tickType: TickType, tickAttrib: int, impliedVol: float, delta: float, optPrice: float, pvDividend: float, gamma: float, vega: float, theta: float, undPrice: float):
+	print("TickOptionComputation. TickerId:", reqId, "TickType:", tickType, "TickAttrib:", intMaxString(tickAttrib), "ImpliedVolatility:", floatMaxString(impliedVol), "Delta:", floatMaxString(delta), "OptionPrice:", floatMaxString(optPrice), "pvDividend:", floatMaxString(pvDividend), "Gamma: ", floatMaxString(gamma), "Vega:", floatMaxString(vega), "Theta:", floatMaxString(theta), "UnderlyingPrice:", floatMaxString(undPrice))
 ```
 
 ---
@@ -190,10 +191,12 @@ Internal use only. Send an empty tag value list.
 
 ---
 
-#### Java
+\
 
-```java
-client.calculateOptionPrice(5002, OptionContract, 0.5, 55, null);
+#### Python
+
+```python
+self.calculateOptionPrice(5002, OptionContract, 0.6, 55, [])
 ```
 
 ---
@@ -234,10 +237,12 @@ Internal use only. Send an empty tag value list.
 
 ---
 
+\
+
 \<Tabs>
 
-#### Java
+#### Python
 
-```java
-client.calculateImpliedVolatility(5001, OptionContract, 0.6, 55, null);
+```python
+self.calculateImpliedVolatility(5001, OptionContract, 0.5, 55, [])
 ```

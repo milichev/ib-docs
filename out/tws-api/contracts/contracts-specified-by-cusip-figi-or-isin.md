@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/contracts/contracts-specified-by-cusip-figi-or-isin)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/contracts/contracts-specified-by-cusip-figi-or-isin)
 
 # Contracts specified by CUSIP, FIGI, or ISIN
 
@@ -8,11 +8,11 @@
 
 **Exchange:** String. Specify SMART.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.secIdType("FIGI");
-contract.secId("BBG000B9XRY4");
-contract.exchange("SMART");
+```python
+contract = Contract()
+contract.secIdType = "FIGI"
+contract.secId = "BBG000B9XRY4"
+contract.exchange = "SMART"
 ```

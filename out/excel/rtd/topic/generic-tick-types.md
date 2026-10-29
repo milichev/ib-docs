@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/rtd/topic/generic-tick-types)
+[home](../../../index.md) | [excel](../../index.md) | [source](https://www.interactivebrokers.com/docs/excel/rtd/topic/generic-tick-types)
 
 # Generic Tick Types
 

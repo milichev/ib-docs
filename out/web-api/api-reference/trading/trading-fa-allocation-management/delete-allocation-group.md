@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-allocation-management/delete-allocation-group)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-allocation-management/delete-allocation-group)
 
 # Delete An Allocation Group
 
@@ -78,6 +78,22 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python success
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/allocation/group/delete"
+
+payload = { "name": "Group_1_NetLiq" }
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go success
 package main
 
@@ -126,17 +142,6 @@ request.body = "{\n  \"name\": \"Group_1_NetLiq\"\n}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java success
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/allocation/group/delete")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"name\": \"Group_1_NetLiq\"\n}")
-  .asString();
 ```
 
 ```php success

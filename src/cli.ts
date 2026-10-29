@@ -22,7 +22,9 @@ Stages:
 function parsePositiveInt(raw: string, flag: string): number {
   const n = Number.parseInt(raw, 10);
   if (!Number.isFinite(n) || n < 1) {
-    console.error(`Invalid ${flag}: expected positive integer, got ${JSON.stringify(raw)}`);
+    console.error(
+      `Invalid ${flag}: expected positive integer, got ${JSON.stringify(raw)}`,
+    );
     process.exit(1);
   }
   return n;
@@ -103,7 +105,11 @@ export async function runCli(argv: string[]): Promise<void> {
   const command = argv[0] as Command | string;
   if (command === "-h" || command === "--help") usage(0);
 
-  if (command !== "scrape" && command !== "generate" && command !== "validate") {
+  if (
+    command !== "scrape" &&
+    command !== "generate" &&
+    command !== "validate"
+  ) {
     console.error(`Unknown command: ${command}`);
     usage(1);
   }
@@ -139,7 +145,13 @@ export async function runCli(argv: string[]): Promise<void> {
   }
 
   // validate
-  if (flags.lang || flags.section || flags.force || flags.keepGoing || flags.concurrency !== undefined) {
+  if (
+    flags.lang ||
+    flags.section ||
+    flags.force ||
+    flags.keepGoing ||
+    flags.concurrency !== undefined
+  ) {
     console.error("validate does not accept scrape/generate flags");
     process.exit(1);
   }

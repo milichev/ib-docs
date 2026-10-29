@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/trading/financial-advisors/model-portfolios)
+[home](../../../index.md) | [web-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/trading/financial-advisors/model-portfolios)
 
 ## Model Portfolio Invest / Divest / Rebalance API - Integration Guide
 

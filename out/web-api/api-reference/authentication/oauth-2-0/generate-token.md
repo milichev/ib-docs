@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/authentication/oauth-2-0/generate-token)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/authentication/oauth-2-0/generate-token)
 
 # Create Access Token
 
@@ -89,6 +89,22 @@ Returns a [Problem detail](https://datatracker.ietf.org/doc/html/rfc9457) instan
 
 **SDK Code**
 
+```python Token Response
+import requests
+
+url = "https://localhost:5000/oauth2/api/v1/token"
+
+payload = ""
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+
+response = requests.post(url, data=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Token Response
 package main
 
@@ -133,16 +149,6 @@ request["Content-Type"] = 'application/x-www-form-urlencoded'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Token Response
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/oauth2/api/v1/token")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/x-www-form-urlencoded")
-  .asString();
 ```
 
 ```php Token Response

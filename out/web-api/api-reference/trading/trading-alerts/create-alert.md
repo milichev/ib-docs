@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-alerts/create-alert)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-alerts/create-alert)
 
 # Create Or Modify Alert
 
@@ -120,6 +120,18 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python successfully-created
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/U1234567/alert"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go successfully-created
 package main
 
@@ -162,15 +174,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java successfully-created
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/U1234567/alert")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php successfully-created
@@ -226,6 +229,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python successfully-modified
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/U1234567/alert"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go successfully-modified
 package main
 
@@ -268,15 +283,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java successfully-modified
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/U1234567/alert")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php successfully-modified
@@ -360,6 +366,44 @@ dataTask.resume()
 
 **SDK Code**
 
+```python alert-creation-request
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/U1234567/alert"
+
+payload = {
+    "alertName": "AAPL_Price",
+    "alertMessage": "AAPL Price Drop!",
+    "alertRepeatable": 0,
+    "outsideRth": 0,
+    "tif": "GTC",
+    "conditions": [
+        {
+            "conidex": "265598@NYSE",
+            "logicBind": "a",
+            "operator": ">=",
+            "triggerMethod": "0",
+            "type": 1,
+            "value": "500",
+            "timeZone": "US/Eastern"
+        }
+    ],
+    "email": "jonh.smith@example.com",
+    "expireTime": "20231231-12:00:00",
+    "iTWSOrdersOnly": 0,
+    "sendMessage": 1,
+    "showPopup": 1
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go alert-creation-request
 package main
 
@@ -408,17 +452,6 @@ request.body = "{\n  \"alertName\": \"AAPL_Price\",\n  \"alertMessage\": \"AAPL 
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java alert-creation-request
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/U1234567/alert")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"alertName\": \"AAPL_Price\",\n  \"alertMessage\": \"AAPL Price Drop!\",\n  \"alertRepeatable\": 0,\n  \"outsideRth\": 0,\n  \"tif\": \"GTC\",\n  \"conditions\": [\n    {\n      \"conidex\": \"265598@NYSE\",\n      \"logicBind\": \"a\",\n      \"operator\": \">=\",\n      \"triggerMethod\": \"0\",\n      \"type\": 1,\n      \"value\": \"500\",\n      \"timeZone\": \"US/Eastern\"\n    }\n  ],\n  \"email\": \"jonh.smith@example.com\",\n  \"expireTime\": \"20231231-12:00:00\",\n  \"iTWSOrdersOnly\": 0,\n  \"sendMessage\": 1,\n  \"showPopup\": 1\n}")
-  .asString();
 ```
 
 ```php alert-creation-request
@@ -556,6 +589,45 @@ dataTask.resume()
 
 **SDK Code**
 
+```python alert-modification-request
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/U1234567/alert"
+
+payload = {
+    "alertName": "AAPL_Price",
+    "alertMessage": "AAPL Price Drop! Modified message",
+    "alertRepeatable": 0,
+    "outsideRth": 0,
+    "tif": "GTC",
+    "conditions": [
+        {
+            "conidex": "265598@NYSE",
+            "logicBind": "a",
+            "operator": ">=",
+            "triggerMethod": "0",
+            "type": 1,
+            "value": "500",
+            "timeZone": "US/Eastern"
+        }
+    ],
+    "orderId": 1408549184,
+    "email": "jonh.smith@example.com",
+    "expireTime": "20231231-12:00:00",
+    "iTWSOrdersOnly": 0,
+    "sendMessage": 1,
+    "showPopup": 1
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go alert-modification-request
 package main
 
@@ -604,17 +676,6 @@ request.body = "{\n  \"alertName\": \"AAPL_Price\",\n  \"alertMessage\": \"AAPL 
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java alert-modification-request
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/U1234567/alert")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"alertName\": \"AAPL_Price\",\n  \"alertMessage\": \"AAPL Price Drop! Modified message\",\n  \"alertRepeatable\": 0,\n  \"outsideRth\": 0,\n  \"tif\": \"GTC\",\n  \"conditions\": [\n    {\n      \"conidex\": \"265598@NYSE\",\n      \"logicBind\": \"a\",\n      \"operator\": \">=\",\n      \"triggerMethod\": \"0\",\n      \"type\": 1,\n      \"value\": \"500\",\n      \"timeZone\": \"US/Eastern\"\n    }\n  ],\n  \"orderId\": 1408549184,\n  \"email\": \"jonh.smith@example.com\",\n  \"expireTime\": \"20231231-12:00:00\",\n  \"iTWSOrdersOnly\": 0,\n  \"sendMessage\": 1,\n  \"showPopup\": 1\n}")
-  .asString();
 ```
 
 ```php alert-modification-request

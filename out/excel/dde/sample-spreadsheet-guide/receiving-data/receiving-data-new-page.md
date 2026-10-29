@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/dde/sample-spreadsheet-guide/receiving-data/receiving-data-new-page)
+[home](../../../../index.md) | [excel](../../../index.md) | [source](https://www.interactivebrokers.com/docs/excel/dde/sample-spreadsheet-guide/receiving-data/receiving-data-new-page)
 
 # Receiving Data: New Page
 

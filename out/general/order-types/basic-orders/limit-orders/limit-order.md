@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/limit-orders/limit-order)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/limit-orders/limit-order)
 
 # Limit Order
 
@@ -9,6 +9,16 @@ Products: BOND, CASH, CFD, CMDTY, FUT, FOP, OPT, STK, WAR
 More on [Limit Orders](https://www.interactivebrokers.com/en/index.php?f=593)
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=lmt)
+
+#### Python
+
+```python
+order = Order()
+order.action = action
+order.orderType = "LMT"
+order.totalQuantity = quantity
+order.lmtPrice = limitPrice
+```
 
 #### Abap
 
@@ -28,15 +38,4 @@ curl --insecure https://localhost:5000/v1/api/iserver/account/{{accountId}}/orde
     }
   ]
 }
-```
-
-#### Java
-
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("LMT");
-order.totalQuantity(quantity);
-order.lmtPrice(limitPrice);
-order.tif(TimeInForce.DAY);
 ```

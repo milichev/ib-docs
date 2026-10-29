@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-external-cash-transfers)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-external-cash-transfers)
 
 # Transfer Cash Externally
 
@@ -314,6 +314,37 @@ Provider-specific data returned once the Plaid payment has been initiated.
 
 **SDK Code**
 
+```python Deposit Funds
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers"
+
+payload = {
+    "instructionType": "DEPOSIT",
+    "instruction": {
+        "accountId": "U46377",
+        "amount": 100,
+        "bankInstructionMethod": "WIRE",
+        "bankInstructionName": "Instruction",
+        "clientInstructionId": 7013045,
+        "currency": "USD",
+        "fromAccountNumber": "U46377",
+        "identifier": "indentifier",
+        "senderInstitutionName": "Senders Institution name",
+        "sendingInstitution": "Sending Institution name",
+        "specialInstruction": "U46377"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Deposit Funds
 package main
 
@@ -362,17 +393,6 @@ request.body = "{\n  \"instructionType\": \"DEPOSIT\",\n  \"instruction\": {\n  
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Deposit Funds
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"DEPOSIT\",\n  \"instruction\": {\n    \"accountId\": \"U46377\",\n    \"amount\": 100,\n    \"bankInstructionMethod\": \"WIRE\",\n    \"bankInstructionName\": \"Instruction\",\n    \"clientInstructionId\": 7013045,\n    \"currency\": \"USD\",\n    \"fromAccountNumber\": \"U46377\",\n    \"identifier\": \"indentifier\",\n    \"senderInstitutionName\": \"Senders Institution name\",\n    \"sendingInstitution\": \"Sending Institution name\",\n    \"specialInstruction\": \"U46377\"\n  }\n}")
-  .asString();
 ```
 
 ```php Deposit Funds
@@ -508,6 +528,40 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Deposit Funds - Open Banking
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers"
+
+payload = {
+    "instructionType": "DEPOSIT",
+    "instruction": {
+        "accountId": "U46377",
+        "amount": 100,
+        "bankInstructionMethod": "OPEN_BANKING",
+        "bankInstructionName": "Starling(1111)",
+        "clientInstructionId": 7013051,
+        "currency": "EUR",
+        "openBanking": {
+            "plaidOptions": {
+                "completionRedirectUri": "wonderwallet://hosted-link-complete",
+                "isMobileApp": True,
+                "linkDisplayName": "WonderWallet"
+            },
+            "serviceProvider": "PLAID"
+        }
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Deposit Funds - Open Banking
 package main
 
@@ -556,17 +610,6 @@ request.body = "{\n  \"instructionType\": \"DEPOSIT\",\n  \"instruction\": {\n  
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Deposit Funds - Open Banking
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"DEPOSIT\",\n  \"instruction\": {\n    \"accountId\": \"U46377\",\n    \"amount\": 100,\n    \"bankInstructionMethod\": \"OPEN_BANKING\",\n    \"bankInstructionName\": \"Starling(1111)\",\n    \"clientInstructionId\": 7013051,\n    \"currency\": \"EUR\",\n    \"openBanking\": {\n      \"plaidOptions\": {\n        \"completionRedirectUri\": \"wonderwallet://hosted-link-complete\",\n        \"isMobileApp\": true,\n        \"linkDisplayName\": \"WonderWallet\"\n      },\n      \"serviceProvider\": \"PLAID\"\n    }\n  }\n}")
-  .asString();
 ```
 
 ```php Deposit Funds - Open Banking
@@ -690,6 +733,33 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Withdraw Funds
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers"
+
+payload = {
+    "instructionType": "WITHDRAWAL",
+    "instruction": {
+        "accountId": "U46377",
+        "amount": 123.45,
+        "bankInstructionMethod": "WIRE",
+        "bankInstructionName": "Test Withdrawal",
+        "clientInstructionId": 7013048,
+        "currency": "GBP",
+        "dateTimeToOccur": "2023-11-20T09:12:13Z"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Withdraw Funds
 package main
 
@@ -738,17 +808,6 @@ request.body = "{\n  \"instructionType\": \"WITHDRAWAL\",\n  \"instruction\": {\
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Withdraw Funds
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"WITHDRAWAL\",\n  \"instruction\": {\n    \"accountId\": \"U46377\",\n    \"amount\": 123.45,\n    \"bankInstructionMethod\": \"WIRE\",\n    \"bankInstructionName\": \"Test Withdrawal\",\n    \"clientInstructionId\": 7013048,\n    \"currency\": \"GBP\",\n    \"dateTimeToOccur\": \"2023-11-20T09:12:13Z\"\n  }\n}")
-  .asString();
 ```
 
 ```php Withdraw Funds
@@ -866,6 +925,42 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Deposit Funds - IRA
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers"
+
+payload = {
+    "instructionType": "DEPOSIT",
+    "instruction": {
+        "accountId": "U399192",
+        "amount": 1,
+        "bankInstructionMethod": "WIRE",
+        "bankInstructionName": "Instruction",
+        "clientInstructionId": 7013046,
+        "currency": "USD",
+        "fromAccountNumber": "U399192",
+        "identifier": "indentifier",
+        "iraDepositDetail": {
+            "fromIraType": "TRADITIONAL",
+            "iraContributionType": "ROLLOVER",
+            "iraTaxYearType": "CURRENT"
+        },
+        "senderInstitutionName": "Senders Institution name",
+        "sendingInstitution": "Sending Institution name",
+        "specialInstruction": "U399192"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Deposit Funds - IRA
 package main
 
@@ -914,17 +1009,6 @@ request.body = "{\n  \"instructionType\": \"DEPOSIT\",\n  \"instruction\": {\n  
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Deposit Funds - IRA
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"DEPOSIT\",\n  \"instruction\": {\n    \"accountId\": \"U399192\",\n    \"amount\": 1,\n    \"bankInstructionMethod\": \"WIRE\",\n    \"bankInstructionName\": \"Instruction\",\n    \"clientInstructionId\": 7013046,\n    \"currency\": \"USD\",\n    \"fromAccountNumber\": \"U399192\",\n    \"identifier\": \"indentifier\",\n    \"iraDepositDetail\": {\n      \"fromIraType\": \"TRADITIONAL\",\n      \"iraContributionType\": \"ROLLOVER\",\n      \"iraTaxYearType\": \"CURRENT\"\n    },\n    \"senderInstitutionName\": \"Senders Institution name\",\n    \"sendingInstitution\": \"Sending Institution name\",\n    \"specialInstruction\": \"U399192\"\n  }\n}")
-  .asString();
 ```
 
 ```php Deposit Funds - IRA
@@ -1059,6 +1143,41 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Deposit Funds - Recurring
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers"
+
+payload = {
+    "instructionType": "DEPOSIT",
+    "instruction": {
+        "accountId": "U46377",
+        "amount": 100,
+        "bankInstructionMethod": "WIRE",
+        "bankInstructionName": "Instruction",
+        "clientInstructionId": 7013047,
+        "currency": "USD",
+        "identifier": "indentifier",
+        "recurringInstructionDetail": {
+            "frequency": "MONTHLY",
+            "instructionName": "Arkansas-Test-Instr",
+            "startDate": "2023-10-16"
+        },
+        "senderInstitutionName": "Senders Institution name",
+        "sendingInstitution": "Sending Institution name",
+        "specialInstruction": "U46377"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Deposit Funds - Recurring
 package main
 
@@ -1107,17 +1226,6 @@ request.body = "{\n  \"instructionType\": \"DEPOSIT\",\n  \"instruction\": {\n  
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Deposit Funds - Recurring
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"DEPOSIT\",\n  \"instruction\": {\n    \"accountId\": \"U46377\",\n    \"amount\": 100,\n    \"bankInstructionMethod\": \"WIRE\",\n    \"bankInstructionName\": \"Instruction\",\n    \"clientInstructionId\": 7013047,\n    \"currency\": \"USD\",\n    \"identifier\": \"indentifier\",\n    \"recurringInstructionDetail\": {\n      \"frequency\": \"MONTHLY\",\n      \"instructionName\": \"Arkansas-Test-Instr\",\n      \"startDate\": \"2023-10-16\"\n    },\n    \"senderInstitutionName\": \"Senders Institution name\",\n    \"sendingInstitution\": \"Sending Institution name\",\n    \"specialInstruction\": \"U46377\"\n  }\n}")
-  .asString();
 ```
 
 ```php Deposit Funds - Recurring
@@ -1248,6 +1356,39 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Withdraw Funds - IRA
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers"
+
+payload = {
+    "instructionType": "WITHDRAWAL",
+    "instruction": {
+        "accountId": "U399192",
+        "amount": 123.45,
+        "bankInstructionMethod": "WIRE",
+        "bankInstructionName": "Test Withdrawal",
+        "clientInstructionId": 7013049,
+        "currency": "GBP",
+        "dateTimeToOccur": "2023-11-20T09:12:13Z",
+        "iraWithdrawalDetail": {
+            "fedIncomeTaxPercentage": 10,
+            "iraWithholdType": "NORMAL",
+            "stateCd": "TE",
+            "stateIncomeTaxPercentage": 12
+        }
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Withdraw Funds - IRA
 package main
 
@@ -1296,17 +1437,6 @@ request.body = "{\n  \"instructionType\": \"WITHDRAWAL\",\n  \"instruction\": {\
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Withdraw Funds - IRA
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"WITHDRAWAL\",\n  \"instruction\": {\n    \"accountId\": \"U399192\",\n    \"amount\": 123.45,\n    \"bankInstructionMethod\": \"WIRE\",\n    \"bankInstructionName\": \"Test Withdrawal\",\n    \"clientInstructionId\": 7013049,\n    \"currency\": \"GBP\",\n    \"dateTimeToOccur\": \"2023-11-20T09:12:13Z\",\n    \"iraWithdrawalDetail\": {\n      \"fedIncomeTaxPercentage\": 10,\n      \"iraWithholdType\": \"NORMAL\",\n      \"stateCd\": \"TE\",\n      \"stateIncomeTaxPercentage\": 12\n    }\n  }\n}")
-  .asString();
 ```
 
 ```php Withdraw Funds - IRA
@@ -1438,6 +1568,44 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Withdraw Funds - Recurring
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers"
+
+payload = {
+    "instructionType": "WITHDRAWAL",
+    "instruction": {
+        "accountId": "U46377",
+        "amount": 123.45,
+        "bankInstructionMethod": "WIRE",
+        "bankInstructionName": "Test Withdrawal",
+        "clientInstructionId": 7013050,
+        "currency": "GBP",
+        "dateTimeToOccur": "2023-11-20T09:12:13Z",
+        "iraWithdrawalDetail": {
+            "fedIncomeTaxPercentage": 10,
+            "iraWithholdType": "NORMAL",
+            "stateCd": "TE",
+            "stateIncomeTaxPercentage": 12
+        },
+        "recurringInstructionDetail": {
+            "frequency": "MONTHLY",
+            "instructionName": "Arkansas-Test-Instr",
+            "startDate": "2023-10-16"
+        }
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Withdraw Funds - Recurring
 package main
 
@@ -1486,17 +1654,6 @@ request.body = "{\n  \"instructionType\": \"WITHDRAWAL\",\n  \"instruction\": {\
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Withdraw Funds - Recurring
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"WITHDRAWAL\",\n  \"instruction\": {\n    \"accountId\": \"U46377\",\n    \"amount\": 123.45,\n    \"bankInstructionMethod\": \"WIRE\",\n    \"bankInstructionName\": \"Test Withdrawal\",\n    \"clientInstructionId\": 7013050,\n    \"currency\": \"GBP\",\n    \"dateTimeToOccur\": \"2023-11-20T09:12:13Z\",\n    \"iraWithdrawalDetail\": {\n      \"fedIncomeTaxPercentage\": 10,\n      \"iraWithholdType\": \"NORMAL\",\n      \"stateCd\": \"TE\",\n      \"stateIncomeTaxPercentage\": 12\n    },\n    \"recurringInstructionDetail\": {\n      \"frequency\": \"MONTHLY\",\n      \"instructionName\": \"Arkansas-Test-Instr\",\n      \"startDate\": \"2023-10-16\"\n    }\n  }\n}")
-  .asString();
 ```
 
 ```php Withdraw Funds - Recurring

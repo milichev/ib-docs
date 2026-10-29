@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-alerts/get-mta-details)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-alerts/get-mta-details)
 
 # Details Of A Mobile Trading Alert
 
@@ -107,6 +107,18 @@ The alert description for the unique MTA alert on the account.
 
 **SDK Code**
 
+```python mta-details
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/mta"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go mta-details
 package main
 
@@ -149,15 +161,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java mta-details
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/account/mta")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php mta-details

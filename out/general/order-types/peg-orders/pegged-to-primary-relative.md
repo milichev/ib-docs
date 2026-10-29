@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/peg-orders/pegged-to-primary-relative)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/peg-orders/pegged-to-primary-relative)
 
 # Pegged To Primary / Relative
 
@@ -9,6 +9,17 @@ Products: CFD, STK, OPT, FUT
 More on [Pegged To Primary Orders](https://www.interactivebrokers.com/en/index.php?f=613)
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=rel)
+
+#### Python
+
+```python
+order = Order()
+order.action = action
+order.orderType = "REL"
+order.totalQuantity = quantity
+order.lmtPrice = priceCap
+order.auxPrice = offsetAmount
+```
 
 #### Abap
 
@@ -28,15 +39,4 @@ curl {baseURL}/iserver/account/{accountId}/orders \
     }
   ]
 }
-```
-
-#### Java
-
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("REL");
-order.totalQuantity(quantity);
-order.lmtPrice(priceCap);
-order.auxPrice(offsetAmount);
 ```

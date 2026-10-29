@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-instructions-query)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-instructions-query)
 
 # Get Transaction History
 
@@ -242,6 +242,32 @@ Provider-specific data returned once the Plaid payment has been initiated.
 
 **SDK Code**
 
+```python Query Recent Instructions
+import requests
+
+url = "https://localhost:5000/gw/api/v1/instructions/query"
+
+payload = {
+    "instructionType": "QUERY_RECENT_INSTRUCTIONS",
+    "instruction": {
+        "clientInstructionId": 7009001,
+        "accountId": "U139838",
+        "transactionHistory": {
+            "daysToGoBack": 3,
+            "transactionType": "ACH_INSTRUCTION"
+        }
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Query Recent Instructions
 package main
 
@@ -290,17 +316,6 @@ request.body = "{\n  \"instructionType\": \"QUERY_RECENT_INSTRUCTIONS\",\n  \"in
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query Recent Instructions
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/instructions/query")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"QUERY_RECENT_INSTRUCTIONS\",\n  \"instruction\": {\n    \"clientInstructionId\": 7009001,\n    \"accountId\": \"U139838\",\n    \"transactionHistory\": {\n      \"daysToGoBack\": 3,\n      \"transactionType\": \"ACH_INSTRUCTION\"\n    }\n  }\n}")
-  .asString();
 ```
 
 ```php Query Recent Instructions
@@ -408,6 +423,29 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Query Recent Instructions - Transaction Type not specified
+import requests
+
+url = "https://localhost:5000/gw/api/v1/instructions/query"
+
+payload = {
+    "instructionType": "QUERY_RECENT_INSTRUCTIONS",
+    "instruction": {
+        "clientInstructionId": 7009001,
+        "accountId": "U139838",
+        "transactionHistory": { "daysToGoBack": 3 }
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Query Recent Instructions - Transaction Type not specified
 package main
 
@@ -456,17 +494,6 @@ request.body = "{\n  \"instructionType\": \"QUERY_RECENT_INSTRUCTIONS\",\n  \"in
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Query Recent Instructions - Transaction Type not specified
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/instructions/query")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"QUERY_RECENT_INSTRUCTIONS\",\n  \"instruction\": {\n    \"clientInstructionId\": 7009001,\n    \"accountId\": \"U139838\",\n    \"transactionHistory\": {\n      \"daysToGoBack\": 3\n    }\n  }\n}")
-  .asString();
 ```
 
 ```php Query Recent Instructions - Transaction Type not specified

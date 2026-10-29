@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/stop-limit)
+[home](../../index.md) | [general](../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/stop-limit)
 
 # Stop Limit
 
@@ -9,6 +9,17 @@ Products: CFD, CASH, FUT, FOP, OPT, STK, WAR
 More on [Stop Limit Orders](https://www.interactivebrokers.com/en/index.php?f=608)
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=stplmt)
+
+#### Python
+
+```python
+order = Order()
+order.action = action
+order.orderType = "STP LMT"
+order.totalQuantity = quantity
+order.lmtPrice = limitPrice
+order.auxPrice = stopPrice
+```
 
 #### Abap
 
@@ -32,14 +43,3 @@ curl --insecure https://localhost:5000/v1/api/iserver/account/{{accountId}}/orde
 ```
 
 Price is the Limit price while auxPrice represents the stop price trigger.
-
-#### Java
-
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("STP LMT");
-order.lmtPrice(limitPrice);
-order.auxPrice(stopPrice);
-order.totalQuantity(quantity);
-```

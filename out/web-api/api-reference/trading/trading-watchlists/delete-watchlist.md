@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-watchlists/delete-watchlist)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-watchlists/delete-watchlist)
 
 # Delete A Saved Watchlist
 
@@ -88,6 +88,20 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python watchlistDeleteSuccessExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/watchlist"
+
+querystring = {"id":"1234"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.delete(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go watchlistDeleteSuccessExample
 package main
 
@@ -130,15 +144,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java watchlistDeleteSuccessExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.delete("https://localhost:5000/v1/api/iserver/watchlist?id=1234")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php watchlistDeleteSuccessExample

@@ -1,6 +1,6 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/tws-ui-display-groups/introduction)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/tws-ui-display-groups/introduction)
 
-# Introduction
+# Understanding Display Groups
 
 Display Groups function allows API clients to integrate with [TWS Color Grouping Windows](https://www.ibkrguides.com/tws/usersguidebook/specializedorderentry/use_windows_grouping_to_link_blotter.htm).
 

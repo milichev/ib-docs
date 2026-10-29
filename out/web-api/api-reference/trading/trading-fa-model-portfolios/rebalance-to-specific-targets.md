@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-model-portfolios/rebalance-to-specific-targets)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-model-portfolios/rebalance-to-specific-targets)
 
 # Rebalance To Specific Targets
 
@@ -181,6 +181,26 @@ Individual allocation instruction produced by the rebalancer.
 
 **SDK Code**
 
+```python success
+import requests
+
+url = "https://localhost:5000/v1/api/fa/model/rebalance/to-specific-targets"
+
+payload = {
+    "reqID": 398899,
+    "model": "MODEL-API-DEMO",
+    "positionTargets": [{}]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go success
 package main
 
@@ -229,17 +249,6 @@ request.body = "{\n  \"reqID\": 398899,\n  \"model\": \"MODEL-API-DEMO\",\n  \"p
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java success
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/fa/model/rebalance/to-specific-targets")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"reqID\": 398899,\n  \"model\": \"MODEL-API-DEMO\",\n  \"positionTargets\": [\n    {}\n  ]\n}")
-  .asString();
 ```
 
 ```php success

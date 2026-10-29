@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/notes-limitations/order-efficiency-ratio)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/notes-limitations/order-efficiency-ratio)
 
 # Order Efficiency Ratio
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-scanner/get-scanner-results)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-scanner/get-scanner-results)
 
 # Run An IServer Market Scanner
 
@@ -140,6 +140,18 @@ Value corresponding to the input for "code".
 
 **SDK Code**
 
+```python top_trade_count
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/scanner/run"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go top_trade_count
 package main
 
@@ -182,15 +194,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java top_trade_count
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/scanner/run")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php top_trade_count
@@ -287,6 +290,32 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Trading Scanner_getScannerResults_example
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/scanner/run"
+
+payload = {
+    "instrument": "STK",
+    "type": "TOP_TRADE_COUNT",
+    "location": "STK.US.MAJOR",
+    "filter": [
+        {
+            "code": "priceAbove",
+            "value": 5
+        }
+    ]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Trading Scanner_getScannerResults_example
 package main
 
@@ -335,17 +364,6 @@ request.body = "{\n  \"instrument\": \"STK\",\n  \"type\": \"TOP_TRADE_COUNT\",\
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Trading Scanner_getScannerResults_example
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/scanner/run")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instrument\": \"STK\",\n  \"type\": \"TOP_TRADE_COUNT\",\n  \"location\": \"STK.US.MAJOR\",\n  \"filter\": [\n    {\n      \"code\": \"priceAbove\",\n      \"value\": 5\n    }\n  ]\n}")
-  .asString();
 ```
 
 ```php Trading Scanner_getScannerResults_example

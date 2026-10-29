@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fy-is-and-notifications/get-fyi-settings)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fy-is-and-notifications/get-fyi-settings)
 
 # Get Notification Settings
 
@@ -84,6 +84,18 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python settings
+import requests
+
+url = "https://localhost:5000/v1/api/fyi/settings"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go settings
 package main
 
@@ -126,15 +138,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java settings
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/fyi/settings")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php settings

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/auction-orders/auction-relative)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/auction-orders/auction-relative)
 
 # Auction Relative
 
@@ -8,14 +8,15 @@ Products: OPT (BOX only)
 
 More on [price improvement orders](https://www.interactivebrokers.com/en/index.php?f=614)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("REL");
-order.totalQuantity(quantity);
-order.auxPrice(offset);
+```python
+contract.exchange = "BOX"
+order = Order()
+order.action = action
+order.orderType = "REL"
+order.totalQuantity = quantity
+order.auxPrice = offset
 ```
 
 #### Generic

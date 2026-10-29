@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/fox-river-algos/fox-river-pyramid)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/fox-river-algos/fox-river-pyramid)
 
 # Fox River Pyramid
 

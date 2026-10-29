@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/discretionary)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/discretionary)
 
 # Discretionary
 
@@ -10,13 +10,13 @@ More on [Discretionary Orders](https://www.interactivebrokers.com/en/index.php?f
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=dis)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("LMT");
-order.totalQuantity(quantity);
-order.lmtPrice(price);
-order.discretionaryAmt(discretionaryAmt);
+```python
+order = Order()
+order.action = action
+order.orderType = "LMT"
+order.totalQuantity = quantity
+order.lmtPrice = price
+order.discretionaryAmt = discretionaryAmount
 ```

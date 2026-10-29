@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-allocation-management/modify-allocation-group)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-allocation-management/modify-allocation-group)
 
 # Modify Allocation Group
 
@@ -103,6 +103,36 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python Shares
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/allocation/group"
+
+payload = {
+    "name": "Group_1_Shares",
+    "accounts": [
+        {
+            "name": "U456789",
+            "amount": 4
+        },
+        {
+            "name": "U123456",
+            "amount": 1
+        }
+    ],
+    "default_method": "S",
+    "prev_name": "Group_0_Shares"
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.put(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Shares
 package main
 
@@ -151,17 +181,6 @@ request.body = "{\n  \"name\": \"Group_1_Shares\",\n  \"accounts\": [\n    {\n  
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Shares
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.put("https://localhost:5000/v1/api/iserver/account/allocation/group")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"name\": \"Group_1_Shares\",\n  \"accounts\": [\n    {\n      \"name\": \"U456789\",\n      \"amount\": 4\n    },\n    {\n      \"name\": \"U123456\",\n      \"amount\": 1\n    }\n  ],\n  \"default_method\": \"S\",\n  \"prev_name\": \"Group_0_Shares\"\n}")
-  .asString();
 ```
 
 ```php Shares
@@ -270,6 +289,27 @@ dataTask.resume()
 
 **SDK Code**
 
+```python NetLiq
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/allocation/group"
+
+payload = {
+    "name": "Group_1_NetLiq",
+    "accounts": [{ "name": "U456789" }, { "name": "U123456" }],
+    "default_method": "N",
+    "prev_name": "Group_0_NetLiq"
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.put(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go NetLiq
 package main
 
@@ -318,17 +358,6 @@ request.body = "{\n  \"name\": \"Group_1_NetLiq\",\n  \"accounts\": [\n    {\n  
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java NetLiq
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.put("https://localhost:5000/v1/api/iserver/account/allocation/group")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"name\": \"Group_1_NetLiq\",\n  \"accounts\": [\n    {\n      \"name\": \"U456789\"\n    },\n    {\n      \"name\": \"U123456\"\n    }\n  ],\n  \"default_method\": \"N\",\n  \"prev_name\": \"Group_0_NetLiq\"\n}")
-  .asString();
 ```
 
 ```php NetLiq
@@ -426,6 +455,27 @@ dataTask.resume()
 
 **SDK Code**
 
+```python EqualQty
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/allocation/group"
+
+payload = {
+    "name": "Group_1_Equal",
+    "accounts": [{ "name": "U456789" }, { "name": "U123456" }],
+    "default_method": "E",
+    "prev_name": "Group_0_Equal"
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.put(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go EqualQty
 package main
 
@@ -474,17 +524,6 @@ request.body = "{\n  \"name\": \"Group_1_Equal\",\n  \"accounts\": [\n    {\n   
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java EqualQty
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.put("https://localhost:5000/v1/api/iserver/account/allocation/group")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"name\": \"Group_1_Equal\",\n  \"accounts\": [\n    {\n      \"name\": \"U456789\"\n    },\n    {\n      \"name\": \"U123456\"\n    }\n  ],\n  \"default_method\": \"E\",\n  \"prev_name\": \"Group_0_Equal\"\n}")
-  .asString();
 ```
 
 ```php EqualQty

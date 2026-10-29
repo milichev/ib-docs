@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-reports/create-trade-confirmations)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-reports/create-trade-confirmations)
 
 # Fetch Trade Confirmations In Supported Formats Based On Request Parameters.
 
@@ -133,6 +133,27 @@ Returns a Problem detail instance representing an internal server error.
 
 **SDK Code**
 
+```python
+import requests
+
+url = "https://localhost:5000/gw/api/v1/trade-confirmations"
+
+payload = {
+    "accountId": "UXXXX",
+    "startDate": "20230102",
+    "endDate": "20230115"
+}
+headers = {
+    "authorization": "Bearer eyJ0eXAiOiJKV1...",
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go
 package main
 
@@ -183,18 +204,6 @@ request.body = "{\n  \"accountId\": \"UXXXX\",\n  \"startDate\": \"20230102\",\n
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/trade-confirmations")
-  .header("authorization", "Bearer eyJ0eXAiOiJKV1...")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"accountId\": \"UXXXX\",\n  \"startDate\": \"20230102\",\n  \"endDate\": \"20230115\"\n}")
-  .asString();
 ```
 
 ```php

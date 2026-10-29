@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api/web-api/obtaining-market-data)
+[home](../../../index.md) | [web-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api/web-api/obtaining-market-data)
 
 # Obtaining Market Data
 
@@ -14,40 +14,26 @@ See [this](../../trading/market-data/top-of-book-snapshots.md) for more info on 
 
 **`Python`**
 
-**`Java`**
+```python title="Python"
+import requests
 
-```java title="Java"
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+conids = "265598,8314"
+fields = "31,7059,84,88,86,85"
 
-public class MarketDataSnapshot {
+url = "https://localhost:5000/v1/api/iserver/marketdata/snapshot"
 
-    public static void main(String[] args) throws Exception {
-        String conids = "265598,8314";
-        String fields = "31,7059,84,88,86,85";
-
-        URL url = new URL("https://localhost:5000/v1/api/iserver/marketdata/snapshot?conids="
-                + conids + "&fields=" + fields);
-
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-
-        int status = conn.getResponseCode();
-        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        String inputLine;
-        StringBuilder response = new StringBuilder();
-        while ((inputLine = in.readLine()) != null) {
-            response.append(inputLine);
-        }
-        in.close();
-
-        System.out.println(status);
-        System.out.println(response.toString());
-    }
+params = {
+    "conids": conids,
+    "fields": fields
 }
+
+response = requests.get(url, params=params)
+
+print(response.status_code)
+print(response.json())
 ```
+
+**`Java`**
 
 **`JavaScript`**
 

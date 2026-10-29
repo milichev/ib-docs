@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/contracts/commodities)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/contracts/commodities)
 
 # Commodities
 
@@ -10,12 +10,12 @@
 
 **Currency:** String. Specify the base currency the commodity is traded with.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("XAUUSD");
-contract.secType("CMDTY");
-contract.exchange("SMART");
-contract.currency("USD");
+```python
+contract = Contract()
+contract.symbol = "XAUUSD"
+contract.secType = "CMDTY"
+contract.exchange = "SMART"
+contract.currency = "USD"
 ```

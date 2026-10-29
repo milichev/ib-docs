@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-watchlists/get-all-watchlists)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-watchlists/get-all-watchlists)
 
 # Return All Saved Watchlists
 
@@ -110,6 +110,18 @@ Details of a single watchlist.
 
 **SDK Code**
 
+```python watchlistDataExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/watchlists"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go watchlistDataExample
 package main
 
@@ -152,15 +164,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java watchlistDataExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/watchlists")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php watchlistDataExample

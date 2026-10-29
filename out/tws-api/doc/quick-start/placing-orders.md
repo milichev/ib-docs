@@ -1,18 +1,18 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/quick-start/placing-orders)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/quick-start/placing-orders)
 
 # Placing Orders
 
-Placing orders first requires a [`contract`](/docs/tws-api/doc/contracts-financial-instruments) to be defined.
+Placing orders first requires a [`contract`](/docs/tws-api/doc/contracts/details) to be defined.
 
-In the code below, the [`reqContractDetails()`](../contracts-financial-instruments/contract-details/request-contract-details.md) function initiates the sequence of function calls that place an order. Inside the defined [`contractDetails()`](../contracts-financial-instruments/contract-details/receive-contract-details.md) callback function below, the [`placeOrder()`](../orders/place-order/introduction.md#eclientplaceorder-) function is called, which places the order.
+In the code below, the [`reqContractDetails()`](/docs/tws-api/doc/contracts/details) function initiates the sequence of function calls that place an order. Inside the defined [`contractDetails()`](/docs/tws-api/doc/contracts/details#receive-contract-details) callback function below, the [`placeOrder()`](/docs/tws-api/doc/orders/place-order#place-order) function is called, which places the order.
 
-Data from the [`placeOrder()`](../orders/place-order/introduction.md#eclientplaceorder-) function is returned via the [`openOrder()`](../order-management/open-orders.md#ewrapperopenorder-) and [`orderStatus()`](../order-management/order-status/introduction.md) callback functions.
+Data from the [`placeOrder()`](/docs/tws-api/doc/orders/place-order#place-order) function is returned via the [`openOrder()`](/docs/tws-api/doc/orders/place-order#receive-open-orders) and [`orderStatus()`](/docs/tws-api/doc/order-management/order-status) callback functions.
 
 > **Note**
 >
 > Comprehensive example code for C++, C#, Java, Python, and Visual Basic can be found in the /samples directory of the downloaded TWS API file.
 
-The requested contract object is returned via the [`contractDetails()`](../contracts-financial-instruments/contract-details/receive-contract-details.md) callback function.
+The requested contract object is returned via the [`contractDetails()`](/docs/tws-api/doc/contracts/details) callback function.
 
 ```python title={"Python"}
 import time

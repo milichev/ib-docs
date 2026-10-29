@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-session/get-brokerage-status)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-session/get-brokerage-status)
 
 # Brokerage Session Status
 
@@ -78,6 +78,18 @@ Missing, invalid, or unparseable Authorization token.
 
 **SDK Code**
 
+```python Trading Session_getBrokerageStatus_example
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/auth/status"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Trading Session_getBrokerageStatus_example
 package main
 
@@ -120,15 +132,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Trading Session_getBrokerageStatus_example
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/auth/status")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Trading Session_getBrokerageStatus_example

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api/web-api/initializing-brokerage-session)
+[home](../../../index.md) | [web-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api/web-api/initializing-brokerage-session)
 
 # Initializing Brokerage Session
 
@@ -6,33 +6,19 @@ A brokerage session is required for endpoints prefixed with the `/iserver` path.
 
 **`Python`**
 
+```python title="Python"
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/auth/ssodh/init"
+payload = {}
+headers = {"Content-Type": "application/json"}
+
+response = requests.post(url, json=payload, headers=headers)
+```
+
 **`JavaScript`**
 
 **`Java`**
-
-```java title="Java"
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-
-public class Main {
-    public static void main(String[] args) throws Exception {
-        HttpClient client = HttpClient.newHttpClient();
-
-        String url = "https://localhost:5000/v1/api/iserver/auth/ssodh/init";
-
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString("{}"))
-                .build();
-
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
-    }
-}
-```
 
 **`Go`**
 

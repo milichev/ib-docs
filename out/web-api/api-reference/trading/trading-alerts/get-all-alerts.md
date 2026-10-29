@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-alerts/get-all-alerts)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-alerts/get-all-alerts)
 
 # List All Alerts
 
@@ -77,6 +77,18 @@ An array containing all alerts as separate objects.
 
 **SDK Code**
 
+```python not-found
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/U1234567/alerts"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go not-found
 package main
 
@@ -119,15 +131,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java not-found
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/account/U1234567/alerts")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php not-found
@@ -189,6 +192,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python found-alerts
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/U1234567/alerts"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go found-alerts
 package main
 
@@ -231,15 +246,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java found-alerts
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/account/U1234567/alerts")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php found-alerts

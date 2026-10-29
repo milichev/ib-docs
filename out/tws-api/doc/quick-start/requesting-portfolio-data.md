@@ -1,10 +1,10 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/quick-start/requesting-portfolio-data)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/quick-start/requesting-portfolio-data)
 
 # Requesting Portfolio Data
 
-Requesting portfolio data requires the use of the [`reqAccountUpdates()`](../account-portfolio-data/account-updates/requesting-account-updates.md) function which returns data via the [`updateAccountValue()`](../account-portfolio-data/account-updates/receiving-account-updates.md#ewrapperupdateaccountvalue-), [`updatePortfolio()`](../account-portfolio-data/account-updates/receiving-account-updates.md#ewrapperupdateportfolio-), and the [`updateAccountTime()`](../account-portfolio-data/account-updates/receiving-account-updates.md#ewrapperupdateaccounttime-) callback functions.
+Requesting portfolio data requires the use of the [`reqAccountUpdates()`](/docs/tws-api/doc/accounts/updates) function which returns data via the [`updateAccountValue()`](/docs/tws-api/doc/accounts/updates#ewrapperupdateaccountvalue-), [`updatePortfolio()`](/docs/tws-api/doc/accounts/updates#ewrapperupdateportfolio-), and the [`updateAccountTime()`](/docs/tws-api/doc/accounts/updates#ewrapperupdateaccounttime-) callback functions.
 
-The [`accountDownloadEnd()`](../account-portfolio-data/account-updates/receiving-account-updates.md#ewrapperaccountdownloadend-) callback function runs when all account information has been returned.
+The [`accountDownloadEnd()`](/docs/tws-api/doc/accounts/updates#ewrapperaccountdownloadend-) callback function runs when all account information has been returned.
 
 > **Note**
 >

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-utilities/list-participating-banks)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-utilities/list-participating-banks)
 
 # Get Participating Banks
 
@@ -98,6 +98,20 @@ Unable to process request due to an Internal Error. Please try again later.
 
 **SDK Code**
 
+```python Participating Banks
+import requests
+
+url = "https://localhost:5000/gw/api/v1/participating-banks"
+
+querystring = {"type":"eDDA"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Participating Banks
 package main
 
@@ -140,15 +154,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Participating Banks
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/participating-banks?type=eDDA")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Participating Banks

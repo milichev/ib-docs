@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/stop-with-protection)
+[home](../../index.md) | [general](../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/stop-with-protection)
 
 # Stop with Protection
 
@@ -10,12 +10,12 @@ More on [Stop with Protection](https://www.interactivebrokers.com/en/index.php?f
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=stpprot)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("STP PRT");
-order.auxPrice(stopPrice);
-order.totalQuantity(quantity);
+```python
+order = Order()
+order.totalQuantity = quantity
+order.action = action
+order.orderType = "STP PRT"
+order.auxPrice = stopPrice
 ```

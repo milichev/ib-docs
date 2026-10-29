@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/complex-orders/adjustable-stops/adjusted-to-stop)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/complex-orders/adjustable-stops/adjusted-to-stop)
 
 # Adjusted to Stop
 
@@ -9,15 +9,15 @@ This can be "STP", "STP LMT", "TRAIL", "TRAILING LIMIT"
 
 **AdjustedStopPrice:** The stop order's trigger price after being adjusted.
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.orderType("TRAIL");
-order.trailStopPrice(100);
-order.trailingPercent(2);
+```python
+order = Order()
+order.orderType = "TRAIL"
+order.trailStopPrice = 100
+order.auxPrice = 3
 
-order.triggerPrice(triggerPrice);
-order.adjustedOrderType(OrderType.STP);
-order.adjustedStopPrice(adjustStopPrice);
+order.triggerPrice = triggerPrice
+order.adjustedOrderType = "STP"
+order.adjustedStopPrice = adjustStopPrice
 ```

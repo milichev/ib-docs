@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/open-orders)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/open-orders)
 
 # get_open_orders()
 
@@ -36,13 +36,13 @@ The identifier for the order. Relevant for order tracking, modification, and can
 
 **`contract`** `object`
 
-[Contract Object](../doc/contracts-financial-instruments/the-contract-object.md) for the instrument being traded.
+[Contract Object](/docs/tws-api/doc/contracts/object) for the instrument being traded.
 
 ---
 
 **`order`** `object`
 
-[Order Object](../doc/orders/the-order-and-contract-objects.md) containing the parameters for the given order.
+[Order Object](/docs/tws-api/doc/orders/objects) containing the parameters for the given order.
 
 ---
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/contracts/mutual-funds)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/contracts/mutual-funds)
 
 # Mutual Funds
 
@@ -10,14 +10,14 @@
 
 **Currency:** String. Specify the base currency of the fund.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("VINIX");
-contract.secType("FUND");
-contract.exchange("FUNDSERV");
-contract.currency("USD");
+```python
+contract = Contract()
+contract.symbol = "VINIX"
+contract.secType = "FUND"
+contract.exchange = "FUNDSERV"
+contract.currency = "USD"
 ```
 
 Note: It is recommended to understand mutual fund orders on TWS UI before implementing via API due to restrictions enforced on trading mutual funds For example to buy ARBIX one requires to use cash quantity ie cashQty while selling ARBIX can be implemented using total quantity ie totalQuantity

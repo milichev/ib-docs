@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/preview-margin-impact)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/preview-margin-impact)
 
 # New Order Preview
 
@@ -222,6 +222,22 @@ The assigned contents for how the order should be allocated amongst subaccount(s
 
 **SDK Code**
 
+```python orderPreview
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/DU123456/orders/whatif"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go orderPreview
 package main
 
@@ -270,17 +286,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orderPreview
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/DU123456/orders/whatif")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php orderPreview

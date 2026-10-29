@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-utilities/list-enumerations-complex-asset-transfer)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-utilities/list-enumerations-complex-asset-transfer)
 
 # Get A List Of Participating Brokers For The Given Asset Type
 
@@ -81,6 +81,20 @@ Unable to process request due to an Internal Error. Please try again later.
 
 **SDK Code**
 
+```python Response
+import requests
+
+url = "https://localhost:5000/gw/api/v1/enumerations/complex-asset-transfer"
+
+querystring = {"instructionType":"COMPLEX_ASSET_TRANSFER"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Response
 package main
 
@@ -123,15 +137,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Response
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/enumerations/complex-asset-transfer?instructionType=COMPLEX_ASSET_TRANSFER")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Response

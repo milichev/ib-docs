@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/dde/dde-response-structures/array-value-responses)
+[home](../../../index.md) | [excel](../../index.md) | [source](https://www.interactivebrokers.com/docs/excel/dde/dde-response-structures/array-value-responses)
 
 # Array Value Responses
 

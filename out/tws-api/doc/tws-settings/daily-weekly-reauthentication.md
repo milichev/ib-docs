@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/tws-settings/daily-weekly-reauthentication)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/tws-settings/daily-weekly-reauthentication)
 
 # Daily & Weekly Reauthentication
 
@@ -8,7 +8,7 @@ In TWS/ IB Gateway – "Global Configuration" – "Lock and Exit", you can choos
 
 For API users, it is recommended to choose "Never lock Trader Workstation" and "Auto restart".
 
-![TWS Global Configuration window displaying Lock and Exit Settings.](/docs/_fern-img/d27c25418033a51441503e13bcb7157ceba618843f72146e858f3e0587eb2680.webp)
+![TWS Global Configuration window displaying Lock and Exit Settings.](/docs/_fern-files/_img/d27c25418033a51441503e13bcb7157ceba618843f72146e858f3e0587eb2680.webp)
 
 Note:
 

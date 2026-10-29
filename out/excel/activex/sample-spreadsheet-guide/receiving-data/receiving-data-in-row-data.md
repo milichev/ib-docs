@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/activex/sample-spreadsheet-guide/receiving-data/receiving-data-in-row-data)
+[home](../../../../index.md) | [excel](../../../index.md) | [source](https://www.interactivebrokers.com/docs/excel/activex/sample-spreadsheet-guide/receiving-data/receiving-data-in-row-data)
 
 # Receiving Data: In-row data
 

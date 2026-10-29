@@ -50,7 +50,9 @@ export function sectionTitle(section: string): string {
 /** Prefer known-section order, then any extras alphabetically. */
 export function sortSections(sections: string[]): string[] {
   const known = KNOWN_SECTIONS.filter((s) => sections.includes(s));
-  const rest = sections.filter((s) => !KNOWN_SECTIONS.includes(s as never)).sort();
+  const rest = sections
+    .filter((s) => !KNOWN_SECTIONS.includes(s as never))
+    .sort();
   return [...known, ...rest];
 }
 
@@ -129,7 +131,11 @@ export function buildSectionIndex(section: string, pages: IndexPage[]): string {
       lines.push(`${"#".repeat(level)} ${titleFromSlug(slug)}`, "");
     };
 
-    if (segs.length < stack.length && segs.length > 0 && common === segs.length) {
+    if (
+      segs.length < stack.length &&
+      segs.length > 0 &&
+      common === segs.length
+    ) {
       // Left a nested folder: re-emit the current leaf so following links are
       // not stuck under the deeper heading in Markdown.
       emitHeading(segs.length + 1, segs[segs.length - 1]!);

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/requirements-limitations/canadian-residents-restricted-from-programmatically-trading-canadian-products)
+[home](../../../index.md) | [web-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/requirements-limitations/canadian-residents-restricted-from-programmatically-trading-canadian-products)
 
 # Canadian Residents Restricted From Programmatically Trading Canadian Products
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/verify-csv)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/verify-csv)
 
 # Verify PTC CSV
 
@@ -76,6 +76,22 @@ Always HTTP 200. Inspect the `success` field to determine the outcome. All failu
 
 **SDK Code**
 
+```python Operation succeeded
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/verify"
+
+payload = "\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\""
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "text/plain"
+}
+
+response = requests.post(url, data=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Operation succeeded
 package main
 
@@ -124,17 +140,6 @@ request.body = "\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\""
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Operation succeeded
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/restrictions/verify")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "text/plain")
-  .body("\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\"")
-  .asString();
 ```
 
 ```php Operation succeeded
@@ -204,6 +209,22 @@ dataTask.resume()
 
 **SDK Code**
 
+```python CSV validation failed — plain string message
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/verify"
+
+payload = "\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\""
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "text/plain"
+}
+
+response = requests.post(url, data=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go CSV validation failed — plain string message
 package main
 
@@ -252,17 +273,6 @@ request.body = "\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\""
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java CSV validation failed — plain string message
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/restrictions/verify")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "text/plain")
-  .body("\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\"")
-  .asString();
 ```
 
 ```php CSV validation failed — plain string message
@@ -335,6 +345,22 @@ dataTask.resume()
 
 **SDK Code**
 
+```python CSV validation failed — structured bridge message
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/verify"
+
+payload = "\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\""
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "text/plain"
+}
+
+response = requests.post(url, data=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go CSV validation failed — structured bridge message
 package main
 
@@ -383,17 +409,6 @@ request.body = "\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\""
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java CSV validation failed — structured bridge message
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/restrictions/verify")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "text/plain")
-  .body("\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\"")
-  .asString();
 ```
 
 ```php CSV validation failed — structured bridge message
@@ -463,6 +478,22 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Auth or account resolution failure
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/verify"
+
+payload = "\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\""
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "text/plain"
+}
+
+response = requests.post(url, data=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Auth or account resolution failure
 package main
 
@@ -511,17 +542,6 @@ request.body = "\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\""
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Auth or account resolution failure
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/restrictions/verify")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "text/plain")
-  .body("\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\"")
-  .asString();
 ```
 
 ```php Auth or account resolution failure
@@ -590,6 +610,22 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Apply only — body token failure before requestId is parsed
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/verify"
+
+payload = "\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\""
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "text/plain"
+}
+
+response = requests.post(url, data=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Apply only — body token failure before requestId is parsed
 package main
 
@@ -638,17 +674,6 @@ request.body = "\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\""
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Apply only — body token failure before requestId is parsed
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/restrictions/verify")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "text/plain")
-  .body("\"eyJ0eXAiOiJhdCtKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFkOTEx...\"")
-  .asString();
 ```
 
 ```php Apply only — body token failure before requestId is parsed

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/alerts/get-a-list-of-available-alerts)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/alerts/get-a-list-of-available-alerts)
 
 # Get a list of available alerts
 

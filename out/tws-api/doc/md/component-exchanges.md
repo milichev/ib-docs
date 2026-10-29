@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/md/component-exchanges)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/md/component-exchanges)
 
 # Component Exchange Mapping
 
@@ -30,10 +30,12 @@ Mapping identifier received from EWrapper.tickReqParams
 
 ---
 
-#### Java
+\
 
-```java
-client.reqSmartComponents(1013, "a6");
+#### Python
+
+```python
+self.reqSmartComponents(1018, "a6")
 ```
 
 ---
@@ -56,11 +58,13 @@ Unique object containing a map of all key-value pairs
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void smartComponents(int reqId, Map<Integer, Entry> theMap) {
-	System.out.println(EWrapperMsgGenerator.smartComponents(reqId, theMap));
-}
+#### Python
+
+```python
+def smartComponents(self, reqId:int, smartComponentMap:SmartComponentMap):
+	print("SmartComponents:")
+	for smartComponent in smartComponentMap:
+		print("SmartComponent.", smartComponent)
 ```

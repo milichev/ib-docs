@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/trailing-stop/tws-api-trailing-stop)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/trailing-stop/tws-api-trailing-stop)
 
 # TWS API: Trailing Stop
 
@@ -15,20 +15,20 @@ In the example to the right, we have outlined two Trailing Stop orders with expl
 In the first order, we supply a relative offset of 2% using `order.TrailStopPercent`.\
 In the second order, we supply an absolute offset of 3 units of currency using `order.auxPrice`.
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.orderType("TRAIL");
-order.trailStopPrice(100);
-order.trailingPercent(2);
+```python
+order = Order()
+order.orderType = "TRAIL"
+order.trailStopPrice = 100
+order.trailingPercent = 2
 ```
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.orderType("TRAIL");
-order.trailStopPrice(100);
-order.auxPrice(3);
+```python
+order = Order()
+order.orderType = "TRAIL"
+order.trailStopPrice = 100
+order.auxPrice = 3
 ```

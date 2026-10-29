@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/accumulate-distribute)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/accumulate-distribute)
 
 # Accumulate/Distribute
 
@@ -32,18 +32,18 @@ Valid Value/Format: YYYYMMDD-hh:mm:ss TMZ
 **activeTimeEnd:** String. Algorithm ending time.\
 Valid Value/Format: YYYYMMDD-hh:mm:ss TMZ
 
-#### Java
+#### Python
 
-```java
-order.algoStrategy("AD");
-order.algoParams(new ArrayList());
-order.algoParams().add(new TagValue("componentSize", String.valueOf(componentSize)));
-order.algoParams().add(new TagValue("timeBetweenOrders", String.valueOf(timeBetweenOrders)));
-order.algoParams().add(new TagValue("randomizeTime20", randomizeTime20 ? "1" : "0"));
-order.algoParams().add(new TagValue("randomizeSize55", randomizeSize55 ? "1" : "0"));
-order.algoParams().add(new TagValue("giveUp", String.valueOf(giveUp)));
-order.algoParams().add(new TagValue("catchUp", catchUp ? "1" : "0"));
-order.algoParams().add(new TagValue("waitForFill", waitForFill ? "1" : "0"));
-order.algoParams().add(new TagValue("activeTimeStart", startTime));
-order.algoParams().add(new TagValue("activeTimeEnd", endTime));
+```python
+order.algoStrategy = "AD"
+order.algoParams = []
+order.algoParams.append(TagValue("componentSize", componentSize))
+order.algoParams.append(TagValue("timeBetweenOrders", timeBetweenOrders))
+order.algoParams.append(TagValue("randomizeTime20", int(randomizeTime20)))
+order.algoParams.append(TagValue("randomizeSize55", int(randomizeSize55)))
+order.algoParams.append(TagValue("giveUp", giveUp))
+order.algoParams.append(TagValue("catchUp", int(catchUp)))
+order.algoParams.append(TagValue("waitForFill", int(waitForFill)))
+order.algoParams.append(TagValue("activeTimeStart", startTime))
+order.algoParams.append(TagValue("activeTimeEnd", endTime))
 ```

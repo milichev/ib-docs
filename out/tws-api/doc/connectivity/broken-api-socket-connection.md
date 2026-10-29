@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/connectivity/broken-api-socket-connection)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/connectivity/broken-api-socket-connection)
 
 # Broken API socket connection
 
@@ -10,10 +10,9 @@ Clients can validate a broken connection with the EWrapper.connectionClosed and 
 
 Once a connection fails for any reason, the EWrapper.connectionClosed function will be called. This function can be used to build reconnection logic or affirm a system disconnect.
 
-#### Java
+#### Python
 
-```java
-public void connectClosed(){
-	System.out.println("API Connection Lost.");
-}
+```python
+def connectClosed(self):
+    print("API Connection Lost.")
 ```

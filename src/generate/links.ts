@@ -52,10 +52,7 @@ export function isDocsAssetPath(pathname: string): boolean {
  * in the ok manifest map. Do not invent paths for uncached pages/assets —
  * that would create a broken relative link-graph.
  */
-function lookupPath(
-  url: URL,
-  urlToPath: Map<string, string>,
-): string | null {
+function lookupPath(url: URL, urlToPath: Map<string, string>): string | null {
   const key = canonicalUrlString(url);
   const hit = urlToPath.get(key);
   if (hit) return hit;
@@ -94,58 +91,61 @@ export function rewriteLinks(md: string, ctx: LinkRewriteContext): string {
   const base = basePageUrlFor(ctx.currentRelativePath);
   md = repairBrokenIbLinks(md);
 
-  return md.replace(/\[([^\]]*)\]\(([^)\s]+)\)/g, (full, text: string, href: string) => {
-    const hashIdx = href.indexOf("#");
-    const fragment = hashIdx >= 0 ? href.slice(hashIdx) : "";
-    const withoutHash = hashIdx >= 0 ? href.slice(0, hashIdx) : href;
+  return md.replace(
+    /\[([^\]]*)\]\(([^)\s]+)\)/g,
+    (full, text: string, href: string) => {
+      const hashIdx = href.indexOf("#");
+      const fragment = hashIdx >= 0 ? href.slice(hashIdx) : "";
+      const withoutHash = hashIdx >= 0 ? href.slice(0, hashIdx) : href;
 
-    if (!withoutHash) {
-      return full; // pure fragment
-    }
-
-    // Skip the source link we insert (already canonical HTML URL without .md)
-    // Still rewrite if it points at a mirrored page — but source uses HTML URL
-    // intentionally; leave those alone when they are our source links.
-    // Actually source links are https://www.../docs/... without .md — normalize
-    // would make them in-scope. We want source links to stay absolute.
-    // Detect: already absolute canonical HTML docs URL (no .md) used as source.
-    // Simpler: if href is absolute canonical and path has no .md and looks like
-    // human URL, and link text is "source", leave it.
-    if (text === "source" && /^https?:\/\//i.test(withoutHash)) {
-      return full;
-    }
-
-    const normalized = normalizeDocsUrl(withoutHash, base);
-    if (!normalized) {
-      return full; // external or out of scope
-    }
-
-    if (isDocsAssetPath(normalized.pathname)) {
-      return full; // images / static assets — leave as-is
-    }
-
-    if (isLlmsUrl(normalized)) {
-      const section = sectionOfUrl(normalized);
-      if (section && ctx.sectionIndexPaths.has(section)) {
-        const target = ctx.sectionIndexPaths.get(section)!;
-        const rel = relativeHref(ctx.currentRelativePath, target);
-        return `[${text}](${rel}${fragment})`;
+      if (!withoutHash) {
+        return full; // pure fragment
       }
-      // Root llms → docs/index.md
-      if (normalized.pathname === "/docs/llms.txt") {
-        const rel = relativeHref(ctx.currentRelativePath, "index.md");
-        return `[${text}](${rel}${fragment})`;
+
+      // Skip the source link we insert (already canonical HTML URL without .md)
+      // Still rewrite if it points at a mirrored page — but source uses HTML URL
+      // intentionally; leave those alone when they are our source links.
+      // Actually source links are https://www.../docs/... without .md — normalize
+      // would make them in-scope. We want source links to stay absolute.
+      // Detect: already absolute canonical HTML docs URL (no .md) used as source.
+      // Simpler: if href is absolute canonical and path has no .md and looks like
+      // human URL, and link text is "source", leave it.
+      if (text === "source" && /^https?:\/\//i.test(withoutHash)) {
+        return full;
       }
-      return text;
-    }
 
-    const targetPath = lookupPath(normalized, ctx.urlToPath);
-    if (!targetPath) {
-      // Not in the mirrored set: leave original href (often root-absolute /docs/...).
-      return full;
-    }
+      const normalized = normalizeDocsUrl(withoutHash, base);
+      if (!normalized) {
+        return full; // external or out of scope
+      }
 
-    const rel = relativeHref(ctx.currentRelativePath, targetPath);
-    return `[${text}](${rel}${fragment})`;
-  });
+      if (isDocsAssetPath(normalized.pathname)) {
+        return full; // images / static assets — leave as-is
+      }
+
+      if (isLlmsUrl(normalized)) {
+        const section = sectionOfUrl(normalized);
+        if (section && ctx.sectionIndexPaths.has(section)) {
+          const target = ctx.sectionIndexPaths.get(section)!;
+          const rel = relativeHref(ctx.currentRelativePath, target);
+          return `[${text}](${rel}${fragment})`;
+        }
+        // Root llms → docs/index.md
+        if (normalized.pathname === "/docs/llms.txt") {
+          const rel = relativeHref(ctx.currentRelativePath, "index.md");
+          return `[${text}](${rel}${fragment})`;
+        }
+        return text;
+      }
+
+      const targetPath = lookupPath(normalized, ctx.urlToPath);
+      if (!targetPath) {
+        // Not in the mirrored set: leave original href (often root-absolute /docs/...).
+        return full;
+      }
+
+      const rel = relativeHref(ctx.currentRelativePath, targetPath);
+      return `[${text}](${rel}${fragment})`;
+    },
+  );
 }

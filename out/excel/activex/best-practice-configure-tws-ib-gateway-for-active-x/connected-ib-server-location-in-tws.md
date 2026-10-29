@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/activex/best-practice-configure-tws-ib-gateway-for-active-x/connected-ib-server-location-in-tws)
+[home](../../../index.md) | [excel](../../index.md) | [source](https://www.interactivebrokers.com/docs/excel/activex/best-practice-configure-tws-ib-gateway-for-active-x/connected-ib-server-location-in-tws)
 
 # Connected IB Server Location in TWS
 

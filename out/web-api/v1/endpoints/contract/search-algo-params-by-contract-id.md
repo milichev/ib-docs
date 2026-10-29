@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/contract/search-algo-params-by-contract-id)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/contract/search-algo-params-by-contract-id)
 
 # Search Algo Params by Contract ID
 

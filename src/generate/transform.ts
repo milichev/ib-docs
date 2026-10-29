@@ -2,7 +2,7 @@ import { stripBoilerplate } from "./boilerplate.ts";
 import { unescapeHeadings } from "./headings.ts";
 import { filterByLang } from "./lang.ts";
 import { rewriteLinks, type LinkRewriteContext } from "./links.ts";
-import { prependSourceLink, toSourceUrl } from "./source.ts";
+import { prependPageHeader, toSourceUrl } from "./source.ts";
 
 export type TransformOptions = {
   sourceFinalUrl: string;
@@ -22,7 +22,11 @@ export function transformPage(raw: string, options: TransformOptions): string {
   }
   md = rewriteLinks(md, options.linkCtx);
   const source = toSourceUrl(options.sourceFinalUrl, options.sourceUrl);
-  md = prependSourceLink(md, source);
+  md = prependPageHeader(md, {
+    currentRelativePath: options.linkCtx.currentRelativePath,
+    sourceUrl: source,
+    sectionIndexPaths: options.linkCtx.sectionIndexPaths,
+  });
   if (!md.endsWith("\n")) md += "\n";
   return md;
 }

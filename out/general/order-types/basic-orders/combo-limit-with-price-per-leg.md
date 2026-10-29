@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/combo-limit-with-price-per-leg)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/combo-limit-with-price-per-leg)
 
 # Combo Limit with Price per Leg
 
@@ -6,23 +6,21 @@ Create combination orders that include options, stock and futures legs (stock le
 
 Products: OPT, STK, FUT
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("LMT");
-order.totalQuantity(quantity);
-order.orderComboLegs(new ArrayList<>());
+```python
+order = Order()
+order.action = action
+order.orderType = "LMT"
+order.totalQuantity = quantity
+order.orderComboLegs = []
 
-for(double price : legPrices) {
-	OrderComboLeg comboLeg = new OrderComboLeg();
-	comboLeg.price(5.0);
-	order.orderComboLegs().add(comboLeg);
-}
+for price in legPrices:
+	comboLeg = OrderComboLeg()
+	comboLeg.price = price
+	order.orderComboLegs.append(comboLeg)
 
-if (nonGuaranteed)
-{
-	order.smartComboRoutingParams().add(new TagValue("NonGuaranteed", "1"));
-}
+if nonGuaranteed:
+	order.smartComboRoutingParams = []
+	order.smartComboRoutingParams.append(TagValue("NonGuaranteed", "1"))
 ```

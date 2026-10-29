@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/rtd/refresh-rate)
+[home](../../index.md) | [excel](../index.md) | [source](https://www.interactivebrokers.com/docs/excel/rtd/refresh-rate)
 
 # Refresh Rate
 
@@ -15,6 +15,6 @@ The easiest way to change the ThrottleInterval property is through VBA:
 
 **\*Warning:** As the ThrottleInterval is lowered, updates can come in so frequently that Excel is continuously updating values and doing calculations, Excel might end up in a state where it never gives the user a chance to do anything, effectively getting in a hung state. If this happens, set the Excel throttle interval higher.
 
-![rtd\_throttle\_interval.png](/docs/_fern-img/8563bd028ea016bf6debcedd77f273ea43c8ba4b94109b5688abf3fc128569d2.webp)
+![rtd\_throttle\_interval.png](/docs/_fern-files/_img/8563bd028ea016bf6debcedd77f273ea43c8ba4b94109b5688abf3fc128569d2.webp)
 
 *Source: Microsoft Real-Time Data: Frequently Asked Questions [How Do I Configure the RTD Throttle Interval in Excel?](https://msdn.microsoft.com/en-us/library/aa140060\(office.10\).aspx#odc_xlrtdfaq_howconfigrtdthrottle).*

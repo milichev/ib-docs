@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/account-management/client-registration/registration-tasks/view-registration-tasks)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/account-management/client-registration/registration-tasks/view-registration-tasks)
 
 # View Registration Tasks
 

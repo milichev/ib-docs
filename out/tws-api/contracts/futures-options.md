@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/contracts/futures-options)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/contracts/futures-options)
 
 # Futures Options
 
@@ -18,16 +18,16 @@
 
 **Multiplier:** String. Enter the multiplier of the derivative.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("GBL");
-contract.secType("FOP");
-contract.exchange("EUREX");
-contract.currency("EUR");
-contract.lastTradeDateOrContractMonth("20230224");
-contract.strike(138);
-contract.right("C");
-contract.multiplier("1000");
+```python
+contract = Contract()
+contract.symbol = "GBL"
+contract.secType = "FOP"
+contract.exchange = "EUREX"
+contract.currency = "EUR"
+contract.lastTradeDateOrContractMonth = "20230224"
+contract.strike = 138
+contract.right = "C"
+contract.multiplier = "1000"
 ```

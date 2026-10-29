@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/authentication/cpgw/client-portal-gateway-faq)
+[home](../../../index.md) | [web-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/authentication/cpgw/client-portal-gateway-faq)
 
 # Client Portal Gateway FAQ
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/price-variant-percentage)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/price-variant-percentage)
 
 # Price Variant Percentage
 
@@ -26,6 +26,20 @@ Valid Value/Format: hh:mm:ss TMZ or YYYYMMDD-hh:mm:ss TMZ
 
 **noTakeLiq:** bool. Attempt to never take liquidity\
 Valid Value/Format: 1 (true) or 0 (false)
+
+#### Python
+
+```python
+order.algoStrategy = "PctVolPx"
+order.algoParams = []
+order.algoParams.append(TagValue("pctVol", pctVol))
+order.algoParams.append(TagValue("deltaPctVol", deltaPctVol))
+order.algoParams.append(TagValue("minPctVol4Px", minPctVol4Px))
+order.algoParams.append(TagValue("maxPctVol4Px", maxPctVol4Px))
+order.algoParams.append(TagValue("startTime", startTime))
+order.algoParams.append(TagValue("endTime", endTime))
+order.algoParams.append(TagValue("noTakeLiq", int(noTakeLiq)))
+```
 
 #### Abap
 
@@ -57,18 +71,4 @@ curl {baseUrl}/iserver/account/{accountId}/orders \
     }
   ]
 }'
-```
-
-#### Java
-
-```java
-order.algoStrategy("PctVolPx");
-order.algoParams(new ArrayList());
-order.algoParams().add(new TagValue("pctVol", String.valueOf(pctVol)));
-order.algoParams().add(new TagValue("deltaPctVol", String.valueOf(deltaPctVol)));
-order.algoParams().add(new TagValue("minPctVol4Px", String.valueOf(minPctVol4Px)));
-order.algoParams().add(new TagValue("maxPctVol4Px", String.valueOf(maxPctVol4Px)));
-order.algoParams().add(new TagValue("startTime", startTime));
-order.algoParams().add(new TagValue("endTime", endTime));
-order.algoParams().add(new TagValue("noTakeLiq", noTakeLiq ? "1" : "0"));
 ```

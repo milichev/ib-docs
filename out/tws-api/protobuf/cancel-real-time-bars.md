@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/protobuf/cancel-real-time-bars)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/protobuf/cancel-real-time-bars)
 
 ## CancelRealTimeBars
 

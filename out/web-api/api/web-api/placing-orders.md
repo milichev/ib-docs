@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api/web-api/placing-orders)
+[home](../../../index.md) | [web-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api/web-api/placing-orders)
 
 # Placing Orders
 
@@ -6,44 +6,34 @@ First, ensure you have an active brokerage session, as shown in [Initializing Br
 
 **`Python`**
 
-**`Java`**
+```python title="Python"
+import requests
 
-```java title="Java"
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+account_id = "DU123456"
+url = f"https://localhost:5000/v1/api/iserver/account/{account_id}/orders"
 
-public class Main {
-    public static void main(String[] args) throws Exception {
-        HttpClient client = HttpClient.newHttpClient();
-
-        String accountId = "DU123456";
-        String url = "https://localhost:5000/v1/api/iserver/account/" + accountId + "/orders";
-
-        String payload = "{"
-                + "\"orders\":[{"
-                + "\"conid\":265598,"
-                + "\"orderType\":\"LMT\","
-                + "\"price\":165,"
-                + "\"quantity\":100,"
-                + "\"side\":\"BUY\","
-                + "\"tif\":\"DAY\""
-                + "}]"
-                + "}";
-
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(payload))
-                .build();
-
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println("Status: " + response.statusCode());
-        System.out.println(response.body());
-    }
+payload = {
+    "orders": [
+        {
+            "conid": 265598,
+            "orderType": "LMT",
+            "price": 165,
+            "quantity": 100,
+            "side": "BUY",
+            "tif": "DAY"
+        }
+    ]
 }
+
+headers = {"Content-Type": "application/json"}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.status_code)
+print(response.json())
 ```
+
+**`Java`**
 
 **`JavaScript`**
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-session/get-session-token)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-session/get-session-token)
 
 # Brokerage Keep-Alive Ping
 
@@ -122,6 +122,18 @@ Returns connection details for the historical market data server.
 
 **SDK Code**
 
+```python Trading Session_getSessionToken_example
+import requests
+
+url = "https://localhost:5000/v1/api/tickle"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Trading Session_getSessionToken_example
 package main
 
@@ -164,15 +176,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Trading Session_getSessionToken_example
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/tickle")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Trading Session_getSessionToken_example

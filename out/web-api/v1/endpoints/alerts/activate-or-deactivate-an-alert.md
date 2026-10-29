@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/alerts/activate-or-deactivate-an-alert)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/alerts/activate-or-deactivate-an-alert)
 
 # Activate or deactivate an alert
 

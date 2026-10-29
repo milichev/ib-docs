@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/quantitative-brokers-algorithms/closer)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/quantitative-brokers-algorithms/closer)
 
 # Closer
 
@@ -6,8 +6,8 @@
 
 No parameters should be attached. Only the strategy needs to be specified as Closer.
 
-#### Java
+#### Python
 
-```java
-order.algoStrategy("Closer");
+```python
+order.algoStrategy = "Closer"
 ```

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-contracts/get-algos-by-instrument)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-contracts/get-algos-by-instrument)
 
 # Search Algos For An Instrument
 
@@ -150,6 +150,18 @@ Default parameter value. Type defined in valueClassName field
 
 **SDK Code**
 
+```python success
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/contract/conid/algos"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go success
 package main
 
@@ -192,15 +204,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java success
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/contract/conid/algos")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php success
@@ -332,6 +335,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python success-with-additional-data
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/contract/conid/algos"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go success-with-additional-data
 package main
 
@@ -374,15 +389,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java success-with-additional-data
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/contract/conid/algos")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php success-with-additional-data

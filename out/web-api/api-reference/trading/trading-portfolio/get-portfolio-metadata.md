@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-portfolio/get-portfolio-metadata)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-portfolio/get-portfolio-metadata)
 
 # Account Attributes
 
@@ -136,6 +136,18 @@ Describes account relations in partitioned or multiplexed (segemented) account s
 
 **SDK Code**
 
+```python accountMetaInformation
+import requests
+
+url = "https://localhost:5000/v1/api/portfolio/DU123456/meta"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go accountMetaInformation
 package main
 
@@ -178,15 +190,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java accountMetaInformation
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/portfolio/DU123456/meta")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php accountMetaInformation

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/fa-allocation-management/add-allocation-group)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/fa-allocation-management/add-allocation-group)
 
 # Add Allocation Group
 

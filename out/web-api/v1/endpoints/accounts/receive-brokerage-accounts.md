@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/accounts/receive-brokerage-accounts)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/accounts/receive-brokerage-accounts)
 
 # Receive Brokerage Accounts
 

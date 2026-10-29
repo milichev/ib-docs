@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/passive-relative)
+[home](../../index.md) | [general](../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/passive-relative)
 
 # Passive Relative
 
@@ -10,12 +10,12 @@ More on [Passive Relative Orders](https://www.interactivebrokers.com/en/index.ph
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=passvrel)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("PASSV REL");
-order.totalQuantity(quantity);
-order.auxPrice(offset);
+```python
+order = Order()
+order.action = action
+order.orderType = "PASSV REL"
+order.totalQuantity = quantity
+order.auxPrice = offset
 ```

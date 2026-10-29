@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-model-portfolios/rebalance-to-new-targets)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-model-portfolios/rebalance-to-new-targets)
 
 # Rebalance To New Targets
 
@@ -107,6 +107,27 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python success
+import requests
+
+url = "https://localhost:5000/v1/api/fa/model/rebalance/to-new-targets"
+
+payload = {
+    "reqID": 398896,
+    "model": "Sample-Model",
+    "positionTargets": [{}],
+    "cashTargets": [{}]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go success
 package main
 
@@ -155,17 +176,6 @@ request.body = "{\n  \"reqID\": 398896,\n  \"model\": \"Sample-Model\",\n  \"pos
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java success
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/fa/model/rebalance/to-new-targets")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"reqID\": 398896,\n  \"model\": \"Sample-Model\",\n  \"positionTargets\": [\n    {}\n  ],\n  \"cashTargets\": [\n    {}\n  ]\n}")
-  .asString();
 ```
 
 ```php success

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/relative-market-combo)
+[home](../../index.md) | [general](../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/relative-market-combo)
 
 # Relative Market Combo
 
@@ -6,15 +6,15 @@ Create combination orders that include options, stock and futures legs (stock le
 
 Products: OPT, STK, FUT
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("REL + MKT");
-order.totalQuantity(quantity);
-if (nonGuaranteed)
-{
-	order.smartComboRoutingParams().add(new TagValue("NonGuaranteed", "1"));
-}
+```python
+order = Order()
+order.action = action
+order.totalQuantity = quantity
+order.orderType = "REL + MKT"
+
+if nonGuaranteed:
+	order.smartComboRoutingParams = []
+	order.smartComboRoutingParams.append(TagValue("NonGuaranteed", "1"))
 ```

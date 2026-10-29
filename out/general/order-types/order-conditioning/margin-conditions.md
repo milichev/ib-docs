@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/order-conditioning/margin-conditions)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/order-conditioning/margin-conditions)
 
 # Margin Conditions
 
@@ -6,13 +6,13 @@ Margin Conditions permit users to ready an order in case their order starts fall
 
 See [MarginCondition](../../../tws-api/ref/order-conditions/margin-condition.md) for more details on the MarginCondition class.
 
-#### Java
+#### Python
 
-```java
-MarginCondition marginCondition = (MarginCondition)OrderCondition.create(OrderConditionType.Margin);
-marginCondition.isMore(isMore);
-marginCondition.percent(percent);
-marginCondition.conjunctionConnection(isConjunction);
+```python
+marginCondition = order_condition.Create(OrderCondition.Margin)
+marginCondition.isMore = isMore
+marginCondition.percent = percent
+marginCondition.isConjunctionConnection = isConjunction
 
-base_order.conditions().add(marginCondition)
+base_order.conditions = [marginCondition]
 ```

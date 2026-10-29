@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/get-account-restrictions)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/get-account-restrictions)
 
 # Get Restriction IDs For An Account
 
@@ -94,6 +94,20 @@ Internal server error.
 
 **SDK Code**
 
+```python Account with restrictions
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/account"
+
+querystring = {"accountId":"U1000000","masterUserName":"user1"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Account with restrictions
 package main
 
@@ -136,15 +150,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Account with restrictions
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/account?accountId=U1000000&masterUserName=user1")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Account with restrictions
@@ -200,6 +205,20 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Account with no restrictions
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/account"
+
+querystring = {"accountId":"U1000000","masterUserName":"user1"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Account with no restrictions
 package main
 
@@ -242,15 +261,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Account with no restrictions
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/account?accountId=U1000000&masterUserName=user1")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Account with no restrictions

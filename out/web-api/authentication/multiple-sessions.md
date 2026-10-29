@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/authentication/multiple-sessions)
+[home](../../index.md) | [web-api](../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/authentication/multiple-sessions)
 
 # Managing Multiple Sessions
 

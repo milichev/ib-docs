@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/sweep-to-fill)
+[home](../../index.md) | [general](../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/sweep-to-fill)
 
 # Sweep to Fill
 
@@ -8,13 +8,13 @@ Products: CFD, STK, WAR (SMART only)
 
 More on [Sweep to Fill Orders](https://www.interactivebrokers.com/en/index.php?f=607)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("LMT");
-order.totalQuantity(quantity);
-order.lmtPrice(price);
-order.sweepToFill(true);
+```python
+order = Order()
+order.action = action
+order.orderType = "LMT"
+order.totalQuantity = quantity
+order.lmtPrice = price
+order.sweepToFill = True
 ```

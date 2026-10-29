@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/third-party-integrations/tws-settings/best-practice-configure-tws-ib-gateway/connected-ib-server-location-in-tws)
+[home](../../../index.md) | [third-party-integrations](../../index.md) | [source](https://www.interactivebrokers.com/docs/third-party-integrations/tws-settings/best-practice-configure-tws-ib-gateway/connected-ib-server-location-in-tws)
 
 # Connected IB Server Location in TWS
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/volatility)
+[home](../../index.md) | [general](../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/volatility)
 
 # Volatility
 
@@ -10,13 +10,13 @@ More on [Volatility Type Orders](https://www.interactivebrokers.com/en/index.php
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=volat)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("VOL");
-order.volatility(volatilityPercent);//Expressed in percentage (40%)
-order.volatilityType(volatilityType);// 1=daily, 2=annual
-order.totalQuantity(quantity);
+```python
+order = Order()
+order.action = action
+order.orderType = "VOL"
+order.totalQuantity = quantity
+order.volatility = volatilityPercent#Expressed in percentage (40%)
+order.volatilityType = volatilityType# 1=daily, 2=annual
 ```

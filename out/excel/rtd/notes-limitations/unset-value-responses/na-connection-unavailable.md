@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/rtd/notes-limitations/unset-value-responses/na-connection-unavailable)
+[home](../../../../index.md) | [excel](../../../index.md) | [source](https://www.interactivebrokers.com/docs/excel/rtd/notes-limitations/unset-value-responses/na-connection-unavailable)
 
 # 'NA' Connection Unavailable
 

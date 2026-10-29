@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-internal-asset-transfers)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-internal-asset-transfers)
 
 # Transfer Positions Internally
 
@@ -245,6 +245,18 @@ Provider-specific data returned once the Plaid payment has been initiated.
 
 **SDK Code**
 
+```python Response
+import requests
+
+url = "https://localhost:5000/gw/api/v1/internal-asset-transfers"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Response
 package main
 
@@ -287,15 +299,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Response
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/internal-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Response
@@ -379,6 +382,39 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Internal Position Transfer - using Trading Instrument
+import requests
+
+url = "https://localhost:5000/gw/api/v1/internal-asset-transfers"
+
+payload = {
+    "instructionType": "INTERNAL_POSITION_TRANSFER",
+    "instruction": {
+        "clientInstructionId": 7013044,
+        "sourceAccountId": "U399192",
+        "targetAccountId": "U87440",
+        "transferQuantity": 6,
+        "tradingInstrument": {
+            "conid": 459200101,
+            "currency": "USD",
+            "tradingInstrumentDescription": {
+                "assetType": "STK",
+                "securityId": "459200101",
+                "securityIdType": "ISIN"
+            }
+        }
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Internal Position Transfer - using Trading Instrument
 package main
 
@@ -427,17 +463,6 @@ request.body = "{\n  \"instructionType\": \"INTERNAL_POSITION_TRANSFER\",\n  \"i
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Internal Position Transfer - using Trading Instrument
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/internal-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"INTERNAL_POSITION_TRANSFER\",\n  \"instruction\": {\n    \"clientInstructionId\": 7013044,\n    \"sourceAccountId\": \"U399192\",\n    \"targetAccountId\": \"U87440\",\n    \"transferQuantity\": 6,\n    \"tradingInstrument\": {\n      \"conid\": 459200101,\n      \"currency\": \"USD\",\n      \"tradingInstrumentDescription\": {\n        \"assetType\": \"STK\",\n        \"securityId\": \"459200101\",\n        \"securityIdType\": \"ISIN\"\n      }\n    }\n  }\n}")
-  .asString();
 ```
 
 ```php Internal Position Transfer - using Trading Instrument
@@ -559,6 +584,34 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Internal Position Transfer - using contractID (conid)
+import requests
+
+url = "https://localhost:5000/gw/api/v1/internal-asset-transfers"
+
+payload = {
+    "instructionType": "INTERNAL_POSITION_TRANSFER",
+    "instruction": {
+        "clientInstructionId": 7013043,
+        "sourceAccountId": "U399192",
+        "targetAccountId": "U87440",
+        "transferQuantity": 6,
+        "tradingInstrument": {
+            "conid": 21323,
+            "currency": "USD"
+        }
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Internal Position Transfer - using contractID (conid)
 package main
 
@@ -607,17 +660,6 @@ request.body = "{\n  \"instructionType\": \"INTERNAL_POSITION_TRANSFER\",\n  \"i
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Internal Position Transfer - using contractID (conid)
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/internal-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"INTERNAL_POSITION_TRANSFER\",\n  \"instruction\": {\n    \"clientInstructionId\": 7013043,\n    \"sourceAccountId\": \"U399192\",\n    \"targetAccountId\": \"U87440\",\n    \"transferQuantity\": 6,\n    \"tradingInstrument\": {\n      \"conid\": 21323,\n      \"currency\": \"USD\"\n    }\n  }\n}")
-  .asString();
 ```
 
 ```php Internal Position Transfer - using contractID (conid)
@@ -732,6 +774,37 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Internal Position Transfer - with Optional fields
+import requests
+
+url = "https://localhost:5000/gw/api/v1/internal-asset-transfers"
+
+payload = {
+    "instructionType": "INTERNAL_POSITION_TRANSFER",
+    "instruction": {
+        "clientInstructionId": 7013043,
+        "sourceAccountId": "U399192",
+        "targetAccountId": "U87440",
+        "transferQuantity": 6,
+        "tradingInstrument": {
+            "conid": 21323,
+            "currency": "USD"
+        },
+        "transferPrice": 100.3456789,
+        "tradeDate": "2025-02-17",
+        "settleDate": "2025-02-25"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Internal Position Transfer - with Optional fields
 package main
 
@@ -780,17 +853,6 @@ request.body = "{\n  \"instructionType\": \"INTERNAL_POSITION_TRANSFER\",\n  \"i
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Internal Position Transfer - with Optional fields
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/internal-asset-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"INTERNAL_POSITION_TRANSFER\",\n  \"instruction\": {\n    \"clientInstructionId\": 7013043,\n    \"sourceAccountId\": \"U399192\",\n    \"targetAccountId\": \"U87440\",\n    \"transferQuantity\": 6,\n    \"tradingInstrument\": {\n      \"conid\": 21323,\n      \"currency\": \"USD\"\n    },\n    \"transferPrice\": 100.3456789,\n    \"tradeDate\": \"2025-02-17\",\n    \"settleDate\": \"2025-02-25\"\n  }\n}")
-  .asString();
 ```
 
 ```php Internal Position Transfer - with Optional fields

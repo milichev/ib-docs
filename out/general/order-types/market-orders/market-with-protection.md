@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/market-orders/market-with-protection)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/market-orders/market-with-protection)
 
 # Market with Protection
 
@@ -10,11 +10,11 @@ More on [Market with Protection](https://www.interactivebrokers.com/en/index.php
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=mktprot)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("MKT PRT");
-order.totalQuantity(quantity);
+```python
+order = Order()
+order.action = action
+order.orderType = "MKT PRT"
+order.totalQuantity = quantity
 ```

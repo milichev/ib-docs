@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/session/re-authenticate-the-brokerage-session-deprecated)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/session/re-authenticate-the-brokerage-session-deprecated)
 
 # Re-authenticate the Brokerage Session (Deprecated)
 

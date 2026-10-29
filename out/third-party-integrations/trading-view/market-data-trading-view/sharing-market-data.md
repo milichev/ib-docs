@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/third-party-integrations/trading-view/market-data-trading-view/sharing-market-data)
+[home](../../../index.md) | [third-party-integrations](../../index.md) | [source](https://www.interactivebrokers.com/docs/third-party-integrations/trading-view/market-data-trading-view/sharing-market-data)
 
 # Market Data Sharing
 

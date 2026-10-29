@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/balance-impact-risk)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/balance-impact-risk)
 
 # Balance Impact Risk
 
@@ -15,12 +15,12 @@ Valid Value/Format: Get Done, Aggressive, Neutral, Passive
 **forceCompletion:** bool. Attempt completion by the end of the day\
 Valid Value/Format: 1 (true) or 0 (false)
 
-#### Java
+#### Python
 
-```java
-order.algoStrategy("BalanceImpactRisk");
-order.algoParams(new ArrayList());
-order.algoParams().add(new TagValue("maxPctVol", String.valueOf(maxPctVol)));
-order.algoParams().add(new TagValue("riskAversion", riskAversion));
-order.algoParams().add(new TagValue("forceCompletion", forceCompletion ? "1" : "0"));
+```python
+order.algoStrategy = "BalanceImpactRisk"
+order.algoParams = []
+order.algoParams.append(TagValue("maxPctVol", maxPctVol))
+order.algoParams.append(TagValue("riskAversion", riskAversion))
+order.algoParams.append(TagValue("forceCompletion", int(forceCompletion)))
 ```

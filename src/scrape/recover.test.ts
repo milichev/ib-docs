@@ -24,7 +24,10 @@ describe("findReplacementPath", () => {
       <a href="/docs/excel/rtd/notes-limitations/introduction">Intro</a>
     `;
     expect(
-      findReplacementPath(body, "/docs/excel/rtd/download-the-tws-api/introduction.md"),
+      findReplacementPath(
+        body,
+        "/docs/excel/rtd/download-the-tws-api/introduction.md",
+      ),
     ).toBeNull();
   });
 });
@@ -32,7 +35,9 @@ describe("findReplacementPath", () => {
 describe("ancestorHtmlUrls", () => {
   test("walks up to the section introduction", () => {
     expect(
-      ancestorHtmlUrls("/docs/excel/rtd/download-the-tws-api/uninstall-the-api.md"),
+      ancestorHtmlUrls(
+        "/docs/excel/rtd/download-the-tws-api/uninstall-the-api.md",
+      ),
     ).toEqual([
       "https://www.interactivebrokers.com/docs/excel/rtd/download-the-tws-api/introduction",
       "https://www.interactivebrokers.com/docs/excel/rtd/download-the-tws-api",

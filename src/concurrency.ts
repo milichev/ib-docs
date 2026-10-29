@@ -7,7 +7,9 @@ export async function mapPool<T, R>(
   fn: (item: T, index: number) => Promise<R>,
 ): Promise<R[]> {
   if (concurrency < 1) {
-    throw new Error(`concurrency must be a positive integer, got ${concurrency}`);
+    throw new Error(
+      `concurrency must be a positive integer, got ${concurrency}`,
+    );
   }
 
   const results = new Array<R>(items.length);

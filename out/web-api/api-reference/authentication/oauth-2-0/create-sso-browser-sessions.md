@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/authentication/oauth-2-0/create-sso-browser-sessions)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/authentication/oauth-2-0/create-sso-browser-sessions)
 
 # Create SSO Browser Session.
 
@@ -107,6 +107,26 @@ Returns a Problem detail instance representing an internal server error.
 
 **SDK Code**
 
+```python
+import requests
+
+url = "https://localhost:5000/gw/api/v1/sso-browser-sessions"
+
+payload = {
+    "credential": "ddowney2",
+    "ip": "10.10.10.10"
+}
+headers = {
+    "authorization": "Bearer eyJ0eXAiOiJKV1...",
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go
 package main
 
@@ -157,18 +177,6 @@ request.body = "{\n  \"credential\": \"ddowney2\",\n  \"ip\": \"10.10.10.10\"\n}
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/sso-browser-sessions")
-  .header("authorization", "Bearer eyJ0eXAiOiJKV1...")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"credential\": \"ddowney2\",\n  \"ip\": \"10.10.10.10\"\n}")
-  .asString();
 ```
 
 ```php

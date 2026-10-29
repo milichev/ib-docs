@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/peg-orders/pegged-to-stock)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/peg-orders/pegged-to-stock)
 
 # Pegged To Stock
 
@@ -10,16 +10,16 @@ More on [Pegged To Stock Orders](https://www.interactivebrokers.com/en/index.php
 
 More on [Supported exchanges](https://www.interactivebrokers.com/en/index.php?f=3883?ot=relstk)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("PEG STK");
-order.totalQuantity(quantity);
-order.delta(delta);
-order.stockRefPrice(stockReferencePrice);
-order.startingPrice(startingPrice);
+```python
+order = Order()
+order.action = action
+order.orderType = "PEG STK"
+order.totalQuantity = quantity
+order.delta = delta
+order.stockRefPrice = stockReferencePrice
+order.startingPrice = startingPrice
 ```
 
 #### Generic

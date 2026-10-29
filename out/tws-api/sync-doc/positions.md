@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/positions)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/sync-doc/positions)
 
 # get_positions()
 
@@ -30,7 +30,7 @@ A map keyed by account identifier (e.g., `U1234567`). Each key contains a list o
 
 **`contract`** `object`
 
-[Contract Object](../doc/contracts-financial-instruments/the-contract-object.md) for the instrument held.
+[Contract Object](/docs/tws-api/doc/contracts/object) for the instrument held.
 
 ---
 

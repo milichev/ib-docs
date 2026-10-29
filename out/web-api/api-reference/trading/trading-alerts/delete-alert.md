@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-alerts/delete-alert)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-alerts/delete-alert)
 
 # Delete An Alert
 
@@ -74,6 +74,22 @@ Internal Server Error; Unable to delete alert in case when provided alert id doe
 
 **SDK Code**
 
+```python successfully-deleted
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/U1234567/alert/9876543210"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.delete(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go successfully-deleted
 package main
 
@@ -122,17 +138,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java successfully-deleted
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.delete("https://localhost:5000/v1/api/iserver/account/U1234567/alert/9876543210")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php successfully-deleted

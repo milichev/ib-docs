@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/order-conditioning/introduction)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/order-conditioning/introduction)
 
 # Introduction
 
@@ -10,12 +10,12 @@ More information on Order Conditions can be found [here](https://www.ibkrguides.
 
 For the sake of simplicity, all Condition Orders below will be based on an example order, shown here. The additional content will be included in each order's content.
 
-#### Java
+#### Python
 
-```java
-Order base_order= new Order();
-base_order.action(action);
-base_order.orderType("MKT");
-base_order.totalQuantity(quantity);
-base_order.conditionsCancelOrder(false);
+```python
+base_order = Order()
+base_order.action = action
+base_order.orderType = "MKT"
+base_order.totalQuantity = quantity
+base_order.conditionsCancelOrder = False
 ```

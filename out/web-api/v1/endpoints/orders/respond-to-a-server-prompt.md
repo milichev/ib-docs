@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/orders/respond-to-a-server-prompt)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/orders/respond-to-a-server-prompt)
 
 # Respond to a Server Prompt
 

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/bulk-external-cash-transfers)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/bulk-external-cash-transfers)
 
 # Creates Multiple External Cash Transfers (Deposit And Withdraw Fund)
 
@@ -215,6 +215,25 @@ Provider-specific data returned once the Plaid payment has been initiated.
 
 **SDK Code**
 
+```python Withdraw Funds
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers:bulk"
+
+payload = {
+    "instructionType": "WITHDRAWAL",
+    "instructions": ["string", "string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Withdraw Funds
 package main
 
@@ -263,17 +282,6 @@ request.body = "{\n  \"instructionType\": \"WITHDRAWAL\",\n  \"instructions\": [
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Withdraw Funds
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"WITHDRAWAL\",\n  \"instructions\": [\n    \"string\",\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php Withdraw Funds
@@ -392,6 +400,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Deposit Funds
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers:bulk"
+
+payload = {
+    "instructionType": "DEPOSIT",
+    "instructions": ["string", "string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Deposit Funds
 package main
 
@@ -440,17 +467,6 @@ request.body = "{\n  \"instructionType\": \"DEPOSIT\",\n  \"instructions\": [\n 
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Deposit Funds
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"DEPOSIT\",\n  \"instructions\": [\n    \"string\",\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php Deposit Funds
@@ -582,6 +598,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Deposit Funds - Open Banking
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers:bulk"
+
+payload = {
+    "instructionType": "DEPOSIT",
+    "instructions": ["string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Deposit Funds - Open Banking
 package main
 
@@ -630,17 +665,6 @@ request.body = "{\n  \"instructionType\": \"DEPOSIT\",\n  \"instructions\": [\n 
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Deposit Funds - Open Banking
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"DEPOSIT\",\n  \"instructions\": [\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php Deposit Funds - Open Banking
@@ -731,6 +755,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Withdraw Funds
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers:bulk"
+
+payload = {
+    "instructionType": "WITHDRAWAL",
+    "instructions": ["string", "string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Withdraw Funds
 package main
 
@@ -779,17 +822,6 @@ request.body = "{\n  \"instructionType\": \"WITHDRAWAL\",\n  \"instructions\": [
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Withdraw Funds
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"WITHDRAWAL\",\n  \"instructions\": [\n    \"string\",\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php Withdraw Funds
@@ -880,6 +912,25 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Deposit Funds
+import requests
+
+url = "https://localhost:5000/gw/api/v1/external-cash-transfers:bulk"
+
+payload = {
+    "instructionType": "DEPOSIT",
+    "instructions": ["string", "string", "string"]
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Deposit Funds
 package main
 
@@ -928,17 +979,6 @@ request.body = "{\n  \"instructionType\": \"DEPOSIT\",\n  \"instructions\": [\n 
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Deposit Funds
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/external-cash-transfers:bulk")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"DEPOSIT\",\n  \"instructions\": [\n    \"string\",\n    \"string\",\n    \"string\"\n  ]\n}")
-  .asString();
 ```
 
 ```php Deposit Funds

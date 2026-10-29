@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/third-party-integrations/general-third-party-frequently-asked-questions)
+[home](../index.md) | [third-party-integrations](index.md) | [source](https://www.interactivebrokers.com/docs/third-party-integrations/general-third-party-frequently-asked-questions)
 
 # General Third Party Frequently Asked Questions
 
@@ -44,7 +44,7 @@ Market data is attached to each username. As such, users must be subscribed on e
 
 ## I am obtaining a message saying "Historical data request pacing violation"
 
-It is likely that the third party is requesting more historical market data than is allowed by our [Historical Data Limitations](../tws-api/doc/md/introduction.md#historical-data-limitations).
+It is likely that the third party is requesting more historical market data than is allowed by our [Historical Data Limitations](/docs/tws-api/doc/md/market-data-limitations#historical-data-limitations).
 
 ## My third party program shows "No data of type EODChart is available" when trying to load a chart
 
@@ -60,17 +60,17 @@ Except for Index CFDs, CFDs do not have any market data of their own. What the T
 
 ## How can I connect my third party program to my paper trading account?
 
-Connections via the TWS API are not aware of the user name with which you are logged in with in your TWS. From this point of view the API makes no difference between live or paper trading. Since third party programs only connect any running TWS on the specified host and port it only takes you to launch the TWS and log into it with your paper trading credentials, make sure you [Enable API connections](/docs/tws-api/doc/tws-settings/tws-configuration-for-api-use/introduction) and connect to it from your third party application using the same procedure.
+Connections via the TWS API are not aware of the user name with which you are logged in with in your TWS. From this point of view the API makes no difference between live or paper trading. Since third party programs only connect any running TWS on the specified host and port it only takes you to launch the TWS and log into it with your paper trading credentials, make sure you [Enable API connections](/docs/tws-api/doc/api-settings) and connect to it from your third party application using the same procedure.
 
 ## Can I connect simultaneously to my live and paper TWS?
 
-From our side, yes. You can launch as many instances of the TWS as you need using different user name/password combinations. It is crucial though to make sure each TWS is listening on a different port as described in the [Enable API connections section](/docs/tws-api/doc/tws-settings/tws-configuration-for-api-use/introduction). Note that your might as well need to launch multiple instances of your third party program and/or have a way of telling when is your program using the paper or the live accounts.
+From our side, yes. You can launch as many instances of the TWS as you need using different user name/password combinations. It is crucial though to make sure each TWS is listening on a different port as described in the [Enable API connections section](/docs/tws-api/doc/api-settings). Note that your might as well need to launch multiple instances of your third party program and/or have a way of telling when is your program using the paper or the live accounts.
 
 ## The charts shown by my charting software differ from the ones shown by the TWS
 
 Given that the historical data sent down the TWS API comes from the same source as the one displayed by the TWS itself it is almost impossible for it to differ.
 
-Some charting platforms circumvent our [Historical Data Limitations](../tws-api/doc/md/introduction.md#historical-data-limitations) by combining real time and historical data. Since our real time market data is not tick-by-tick, bars built from it will hardly match those retrieved from our historical market data service.
+Some charting platforms circumvent our [Historical Data Limitations](/docs/tws-api/doc/md/market-data-limitations#historical-data-limitations) by combining real time and historical data. Since our real time market data is not tick-by-tick, bars built from it will hardly match those retrieved from our historical market data service.
 
 Alternatively, you might as well be comparing different charts without noticing. A chart displaying data from NYSE will never be the same as another built from the ARCA exchange or from our SMART routing strategy. inadvertently you might as well be looking at TRADES on one side while having MIDPOINT or BID_ASK on another. Another common mistake involves having different timezones between the TWS and your client application.
 

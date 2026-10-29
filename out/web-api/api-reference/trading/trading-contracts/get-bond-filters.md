@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-contracts/get-bond-filters)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-contracts/get-bond-filters)
 
 # Search Bond Filter Information
 
@@ -135,6 +135,20 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python bond-filter
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/secdef/bond-filters"
+
+querystring = {"issuerId":"e1400715","symbol":"BOND"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go bond-filter
 package main
 
@@ -177,15 +191,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java bond-filter
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/secdef/bond-filters?issuerId=e1400715&symbol=BOND")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php bond-filter

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/contract/search-strikes-by-underlying-contract-id)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/v1/endpoints/contract/search-strikes-by-underlying-contract-id)
 
 # Search Strikes by Underlying Contract ID
 

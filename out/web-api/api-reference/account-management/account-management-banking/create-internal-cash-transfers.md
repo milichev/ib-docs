@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-internal-cash-transfers)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-banking/create-internal-cash-transfers)
 
 # Transfer Cash Internally
 
@@ -228,6 +228,18 @@ Provider-specific data returned once the Plaid payment has been initiated.
 
 **SDK Code**
 
+```python Response
+import requests
+
+url = "https://localhost:5000/gw/api/v1/internal-cash-transfers"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Response
 package main
 
@@ -270,15 +282,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Response
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/internal-cash-transfers")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Response
@@ -339,6 +342,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Response
+import requests
+
+url = "https://localhost:5000/gw/api/v1/internal-cash-transfers"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.post(url, headers=headers)
+
+print(response.json())
+```
+
 ```go Response
 package main
 
@@ -381,15 +396,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Response
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/internal-cash-transfers")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Response
@@ -467,6 +473,32 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Internal Cash Transfer
+import requests
+
+url = "https://localhost:5000/gw/api/v1/internal-cash-transfers"
+
+payload = {
+    "instructionType": "INTERNAL_CASH_TRANSFER",
+    "instruction": {
+        "clientInstructionId": 1012983,
+        "sourceAccountId": "U46377",
+        "targetAccountId": "U15667",
+        "amount": 123.45,
+        "currency": "GBP",
+        "dateTimeToOccur": "2018-03-20T09:12:13Z"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Internal Cash Transfer
 package main
 
@@ -515,17 +547,6 @@ request.body = "{\n  \"instructionType\": \"INTERNAL_CASH_TRANSFER\",\n  \"instr
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Internal Cash Transfer
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/internal-cash-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"INTERNAL_CASH_TRANSFER\",\n  \"instruction\": {\n    \"clientInstructionId\": 1012983,\n    \"sourceAccountId\": \"U46377\",\n    \"targetAccountId\": \"U15667\",\n    \"amount\": 123.45,\n    \"currency\": \"GBP\",\n    \"dateTimeToOccur\": \"2018-03-20T09:12:13Z\"\n  }\n}")
-  .asString();
 ```
 
 ```php Internal Cash Transfer
@@ -631,6 +652,31 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Internal Cash Transfer (2)
+import requests
+
+url = "https://localhost:5000/gw/api/v1/internal-cash-transfers"
+
+payload = {
+    "instructionType": "INTERNAL_CASH_TRANSFER",
+    "instruction": {
+        "clientInstructionId": 1012983,
+        "sourceAccountId": "U46377",
+        "targetAccountId": "U15667",
+        "amount": 123.45,
+        "currency": "GBP"
+    }
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Internal Cash Transfer (2)
 package main
 
@@ -679,17 +725,6 @@ request.body = "{\n  \"instructionType\": \"INTERNAL_CASH_TRANSFER\",\n  \"instr
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Internal Cash Transfer (2)
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/internal-cash-transfers")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"instructionType\": \"INTERNAL_CASH_TRANSFER\",\n  \"instruction\": {\n    \"clientInstructionId\": 1012983,\n    \"sourceAccountId\": \"U46377\",\n    \"targetAccountId\": \"U15667\",\n    \"amount\": 123.45,\n    \"currency\": \"GBP\"\n  }\n}")
-  .asString();
 ```
 
 ```php Internal Cash Transfer (2)

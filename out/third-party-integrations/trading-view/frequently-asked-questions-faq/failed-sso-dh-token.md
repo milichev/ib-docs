@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/third-party-integrations/trading-view/frequently-asked-questions-faq/failed-sso-dh-token)
+[home](../../../index.md) | [third-party-integrations](../../index.md) | [source](https://www.interactivebrokers.com/docs/third-party-integrations/trading-view/frequently-asked-questions-faq/failed-sso-dh-token)
 
 # Receiving "Failed to generate sso dh token" on login
 
@@ -13,6 +13,6 @@ To resolve this, the paper environment's password must be reset to a distinct va
    * **IMPORTANT:** This will only affect the Paper Trading environment. Your Live user password will remain unchanged.
 5. Future attempts to log in to the Live or Paper trading environment will authenticate as expected.
 
-![TradingView Login Failure](/docs/_fern-img/7a04fb69c30da2adfdbc733f8d2e71e11bb7cfa43ad5abb44d331ea27179bf7b.webp)
+![TradingView Login Failure](/docs/_fern-files/_img/7a04fb69c30da2adfdbc733f8d2e71e11bb7cfa43ad5abb44d331ea27179bf7b.webp)
 
 Token failure for Trading View login

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-portfolio/get-all-subaccounts)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-portfolio/get-all-subaccounts)
 
 # List All Subaccounts
 
@@ -137,6 +137,18 @@ Describes account relations in partitioned or multiplexed (segemented) account s
 
 **SDK Code**
 
+```python subAccounts
+import requests
+
+url = "https://localhost:5000/v1/api/portfolio/subaccounts"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go subAccounts
 package main
 
@@ -179,15 +191,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java subAccounts
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/portfolio/subaccounts")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php subAccounts

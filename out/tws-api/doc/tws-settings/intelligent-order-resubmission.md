@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/tws-settings/intelligent-order-resubmission)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/tws-settings/intelligent-order-resubmission)
 
 # Intelligent Order Resubmission
 

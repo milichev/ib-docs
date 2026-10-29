@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/auction-orders/auction-pegged-to-stock)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/basic-orders/auction-orders/auction-pegged-to-stock)
 
 # Auction Pegged to Stock
 
@@ -8,13 +8,13 @@ Products: OPT (BOX only)
 
 More on [price improvement orders](https://www.interactivebrokers.com/en/index.php?f=614)
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("PEG STK");
-order.totalQuantity(quantity);
-order.delta(delta);
-order.startingPrice(startingPrice);
+```python
+order = Order()
+order.action = action
+order.orderType = "PEG STK"
+order.totalQuantity = quantity
+order.delta = delta
+order.startingPrice = startingPrice
 ```

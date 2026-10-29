@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-reports/create-statements)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/account-management/account-management-reports/create-statements)
 
 # Generates Statements In Supported Formats Based On Request Parameters.
 
@@ -141,6 +141,28 @@ Returns a Problem detail instance representing an internal server error.
 
 **SDK Code**
 
+```python Daily html
+import requests
+
+url = "https://localhost:5000/gw/api/v1/statements"
+
+payload = {
+    "accountId": "UXXXX",
+    "startDate": "20230102",
+    "endDate": "20230102",
+    "mimeType": "text/html"
+}
+headers = {
+    "authorization": "Bearer eyJ0eXAiOiJKV1...",
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Daily html
 package main
 
@@ -191,18 +213,6 @@ request.body = "{\n  \"accountId\": \"UXXXX\",\n  \"startDate\": \"20230102\",\n
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Daily html
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/statements")
-  .header("authorization", "Bearer eyJ0eXAiOiJKV1...")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"accountId\": \"UXXXX\",\n  \"startDate\": \"20230102\",\n  \"endDate\": \"20230102\",\n  \"mimeType\": \"text/html\"\n}")
-  .asString();
 ```
 
 ```php Daily html
@@ -295,6 +305,28 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Monthly pdf
+import requests
+
+url = "https://localhost:5000/gw/api/v1/statements"
+
+payload = {
+    "accountId": "UXXXX",
+    "startDate": "202301",
+    "endDate": "202301",
+    "mimeType": "application/pdf"
+}
+headers = {
+    "authorization": "Bearer eyJ0eXAiOiJKV1...",
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Monthly pdf
 package main
 
@@ -345,18 +377,6 @@ request.body = "{\n  \"accountId\": \"UXXXX\",\n  \"startDate\": \"202301\",\n  
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Monthly pdf
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/statements")
-  .header("authorization", "Bearer eyJ0eXAiOiJKV1...")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"accountId\": \"UXXXX\",\n  \"startDate\": \"202301\",\n  \"endDate\": \"202301\",\n  \"mimeType\": \"application/pdf\"\n}")
-  .asString();
 ```
 
 ```php Monthly pdf
@@ -450,6 +470,29 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Daily html gzip
+import requests
+
+url = "https://localhost:5000/gw/api/v1/statements"
+
+payload = {
+    "accountId": "UXXXX",
+    "startDate": "20230102",
+    "endDate": "20230102",
+    "mimeType": "text/html",
+    "gzip": True
+}
+headers = {
+    "authorization": "Bearer eyJ0eXAiOiJKV1...",
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go Daily html gzip
 package main
 
@@ -500,18 +543,6 @@ request.body = "{\n  \"accountId\": \"UXXXX\",\n  \"startDate\": \"20230102\",\n
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Daily html gzip
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/gw/api/v1/statements")
-  .header("authorization", "Bearer eyJ0eXAiOiJKV1...")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"accountId\": \"UXXXX\",\n  \"startDate\": \"20230102\",\n  \"endDate\": \"20230102\",\n  \"mimeType\": \"text/html\",\n  \"gzip\": true\n}")
-  .asString();
 ```
 
 ```php Daily html gzip

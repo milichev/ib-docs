@@ -1,9 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import {
-  isGhostPage,
-  isHtmlContentType,
-  looksLikeHtml,
-} from "./content.ts";
+import { isGhostPage, isHtmlContentType, looksLikeHtml } from "./content.ts";
 
 describe("isHtmlContentType", () => {
   test("matches text/html with charset", () => {

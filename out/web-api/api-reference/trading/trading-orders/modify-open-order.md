@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/modify-open-order)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/modify-open-order)
 
 # Modify Open Order
 
@@ -197,6 +197,28 @@ The assigned contents for how the order should be allocated amongst subaccount(s
 
 **SDK Code**
 
+```python orderModifySuccessExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/DU123456/order/1799796559"
+
+payload = {
+    "conid": 1,
+    "orderType": "string",
+    "side": "BUY",
+    "tif": "DAY",
+    "quantity": 1.1
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go orderModifySuccessExample
 package main
 
@@ -245,17 +267,6 @@ request.body = "{\n  \"conid\": 1,\n  \"orderType\": \"string\",\n  \"side\": \"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orderModifySuccessExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/DU123456/order/1799796559")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"conid\": 1,\n  \"orderType\": \"string\",\n  \"side\": \"BUY\",\n  \"tif\": \"DAY\",\n  \"quantity\": 1.1\n}")
-  .asString();
 ```
 
 ```php orderModifySuccessExample
@@ -351,6 +362,28 @@ dataTask.resume()
 
 **SDK Code**
 
+```python orderReplyMessageExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/DU123456/order/1799796559"
+
+payload = {
+    "conid": 1,
+    "orderType": "string",
+    "side": "BUY",
+    "tif": "DAY",
+    "quantity": 1.1
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go orderReplyMessageExample
 package main
 
@@ -399,17 +432,6 @@ request.body = "{\n  \"conid\": 1,\n  \"orderType\": \"string\",\n  \"side\": \"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orderReplyMessageExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/DU123456/order/1799796559")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"conid\": 1,\n  \"orderType\": \"string\",\n  \"side\": \"BUY\",\n  \"tif\": \"DAY\",\n  \"quantity\": 1.1\n}")
-  .asString();
 ```
 
 ```php orderReplyMessageExample
@@ -496,6 +518,28 @@ dataTask.resume()
 
 **SDK Code**
 
+```python orderModifyErrorExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/DU123456/order/1799796559"
+
+payload = {
+    "conid": 1,
+    "orderType": "string",
+    "side": "BUY",
+    "tif": "DAY",
+    "quantity": 1.1
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go orderModifyErrorExample
 package main
 
@@ -544,17 +588,6 @@ request.body = "{\n  \"conid\": 1,\n  \"orderType\": \"string\",\n  \"side\": \"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orderModifyErrorExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/DU123456/order/1799796559")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"conid\": 1,\n  \"orderType\": \"string\",\n  \"side\": \"BUY\",\n  \"tif\": \"DAY\",\n  \"quantity\": 1.1\n}")
-  .asString();
 ```
 
 ```php orderModifyErrorExample
@@ -652,6 +685,28 @@ dataTask.resume()
 
 **SDK Code**
 
+```python advancedOrderRejectPromptExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/DU123456/order/1799796559"
+
+payload = {
+    "conid": 1,
+    "orderType": "string",
+    "side": "BUY",
+    "tif": "DAY",
+    "quantity": 1.1
+}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go advancedOrderRejectPromptExample
 package main
 
@@ -700,17 +755,6 @@ request.body = "{\n  \"conid\": 1,\n  \"orderType\": \"string\",\n  \"side\": \"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java advancedOrderRejectPromptExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/DU123456/order/1799796559")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"conid\": 1,\n  \"orderType\": \"string\",\n  \"side\": \"BUY\",\n  \"tif\": \"DAY\",\n  \"quantity\": 1.1\n}")
-  .asString();
 ```
 
 ```php advancedOrderRejectPromptExample

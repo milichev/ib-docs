@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/fox-river-algos/fox-smart-order-router)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/fox-river-algos/fox-smart-order-router)
 
 # Fox Smart Order Router
 

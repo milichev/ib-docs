@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-portfolio/get-all-accounts-for-conid)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-portfolio/get-all-accounts-for-conid)
 
 # All Account Positions In An Instrument
 
@@ -237,6 +237,18 @@ A single display rule increment.
 
 **SDK Code**
 
+```python withPartialSecDefForSomeAccount
+import requests
+
+url = "https://localhost:5000/v1/api/portfolio/positions/8314"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go withPartialSecDefForSomeAccount
 package main
 
@@ -279,15 +291,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java withPartialSecDefForSomeAccount
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/portfolio/positions/8314")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php withPartialSecDefForSomeAccount
@@ -456,6 +459,18 @@ dataTask.resume()
 
 **SDK Code**
 
+```python withSecDefForAllAccounts
+import requests
+
+url = "https://localhost:5000/v1/api/portfolio/positions/8314"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go withSecDefForAllAccounts
 package main
 
@@ -498,15 +513,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java withSecDefForAllAccounts
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/portfolio/positions/8314")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php withSecDefForAllAccounts

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/introduction)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/introduction)
 
 # Introduction
 
@@ -12,13 +12,12 @@ In nearly all cases,  Algo orders are additional parameters that can be used in 
 
 Because of this structure, we will be using our Limit Order sample as a baseline. The algos documented here will be attached to the same "order" variable as used here.
 
-#### Java
+#### Python
 
-```java
-Order order = new Order();
-order.action(action);
-order.orderType("LMT");
-order.totalQuantity(quantity);
-order.lmtPrice(limitPrice);
-order.tif(TimeInForce.DAY);
+```python
+order = Order()
+order.action = action
+order.orderType = "LMT"
+order.totalQuantity = quantity
+order.lmtPrice = limitPrice
 ```

@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/websocket/open-websocket)
+[home](../../../index.md) | [web-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/websocket/open-websocket)
 
 # Open Websocket
 
@@ -35,6 +35,22 @@ Reference: https://ibkrcampus.com/docs/web-api/api-reference/websocket/open-webs
 ## Examples
 
 **SDK Code**
+
+```python
+import requests
+
+url = "https://localhost:5000/v1/api/ws"
+
+headers = {
+    "Connection": "Upgrade",
+    "Upgrade": "websocket",
+    "Authorization": "Bearer <token>"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
 
 ```go
 package main
@@ -82,17 +98,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/ws")
-  .header("Connection", "Upgrade")
-  .header("Upgrade", "websocket")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php

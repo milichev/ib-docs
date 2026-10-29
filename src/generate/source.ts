@@ -1,4 +1,6 @@
 import { CANONICAL_ORIGIN } from "../constants.ts";
+import { isSectionSlug } from "../urls.ts";
+import { relativeHref } from "./links.ts";
 
 /**
  * Human-facing HTML docs URL: strip trailing `.md` from the path.
@@ -31,9 +33,40 @@ export function toSourceUrl(finalUrl: string, url?: string): string {
   return `${CANONICAL_ORIGIN}${pathname}${hash}`;
 }
 
-/** Insert `[source](...)` above the first heading (or at top if none). */
-export function prependSourceLink(md: string, sourceUrl: string): string {
-  const link = `[source](${sourceUrl})`;
+export type PageHeaderOptions = {
+  currentRelativePath: string;
+  sourceUrl: string;
+  /** Section slug → relative path of section index (e.g. tws-api/index.md). */
+  sectionIndexPaths?: Map<string, string>;
+};
+
+/**
+ * Build `[home](...) | [section](...) | [source](...)` for a mirrored page.
+ * Home → out/index.md; section → {section}/index.md when known.
+ */
+export function buildPageHeader(options: PageHeaderOptions): string {
+  const { currentRelativePath, sourceUrl, sectionIndexPaths } = options;
+  const homeHref = relativeHref(currentRelativePath, "index.md");
+  const parts = [`[home](${homeHref})`];
+
+  const section = currentRelativePath.split("/")[0];
+  if (section && isSectionSlug(section)) {
+    const sectionIndex =
+      sectionIndexPaths?.get(section) ?? `${section}/index.md`;
+    const sectionHref = relativeHref(currentRelativePath, sectionIndex);
+    parts.push(`[${section}](${sectionHref})`);
+  }
+
+  parts.push(`[source](${sourceUrl})`);
+  return parts.join(" | ");
+}
+
+/** Insert page header above the first heading (or at top if none). */
+export function prependPageHeader(
+  md: string,
+  options: PageHeaderOptions,
+): string {
+  const link = buildPageHeader(options);
   const lines = md.split("\n");
   // Skip leading blanks, insert before first content line
   let i = 0;

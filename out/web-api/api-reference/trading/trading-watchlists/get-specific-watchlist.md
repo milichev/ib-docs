@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-watchlists/get-specific-watchlist)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-watchlists/get-specific-watchlist)
 
 # Return A Single Saved Watchlist
 
@@ -111,6 +111,20 @@ Object containing watchlist entry for a single instrument.
 
 **SDK Code**
 
+```python singleWatchlistExample
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/watchlist"
+
+querystring = {"id":"1234"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go singleWatchlistExample
 package main
 
@@ -153,15 +167,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java singleWatchlistExample
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/watchlist?id=1234")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php singleWatchlistExample

@@ -66,7 +66,11 @@ export function ancestorHtmlUrls(missingPathname: string): string[] {
   const noMd = missingPathname.replace(/\.md$/, "").replace(/\/$/, "");
   const parts = noMd.split("/").filter(Boolean);
   const urls: string[] = [];
-  for (let len = parts.length - 1; len >= 2 && urls.length < MAX_ANCESTOR_FETCHES; len--) {
+  for (
+    let len = parts.length - 1;
+    len >= 2 && urls.length < MAX_ANCESTOR_FETCHES;
+    len--
+  ) {
     const dir = `/${parts.slice(0, len).join("/")}`;
     const intro = `${CANONICAL_ORIGIN}${dir}/introduction`;
     if (urls.length < MAX_ANCESTOR_FETCHES) urls.push(intro);

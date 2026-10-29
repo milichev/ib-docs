@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/arrival-price)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/algorithmic-orders/ib-algorithms/arrival-price)
 
 # ArrivalPrice
 
@@ -23,6 +23,33 @@ Valid Value/Format: 1 (true) or 0 (false)
 
 **forceCompletion:** bool. Attempt completion by the end of the day\
 Valid Value/Format: 1 (true) or 0 (false)
+
+#### Python
+
+```python
+def FillArrivalPriceParams(baseOrder: Order, maxPctVol: float,
+                               riskAversion: str, startTime: str, endTime: str,
+                               forceCompletion: bool, allowPastTime: bool):
+        baseOrder.algoStrategy = "ArrivalPx"
+        baseOrder.algoParams = []
+        baseOrder.algoParams.append(TagValue("maxPctVol", maxPctVol))
+        baseOrder.algoParams.append(TagValue("riskAversion", riskAversion))
+        baseOrder.algoParams.append(TagValue("startTime", startTime))
+        baseOrder.algoParams.append(TagValue("endTime", endTime))
+        baseOrder.algoParams.append(TagValue("forceCompletion",
+                                             int(forceCompletion)))
+        baseOrder.algoParams.append(TagValue("allowPastEndTime",
+                                             int(allowPastTime)))
+
+order = Order()
+order.action = "BUY"
+order.orderType = "MKT"
+order.totalQuantity = 100
+
+self.FillArrivalPriceParams(order, 0.1, "Aggressive", "09:00:00 US/Eastern", "16:00:00 US/Eastern", True, True)
+order_id = self.nextValidOrderId   
+self.placeOrder(order_id, contract, order)
+```
 
 #### Abap
 
@@ -51,17 +78,4 @@ curl {baseUrl}/iserver/account/{accountId}/orders \
     }
   ]
 }'
-```
-
-#### Java
-
-```java
-order.algoStrategy("ArrivalPx");
-order.algoParams(new ArrayList());
-order.algoParams().add(new TagValue("maxPctVol", String.valueOf(maxPctVol)));
-order.algoParams().add(new TagValue("riskAversion", riskAversion));
-order.algoParams().add(new TagValue("startTime", startTime));
-order.algoParams().add(new TagValue("endTime", endTime));
-order.algoParams().add(new TagValue("forceCompletion", forceCompletion ? "1" : "0"));
-order.algoParams().add(new TagValue("allowPastEndTime", allowPastTime ? "1" : "0"));
 ```

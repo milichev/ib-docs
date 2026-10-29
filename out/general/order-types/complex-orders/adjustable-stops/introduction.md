@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/complex-orders/adjustable-stops/introduction)
+[home](../../../../index.md) | [general](../../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/complex-orders/adjustable-stops/introduction)
 
 # Introduction
 

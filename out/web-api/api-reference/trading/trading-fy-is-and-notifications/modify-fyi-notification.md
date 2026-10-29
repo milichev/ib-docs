@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fy-is-and-notifications/modify-fyi-notification)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fy-is-and-notifications/modify-fyi-notification)
 
 # Modify FYI Notifications
 
@@ -83,6 +83,22 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python successEdited
+import requests
+
+url = "https://localhost:5000/v1/api/fyi/settings/BA"
+
+payload = {}
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go successEdited
 package main
 
@@ -131,17 +147,6 @@ request.body = "{}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java successEdited
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/fyi/settings/BA")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{}")
-  .asString();
 ```
 
 ```php successEdited

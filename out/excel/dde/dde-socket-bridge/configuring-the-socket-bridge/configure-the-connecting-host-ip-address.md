@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/dde/dde-socket-bridge/configuring-the-socket-bridge/configure-the-connecting-host-ip-address)
+[home](../../../../index.md) | [excel](../../../index.md) | [source](https://www.interactivebrokers.com/docs/excel/dde/dde-socket-bridge/configuring-the-socket-bridge/configure-the-connecting-host-ip-address)
 
 # Configure the Connecting Host IP Address
 

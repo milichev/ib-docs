@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/get-open-orders)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-orders/get-open-orders)
 
 # List Open Orders
 
@@ -152,6 +152,18 @@ Object representing one order.
 
 **SDK Code**
 
+```python orders
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/orders"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go orders
 package main
 
@@ -194,15 +206,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java orders
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/account/orders")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php orders

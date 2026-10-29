@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/complex-orders/hedging)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/complex-orders/hedging)
 
 # Hedging
 
@@ -10,25 +10,28 @@ More on [Hedging Orders in TWS](https://www.interactivebrokers.com/en/software/t
 
 Note that in some cases it will be necessary to include a small delay of 50 ms or less after placing the parent order for processing, before placing the child order. Otherwise the error "10006: Missing parent order" will be triggered.
 
-#### Java
+#### Python
 
-```java
-public static Order MarketFHedge(int parentOrderId, String action) {
-    //FX Hedge orders can only have a quantity of 0
-    Order order = MarketOrder(action, Decimal.ZERO);
-    order.parentId(parentOrderId);
-    order.hedgeType("F");
-    return order;
-}
+```python
+ @staticmethod
+def MarketFHedge(parentOrderId:int, action:str):
+    #FX Hedge orders can only have a quantity of 0
+    order = OrderSamples.MarketOrder(action, 0)
+    order.parentId = parentOrderId
+    order.hedgeType = "F"
+    return order
 
-//Parent order on a contract which currency differs from your base currency
-Order parent = OrderSamples.LimitOrder("BUY", Decimal.ONE_HUNDRED, 10);
-parent.orderId(nextOrderId++);
-parent.transmit(false);
-//Hedge on the currency conversion
-Order hedge = OrderSamples.MarketFHedge(parent.orderId(), "BUY");
-//Place the parent first...
-client.placeOrder(parent.orderId(), ContractSamples.EuropeanStock(), parent);
-//Then the hedge order
-client.placeOrder(nextOrderId++, ContractSamples.EurGbpFx(), hedge);
+# Parent order on a contract which currency differs from your base currency
+parent = OrderSamples.LimitOrder("BUY", 100, 10)
+parent.orderId = self.nextOrderId()
+parent.transmit = False
+
+# Hedge on the currency conversion
+hedge = OrderSamples.MarketFHedge(parent.orderId, "BUY")
+
+# Place the parent first...
+self.placeOrder(parent.orderId, ContractSamples.EuropeanStock(), parent)
+
+# Then the hedge order
+self.placeOrder(self.nextOrderId(), ContractSamples.EurGbpFx(), hedge)
 ```

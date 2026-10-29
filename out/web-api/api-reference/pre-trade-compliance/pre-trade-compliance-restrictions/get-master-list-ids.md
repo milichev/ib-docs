@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/get-master-list-ids)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/pre-trade-compliance/pre-trade-compliance-restrictions/get-master-list-ids)
 
 # Get List IDs Created By The Caller's Master Account
 
@@ -99,6 +99,20 @@ A single list ID with its creator-type flag.
 
 **SDK Code**
 
+```python Master account with lists
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/lists/ids"
+
+querystring = {"masterUserName":"user1"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Master account with lists
 package main
 
@@ -141,15 +155,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Master account with lists
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/lists/ids?masterUserName=user1")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Master account with lists
@@ -205,6 +210,20 @@ dataTask.resume()
 
 **SDK Code**
 
+```python Master account with no lists
+import requests
+
+url = "https://localhost:5000/gw/api/v1/restrictions/lists/ids"
+
+querystring = {"masterUserName":"user1"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go Master account with no lists
 package main
 
@@ -247,15 +266,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java Master account with no lists
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/gw/api/v1/restrictions/lists/ids?masterUserName=user1")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php Master account with no lists

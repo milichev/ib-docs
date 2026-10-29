@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/general/order-types/complex-orders/one-cancels-all)
+[home](../../../index.md) | [general](../../index.md) | [source](https://www.interactivebrokers.com/docs/general/order-types/complex-orders/one-cancels-all)
 
 # One Cancels All
 
@@ -14,27 +14,22 @@ Grouping the two orders using an OCA order type offers the investor two chances 
 
 More on [One-Cancels All](https://www.interactivebrokers.com/en/index.php?f=617) orders
 
-#### Java
+#### Python
 
-```java
-public static List<Order> OneCancelsAll(String ocaGroup, List<Order> ocaOrders, int ocaType) {
-    for (Order o : ocaOrders) {
-        o.ocaGroup(ocaGroup);
-        o.ocaType(ocaType);
-    }
-    return ocaOrders;
-}
+```python
+@staticmethod
+def OneCancelsAll(ocaGroup:str, ocaOrders:ListOfOrder, ocaType:int):
+    for o in ocaOrders: 
+        o.ocaGroup = ocaGroup
+        o.ocaType = ocaType         
+    return ocaOrders
 ```
 
-#### Java
+#### Python
 
-```java
-List<Order> OcaOrders = new ArrayList<>();
-OcaOrders.add(OrderSamples.LimitOrder("BUY", Decimal.ONE, 10));
-OcaOrders.add(OrderSamples.LimitOrder("BUY", Decimal.ONE, 11));
-OcaOrders.add(OrderSamples.LimitOrder("BUY", Decimal.ONE, 12));
-OcaOrders = OrderSamples.OneCancelsAll("TestOCA_" + nextOrderId, OcaOrders, 2);
-for (Order o : OcaOrders) {
-    client.placeOrder(nextOrderId++, ContractSamples.USStock(), o);
-}
+```python
+ocaOrders = [OrderSamples.LimitOrder("BUY", 1, 10), OrderSamples.LimitOrder("BUY", 1, 11), OrderSamples.LimitOrder("BUY", 1, 12)]
+OrderSamples.OneCancelsAll("TestOCA_" + str(self.nextValidOrderId), ocaOrders, 2)
+for o in ocaOrders:
+self.placeOrder(self.nextOrderId(), ContractSamples.USStockAtSmart(), o)
 ```

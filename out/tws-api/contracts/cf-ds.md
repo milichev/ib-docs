@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/contracts/cf-ds)
+[home](../../index.md) | [tws-api](../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/contracts/cf-ds)
 
 # CFDs
 
@@ -10,12 +10,12 @@
 
 **Currency:** String. Specify the base currency the CFD is traded with.
 
-#### Java
+#### Python
 
-```java
-Contract contract = new Contract();
-contract.symbol("IBDE30");
-contract.secType("CFD");
-contract.currency("EUR");
-contract.exchange("SMART");
+```python
+contract = Contract()
+contract.symbol = "IBDE30"
+contract.secType = "CFD"
+contract.currency = "EUR"
+contract.exchange = "SMART"
 ```

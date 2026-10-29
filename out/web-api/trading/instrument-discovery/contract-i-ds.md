@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/trading/instrument-discovery/contract-i-ds)
+[home](../../../index.md) | [web-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/trading/instrument-discovery/contract-i-ds)
 
 # Contract IDs
 

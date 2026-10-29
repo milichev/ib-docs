@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/third-party-integrations/version-control)
+[home](../index.md) | [third-party-integrations](index.md) | [source](https://www.interactivebrokers.com/docs/third-party-integrations/version-control)
 
 # Version Control
 

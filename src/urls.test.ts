@@ -37,7 +37,9 @@ describe("normalizeDocsUrl", () => {
   });
 
   test("rejects other hosts", () => {
-    expect(normalizeDocsUrl("https://example.com/docs/tws-api/x.md")).toBeNull();
+    expect(
+      normalizeDocsUrl("https://example.com/docs/tws-api/x.md"),
+    ).toBeNull();
   });
 
   test("resolves relative against base", () => {

@@ -1,20 +1,30 @@
 {
-  "name": "ib-docs",
+  "name": "@vadymecum/ib-docs",
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "description": "Interactive Brokers local docs mirror for coding agents reference",
   "scripts": {
     "scrape": "bun run index.ts scrape",
     "generate": "bun run index.ts generate",
     "validate": "bun run index.ts validate",
-    "produce": "bun run scrape && bun run generate && bun run validate",
     "typecheck": "bun check",
-    "test": "bun test"
+    "test": "bun test",
+    "serve": "cd out && bunx http-server -o index.md -p 11911"
   },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/milichev/ib-docs"
+  },
+  "author": {
+    "name": "Vadym Milichev",
+    "email": "vadym.milichev@gmail.com"
+  },
+  "license": "MIT"
 }

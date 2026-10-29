@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fy-is-and-notifications/modify-fyi-emails)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fy-is-and-notifications/modify-fyi-emails)
 
 # Toggle Email Delivery
 
@@ -69,6 +69,20 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python successEdited
+import requests
+
+url = "https://localhost:5000/v1/api/fyi/deliveryoptions/email"
+
+querystring = {"enabled":""}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.put(url, headers=headers, params=querystring)
+
+print(response.json())
+```
+
 ```go successEdited
 package main
 
@@ -111,15 +125,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java successEdited
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.put("https://localhost:5000/v1/api/fyi/deliveryoptions/email?enabled=")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php successEdited

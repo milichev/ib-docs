@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-allocation-management/get-allocation-presets)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-allocation-management/get-allocation-presets)
 
 # Retrieve Allocation Presets
 
@@ -70,6 +70,18 @@ service is unavailable. For example if request takes more than 10s due to some i
 
 **SDK Code**
 
+```python presents
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/allocation/presets"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())
+```
+
 ```go presents
 package main
 
@@ -112,15 +124,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java presents
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.get("https://localhost:5000/v1/api/iserver/account/allocation/presets")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php presents

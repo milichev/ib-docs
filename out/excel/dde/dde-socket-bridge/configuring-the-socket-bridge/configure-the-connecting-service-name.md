@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/excel/dde/dde-socket-bridge/configuring-the-socket-bridge/configure-the-connecting-service-name)
+[home](../../../../index.md) | [excel](../../../index.md) | [source](https://www.interactivebrokers.com/docs/excel/dde/dde-socket-bridge/configuring-the-socket-bridge/configure-the-connecting-service-name)
 
 # Configure the Connecting Service Name
 

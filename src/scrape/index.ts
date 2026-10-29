@@ -76,7 +76,9 @@ async function writeCacheFile(
   await writeFile(full, body, "utf8");
 }
 
-async function loadExistingManifest(cacheDir: string): Promise<Manifest | null> {
+async function loadExistingManifest(
+  cacheDir: string,
+): Promise<Manifest | null> {
   try {
     const raw = await readFile(path.join(cacheDir, MANIFEST_FILE), "utf8");
     return JSON.parse(raw) as Manifest;
@@ -175,7 +177,9 @@ async function fetchAndStore(
 /**
  * Stage 1: discover via llms.txt, fetch raw bodies into cache/, write manifest.json.
  */
-export async function scrape(options: Partial<ScrapeOptions> = {}): Promise<ScrapeResult> {
+export async function scrape(
+  options: Partial<ScrapeOptions> = {},
+): Promise<ScrapeResult> {
   const opts: ScrapeOptions = {
     section: options.section,
     concurrency: options.concurrency ?? DEFAULT_CONCURRENCY,
@@ -186,7 +190,9 @@ export async function scrape(options: Partial<ScrapeOptions> = {}): Promise<Scra
 
   await resetCacheIfNotEmpty(opts.cacheDir);
 
-  const existing = opts.force ? null : await loadExistingManifest(opts.cacheDir);
+  const existing = opts.force
+    ? null
+    : await loadExistingManifest(opts.cacheDir);
   const existingOk = new Map<string, ManifestEntry>();
   if (existing) {
     for (const e of existing.entries) {
@@ -276,7 +282,10 @@ export async function scrape(options: Partial<ScrapeOptions> = {}): Promise<Scra
       continue;
     }
 
-    const body = await readFile(path.join(opts.cacheDir, entry.cachePath), "utf8");
+    const body = await readFile(
+      path.join(opts.cacheDir, entry.cachePath),
+      "utf8",
+    );
     const base = normalizeDocsUrl(llmsUrl) ?? new URL(llmsUrl);
     const links = classifyLinks(body, base, opts.section);
     const section = sectionOfUrl(base);
@@ -337,10 +346,12 @@ export async function scrape(options: Partial<ScrapeOptions> = {}): Promise<Scra
   await flushManifest(opts.cacheDir, manifest);
 
   const stats = {
-    llmsOk: entries.filter((e) => e.kind === "llms" && e.status === "ok").length,
+    llmsOk: entries.filter((e) => e.kind === "llms" && e.status === "ok")
+      .length,
     llmsErr: entries.filter((e) => e.kind === "llms" && e.status === "error")
       .length,
-    pagesOk: entries.filter((e) => e.kind === "page" && e.status === "ok").length,
+    pagesOk: entries.filter((e) => e.kind === "page" && e.status === "ok")
+      .length,
     pagesErr: entries.filter((e) => e.kind === "page" && e.status === "error")
       .length,
     pagesSkipped,
@@ -361,7 +372,9 @@ function printPageErrors(
   entries: ManifestEntry[],
   pageOrigin: Map<string, string>,
 ): void {
-  const failed = entries.filter((e) => e.kind === "page" && e.status === "error");
+  const failed = entries.filter(
+    (e) => e.kind === "page" && e.status === "error",
+  );
   if (failed.length === 0) return;
 
   const byOrigin = new Map<string, ManifestEntry[]>();
@@ -395,7 +408,10 @@ function buildManifest(
   };
 }
 
-async function flushManifest(cacheDir: string, manifest: Manifest): Promise<void> {
+async function flushManifest(
+  cacheDir: string,
+  manifest: Manifest,
+): Promise<void> {
   const full = path.join(cacheDir, MANIFEST_FILE);
   await writeFile(full, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
 }

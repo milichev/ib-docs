@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/quick-start/requesting-positions)
+[home](../../index.md) | [web-api](../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/quick-start/requesting-positions)
 
 # Requesting Positions
 
@@ -6,42 +6,23 @@ In order to request your account's positions, you must first query the `/portfol
 
 **`Python`**
 
-**`Java`**
+```python title="Python"
+import requests
 
-```java title="Java"
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import org.json.JSONArray;
+headers = {"Content-Type": "application/json"}
 
-public class Main {
-    public static void main(String[] args) throws Exception {
-        HttpClient client = HttpClient.newHttpClient();
+url = f"https://localhost:5000/v1/api/portfolio/accounts"
+response = requests.get(url, headers=headers, verify=False)
 
-        String accountsUrl = "https://localhost:5000/v1/api/portfolio/accounts";
-        HttpRequest accountsRequest = HttpRequest.newBuilder()
-                .uri(URI.create(accountsUrl))
-                .header("Content-Type", "application/json")
-                .GET()
-                .build();
+accountId = response.json()[0]["id"]
 
-        HttpResponse<String> accountsResponse = client.send(accountsRequest, HttpResponse.BodyHandlers.ofString());
-        JSONArray accounts = new JSONArray(accountsResponse.body());
-        String accountId = accounts.getJSONObject(0).getString("id");
+url = f"https://localhost:5000/v1/api/portfolio2/:accountId/positions"
+response = requests.get(url, headers=headers)
 
-        String positionsUrl = "https://localhost:5000/v1/api/portfolio2/" + accountId + "/positions";
-        HttpRequest positionsRequest = HttpRequest.newBuilder()
-                .uri(URI.create(positionsUrl))
-                .header("Content-Type", "application/json")
-                .GET()
-                .build();
-
-        HttpResponse<String> positionsResponse = client.send(positionsRequest, HttpResponse.BodyHandlers.ofString());
-        System.out.println("response: " + positionsResponse.body());
-    }
-}
+print("response: ", response.json())
 ```
+
+**`Java`**
 
 **`JavaScript`**
 

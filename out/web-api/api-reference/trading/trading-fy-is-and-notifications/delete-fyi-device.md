@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fy-is-and-notifications/delete-fyi-device)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fy-is-and-notifications/delete-fyi-device)
 
 # Delete A Device
 
@@ -39,6 +39,18 @@ No response message is returned. Instead, you will only receive an empty string 
 ```
 
 **SDK Code**
+
+```python
+import requests
+
+url = "https://localhost:5000/v1/api/fyi/deliveryoptions/:deviceId"
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.delete(url, headers=headers)
+
+print(response.json())
+```
 
 ```go
 package main
@@ -82,15 +94,6 @@ request["Authorization"] = 'Bearer <token>'
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.delete("https://localhost:5000/v1/api/fyi/deliveryoptions/:deviceId")
-  .header("Authorization", "Bearer <token>")
-  .asString();
 ```
 
 ```php

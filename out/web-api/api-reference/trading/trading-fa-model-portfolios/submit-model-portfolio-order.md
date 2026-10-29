@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-model-portfolios/submit-model-portfolio-order)
+[home](../../../../index.md) | [web-api](../../../index.md) | [source](https://www.interactivebrokers.com/docs/web-api/api-reference/trading/trading-fa-model-portfolios/submit-model-portfolio-order)
 
 # Submit New Model Portfolio Order
 
@@ -148,6 +148,22 @@ Parameters passed to the selected algorithmic strategy.
 
 **SDK Code**
 
+```python success
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/Sample-Model/orders"
+
+payload = { "orders": [{}] }
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go success
 package main
 
@@ -196,17 +212,6 @@ request.body = "{\n  \"orders\": [\n    {}\n  ]\n}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java success
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/Sample-Model/orders")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"orders\": [\n    {}\n  ]\n}")
-  .asString();
 ```
 
 ```php success
@@ -289,6 +294,22 @@ dataTask.resume()
 
 **SDK Code**
 
+```python replyRequired
+import requests
+
+url = "https://localhost:5000/v1/api/iserver/account/Sample-Model/orders"
+
+payload = { "orders": [{}] }
+headers = {
+    "Authorization": "Bearer <token>",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
+```
+
 ```go replyRequired
 package main
 
@@ -337,17 +358,6 @@ request.body = "{\n  \"orders\": [\n    {}\n  ]\n}"
 
 response = http.request(request)
 puts response.read_body
-```
-
-```java replyRequired
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-
-HttpResponse<String> response = Unirest.post("https://localhost:5000/v1/api/iserver/account/Sample-Model/orders")
-  .header("Authorization", "Bearer <token>")
-  .header("Content-Type", "application/json")
-  .body("{\n  \"orders\": [\n    {}\n  ]\n}")
-  .asString();
 ```
 
 ```php replyRequired

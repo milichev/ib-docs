@@ -1,4 +1,4 @@
-[source](https://www.interactivebrokers.com/docs/tws-api/doc/md/live-ticks)
+[home](../../../index.md) | [tws-api](../../index.md) | [source](https://www.interactivebrokers.com/docs/tws-api/doc/md/live-ticks)
 
 # Tick-By-Tick Data
 
@@ -59,10 +59,12 @@ Omit updates that reflect only changes in size, and not price. *Applicable to Bi
 
 ---
 
-#### Java
+\
 
-```java
-client.reqTickByTickData(19001, contract, "Last", 0, false);
+#### Python
+
+```python
+self.reqTickByTickData(19001, contract, "Last", 0, True)
 ```
 
 ---
@@ -129,13 +131,13 @@ tick-by-tick real-time tick special conditions. Conditions under which the opera
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void tickByTickAllLast(int reqId, int tickType, long time, double price, Decimal size, TickAttribLast tickAttribLast, String exchange, String specialConditions) {
-	System.out.println(EWrapperMsgGenerator.tickByTickAllLast(reqId, tickType, time, price, size, tickAttribLast, exchange, specialConditions));
-}
+#### Python
+
+```python
+def tickByTickAllLast(self, reqId: int, tickType: int, time: int, price: float, size: Decimal, tickAtrribLast: TickAttribLast, exchange: str,specialConditions: str):
+	print(" ReqId:", reqId, "Time:", time, "Price:", floatMaxString(price), "Size:", size, "Exch:" , exchange, "Spec Cond:", specialConditions, "PastLimit:", tickAtrribLast.pastLimit, "Unreported:", tickAtrribLast.unreported)
 ```
 
 ---
@@ -188,13 +190,13 @@ tick-by-tick real-time bid/ask tick attribs (bit 0 – bid past low, bit 1 – a
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void tickByTickBidAsk(int reqId, long time, double bidPrice, double askPrice, Decimal bidSize, Decimal askSize, TickAttribBidAsk tickAttribBidAsk) {
-	System.out.println(EWrapperMsgGenerator.tickByTickBidAsk(reqId, time, bidPrice, askPrice, bidSize, askSize, tickAttribBidAsk));
-}
+#### Python
+
+```python
+ def tickByTickBidAsk(self, reqId: int, time: int, bidPrice: float, askPrice: float, bidSize: Decimal, askSize: Decimal, tickAttribBidAsk: TickAttribBidAsk):
+	print("BidAsk. ReqId:", reqId, "Time:", time, "BidPrice:", floatMaxString(bidPrice), "AskPrice:", floatMaxString(askPrice), "BidSize:", decimalMaxString(bidSize), "AskSize:", decimalMaxString(askSize), "BidPastLow:", tickAttribBidAsk.bidPastLow, "AskPastHigh:", tickAttribBidAsk.askPastHigh)
 ```
 
 ---
@@ -223,13 +225,13 @@ Mid point value of the tick.
 
 ---
 
-#### Java
+\
 
-```java
-@Override
-public void tickByTickMidPoint(int reqId, long time, double midPoint) {
-	System.out.println(EWrapperMsgGenerator.tickByTickMidPoint(reqId, time, midPoint));
-}
+#### Python
+
+```python
+def tickByTickMidPoint(self, reqId: int, time: int, midPoint: float):
+	print("Midpoint. ReqId:", reqId, "Time:", time, "MidPoint:", floatMaxString(midPoint))
 ```
 
 ---
@@ -246,10 +248,12 @@ Request identifier used to track data.
 
 ---
 
-#### Java
+\
 
-```java
-client.cancelTickByTickData(19001);
+#### Python
+
+```python
+self.cancelTickByTickData(19001)
 ```
 
 ---

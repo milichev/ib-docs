@@ -177,11 +177,15 @@ export async function checkLinkGraph(
           });
           continue;
         }
-        if (isIbDocsHref(withoutHash) && !isAllowedAbsoluteDocsHref(text, withoutHash)) {
+        if (
+          isIbDocsHref(withoutHash) &&
+          !isAllowedAbsoluteDocsHref(text, withoutHash)
+        ) {
           leftoverAbsolute.push({
             file: current,
             href: withoutHash,
-            reason: "leftover interactivebrokers.com/docs href (not allowlisted source)",
+            reason:
+              "leftover interactivebrokers.com/docs href (not allowlisted source)",
           });
         }
         continue;
@@ -214,12 +218,20 @@ export async function checkLinkGraph(
         targetResolved !== docsResolved &&
         !targetResolved.startsWith(docsResolved + path.sep)
       ) {
-        missingTargets.push({ from: current, href: withoutHash, resolved: target });
+        missingTargets.push({
+          from: current,
+          href: withoutHash,
+          resolved: target,
+        });
         continue;
       }
 
       if (!(await fileExists(targetFull))) {
-        missingTargets.push({ from: current, href: withoutHash, resolved: target });
+        missingTargets.push({
+          from: current,
+          href: withoutHash,
+          resolved: target,
+        });
         continue;
       }
 
@@ -253,7 +265,8 @@ export async function checkLinkGraph(
         leftoverAbsolute.push({
           file: rel,
           href: withoutHash,
-          reason: "leftover interactivebrokers.com/docs href (not allowlisted source)",
+          reason:
+            "leftover interactivebrokers.com/docs href (not allowlisted source)",
         });
       }
     }
